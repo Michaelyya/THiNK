@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+
+\begin{document}
+
+\title{MASSACHUSETTS INSTITUTE OF TECHNOLOGY \\
+Physics Department \\
+8.044 Statistical Physics I Spring Term 2013 \\
+Solutions to Problem Set \#6}
+
+\maketitle
+
+\section*{Problem 1: Sound Waves in a Solid}
+
+We need to find $\left(\frac{\partial T}{\partial P}\right)_{Q=0}$. To do this we will use in sequence the first law, the energy
+derivative given in the statement of the problem, and the chain rule for partial derivatives.
+
+\begin{align*}
+&dQ = dU - dW \\ 
+& = dU +PdV \\
+& = \left(\frac{\partial U}{\partial T}\right)_V dT + \left[\left(\frac{\partial U}{\partial V}\right)_T + P\right]dV
+\end{align*}
+
+After several mathematical operations, we then express $dV$ in terms of $dT$ and $dP$, and substitute into the adiabatic condition. The result is the desired relation between $dP$ and $dT$. 
+
+\section*{Problem 2: Energy of a Film}
+
+a) The best approach to take here is to find a general expression for $C_A$ and then show that 
+its derivative with respect to $A$ is zero. This will require using the second law, the Maxwell's relations, and the expression for the derivative of the heat capacity. The result shows that the heat capacity at constant area does not depend on the area: $C_A(T;A) = C_A(T)$.
+
+b) Now we find the exact differential for the energy and integrate up. This results in an expression for the energy as a function of temperature and area, showing that the energy is independent of area: $E(T; A) = E(T)$.
+
+\section*{Problem 3: Bose-Einstein Gas}
+
+a) In this problem, we just follow the directions.
+
+b) Use the fact that the energy is a state function which requires that the cross derivatives must be equal. Then use the results from b) to simplify the expression for $dE$ in a).
+
+c) Proceed just as we did above for $E$.
+
+\section*{Problem 4: Paramagnet}
+
+a) This is virtually identical in approach to problem 2. After some mathematical operations and using Maxwell's relations, we find that the heat capacity at constant magnetization does not depend on the magnetization: $C_M(T;M) = C_M(T)$.
+
+b) We then calculate the exact differential for the energy and perform the $T$ integration first. This results in an expression for the energy as a function of temperature and magnetization.
+
+c) Finally, we calculate the $dS$ and, after some calculations, we find that the entropy $S(T;M)$ is a function of temperature and magnetization.
+
+\end{document}

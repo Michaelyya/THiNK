@@ -1,0 +1,79 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\title{Problem Set 2}
+\author{18.01 Calculus \\ Jason Starr}
+\date{Fall 2005 \\ Due by 2:00pm sharp \\ Friday, Sept. 30, 2005}
+
+\begin{document}
+
+\maketitle
+
+\section*{Late Homework Policy}
+Late work will be accepted only with a medical note or for another Institute-approved reason.
+
+\section*{Cooperation Policy}
+You are encouraged to work with others, but the final write-up must be entirely your own and based on your own understanding. You may not copy another student’s solutions. You should not refer to notes from a study group while writing up your solutions (if you need to refer to notes from a study group, it isn’t really “your own understanding”).
+
+\section*{Part I}
+These problems are mostly from the textbook and reinforce the basic techniques. Occasionally, the solution to a problem will be in the back of the textbook. In that case, you should work the problem first and only use the solution to check your answer.
+
+\section*{Part II}
+These problems are not taken from the textbook. They are more difficult and are worth more points. When you are asked to “show” some fact, you are not expected to write a “rigorous solution” in the mathematician’s sense, nor a “textbook solution”. However, you should write a clear argument, using English words and complete sentences, that would convince a typical Calculus student. (Run your argument by a classmate; this is a good way to see if your argument is reasonable.) Also, for the grader’s sake, try to keep your answers as short as possible (but don’t leave out important steps).
+
+\subsection*{(30 points)}
+\textbf{Problem 1 (5 points)} \\
+Find the equation of the tangent line to the graph of \( y = e^{571x} \) containing the point \( (102\pi, 0) \). (This is not a point on the graph; it is a point on the tangent line.)
+
+\textbf{Problem 2 (5 points)} 
+\begin{enumerate}[label=(\alph*)]
+    \item (2 points) What does the chain rule say if \( y = x^a \) and \( u = y^b \)? The constants \( a \) and \( b \) are fractions.
+    \item (3 points) Using the chain rule, give a very short explanation of the formula from Problem 3, Part II of Problem Set 1.
+\end{enumerate}
+
+\textbf{Problem 3 (10 points)} \\
+A bank offers savings accounts and loans. For an initial deposit of \( A \) dollars in a savings account with continuously compounded interest at an annual rate \( a \), after \( t \) years the bank owes the customer \( A(1 + a)^t \) dollars (neglecting fees). For an initial loan of \( B \) dollars with continuously compounded interest at an annual rate \( b \), after \( t \) years the customer owes the bank \( B(1 + b)^t \) dollars (neglecting fees). To make a profit, the bank sets rate \( b \), the interest rate for loans, higher than rate \( a \), the interest rate for savings. To simplify computations, introduce \( \alpha = \ln(1 + a) \) and \( \beta = \ln(1 + b) \).
+
+Customer 1 deposits \( A \) dollars in a savings account. The bank immediately loans a smaller amount of \( B \) dollars to Customer 2. After \( t \) years, the bank’s net gain from the two transactions together is, 
+\[
+G(t) = Be^{\beta t} - Ae^{\alpha t}. \tag{1}
+\]
+In the long run, when \( t \) is very large, \( G(t) \) is positive and the bank has made a gain. However, for small \( t \), \( G(t) \) is negative and the bank has a net liability, 
+\[
+L(t) = -G(t) = Ae^{\alpha t} - Be^{\beta t}. \tag{2}
+\]
+The liability for the savings account alone is, 
+\[
+M(t) = Ae^{\alpha t}. \tag{3}
+\]
+In these equations, \( A, B, \alpha \) and \( \beta \) are positive constants, and \( t \) is the independent variable.
+
+\begin{enumerate}[label=(\alph*)]
+    \item (5 points) Find the moment \( t = T \) when the derivative \( L'(T) \) equals 0. Assume that \( \alpha A \) is greater than \( \beta B \). Also, leave your answer in the form, 
+    \[
+    e^{(\beta - \alpha)T} = \text{something.}
+    \]
+    Remark. After Lecture 10, we will learn that \( T \) is the moment when \( L(t) \) has its largest value. In other words, if at time \( t \) Customer 1 withdraws all money, and Customer 2 repays all money, the bank loses the maximum amount when \( t = T \).
+
+    \item (5 points) Consider the ratio \( \frac{L(t)}{M(t)} \). Using your answer to (a), determine \( \frac{L(T)}{M(T)} \). Simplify your answer as much as possible. How does this ratio depend on the amounts \( A \) and \( B \)?
+\end{enumerate}
+
+\textbf{Problem 4 (10 points)} \\
+Let \( A, \beta, \omega \) and \( t_0 \) be positive constants. Let \( f(t) \) be the function, 
+\[
+f(t) = Ae^{-\beta t} \cos(\omega (t - t_0)).
+\]
+\begin{enumerate}[label=(\alph*)]
+    \item (5 points) Compute \( f'(t) \) and \( f''(t) \). Simplify your answer as much as possible.
+    \item (5 points) Using your answer to (a), find nonzero constants \( c_0, c_1 \) and \( c_2 \) for which the function 
+    \[
+    c_2 f''(t) + c_1 f'(t) + c_0 f(t) 
+    \]
+    always equals 0.
+\end{enumerate}
+
+\end{document}
+

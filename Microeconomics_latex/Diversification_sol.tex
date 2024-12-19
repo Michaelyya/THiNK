@@ -1,0 +1,30 @@
+\begin{document}
+\title{Fall 2018 14.01 Problem Set 10 - Solutions}
+\date{}
+\pagenumbering{arabic}
+\maketitle
+
+\noindent\textbf{Problem 1: True or False (12 points)} \\
+Determine whether the following statements are True or False. Explain your answer.
+
+\begin{enumerate}
+    \item (3 points) Consider a gamble that pays \$10 with probability 50\% and \$0 with probability 50\%. No expected-utility maximizing individual will strictly prefer this gamble over a certain payment of 5. \\
+    Solution: FALSE. The risk-loving individuals, or individuals with convex utility curves will prefer this gamble.
+    \item (3 points) Consider a gamble with which you gain \$50 with probability 20\%, you gain \$130 with probability 30\%, or you lose \$95 with probability 50\%. A risk-neutral individual would take this gamble. \\
+    Solution: TRUE. The expected value of the gamble is strictly positive.
+    \item (3 points) Consider an economy with two people, Alan and Brian, and a single good: potatoes. Both Alan and Brian share the same utility function $u = \sqrt{p}$, where $p$ is the number of potatoes they possess. Now consider a following transfer: Alan gives some potatoes to Brian, but half of which are lost in transportation. A government who maximizes the utilitarian social welfare function will never prefer such a transfer. \\
+    Solution: FALSE. For example, if Alan has 9 potatoes and Brian has 0 potatoes. Alan now gives 2 potatoes to Brian but 1 is lost in transportation, so now Alan has $\sqrt{7}$ potatoes and Brian has $\sqrt{1}$. Before the transfer the social welfare is $\sqrt{3} + 0 = \sqrt{3}$, after the transfer the social welfare is $\sqrt{7} + \sqrt{1} = \sqrt{3}.646 > \sqrt{3}$, so the government will prefer such a transfer.
+    \item (3 points) A country that is a net exporter of a good, in the absence of any government subsidies or interventions, must always have advanced technology in producing that good. \\
+    Solution: FALSE. Comparative advantage can also come from differences in factor endowments--the country could also have more of the resources required for making the good, rather than better technology.
+\end{enumerate}
+
+\noindent\textbf{Problem 2: Diversification (30 Points)} \\
+Oliver has an endowment of \$10,000 that he wants to invest. He can either invest in a bond, which yields 1\%, the stock market, which consist of two firms, Amazon and Toys R Us. Each firm’s stock is costs \$100 today, and will be worth \$400 in one year with probability $1/2$ or will drop to \$0 with probability $1/2$. Assume that the evolution of both stocks is independent: that is, the probability that stock of Amazon rises in value does not vary or depend on what has happened to stock of Toys R Us, and vice-versa. Finally, assume that Oliver’s utility function is $U(w) = \sqrt{w}$, and there is no inflation. 
+
+\begin{enumerate}
+    \item (2 points) Suppose that due to institutional regulations, Oliver can invest only in bonds, or only in Amazon. He cannot buy Toys R Us stock and he cannot buy both Amazon stock and bonds. What is Oliver’s utility of buying bonds? What if he invests only in Amazon’s stock? What does he prefer? \\
+    Solution: If Oliver does not invest, his utility is $\sqrt{10,100} \approx 100.5$. As for investing in Amazon, the expected utility is $\frac{1}{2}\sqrt{40,000} + \frac{1}{2}\sqrt{0} = 100$. Oliver thus prefers to invest in bonds.
+    \item (8 points) Now suppose there is a change in regulations. Oliver can invest in either the stock market or in bonds, but not both. If Oliver decides to invest in the stock market, he can choose how much he wants to invest in each company. Let $x$ denote the fraction of wealth that Oliver puts into Amazon and $1-x$ denote the fraction of wealth Oliver puts into Toys R Us. If Oliver maximizes his expected utility, what should be the value of $x$? \\
+    Solution: Oliver should put exactly half of his money into Toys R Us and half into Amazon. To see this, let $x$ be the fraction that Oliver puts into amazon so that $(1 - x)$ is the fraction into Toys R Us.
+\end{enumerate}
+\end{document}
