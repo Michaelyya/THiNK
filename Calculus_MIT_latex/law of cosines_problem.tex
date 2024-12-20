@@ -1,0 +1,89 @@
+
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{18.01 Calculus}
+\author{Jason Starr}
+\date{Due by 2:00pm sharp \\ Fall 2005 \\ Friday, Oct. 14, 2005}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Set 3}
+
+\subsection*{Late Homework Policy}
+Late work will be accepted only with a medical note or for another Institute-approved reason.
+
+\subsection*{Cooperation Policy}
+You are encouraged to work with others, but the final write-up must be entirely your own and based on your own understanding. You may not copy another student’s solutions. And you should not refer to notes from a study group while writing up your solutions (if you need to refer to notes from a study group, it isn’t really “your own understanding”). 
+
+\section*{Part I}
+These problems are mostly from the textbook and reinforce the basic techniques. Occasionally the solution to a problem will be in the back of the textbook. In that case, you should work the problem first and only use the solution to check your answer. 
+
+\subsection*{Part I (20 points)}
+\begin{enumerate}
+    \item[(a)] (2 points) p. 119, Section 4.1, Problem 11 
+    \item[(b)] (2 points) p. 119, Section 4.1, Problem 24 
+    \item[(c)] (2 points) p. 122, Section 4.2, Problem 11 
+    \item[(d)] (2 points) p. 129, Section 4.3, Problem 28 
+    \item[(e)] (2 points) p. 137, Section 4.4, Problem 7 
+    \item[(f)] (2 points) p. 137, Section 4.4, Problem 28 
+    \item[(g)] (2 points) p. 142, Section 4.5, Problem 8 
+    \item[(h)] (2 points) p. 142, Section 4.5, Problem 21 
+    \item[(i)] (2 points) p. 146, Section 4.6, Problem 2(a) 
+    \item[(j)] (2 points) p. 146, Section 4.6, Problem 2(b) 
+\end{enumerate}
+
+\section*{Part II (30 points)}
+\subsection*{Problem 1 (10 points)}
+A function \( f(x) \) is defined to be:
+
+\[
+f(x) = \begin{cases}
+\frac{1 + \sin(x)}{\cos(x)} & \text{if } \cos(x) \neq 0 \\
+0 & \text{if } \cos(x) = 0
+\end{cases}
+\]
+
+For \( -2\pi \leq x \leq 2\pi\), sketch the graph of \( y = f(x) \). Do each of the following:
+\begin{enumerate}
+    \item[(i)] Label all vertical asymptotes. Use the form “\( y = \text{number} \)”.
+    \item[(ii)] Label all local maxima and local minima (if any). Give the coordinates for each labelled point.
+    \item[(iii)] Label all inflection points (if any). Give the coordinates and the derivative of each labelled point.
+    \item[(iv)] Label each region where the graph is concave up. Label each region where the graph is concave down.
+\end{enumerate}
+
+Warning: This graph is trickier than it seems! Before attempting the problem, it may be helpful to use a computer or graphing calculator to get an idea of what the graph looks like.
+
+\subsection*{Problem 2 (10 points)}
+Figure 1 depicts two fixed rays \( L \) and \( M \) meeting at a fixed acute angle \( \phi \). A line segment of fixed length \( c \) is allowed to slide with one endpoint on line \( L \) and one endpoint on line \( M \). Denote by \( a \) the distance from the origin of ray \( L \) to the endpoint of the segment on line \( L \). Denote by \( b \) the distance from the origin of ray \( M \) to the endpoint of the segment on line \( M \). Denote by \( \theta \) the angle made by the line segment and the ray \( L \) at the point where they meet. 
+
+For the position of the line segment making \( b \) maximal, express \( a, b \), and \( \theta \) in terms of the constants: \( c \) and \( \phi \). The expression for the one remaining angle of the triangle is easier than the expression for \( \theta \). You may want to start by computing that angle, and then solve for \( \theta \) using the fact that the sum of the interior angles of a triangle equals \( \pi \).
+
+Show your work. You may find the law of cosines useful:
+
+\[
+c^2 = a^2 + b^2 - 2ab \cos(\phi).
+\]
+
+\subsection*{Problem 3 (10 points)}
+Solve Problem 17 from §4.4, p. 137 of the textbook. You are free to use any (valid) method you like. You may find the following remarks useful.
+
+Figure 2 depicts an isosceles triangle circumscribed about a circle of radius \( R \). The two similar sides each have length \( A + B \), and the third side has length \( 2A \). Express the area of each right triangle in terms of either \( \tan(\alpha) \) or \( \tan(\beta) \). Because the sum of the angles of a circle is \( 2\pi \), \( \beta \) equals \( \pi - 2\alpha \). Recall the double-angle formula for tangents:
+
+\[
+2 \tan(\theta) \tan(2\theta) = 1 - \tan^2(\theta),
+\]
+
+and the complementary angle formula for tangents:
+
+\[
+\tan(\pi - \theta) = -\tan(\theta).
+\]
+
+Using these, express \( \tan(\beta) \), and thus the total area of the triangle, in terms of \( T = \tan(\alpha) \). Now minimize this expression with respect to \( T \), find the corresponding angle \( \alpha \), and the height of the triangle.
+
+\end{document}
