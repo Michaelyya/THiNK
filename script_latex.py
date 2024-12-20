@@ -1,36 +1,45 @@
 import os
-from openai import OpenAI
-from PyPDF2 import PdfReader
-import os
+import subprocess
+import openai
 from dotenv import load_dotenv
-import json
-from openai import OpenAI
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def pdf_to_latex(file_path):
     try:
-        reader = PdfReader(file_path)
-        pdf_text = ""
-        for page in reader.pages:
-            pdf_text += page.extract_text()
-        response = client.chat.completions.create(model="gpt-4",
-        messages=[
-            {"role": "system", "content": "You are an assistant that converts academic PDFs into clean LaTeX documents."},
-            {"role": "user", "content": f"Convert the following text into a LaTeX document:\n{pdf_text}, do not output anything else, I just need the LaTeX code. Do not output any texts!"}
-        ])
+        # Convert PDF to LaTeX using pdf2latex (assuming it's installed)
+        output_path = file_path.replace(".pdf", ".tex")
+        subprocess.run(["pdf2latex", file_path, "-output", output_path], check=True)
+        
+        # Read the LaTeX content from the generated file
+        with open(output_path, "r", encoding="utf-8") as tex_file:
+            latex_content = tex_file.read()
+    
 
-        latex_code = response.choices[0].message.content
-        return latex_code
+        # Request GPT-4 refinement, but only return the LaTeX code (no extra chat)
+        response = openai.ChatCompletion.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "You are an assistant that refines LaTeX documents."},
+                {"role": "user", "content": f"Refine the following LaTeX document:\n\n{latex_content}"}
+            ]
+        )
+        
+        # Extract the refined LaTeX content and ensure it doesn't include unnecessary responses
+        refined_latex = response["choices"][0]["message"]["content"].strip()
+        return refined_latex
+    
     except Exception as e:
         print(f"Error processing {file_path}: {e}")
         return None
 
 # Define the folder containing PDF files
-input_folder = "/Users/yonganyu/Desktop/EDU benchmark/statistical physics"
-output_folder = "/Users/yonganyu/Desktop/EDU benchmark/statistical_physics_latex"
+input_folder = "/Users/yonganyu/Desktop/EDU benchmark/Calculus"
+output_folder = "/Users/yonganyu/Desktop/EDU benchmark/Calculus/latex"
 os.makedirs(output_folder, exist_ok=True)
 
+# Iterate through each PDF in the folder and convert to LaTeX
 for filename in os.listdir(input_folder):
     if filename.endswith(".pdf"):
         input_path = os.path.join(input_folder, filename)
@@ -40,6 +49,7 @@ for filename in os.listdir(input_folder):
         latex_content = pdf_to_latex(input_path)
 
         if latex_content:
+            # Save the refined LaTeX content to a .tex file
             with open(output_path, "w", encoding="utf-8") as tex_file:
                 tex_file.write(latex_content)
             print(f"Saved LaTeX to {output_path}")
