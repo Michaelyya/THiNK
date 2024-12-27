@@ -1,0 +1,162 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\newcommand\longdiv[1]{\overline{\smash{)}#1}}
+
+\begin{document}
+\begin{enumerate}
+  \item Find the derivative of the following functions:\\
+(a) $x^{4}+3 x^{3}+3 x+1$\\
+(g) $\left(2 x^{2}+3 x+1\right)^{6}$\\
+(b) $(x+1)^{4}$\\
+(h) $x^{2} e^{2 x}$\\
+(c) $3 e^{x}-\frac{2}{x}+\frac{3}{x^{2}}$\\
+(i) $3^{x}$\\
+(d) $\sin x e^{x}$\\
+(j) $e^{\cos x}+\cos \left(e^{x}\right)$\\
+(e) $\frac{e^{x}}{x^{3}}$\\
+(k) $\sec \left(1+x^{2}\right)$\\
+(f) $\frac{\sin x e^{x}}{x^{3}}$\\
+(l) $\left(x^{2}+1\right)^{\sin x}$
+  \item Find the equations of the tangent lines through the given points:\\
+(a) $x^{2}+4 x y+y^{2}=13, \quad(2,1)$\\
+(b) $y=(2+x) e^{-x}, \quad(0,2)$
+  \item For which non-zero point $P$ on the curve given by
+\end{enumerate}
+
+$$
+\mathcal{C}: y=(x+1)^{3}-1
+$$
+
+does the tangent line to $\mathcal{C}$ at $P$ go through the origin?\\
+4. Consider the curve given by
+
+$$
+\mathcal{C}: y^{2}=x^{3}+17 \text {. }
+$$
+
+The point $P=(-2,3)$ is on this curve, and the tangent line going through $P$ intersects the curve $\mathcal{C}$ at another point. Find the coordinates of this second point of intersection.
+
+\begin{enumerate}
+  \item (a) $\frac{d}{d x}\left(x^{4}+3 x^{3}+3 x+1\right)=4 x^{3}+9 x^{2}+3$.\\
+(b) Either: $(x+1)^{4}=x^{4}+4 x^{3}+6 x^{2}+4 x+1 \Rightarrow \frac{\partial}{\partial x}(x+1)^{4}=4 x^{3}+12 x^{2}+12 x+y$ or apply. the chain rule with $u=x+1$ to get $\frac{d}{d x}\left((x+1)^{4}\right)=4(x+1)^{3}$.\\
+(c) $\frac{d}{d x}\left(3 e^{x}-\frac{2}{x}+\frac{3}{x^{2}}\right)=3 e^{x}+\frac{2}{x^{2}}-\frac{6}{x^{2}}$\\
+(d) PROOUCT RULE: $\frac{d}{d x}\left(\sin x e^{x}\right)=\cos x \cdot e^{x}+\sin x e^{x}$.\\
+(e) QUOTIENT RULE: $\frac{d}{d x} \frac{e^{x}}{x^{2}}=\frac{e^{x} x^{3}-3 x^{2} e^{x}}{x^{6}}=e^{x}\left(\frac{1}{x^{3}}-\frac{3}{x^{4}}\right)$
+\end{enumerate}
+
+$$
+\text { (f) } \frac{d}{d x}\left(\frac{\sin x e^{x}}{x^{3}}\right)=\frac{\left(\cos x e^{x}+\sin x e^{x}\right) x^{3}-3 x^{2} \sin x e^{x}}{x^{6}}
+$$
+
+(g) CHAIN RULE: $\left.u=2 x^{2}+3 x+1, \frac{\partial u}{\partial x}=4 x+3 \Rightarrow \frac{d}{d x}\left(12 x^{2}+3 x+1\right)^{b}\right)=6(4 x+3)\left(2 x^{2}+3 x+1\right)^{5}$.\\
+(h) $\frac{d}{d x} e^{2 x}=2 e^{2 x} \Rightarrow \frac{d}{d x}\left(x^{2} e^{2 x}\right)=2 x e^{2 x}+2 x^{2} e^{2 x}$.\\
+(i) $3^{x}=e^{\ln \left(3^{x}\right)}=e^{x \ln (3)} \Rightarrow \frac{d}{d x}\left(3^{x}\right)=\frac{d}{d x}\left(e^{x \ln (3)}\right)=\ln (3) e^{x \ln (3)}=\ln (3) 3^{x}$.\\
+(j) $\frac{d}{d x}\left(e^{\cos x}+\cos \left(e^{x}\right)\right)=-\sin x e^{\cos x}-e^{x} \sin \left(e^{x}\right)$.\\
+(k) $\frac{d}{d x} \sec x=\tan ^{2} x \Rightarrow \frac{d}{d x} \sec \left(1+x^{2}\right)=d x \tan \left(1+x^{2}\right)$\\
+(l) $\left(x^{2}+1\right)^{\sin x}=e^{\ln \left(\left(x^{2}+1\right)^{\sin x}\right)}=e^{\sin x \ln \left(x^{2}+1\right)}=\left(\cos \ln \left(x^{2}+1\right)+\frac{2 x \sin x}{x^{2}+1}\right) e^{\sin x \ln \left(x^{2}+1\right)}$\\
+2. (a) $x^{2}+4 x y+y^{2}=13$, IMPLICIT DIFFERENTIATION:
+
+$$
+2 x d x+4 y d x+4 x d y+2 y d y=0 \Rightarrow(2 x+4 y) d x=-(4 x+2 y) d y \Rightarrow \frac{d y}{d x}=-\frac{2 x+4 y}{4 x+2 y} \text { so at }(2,1)=-\frac{8}{10}=-\frac{4}{5}
+$$
+
+So line passing through $(2,1)$ with slope $-\frac{4}{5} \Rightarrow 4 x+5 y=13$.\\
+(b). $y=(2+x) e^{-x} \Rightarrow \frac{d y}{d x}=2 e^{-x}-(2+x) e^{-x}$, at $(0,2)=2-2=0$. slope $=0$ through $(0,2)$, the line is $y=2$.\\
+3. $\quad y=(x+1)^{3}-1$\\
+$\frac{d y}{d x}=3(x+1)^{2}-1$, so it $\left(x_{0}, y_{0}\right)$ are on the curve, then the tangent line to\\
+the curve at $\left(x_{0}, y_{0}\right)$ has slope $3 x_{0}^{2}+6 x_{0}+2$, so the line has equation
+
+$$
+y=\left(3 x_{0}^{2}+6 x_{0}+2\right) x+C,
+$$
+
+lets plug in $\left(x_{0}, y_{0}\right)$ to determine the constant! $y_{0}=3 x_{0}^{3}+6 x_{0}^{2}+2 x_{0}+c$\\
+Now recall, $\left(x_{0}, y_{0}\right)$ is on the curve $C$ and so $y_{0}=x_{0}^{3}+3 x_{0}^{2}+3 x_{0}$\\
+combining the two equations $\Rightarrow \quad c=-2 x_{0}^{3}-3 x_{0}^{2}+x_{0}=-x_{0}\left(2 x_{0}^{2}+3 x_{0}-1\right)$, so $c=0$ when $x_{0}=0$ or $\quad x_{0}=\frac{3 \pm \sqrt{17}}{2}$.\\
+4. $y^{2}=x^{3}+17 \Rightarrow 2 y d y=3 x^{2} d x \Rightarrow \frac{d y}{d x}=\frac{3 x^{2}}{2 y}$, so at $(-2,3)$ the slope is 2 . The line with slope 2 going\\
+through. $(-2,3)$ is $y=2 x+7$. Substituting that for the equation of the curve gives
+
+$$
+\begin{gathered}
+4 x^{2}+28 x+49=x^{3}+17 \\
+1 \\
+x^{3}-4 x^{2}-28 x-32=0
+\end{gathered}
+$$
+
+The cubic equation would be difficult to solve, but we already know $x=-2$ is a solution so we can divide by $x + 2 \longdiv { x ^ { 2 } - 6 x - 1 6 }$
+
+$$
+\begin{array}{r}
+\frac{x^{3}+2 x^{2}}{} \\
+-6 x^{2}-28 x-32 \\
+-6 x^{2}-12 x \\
+-16 x-32 \\
+\frac{-16 x-32}{00}
+\end{array}
+$$
+
+,so we have to solve
+
+$$
+x^{2}-6 x-16=0
+$$
+
+which has solution s: $\frac{6 \pm \sqrt{36+64}}{2}=3 \pm 5$ so the solutions are $x=-2, x=8$\\
+Therefore, the other point of 'intersection is $(8,23)$.\\
+5. Find the points on the ellipse $x^{2}+2 y^{2}=1$ such that the tangent line has slope 1 .\\
+6. The volume of a cube is increasing at a rate of $10 \mathrm{~cm}^{3} / \mathrm{min}$. How fast is the surface area increasing when the length of an edge is 30 cm ?\\
+7. Recall that the temperature of an object changes at a rate proportional to the temperature difference of the object and its surrounding. A cup of hot chocolate has temperature $80^{\circ} \mathrm{C}$ in a room kept at $20^{\circ} \mathrm{C}$. After half an hour the hot chocolate cools to $60^{\circ} \mathrm{C}$.\\
+(a) What is the temperature of the chocolate after another half hour?\\
+(b) When will the chocolate have cooled to $40^{\circ} \mathrm{C}$ ?\\
+5. $x^{2}+2 y^{2}=1 \Rightarrow 2 x d x+4 y d y=0 \Rightarrow \frac{d y}{d x}=\frac{-x}{2 y}$. we want $\frac{d y}{d x}=1$ so $\frac{-x}{2 y}=1$\\
+$\Rightarrow x=-2 y$, so we can plug that into $x^{2}+2 y^{2}=1$ to get $6 y^{2}=1$ ie $y= \pm \frac{1}{\sqrt{6}}$\\
+$x=-2 y \Rightarrow$ the two points are $\left(\frac{2}{\sqrt{6}}, \frac{-1}{\sqrt{6}}\right),\left(\frac{-2}{\sqrt{6}}, \frac{1}{\sqrt{6}}\right)$\\
+6. Let $s$ be the length of an edge. Then. He volume is given by $V=s^{3}$, and the surface area is $A=6 \mathrm{~s}^{2}$. These qualities are changing with time. In particular, we know that
+
+$$
+\frac{d v}{d t}=10 \mathrm{~cm}^{3} / \mathrm{min}
+$$
+
+To figure out $\frac{d s}{d t}$ we will use differentide $V=s^{3} \Rightarrow \frac{d v}{d t}=3 s^{2} \frac{d s}{d t}$, so when $s=30 \mathrm{~cm}$ $10=2700 \frac{d s}{d t} \Rightarrow \frac{d s}{d t}=\frac{1}{270} \mathrm{~cm} / \mathrm{min}$. Differentiating $A=6 s^{2}$ gives $\frac{d t}{d t}=12 \mathrm{~s}$, so
+
+$$
+\frac{d A}{d t}=\frac{12}{270}=\frac{1}{45} \mathrm{~cm}^{2} / \mathrm{min}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item Let $T$ denote temperature and $t$ denote time then we know $\frac{d T}{d t}=K\left(T-T_{0}\right)$ where $T_{0}$ is the surrounding temperctive. This implies
+\end{enumerate}
+
+$$
+T-T_{0}=c_{0} e^{k t} \text { so } T=c_{0} e^{k T}-T_{0}
+$$
+
+we know that $T_{0}=20$, when $t=0, T=80$ and when $T=30$, $t=60$, plugging this in gives
+
+$$
+\begin{aligned}
+& t=0, T=80 \Rightarrow \quad C_{0}=80-20=60 \quad \Rightarrow \quad 40=60 e^{30 x} \quad, 30 e^{30 k}=\frac{2}{3} \text { tale } \ln \text { ot both sides } \\
+& t=30, T=60 \Rightarrow 30 k=\ln (2 / 3) \Rightarrow k=\frac{1}{30} \ln (2 / 3) .
+\end{aligned}
+$$
+
+Makes sense that $k$ is a negative number.\\
+(a) when $t=60$, we just plug in
+
+$$
+T=60 e^{2 \ln \frac{2}{3}}+20=60 \times \frac{4}{9}+20=\frac{80}{3}+20
+$$
+
+(6) Now we know $T=40$, so $20=60 e^{\frac{1}{30} \ln \left(\frac{2}{3}\right) t}$ so $\frac{1}{3}=\left(\frac{2}{3}\right)^{t / 30} \Rightarrow t=30 \frac{\ln (1 / 3)}{\ln (1 / 3)}$.
+
+
+\end{document}

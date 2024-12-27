@@ -1,0 +1,230 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\begin{enumerate}
+  \item For the following exercises you are given $\frac{d f}{d x}$. Can you come up with some function $f(x)$ such that its derivative is the given $\frac{d f}{d x}$\\
+(a) $\frac{d f}{d x}=x^{3}+x+1$\\
+(b) $\frac{d f}{d x}=\sin x$\\
+(c) $\frac{d f}{d x}=e^{x+2}+\frac{x}{2}$
+\end{enumerate}
+
+\section*{Solution}
+(a)
+
+$$
+f(x)=\frac{x^{4}}{4}+\frac{x^{2}}{2}+x
+$$
+
+(b)
+
+$$
+f(x)=\cos x
+$$
+
+(c)
+
+$$
+f(x)=e^{x+2}+x^{2}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Find the most general antiderivative.\\
+(a) $f(x)=0$\\
+(d) $y(\theta)=\cos (\theta)-\sin (\theta)$\\
+(b) $f(x)=3 x^{3}+2 x^{2}+x+1$\\
+(e) $f(x)=5 e^{x}-3 \cosh x$\\
+(c) $h(y)=17 e^{-2 y}+123 \sec ^{2} x$\\
+(f) $g(t)=\sin t+2 \sinh t$
+\end{enumerate}
+
+\section*{Solution}
+(a)
+
+$$
+g(x)=c
+$$
+
+where $c$ is any constant real number\\
+(b)
+
+$$
+g(x)=\frac{3}{4} x^{4}+\frac{2}{3} x^{3}+\frac{1}{2} x^{2}+x+c
+$$
+
+where $c$ is any constant real number\\
+(c)
+
+$$
+g(x)=123 \tan x-\frac{17}{2} e^{-2 y}+c
+$$
+
+where $c$ is any constant real number\\
+(d)
+
+$$
+g(\theta)=\sin \theta+\cos \theta+c
+$$
+
+where $c$ is any constant real number\\
+(e)
+
+$$
+g(x)=5 e^{x}-3 \sinh x+c
+$$
+
+where $c$ is any constant real number
+
+
+\begin{equation*}
+h(t)=-\cos t+2 \cosh t+c \tag{f}
+\end{equation*}
+
+
+where $c$ is any constant real number\\
+3. Find a function $f$ which satisfies the given conditions.\\
+(a) $f^{\prime \prime}(x)=6 x+12 x^{2}$\\
+(b) $f^{\prime \prime}(x)=2 e^{t}+3 \sin t$ with $f(0)=f(\pi)=0$
+
+Parts (c) and (d) are more difficult that usual, and are certainly more difficult than questions to come on the final exam.\\
+(c) $f^{\prime}(x)=f(x)$ with $f(0)=1$\\[0pt]
+[hint: Try to re-write this equation in terms of the function $\left.g(x)=e^{-x} f(x)\right]$\\
+(d) $f^{\prime \prime}(x)=f(x)$ with $f(0)=2$ and $f^{\prime}(0)=0$\\
+$\left[\right.$ Try writing $g(x)=e^{x} f(x)$ and show that $g$ satisfies the equation
+
+$$
+g^{\prime \prime}(x)=2 g^{\prime}(x)
+$$
+
+Then write an equation in terms of the function $\left.h(x)=e^{-2 x} g^{\prime}(x)\right]$
+
+\section*{Solution}
+(a) By taking the anti-derivative we know that
+
+$$
+f^{\prime}(x)=3 x^{2}+4 x^{3}+c_{1}
+$$
+
+for some constant $c_{1}$, and taking the anti-derivative again, we find that
+
+$$
+f(x)=x^{3}+x^{4}+c_{1} x+c_{2}
+$$
+
+for some constant $c_{2}$. In particular, one function that satisfies this condition is
+
+$$
+x^{3}+x^{4}
+$$
+
+(b) Similar to before we can take the anti-derivative to find that
+
+$$
+f^{\prime}(t)=2 e^{t}-3 \cos t+c_{1}
+$$
+
+for some constant $c_{1}$, and then
+
+$$
+f(t)=2 e^{t}-3 \sin t+c_{1} t+c_{2}
+$$
+
+for some constant $c_{2}$. Now plugging in $f(0)$ and $f(\pi)$ we get the equations
+
+$$
+2+c_{2}=0
+$$
+
+and
+
+$$
+2 e^{\pi}+c_{1} \pi+c_{2}=0
+$$
+
+Therefore, $c_{2}=-2$ and $c_{1}=\frac{2-2 e^{\pi}}{\pi}$. So the function is
+
+$$
+f(t)=2 e^{t}-3 \sin t+\frac{2-2 e^{\pi}}{\pi}-2
+$$
+
+(c) This one is slightly more tricky. Let's follow the hint. We calculate that
+
+$$
+g^{\prime}(x)=e^{-x}\left(f^{\prime}(x)-f(x)\right)=0
+$$
+
+This means that $g(x)=c$ for some constant $c$. Therefore
+
+$$
+f(x)=c e^{x}
+$$
+
+Plugging in $f(0)=1$ gives us that
+
+$$
+f(x)=e^{x}
+$$
+
+(d) Again we follow the hint and calculate
+
+$$
+g^{\prime}(x)=e^{x}\left(f^{\prime}(x)+f(x)\right)
+$$
+
+and
+
+$$
+g^{\prime \prime}(x)=e^{x}\left(f^{\prime \prime}(x)+2 f^{\prime}(x)+f(x)\right)
+$$
+
+so using the relation $f^{\prime \prime}(x)=f(x)$ we get
+
+$$
+g^{\prime \prime}(x)=e^{x}\left(2 f^{\prime}(x)+2 f(x)\right)=2 g^{\prime}(x)
+$$
+
+Moving forward with the hint, we calculate that
+
+$$
+h^{\prime}(x)=e^{-2 x}\left(g^{\prime}(x)-2 g(x)\right)=0
+$$
+
+Therefore
+
+$$
+h(x)=c_{1}
+$$
+
+for some constant $c_{1}$, so
+
+$$
+g^{\prime}(x)=c_{1} e^{2 x}
+$$
+
+so by finding the anti-derivative we find that
+
+$$
+g(x)=c_{2}+\frac{c_{1}}{2} e^{2 x}
+$$
+
+for some constant $c_{2}$ and finally we can conclude that
+
+$$
+f(x)=c_{2} e^{-x}+\frac{c_{1}}{2} e^{x}
+$$
+
+plugging in $f(0)=2$ and $f^{\prime}(0)=0$ gives us that
+
+$$
+f(x)=e^{x}+e^{-x}
+$$
+
+
+\end{document}

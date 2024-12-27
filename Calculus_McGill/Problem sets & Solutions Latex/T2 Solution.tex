@@ -1,0 +1,147 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\begin{enumerate}
+  \item sketch the graph of a function $f$ that satisfies all of the following conditions\\
+(a) $\lim _{x \rightarrow 0} f(x)=+\infty$\\
+(d) $\lim _{x \rightarrow 1} f(x)=0$\\
+(b) $\lim _{x \rightarrow 2^{+}} f(x)=-\infty$\\
+(e) $\lim _{x \rightarrow-1} f(x)$ does not exist.\\
+(c) $\lim _{x \rightarrow 2^{-}} f(x)=3$
+  \item Evaluate the following limits\\
+(a) $\lim _{x \rightarrow-1} x^{2}+1$\\
+(e) $\lim _{x \rightarrow 1^{+}} \frac{x+1}{x^{3}-1}$\\
+(b) $\lim _{x \rightarrow-1} \frac{x+1}{x^{3}-1}$\\
+(f) $\lim _{x \rightarrow 1^{-}} \frac{x+1}{x^{3}-1}$\\
+(c) $\lim _{x \rightarrow-1} \frac{x+1}{x^{3}+1}$\\
+(g) $\lim _{x \rightarrow 2} \frac{2-x}{\sqrt{x+2}-2}$
+\end{enumerate}
+
+\section*{Solution}
+(a) $x^{2}+1$ is continuous (polynomial) and -1 is in its domain so we can just plug it in to get 2 .\\
+(b) Again the function is continuous and -1 is in the domain, so by plugging in we get 0 .\\
+(c) Here -1 is not in the domain of the function, but this function can be simplified
+
+$$
+\frac{x+1}{x^{3}+1}=\frac{1}{x^{2}-x+1}
+$$
+
+Plugging in -1 we get $\frac{1}{3}$.\\
+(d) The limit does not exist.\\
+(e) $+\infty$ Here we get a vertical asymptote.\\
+(f) $-\infty$\\
+(g) By multiplying the fraction on the top and bottom by $\sqrt{x+2}+2$ we can simplify it to get
+
+$$
+\frac{(2-x)(\sqrt{x+2}+2)}{x-2}=-(\sqrt{x+2}+2)
+$$
+
+we can now plug in 2 to get the limit is -4\\
+3. Find the vertical asymptotes of the functions\\
+(a) $f(x)=\frac{x^{2}+1}{3 x-2 x^{2}}$\\
+(b) $f(x)=\ln \left(x^{2}-1\right)$\\
+(c) $\ln \left(x-\frac{1}{x}\right)$
+
+\section*{Solution}
+(a) $x=0, x=\frac{2}{3}$, the only asymptotes that can occur are when the denominator is equal to 0 .\\
+(b) $x= \pm 1$, we know that $\ln (x)$ has a vertical asymptote when $x=0$ to $\ln \left(x^{2}-1\right)$ will have vertical asymptotes when $x^{2}-1=0$\\
+(c) $x= \pm 1, x=0$ Similar to above, we will get vertical asymptotes when $x-\frac{1}{x}=0$ and also we see that there is another vertical asymptote because of the $\frac{1}{x}$\\
+4. Given that
+
+$$
+\lim _{x \rightarrow 2} f(x)=4, \lim _{x \rightarrow 2} g(x)=-2, \lim _{x \rightarrow 2} h(x)=0
+$$
+
+find the value of the following limits if they exist, or explain why the limits don't exist.\\
+(a) $\lim _{x \rightarrow 2}(f(x)+5 g(x))$\\
+(c) $\lim _{x \rightarrow 2} \frac{f(x) g(x)}{h(x)}$\\
+(b) $\lim _{x \rightarrow 2} g(x)^{3}$\\
+(d) $\lim _{x \rightarrow 2} \cos (h(x))$
+
+\section*{Solution}
+For most of these you can just plug the values of the limits in, because we can add, multiply, subtract, compose and divide (unless we're dividing by 0 ) limits.\\
+(a) Just plugging in we'll get $4+5 \times(-2)=-6$\\
+(b) plugging in: -8\\
+(c) Here the numerator is -8 but the denominator is 0 , therefore the limit does not exist.\\
+(d) As $x$ tends to 2 , the function $h(x)$ tends to 0 , and so $\cos (h(x))$ tends to $\cos (0)=1$.\\
+5. In this exercise we will be using the $\epsilon-\delta$ definition of limits to calculate some limits. For\\
+(a) For $f(x)=x+1$, for each value of $\epsilon$ find a value of $\delta$ such that
+
+$$
+\text { if }|x-1|<\delta \text { then }|f(x)-f(1)|<\epsilon
+$$
+
+i. $\epsilon=0.1$\\
+ii. $\epsilon=0.01$\\
+iii. $\epsilon=0.001$
+
+Can you write a formula for $\delta$ in terms of $\epsilon$ that will work for any value of $\epsilon$ ? Write the limit statement for $f(x)$ that we are trying to justify.\\
+(b) For $f(x)=\frac{x}{5}$, for each value of $\epsilon$ find a value of $\delta$ such that
+
+$$
+\text { if }|x-3|<\delta \text { then }|f(x)-f(3)|<\epsilon
+$$
+
+i. $\epsilon=0.1$\\
+ii. $\epsilon=0.01$\\
+iii. $\epsilon=0.001$
+
+Can you write a formula for $\delta$ in terms of $\epsilon$ that will work for any value of $\epsilon$ ? Write the limit statement for $f(x)$ that we are trying to justify.\\
+(c) For $f(x)=x^{3}$, for each value of $\epsilon$ find a value of $\delta$ such that
+
+$$
+\text { if }|x-0|<\delta \text { then }|f(x)-f(0)|<\epsilon
+$$
+
+i. $\epsilon=0.1$\\
+ii. $\epsilon=0.01$\\
+iii. $\epsilon=0.001$
+
+Can you write a formula for $\delta$ in terms of $\epsilon$ that will work for any value of $\epsilon$ ? Write the limit statement for $f(x)$ that we are trying to justify.\\
+(d) For $f(x)=\frac{1}{x^{2}}$, for each value of $M$ find a value of $\delta$ such that
+
+$$
+\text { if }|x-0|<\delta \text { then } f(x)>M
+$$
+
+i. $M=10$\\
+ii. $M=100$\\
+iii. $M=1000$
+
+Can you write a formula for $\delta$ in terms of $M$ that will work for any value of $M$ ?\\
+Write the limit statement for $f(x)$ that we are trying to justify.
+
+\section*{Solution}
+(a) For this one we can take $\delta=\epsilon$. The limit statement is
+
+$$
+\lim _{x \rightarrow 1} x+1=2
+$$
+
+(b) We can choose $\delta=5 \epsilon$. The limit statement is
+
+$$
+\lim _{x \rightarrow 3} \frac{x}{5}=\frac{3}{5}
+$$
+
+(c) We can choose $\delta=\epsilon^{1 / 3}$. The limit statement is
+
+$$
+\lim _{x \rightarrow 0} x^{3}=0
+$$
+
+(d) We can choose $\delta=\frac{1}{\sqrt{M}}$. The limit statement is
+
+$$
+\lim _{x \rightarrow 0} \frac{1}{x^{2}}=\infty
+$$
+
+
+\end{document}

@@ -1,0 +1,260 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\begin{enumerate}
+  \item Prove the following identities\\
+(a)
+\end{enumerate}
+
+$$
+\frac{1+\tanh x}{1-\tanh x}=e^{2 x}
+$$
+
+(b)
+
+$$
+\cosh 2 x=\cosh ^{2} x+\sinh ^{2} x
+$$
+
+(c)
+
+$$
+(\cosh x+\sinh x)^{n}=\cosh n x+\sinh n x
+$$
+
+For any real number $n$.
+
+\section*{Solution}
+(a) Remember that
+
+$$
+\tanh x=\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}
+$$
+
+We can plug that into the left hand side to get
+
+$$
+\frac{1+\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}}{1-\frac{e^{x}-e^{-x}}{e^{x}+e^{-x}}}=\frac{e^{x}+e^{-x}+e^{x}-e^{-x}}{e^{x}+e^{-x}-e^{x}+e^{-x}}=\frac{2 e^{x}}{2 e^{-x}}=e^{2 x}
+$$
+
+(b) We can plug in the definitions of cosh and sinh in the right hand side to get
+
+$$
+\left(\frac{e^{x}+e^{-x}}{2}\right)^{2}+\left(\frac{e^{x}-e^{-x}}{2}\right)^{2}=\frac{1}{4}\left[e^{2 x}+2+e^{-2 x}+e^{2 x}-2+e^{-2 x}\right]=\frac{e^{2 x}+e^{-2 x}}{2}
+$$
+
+and by definition
+
+$$
+\cosh 2 x=\frac{e^{2 x}+e^{-2 x}}{2}
+$$
+
+(c) For this one note that
+
+$$
+\cosh x+\sinh x=e^{x}
+$$
+
+Therefore
+
+$$
+(\cosh x+\sinh x)^{n}=e^{n x}
+$$
+
+Similarly
+
+$$
+\cosh n x+\sinh n x=e^{n x}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Find the derivative of the function.\\
+(a) $y=\tan ^{-1}(\sinh x)$\\
+(b) $y=\tanh ^{-1}\left(x^{3}\right)$\\
+(c) $y=\operatorname{sech}(\tanh x)$
+\end{enumerate}
+
+\section*{Solution}
+(a) We will apply the chain rule. Recall that
+
+$$
+\begin{gathered}
+\frac{d}{d x} \tan ^{-1} x=\frac{1}{1+x^{2}} \\
+\frac{d}{d x} \sinh x=\cosh x
+\end{gathered}
+$$
+
+Therefore
+
+$$
+\frac{d}{d x} \tanh ^{-1}(\sinh x)=\frac{\cosh x}{1+\sinh ^{2} x}=\frac{\cosh x}{\cosh ^{2} x}=\frac{1}{\cosh x}
+$$
+
+(b) We will apply the chain rule. Recall that
+
+$$
+\frac{d}{d x} \tanh ^{-1} x=\frac{1}{1-x^{2}}
+$$
+
+Therefore
+
+$$
+\frac{d}{d x} \tanh ^{-1}\left(x^{3}\right)=\frac{3 x^{2}}{1-x^{6}}
+$$
+
+(c) We have $\operatorname{sech} x=\frac{1}{\cosh x}$ therefore
+
+$$
+\frac{d}{d x} \operatorname{sech} x=-\frac{\sinh x}{\cosh ^{2} x}=-\tanh x \operatorname{sech} x
+$$
+
+Therefore
+
+$$
+\frac{d}{d x} \operatorname{sech}(\tanh x)=-\tanh (\tanh x) \operatorname{sech}(\tanh x) \cdot \frac{1}{1-x^{2}}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Verify that $f(x)=\sqrt{x}-\frac{1}{3} x$ satisfies the hypotheses of Rolle's Theorem on the interval $[0,9]$. Find all numbers $c$ satisfying the conclusion of the theorem.
+\end{enumerate}
+
+\section*{Solution}
+First we need to check that $f$ satisfies the hypothesis of Rolle's Theorem
+
+\begin{itemize}
+  \item $f$ is composed of elementary functions whose domain contains the interval $[0,9]$ therefore, $f$ is continuous on the interval.
+  \item $f$ is differentiable on the interval $(0,9)$ with derivative
+\end{itemize}
+
+$$
+f^{\prime}(x)=\frac{1}{2 \sqrt{x}}-\frac{1}{3}
+$$
+
+Note that $f$ is not differentiable at 0 , but that is outside of the interval $(0,9)$.
+
+\begin{itemize}
+  \item $f(0)=f(9)=0$.
+\end{itemize}
+
+So $f$ satisfies the hypothesis of Rolle's Theorem. Therefore we can conclude that there exists some number $c$ between 0 and 9 such that $f^{\prime}(c)=0$. This means
+
+$$
+\frac{1}{2 \sqrt{c}}-\frac{1}{3}=0
+$$
+
+We can solve this equation to find that
+
+$$
+c=\frac{9}{4} .
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item Explain why, if the graph of a polynomial function has three $x$-intercepts, then it must have at least two points at which its tangent line is horizontal. Is this true for any function having three $x$-intercepts?
+\end{enumerate}
+
+\section*{Solution}
+Every polynomial is an elementary function and is continuous and differentiable, and its derivative is a polynomial of smaller degree. If $f$ is a polynomial that has three $x$-intercepts, this means there exists three numbers, $x_{1}, x_{2}, x_{3}$ such that
+
+$$
+f\left(x_{1}\right)=f\left(x_{2}\right)=f\left(x_{3}\right)=0 .
+$$
+
+We can now apply Rolle's theorem to the interval $\left[x_{1}, x_{2}\right]$, which shows that there is a number $c_{1} \in\left(x_{1}, x_{2}\right)$, such that
+
+$$
+f^{\prime}\left(c_{1}\right)=0
+$$
+
+We can also do the same for the interval $\left[x_{2}, x_{3}\right]$ to get another number $c_{2} \in\left(x_{2}, x_{3}\right)$ such that
+
+$$
+f^{\prime}\left(c_{2}\right)=0
+$$
+
+This means that the tangent line of the graph of $f$ is horizontal at $c_{1}$ and $c_{2}$.\\
+This will be also true for any other function, which is not necessarily a polynomial, as long as it satisfies the hypothesis to Rolle's theorem.\\
+5. Show that the equation $x^{4}+4 x+c=0$ has at most two solutions which are real numbers.
+
+\section*{Solution}
+We will solve this problem in two steps. First, for the function $f(x)=x^{4}+4 x+c$, we will show that $f^{\prime}(x)$ is equal to 0 exactly once. Then, we will use the previous problem show that if $f(x)=0$ has more than two solutions, then $f^{\prime}(x)=0$ must have at least 2 solutions. This means that $f(x)=0$ cannot have more than two solutions.\\
+For the first step, differentiate
+
+$$
+f^{\prime}(x)=4 x^{3}+4
+$$
+
+So $f^{\prime}(x)=0$, means $x^{3}+1=0$. This equation has only one solution, $x=-1$.\\
+We now know that $f(x)$ has only one point with horizontal tangent line (at $x=-1$ ). If $f(x)$ had three $x$-intercepts, then this means it has at least two points with horizontal tangent lines ( which we know is false). Therefore, $f$ can't have three $x$-intercepts. So it has at most two $x$-intercepts.\\
+6. Verify that the function satisfies the hypotheses of the MVT on the given interval. Then, find all values of $c$ that satisfy the conclusion of the MVT.\\
+(a) $f(x)=\frac{x}{x+2}$ on $[1,4]$\\
+(b) $f(x)=e^{-2 x}$ on $[0,3]$
+
+\section*{Solution}
+(a) $f(x)$ is composed of elementary functions and is defined everywhere except for $x=-2$, therefore it is continuous on the interval $[1,4]$. We can also differentiate
+
+$$
+f^{\prime}(x)=\frac{2}{(x+2)^{2}}
+$$
+
+which is again defined everywhere except for $x=-2$, so $f$ is differentiable on $[1,4]$. We have shown that $f$ satisfies the hypothesis of the MVT. Therefore we can conclude that there exists a number $c \in(1,4)$ such that
+
+$$
+f^{\prime}(c)=\frac{f(4)-f(1)}{4-1}=\frac{1}{9}
+$$
+
+This means that
+
+$$
+\frac{2}{(c+2)^{2}}=\frac{1}{9}
+$$
+
+Therefore
+
+$$
+c=3 \sqrt{2}-2
+$$
+
+(b) Same as before $f(x)$ is composed of elementary functions and its domain is all of the real numbers, so it is certainly continuous on the interval $[0,3]$ and its derivative is
+
+$$
+f^{\prime}(x)=-2 e^{-2 x}
+$$
+
+which is defined on the interval $[0,3]$. So we can conclude that $f$ satisfies the hypothesis of the MVT and there exists some $c \in(0,3)$ such that
+
+$$
+f^{\prime}(c)=\frac{f(3)-f(1)}{3-1}=\frac{e^{-6}-e^{-2}}{2}
+$$
+
+Therefore,
+
+$$
+c=-2 \ln \left(\frac{e^{-2}-e^{-6}}{4}\right)
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item A number $a$ is called a fixed point of a function $f$ if $f(a)=a$. Prove that if $f$ satisfies the hypothesis of the MVT and $f^{\prime}(x) \neq 1$ for all $x$, then $f$ has at most one fixed point. Hint: Suppose there are at least two fixed points, call them $a$ and $b, a \neq b$. Then, use the MVT.
+\end{enumerate}
+
+\section*{Solution}
+If $f$ has two fixed points $a$ and $b$ (So $f(a)=a$ and $f(b)=b$ ), and $f$ also satisfies the hypothesis of the MVT, then we know there exists some number $c \in(a, b)$ such that
+
+$$
+f^{\prime}(c)=\frac{f(b)-f(a)}{b-a}=\frac{b-a}{b-a}=1
+$$
+
+but we have assumed that $f^{\prime}(x) \neq 1$. So such a number $c$ cannot exist. Therefore, we can't have had two fixed points to start with, otherwise we will have a contradiction.
+
+
+\end{document}

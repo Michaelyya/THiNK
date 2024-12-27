@@ -1,0 +1,286 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\begin{enumerate}
+  \item Find $\frac{d y}{d x}$ by using implicit differentiation\\
+(a) $y^{2}+x^{2}=1$\\
+(c) $2\left(x^{2}+y^{2}\right)^{2}=9\left(x^{2}-y^{2}\right)$\\
+(b) $\sin x+\cos y=x^{3}-3 y^{2}$\\
+(d) $\sin x \cos y=\sin ^{2}(x+y)$. (Check out the graph of this curve)
+\end{enumerate}
+
+\section*{Solution}
+(a) We start by differentiating term by term with respect to $x$, to get
+
+$$
+2 y \frac{d y}{d x}+2 x=0
+$$
+
+We can move things around and divide by $2 y$ to get
+
+$$
+\frac{d y}{d x}=-\frac{x}{y}
+$$
+
+(b) Same as before we differentiate term by term to get
+
+$$
+\cos x-\sin y \frac{d y}{d x}=3 x^{2}-6 y \frac{d y}{d x}
+$$
+
+Now, move all the term that involve $\frac{d y}{d x}$ to one side, and all the other terms to the other side and divide:
+
+$$
+\frac{d y}{d x}=\frac{\cos x-3 x^{2}}{\sin y-6 y}
+$$
+
+(c) Again we want to differentiate term by term. To differentiate $\left(x^{2}+y^{2}\right)^{2}$ we need to use the chain rule with $f(x)=x^{2}$ and $g(x)=x^{2}+y^{2}$, we know that $f^{\prime}(x)=2 x$ and $g^{\prime}(x)=2 x+2 y \frac{d y}{d x}$ so
+
+$$
+\frac{d}{d x}\left(x^{2}+y^{2}\right)^{2}=2\left(x^{2}+y^{2}\right)\left(2 x+2 y \frac{d y}{d x}\right)
+$$
+
+So by differentiating term by term we have
+
+$$
+8\left(x^{2}+y^{2}\right)\left(x+y \frac{d y}{d x}\right)=18 x-18 y \frac{d y}{d x}
+$$
+
+So by moving things around we can re-write as
+
+$$
+\frac{d y}{d x}=-\frac{8 x\left(x^{2}+y^{2}\right)-18 x}{8 y\left(x^{2}+y^{2}\right)+18 y}
+$$
+
+(d) To differentiate $\sin x \cos y$ we need to apply the product rule:
+
+$$
+\frac{d}{d x} \sin x \cos y=\cos x \cos y-\sin x \sin y \frac{d y}{d x}
+$$
+
+To differentiate $\sin ^{2}(x+y)$ we can apply the chain rule with $u(x)=\sin ^{2}(x)$ and $v(x)=x+y$. We can apply the chain rule once more to find that $u^{\prime}(x)=$ $2 \sin x \cos x$ and $v^{\prime}(x)=1+\frac{d y}{d x}$. Therefore
+
+$$
+\frac{d}{d x} \sin ^{2}(x+y)=2 \sin (x+y) \cos (x+y) \cdot\left(1+\frac{d y}{d x}\right)
+$$
+
+So by implicit differentiation we have
+
+$$
+\cos x \cos y-\sin x \sin y \frac{d y}{d x}=2 \sin (x+y) \cos (x+y)\left(1+\frac{d y}{d x}\right)
+$$
+
+So by moving things around in this equation we have
+
+$$
+\frac{d y}{d x}=\frac{\cos x \cos y-2 \sin (x+y) \cos (x+y)}{\sin x \sin y+2 \sin (x+y) \cos (x+y)}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item Use implicit differentiation to find an equation for the tangent line to the curve at the given point.\\
+(a) $x^{2}+2 x y+4 y^{2}=12$ at $(2,1)$\\
+(b) $x^{2}+y^{2}=\left(2 x^{2}+2 y^{2}-x\right)^{2}$ at $\left(0, \frac{1}{2}\right)$\\
+(c) $y^{2}\left(y^{2}-4\right)=x^{2}\left(x^{2}-5\right)$ at $(0,-2)$
+\end{enumerate}
+
+\section*{Solution}
+(a) By implicit differentiation we can find that
+
+$$
+\frac{d y}{d x}=-\frac{x+5 y}{x+4 y}
+$$
+
+So we can plug in $x=2, y=1$ to get the slope of the tangent line is $\frac{7}{6}$. It also goes through $(2,1)$ So it has equation
+
+$$
+y=\frac{7}{6} x-\frac{4}{3}
+$$
+
+(b) Again by implicit differentiation we find that
+
+$$
+2 x+2 y \frac{d y}{d x}=2\left(2 x^{2}+2 y^{2}-x\right)\left(4 x+4 y \frac{d y}{d x}-1\right)
+$$
+
+So if we plug in $x=0, y=\frac{1}{2}$ we find that the slope is 1 . The tangent line goes through $\left(0, \frac{1}{2}\right)$ so it has equation
+
+$$
+y=x+\frac{1}{2}
+$$
+
+(c) By implicit differentiation we find
+
+$$
+2 y\left(y^{2}-4\right) \frac{d y}{d x}+y^{2} \cdot(2 y) \frac{d y}{d x}=2 x\left(x^{2}-5\right) x^{2}(2 x)
+$$
+
+So by plugging in $x=0, y=-2$ we find that the slope is 0 . Therefore the equation for the tangent line is $y=-2$.\\
+3. Use implicit differentiation to prove that
+
+$$
+\frac{d}{d x}\left(\sec ^{-1}(x)\right)=\frac{1}{x \sqrt{x^{2}-1}}
+$$
+
+Hint: let $y(x)=\sec ^{-1}(x)$, so that $x=\sec (y(x))$. Then, draw your triangle and use implicit differentiation.
+
+\section*{Solution}
+We start by putting $y(x)=\sec ^{-1} x$, therfore
+
+$$
+x=\sec y
+$$
+
+Now applying implicit differentiation we see that
+
+$$
+1=\sec y \tan y \frac{d y}{d x}
+$$
+
+So
+
+$$
+\frac{d y}{d x}=\frac{1}{\sec y \tan y}
+$$
+
+We need to write this in terms of $x$. We know that $y=\sec ^{-1} x$, so sec $y=x$. Also $\tan y=\sqrt{\sec ^{2} y-1}=\sqrt{x^{2}-1}$. We can conclude that
+
+$$
+\frac{d y}{d x}=\frac{1}{x \sqrt{x^{2}-1}}
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{3}
+  \item In this problem, we'll evaluate the derivative of $f(x)=(\sin x)^{\ln x}$ in two 'different' ways.\\
+(a) Use the fact that $\ln x$ is the inverse of $e^{x}$ to write $f(x)=\exp (\ln (g(x)))$ and then use the Chain Rule to evaluate $f^{\prime}(x)$.\\
+(b) Take logarithms on both sides of $f(x)=(\sin x)^{\ln x}$ and then use implicit differentiation to evaluate $f^{\prime}(x)$. Note: this technique is known as logarithmic differentiation.
+\end{enumerate}
+
+\section*{Solution}
+(a) We can write
+
+$$
+f(x)=e^{\ln \left((\sin x)^{\ln x}\right)}=e^{(\ln x) \ln (\sin x)}
+$$
+
+So we can apply the chain rule with $u(x)=e^{x}$ and $v(x)=\ln x \ln (\sin x)$. We know that $u^{\prime}(x)=e^{x}$. For $v^{\prime}(x)$ we can apply the product rule to see that
+
+$$
+v^{\prime}(x)=\frac{\ln (\sin x)}{x}+\ln x \frac{d}{d x} \ln (\sin x)=\frac{\ln (\sin x)}{x}+\ln x \frac{\cos x}{\sin x}
+$$
+
+So the final answer is
+
+$$
+f^{\prime}(x)=e^{\ln x \ln (\sin x)}\left(\frac{\ln (\sin x)}{x}+\ln x \frac{\cos x}{\sin x}\right)=(\sin x)^{\ln x}\left(\frac{\ln (\sin x)}{x}+\ln x \frac{\cos x}{\sin x}\right)
+$$
+
+(b) By taking $\ln$ of both sides we can write
+
+$$
+\ln (f(x))=\ln x \ln (\sin x)
+$$
+
+So by implicit differentiation we can write
+
+$$
+\frac{f^{\prime}(x)}{f(x)}=\frac{\ln (\sin x)}{x}+\ln x \frac{\cos x}{\sin x}
+$$
+
+So multiplying both sides by $f(x)$ we find
+
+$$
+f^{\prime}(x)=(\sin x)^{\ln x}\left(\frac{\ln (\sin x)}{x}+\ln x \frac{\cos x}{\sin x}\right)
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item For the following functions $y(x)$. Write down the domain and range of the function $y$ and find the derivative of the function.\\
+(a) $y=\sin ^{-1}(\sqrt{\sin x})$\\
+(c) $y=\ln (\sec x+\tan x)$\\
+(b) $y=\sqrt{\tan ^{-1}(x)}$\\
+(d) $y=\ln \left(x e^{x^{2}}\right)$
+\end{enumerate}
+
+\section*{Solution}
+(a) Recall that
+
+$$
+\frac{d}{d x}\left(\sin ^{-1} x\right)=\frac{1}{\sqrt{1-x^{2}}}
+$$
+
+This can be found using implicit differentiation. Now we can find $\frac{d y}{d x}$ using the chain rule with $f(x)=\sin ^{-1} x$ and $g(x)=\sqrt{\sin x}$ and we get that
+
+$$
+\frac{d y}{d x}=\frac{1}{\sqrt{1-\sin x}} \cdot g^{\prime}(x)
+$$
+
+So we need to find $g^{\prime}(x)$, which we can do by using the chain rule again
+
+$$
+g^{\prime}(x)=\frac{\cos x}{2 \sqrt{\sin x}}
+$$
+
+Therefore
+
+$$
+\frac{d y}{d x}=\frac{\cos x}{2 \sqrt{\sin x-\sin ^{2} x}}
+$$
+
+(b) Again we will apply the chain rule. Recall that
+
+$$
+\frac{d}{d x}\left(\tan ^{-1} x\right)=\frac{1}{1+x^{2}}
+$$
+
+So if we let $f(x)=\sqrt{x}, g(x)=\tan ^{-1} x$ and apply the chain rule, then
+
+$$
+\frac{d y}{d x}=\frac{1}{2 \tan ^{-1} x} \cdot \frac{1}{1+x^{2}}
+$$
+
+(c) We will apply the chain rule with $f(x)=\ln x$ so $f^{\prime}(x)=\frac{1}{x}$ and $g(x)=\sec x+\tan x$, so $g^{\prime}(x)=\sec x \tan x+\sec ^{2} x$. Therefore
+
+$$
+\frac{d y}{d x}=\frac{\sec x \tan x+\sec ^{2} x}{\sec x+\tan x}=\sec x
+$$
+
+(d) We will apply the chain rule to $f(x)=\ln x$, so $f^{\prime}(x)=\frac{1}{x}$ and $g(x)=x e^{x^{2}}$. We know that
+
+$$
+\frac{d y}{d x}=\frac{1}{x e^{x^{2}}} \cdot g^{\prime}(x)
+$$
+
+To find $g^{\prime}(x)$ we can apply the product rule to get
+
+$$
+g^{\prime}(x)=e^{x^{2}}+x \frac{d}{d x}\left(e^{x^{2}}\right)
+$$
+
+To find $\frac{d}{d x} e^{x^{2}}$ we can apply the chain rule to find
+
+$$
+\frac{d}{d x}\left(e^{x^{2}}\right)=2 x e^{x^{2}}
+$$
+
+So finally we can write
+
+$$
+\frac{d y}{d x}=\frac{e^{x^{2}}+2 x^{2} e^{x^{2}}}{x e^{x^{2}}}=\frac{1+2 x^{2}}{x}=\frac{1}{x}+2 x
+$$
+
+Alternatively, we could've seen that
+
+$$
+\ln \left(x e^{x^{2}}\right)=\ln x+\ln e^{x^{2}}=\ln x+x^{2}
+$$
+
+
+\end{document}
