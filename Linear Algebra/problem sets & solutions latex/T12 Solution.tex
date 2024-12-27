@@ -1,0 +1,171 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 27-29}
+\section*{Definitions and Theorems}
+Definition ( Determinant of a matrix ). Remember that
+
+$$
+\operatorname{det}\left[\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right]=a d-b c
+$$
+
+To find the determinant of a $3 \times 3$ matrix, use a cofactor expansion (it works any size square matrix).
+
+Example: Cofactor expansion along first row of a $3 \times 3$ matrix
+
+$$
+\operatorname{det}\left[\begin{array}{lll}
+a & b & c \\
+d & e & f \\
+g & h & j
+\end{array}\right]=a(+1) \operatorname{det}\left[\begin{array}{ll}
+e & f \\
+h & j
+\end{array}\right]+b(-1) \operatorname{det}\left[\begin{array}{ll}
+d & f \\
+g & j
+\end{array}\right]+c(+1) \operatorname{det}\left[\begin{array}{ll}
+d & e \\
+g & h
+\end{array}\right] .
+$$
+
+The signs in the expansion are given by the "sign matrix"
+
+$$
+\left[\begin{array}{ccc}
++ & - & + \\
+- & + & - \\
++ & - & +
+\end{array}\right]
+$$
+
+which has same size and a positive sign in the top left component. Signs are alternate otherwise.
+
+Definition (Adjugate matrix). Let A be a square matrix, the adjugate matrix is given by
+
+$$
+\operatorname{adj}(A)=[\text { matrix of cofactors }]^{T} .
+$$
+
+Definition (Cramer's rule). Let A be an invertible $n \times n$ matrix. For vector $\vec{b} \in \mathbb{R}^{n}$, the solution to $A \vec{x}=\vec{b}$ is given by
+
+$$
+\vec{x}=\frac{1}{\operatorname{det}(A)} \operatorname{adj}(A) \vec{b}
+$$
+
+Problem 46 (Determinant). Suppose an $n \times n$ matrix $A$ has $\operatorname{det} A \neq 0$. Is it true that $\operatorname{det} \operatorname{rref}(\mathrm{A})=\operatorname{det} \mathrm{A}$ ?
+
+Solution 46 It is not true, take for for example
+
+$$
+A=\left[\begin{array}{ll}
+2 & 0 \\
+0 & 2
+\end{array}\right]
+$$
+
+Problem 47 (Determinant). Use a cofactor expansion to find:\\
+a) $\operatorname{det}\left[\begin{array}{ccc}1 & -1 & 0 \\ 2 & 3 & -1 \\ 0 & 1 & -2\end{array}\right]$,\\
+b) $\operatorname{det}\left[\begin{array}{ccc}2 & 3 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & -2\end{array}\right]$,\\
+c) $\operatorname{det}\left[\begin{array}{ccc}1 & -1 & 0 \\ 22 & 33 & -11 \\ 0 & 1 & -2\end{array}\right]$.
+
+What do you notice about the results?
+
+\section*{Solution 47 a) -9}
+b) 9 , this is the previous answer multiplied by -1 . The matrix differs from the first by swapping rows one and two.\\
+c) -99 , this is the answer to the first part multiplied by 11 . The matrix differs from the first part by multiplying row two by 11.
+
+Problem 48 (Determinant). Suppose an $n \times n$ matrix $A$ has two identical rows. Explain why the determinant of $A$ is zero.
+
+Solution 48 The matrix $A$ is not invertible because it has a row of zeroes in its RREF. Noninvertibility implies that the determinant of $A$ is zero.
+
+Problem 49 (Determinant). Assume $A$ is an $n \times n$ matrix. This problem is about the relation between determinants and row operations. In each case, give a justification for your answer by explaining what happens to the cofactor expansion.\\
+a) What happens to the determinant of $A$ if a row is multiplied by a nonzero scalar? (Hint: Try expanding the determinant along the row that is multiplied by the scalar).\\
+b) What happens to the determinant of $A$ if two rows are swapped? (Hint: Try this for a $2 \times 2$ matrix first, then use that answer to see what happens for a $3 \times 3 \ldots$ etc.)\\
+c) What happens to the determinant of $A$ if a multiple of one row is added to another row? (Hint: Expand along the new row and split the result into the sum of two different determinants, then use the answer to Problem 2.)
+
+Use your answers to justify the statement that the determinant of $A$ is nonzero if and only if $A$ is invertible.
+
+Solution 49 a) The determinant is also multiplied by the same scalar. To see why, imagine expanding the determinant along that same row. Then each number from that row is multiplied by that scalar, let's call it $c$. When you expand the determinant, each term in the sum will be multiplied by $c$ (since each entry from that row multiplies a different term in the sum) and so we can factor out the $c$ to obtain the new determinant as $c$ times the old determinant.\\
+b) For a $2 \times 2$ matrix, the formula $a d-b c$ implies that swapping the rows multiplies the determinant by -1 . For $3 \times 3$ matrices, let $B$ denote the matrix $A$ with two rows swapped. Using the cofactor expansion along the unswapped row of $B$ gives a sum of $2 \times 2$ determinants whose rows are swapped compared to the deteminants you would get doing the cofactor expansion on $A$. Therefore, using what we just found for $2 \times 2$ determinants, the determinant of $B$ is again -1 times the determinant of $A$. The same reasoning applies to $4 \times 4$ matrices and higher. The result is always -1 times the original determinant.\\
+c) The result is unchanged. To see this, suppose we add $k$ times row $j$ to row $i$. Call this new matrix $B$. Expand the determinant of $B$ along row $i$. The result of this expansion is a sum of coefficients times cofactors. The coefficients are given by the entries of row $i$ of $B$, so they are given by the entries of row $i$ of $A$ plus row $j$ of $A$. The cofactors are the exact same cofactors that appear in the expansion of $A$ along row $i$. Therefore, we can regroup this sum into two sums: the cofactor expansion of the determinant of $A$, and the cofactor\\
+expansion of the determinant of the matrix given by taking $A$ and replacing row $i$ with $k$ times row $j$. But the latter determinant is zero, by using part a of this problem to factor out $k$ and then using problem 48. Therefore, the determinant of $B$ equals the determinant of $A$.
+
+The statement that the determinant of $A$ is nonzero if and only if $A$ is invertible now follows by using row reduction to find the RREF of $A$. By the results of the previous three parts, the determinant of $A$ is a non-zero multiple of the determinant of its RREF. A matrix is invertible if and only if its RREF is the identity matrix, and the determinant of the identity matrix is non-zero.
+
+Problem 50 (Determinant and area). Let $A$ be the $2 \times 2$ matrix
+
+$$
+A=\left[\begin{array}{ll}
+2 & 1 \\
+2 & 2
+\end{array}\right]
+$$
+
+a) Let S be the unit square with sides given by $\vec{v}_{1}=\left[\begin{array}{l}1 \\ 0\end{array}\right], \vec{v}_{2}=\left[\begin{array}{l}0 \\ 1\end{array}\right]$. Let $A(\mathrm{~S})$ be the parallelogram with sides $A \vec{v}_{1}, A \vec{v}_{2}$. Verify that
+
+$$
+\operatorname{det}(A)=\frac{\operatorname{area}(A(\mathrm{~S}))}{\operatorname{area}(\mathrm{S})}
+$$
+
+b) Let T be the triangle with vertices at the origin, $\vec{w}_{1}=\left[\begin{array}{l}1 \\ 1\end{array}\right]$, and $\vec{w}_{2}=\left[\begin{array}{l}2 \\ 0\end{array}\right]$. Le $A(\mathrm{~T})$ be the triangle with vertices at the origin, $A \vec{w}_{1}$, and $A \vec{w}_{2}$. Compute
+
+$$
+\frac{\operatorname{area}(A(T))}{\operatorname{area}(\mathrm{T})}
+$$
+
+What do you notice?\\
+c) Repeat parts a and b with your own choice of matrix $A$. What do you notice about your new answer to part b?
+
+\section*{Solution 50 (Determinant and area)}
+a) The area of S is 1 . By drawing a picture, the area of the parallelogram $A(\mathrm{~S})$ is 2. The determinant of $A$ is 2 , by using the formula for $2 \times 2$ determinants.\\
+b) The area of T is 1 , and the area of $A(\mathrm{~T})$ is 2 , therefore $\operatorname{area}(A(\mathrm{~T})) / \operatorname{area}(\mathrm{T})$ is again equal to 2 , which is $\operatorname{det}(A)$.\\
+c) When you re-do part b with another choice of matrix, you will find that $\operatorname{area}(A(\mathrm{~T})) / \operatorname{area}(\mathrm{T})=\operatorname{det} A$. In fact this is true for any shape, not just triangles. The determinant measures how $A$ scales areas.
+
+Problem 51 (Cramer's Rule). a) Use a determinant to show that the matrix
+
+$$
+A=\left[\begin{array}{ccc}
+-1 & 4 & 0 \\
+1 & 3 & -2 \\
+-2 & 0 & -1
+\end{array}\right]
+$$
+
+is invertible.\\
+b) Use Cramer's rule to solve the system
+
+$$
+A \vec{x}=\left[\begin{array}{c}
+1 \\
+0 \\
+-1
+\end{array}\right]
+$$
+
+Solution 51 (Cramer's Rule)\\
+a) $\operatorname{det} A=23$, so $A$ is invertible.\\
+b) Using Cramer's rule gives the solution
+
+$$
+\vec{x}=\frac{1}{23}\left[\begin{array}{c}
+5 \\
+7 \\
+13
+\end{array}\right]
+$$
+
+
+\end{document}

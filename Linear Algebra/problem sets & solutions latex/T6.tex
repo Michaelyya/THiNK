@@ -1,0 +1,92 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Lecture hours 13-14}
+\section*{Definitions}
+Definition (Kernel (or null space) of a matrix). The kernel (or null space) of a matrix A, written $\operatorname{ker}(A)$, is the set of vectors $\vec{x}$ with $A \vec{x}=\overrightarrow{0}$. You can think of these as the vectors that go to $\overrightarrow{0}$ when multiplied by A .
+
+Definition (Image (or column space) of a matrix). The image (or column space) of a matrix A , written im(A), is the set of vectors $\vec{y}$ with $\vec{y}=A \vec{x}$ for some $\vec{x}$. These are all the possible "outputs" of the function, what we might have called the range in previous courses. It can also be thought of as all the possible values of $\vec{y}$ for which there does exist an input $A \vec{x}=\vec{y}$.
+
+Definition (Kernel and image of a linear transformation). Let $T: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ be a linear transformation
+
+\begin{itemize}
+  \item The kernel $\operatorname{ker}(\mathrm{T})$ is the set of vectors $\vec{x} \in \mathbb{R}^{n}$ such that $T(\vec{x})=0$.
+  \item The image of T is the set of all vectors $\vec{y} \in \mathbb{R}^{m}$ such that $T(\vec{x})=\vec{y}$ for some $\vec{x} \in \mathbb{R}^{n}$.
+\end{itemize}
+
+Problem 26 (Cross product). The cross product of two vectors $\vec{v}=\left[\begin{array}{l}v_{1} \\ v_{2} \\ v_{3}\end{array}\right], \vec{w}=\left[\begin{array}{l}w_{1} \\ w_{2} \\ w_{3}\end{array}\right]$ in $\mathbb{R}^{3}$ is given by
+
+$$
+\vec{v} \times \vec{w}=\left[\begin{array}{l}
+v_{2} w_{3}-v_{3} w_{2} \\
+v_{3} w_{1}-v_{1} w_{3} \\
+v_{1} w_{2}-v_{2} w_{1}
+\end{array}\right]
+$$
+
+a) Show using a dot product that $\vec{v} \times \vec{w}$ is perpendicular to $\vec{v}$.\\
+b) Use a cross product to find the equation of the plane containing the vectors
+
+$$
+\vec{y}=\left[\begin{array}{l}
+1 \\
+0 \\
+1
+\end{array}\right], \quad \vec{z}=\left[\begin{array}{c}
+1 \\
+2 \\
+-3
+\end{array}\right]
+$$
+
+Problem 27 (Kernel and Image). Let $\vec{v} \neq \overrightarrow{0}$ be the vector $\vec{v}=\left[\begin{array}{c}v_{1} \\ v_{3} \\ v_{3}\end{array}\right]$. Define a linear transformation $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ by
+
+$$
+T(\vec{x})=\vec{v} \times \vec{x}
+$$
+
+a) What is the matrix $A$ with $T(\vec{x})=A \vec{x}$ ?\\
+b) Find a vector $\vec{x} \neq \overrightarrow{0}$ in $\operatorname{ker}(T)$.
+
+\footnotetext{${ }^{1}$ "Without loss of generality" means that we can use the same argument if we instead suppose $v_{2} \neq 0$ or $v_{3} \neq 0$
+}Problem 28 (Kernel and image). True or false? Justify your answer.\\
+a) There is a $5 \times 4$ matrix with kernel of dimension 2 .\\
+b) The kernel of a $3 \times 4$ matrix has dimension 1 .\\
+c) If $A$ is a $3 \times 3$ matrix with image of dimension 2 , then one of
+
+$$
+A\left(\vec{e}_{1}\right), A\left(\vec{e}_{2}\right), A\left(\vec{e}_{3}\right)
+$$
+
+is the zero vector.\\
+d) There is a $4 \times 4$ matrix $A$ such that $\operatorname{dim}(i m A)=\operatorname{dim}(\operatorname{kerA})$.
+
+
+\end{document}

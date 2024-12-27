@@ -1,0 +1,67 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 5-7}
+\section*{Definitions}
+Definition (Linear relations). Consider the vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$. An equation of the form $c_{1} \vec{v}_{1}+\cdots+c_{r} \vec{v}_{r}=\overrightarrow{0}$ is called a linear relation among the vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$. If at least one of the $c_{i}$ is nonzero, then we call this a nontrivial linear relation among $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$.
+
+Definition (Linear Independent vectors). We say vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$ are linearly independent if and only if the only linear relation between them is the trivial one. In other words, $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$ are linearly independent if and only if the only way that $c_{1} \vec{v}_{1}+\cdots+c_{r} \vec{v}_{r}=\overrightarrow{0}$ is if all the $c_{i}$ are 0 .
+
+Definition (Subspace). A subspace of $\mathbb{R}^{n}$ is a non-empty set of vectors in $\mathbb{R}^{n}$ that can be described as a span of vectors.
+
+Here is an equivalent definition of subspace:
+
+Definition (Subspace). A subspace of $\mathbb{R}^{n}$ is a non-empty subset $V$ of $\mathbb{R}^{n}$ with the following properties:\\
+(i) If $\vec{u}$ is in $V, \vec{u}$ is also in $V$ for any scalar $k \in \mathbb{R}$ (We say $V$ is closed under scalar multiplication.)\\
+(ii) If $\vec{u}$ and $\vec{w}$ are in $V$, their sum $\vec{u}+\vec{w}$ is also in $V$. (We say $V$ is closed under addition.)
+
+Definition (Basis). The vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{m}$ are a basis of a subspace $V$ if they span $V$ and are linearly independent. In other words, a basis of a subspace $V$ is the minimal set of vectors needed to span all of $V$.
+
+Definition (Dimension of a subspace). The dimension of the subspace $V$ is the number of vectors in a basis of $V$.
+
+Problem 12 (Linear dependence). True or false? If false, give a counter-example. If true, explain why.\\
+a) If $\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}$ are linearly dependent vectors in $\mathbb{R}^{2}$, then $\vec{v}_{3}$ is in the span of $\vec{v}_{1}$ and $\vec{v}_{2}$.\\
+b) Any collection of 4 vectors in $\mathbb{R}^{3}$ is linearly dependent.
+
+Problem 13 (Subspaces). Give examples for:\\
+a) A subset $V$ of $\mathbb{R}^{2}$ that is closed under scalar multiplication, but not closed under addition.\\
+b) A subset $V$ of $\mathbb{R}^{2}$ that is closed under addition, but not closed under scalar multiplication.
+
+Problem 14 (Subspaces of $\mathbb{R}^{n}$ ). Give an example of:\\
+a) A subspace of $\mathbb{R}$.\\
+b) A subset of $\mathbb{R}^{2}$ that is not a subspace of $\mathbb{R}^{2}$. Explain why it is not a subspace.\\
+c) A subspace of $\mathbb{R}^{3}$ of dimension 2. Explain why it has dimension 2.\\
+d) A subset of $\mathbb{R}^{3}$ that contains infinitely many vectors, but is not a subspace of $\mathbb{R}^{3}$. Explain why it is not a subspace.
+
+Problem 15 (Basis and dimension). Find a basis for $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$ where
+
+$$
+\vec{v}_{1}=\left[\begin{array}{l}
+1 \\
+1 \\
+2
+\end{array}\right], \quad \vec{v}_{2}=\left[\begin{array}{c}
+-1 \\
+0 \\
+3
+\end{array}\right], \quad \vec{v}_{3}=\left[\begin{array}{l}
+3 \\
+2 \\
+1
+\end{array}\right], \quad \vec{v}_{4}=\left[\begin{array}{l}
+0 \\
+1 \\
+5
+\end{array}\right]
+$$
+
+
+\end{document}

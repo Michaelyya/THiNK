@@ -1,0 +1,173 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 19-20}
+\section*{Definitions and Theorems}
+Definition (Coordinates of a vector ).\\
+If we have a basis of $\mathbb{R}^{n}, \mathcal{B}=\left\{\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{n}\right\}$ and $\vec{x} \in \mathbb{R}^{n}$, so $\vec{x}=c_{1} \vec{v}_{1}+\cdots+c_{n} \vec{v}_{n}$, for some $c_{1}, \ldots c_{n} \in \mathbb{R}$. We define the coordinates of $\vec{x}$ in the basis $\mathcal{B}$ as
+
+$$
+[\vec{x}]_{\mathcal{B}} \stackrel{\text { def }}{=}\left[\begin{array}{c}
+c_{1} \\
+\vdots \\
+c_{n}
+\end{array}\right]
+$$
+
+Definition (Change of basis matrix ).\\
+Let $\mathcal{B}=\left\{\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{n}\right\}$ be a basis of $\mathbb{R}^{n}$. We call the matrix $S=\left[\vec{v}_{1}, \ldots, \vec{v}_{n}\right]$ the change of basis matrix of basis $\mathcal{B}$.
+
+For any $\vec{x} \in \mathbb{R}^{n}$ we have
+
+$$
+\vec{x}=S[\vec{x}]_{\mathcal{B}}
+$$
+
+So, if we have to find the coordinates $[\vec{x}]_{\mathcal{B}}$ we compute
+
+$$
+[\vec{x}]_{\mathcal{B}}=S^{-1} \vec{x} .
+$$
+
+Note that
+
+\begin{itemize}
+  \item If $\mathcal{B}=\left\{\vec{e}_{1}, \vec{e}_{2}, \ldots, \vec{e}_{n}\right\}$ (the standard basis), we have $[\vec{x}]_{\mathcal{B}}=\vec{x}$.
+\end{itemize}
+
+Problem 37 (Coordinates). Let $\mathfrak{B}$ be the basis of $\mathbb{R}^{4}$ given by
+
+$$
+\mathfrak{B}=\left\{\left[\begin{array}{l}
+3 \\
+1 \\
+1 \\
+1
+\end{array}\right],\left[\begin{array}{l}
+1 \\
+1 \\
+1 \\
+0
+\end{array}\right],\left[\begin{array}{l}
+1 \\
+1 \\
+0 \\
+0
+\end{array}\right],\left[\begin{array}{l}
+1 \\
+0 \\
+0 \\
+0
+\end{array}\right]\right\}
+$$
+
+Find the coordinates for vector
+
+$$
+\vec{v}=\left[\begin{array}{l}
+4 \\
+3 \\
+2 \\
+1
+\end{array}\right]
+$$
+
+in the basis $\mathfrak{B}$.
+
+Problem 38 (Coordinates). In this problem we will be working with the following bases of $\mathbb{R}^{3}$ :
+
+$$
+\mathfrak{B}=\left\{\left[\begin{array}{c}
+-3 \\
+2 \\
+-3
+\end{array}\right],\left[\begin{array}{c}
+1 \\
+-1 \\
+-1
+\end{array}\right],\left[\begin{array}{l}
+5 \\
+4 \\
+9
+\end{array}\right]\right\}, \quad E=\left\{\left[\begin{array}{l}
+1 \\
+0 \\
+0
+\end{array}\right],\left[\begin{array}{l}
+0 \\
+1 \\
+0
+\end{array}\right],\left[\begin{array}{l}
+0 \\
+0 \\
+1
+\end{array}\right]\right\}, \quad \mathfrak{D}=\left\{\left[\begin{array}{l}
+1 \\
+2 \\
+1
+\end{array}\right],\left[\begin{array}{c}
+-1 \\
+2 \\
+-1
+\end{array}\right],\left[\begin{array}{l}
+1 \\
+1 \\
+3
+\end{array}\right]\right\}
+$$
+
+\begin{enumerate}
+  \item Find the change of basis matrix from basis $\mathfrak{B}$ to the standard basis $E$.
+  \item Find the change of basis matrix from the standard basis $E$ to basis $\mathfrak{D}$.
+  \item Find the change of basis matrix from basis $\mathfrak{B}$ to basis $\mathfrak{D}$.
+\end{enumerate}
+
+Problem 39 (Coordinates for linear transformations). In this problem we will be working with the same bases of $\mathbb{R}^{3}$ as in Problem 38:\\
+$\mathfrak{B}=\left\{\left[\begin{array}{c}-3 \\ 2 \\ -3\end{array}\right],\left[\begin{array}{c}1 \\ -1 \\ -1\end{array}\right],\left[\begin{array}{l}5 \\ 4 \\ 9\end{array}\right]\right\}, \quad E=\left\{\left[\begin{array}{l}1 \\ 0 \\ 0\end{array}\right],\left[\begin{array}{l}0 \\ 1 \\ 0\end{array}\right],\left[\begin{array}{l}0 \\ 0 \\ 1\end{array}\right]\right\}, \quad \mathfrak{D}=\left\{\left[\begin{array}{l}1 \\ 2 \\ 1\end{array}\right],\left[\begin{array}{c}-1 \\ 2 \\ -1\end{array}\right],\left[\begin{array}{l}1 \\ 1 \\ 3\end{array}\right]\right\}$\\
+. Let $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ be the linear transformation defined by
+
+$$
+T \vec{v}=A \vec{v}
+$$
+
+where
+
+$$
+A=\left[\begin{array}{lll}
+3 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 0
+\end{array}\right]
+$$
+
+Find the matrix $[T]_{\mathfrak{B}}^{\mathfrak{D}}$.\\
+Remember that the matrix $[T]_{\mathfrak{B}}^{\mathfrak{D}}$ satisfies:
+
+$$
+[T \vec{v}]_{\mathfrak{D}}=[T]_{\mathfrak{B}}^{\mathfrak{M}}[\vec{v}]_{\mathfrak{B}}
+$$
+
+for any $\vec{v} \in \mathbb{R}^{3}$.
+
+Problem 40 (Elementary matrices). Write the matrix
+
+$$
+A=\left[\begin{array}{ccc}
+1 & 0 & -1 \\
+0 & -2 & 2 \\
+-1 & 1 & 1
+\end{array}\right]
+$$
+
+as a product of elementary row matrices. Use your expression to find $A^{-1}$.
+
+
+\end{document}

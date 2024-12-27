@@ -1,0 +1,98 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 3-4}
+\section*{Definitions}
+Definition (Rank of a matrix). The rank of a matrix is the number of leading ones in the rref of that matrix.
+
+Definition (Linear Combination). A linear combination of the vectors $\bar{v}_{1}, \bar{v}_{2}, \ldots, \bar{v}_{n}$ is an expression of the form $c_{1} \bar{v}_{1}+c_{2} \bar{v}_{2}+\cdots+c_{n} \bar{v}_{n}$ where $c_{1}, c_{2}$, through $c_{n}$ are real numbers. So it's just a sum of multiples of the vectors $\bar{v}_{1}, \bar{v}_{2}, \ldots, \bar{v}_{n}$.
+
+Definition (Span). The span of the vectors $\bar{v}_{1}, \bar{v}_{2}, \ldots, \bar{v}_{n}$ is all possible linear combinations of these vectors, and it is denoted by $\operatorname{span}\left(\bar{v}_{1}, \bar{v}_{2}, \ldots, \bar{v}_{n}\right)$.
+
+Definition (Homogeneous System). A homogeneous system of linear equations is a system in which each equation has no constant term.
+
+Problem 6 (Rank of a coefficient matrix). Suppose you have a system of three linear equations for two unknowns.\\
+a) What is the largest possible rank the coefficient matrix could have? What is the smallest possible rank?\\
+b) If the system is consistent, what is the largest possible number of free variables in the solution? What is the smallest possible number?\\
+c) What are the possibilities for the number of solutions?
+
+Now suppose you have a different system, this time there are three linear equations for four unknowns.\\
+d) What is the largest possible rank the coefficient matrix could have? What is the smallest possible rank?\\
+e) If the system is consistent, what is the largest possible number of free variables in the solution? What is the smallest possible number?\\
+f) What are the possibilities for the number of solutions?
+
+Problem 7 (Linear systems with parameters). For the linear system
+
+$$
+\begin{aligned}
+x-y+2 z & =4 \\
+3 x-2 y+9 z & =14 \\
+2 x-4 y+a z & =b
+\end{aligned}
+$$
+
+find real numbers $a$ and $b$ such that:\\
+a) The system has a unique solution.\\
+b) The system has infinitely many solutions.\\
+c) The system is inconsistent.
+
+Problem 8 (Span 1). Is the vector
+
+$$
+\left[\begin{array}{l}
+1 \\
+0
+\end{array}\right]
+$$
+
+in the span of the vectors
+
+$$
+\vec{u}_{1}=\left[\begin{array}{c}
+1 \\
+-2
+\end{array}\right], \vec{u}_{2}=\left[\begin{array}{l}
+3 \\
+5
+\end{array}\right] ?
+$$
+
+Are there vectors in $\mathbb{R}^{2}$ that are not in the span of $\vec{u}_{1}$ and $\vec{u}_{2}$ ? Explain why or why not.
+
+Problem 9 (Span 2). Consider the three vectors in $\mathbb{R}^{3}$ :
+
+$$
+\vec{v}_{1}=\left[\begin{array}{l}
+1 \\
+1 \\
+0
+\end{array}\right], \vec{v}_{2}=\left[\begin{array}{l}
+1 \\
+t \\
+0
+\end{array}\right], \vec{v}_{3}=\left[\begin{array}{c}
+-1 \\
+-1 \\
+s
+\end{array}\right]
+$$
+
+where $s, t \in \mathbb{R}$. What are the values of $s$ and $t$ so that $\vec{v}_{1}, \vec{v}_{2}$, and $\vec{v}_{3}$ span:\\
+a) A line.\\
+b) A plane.\\
+c) All of $\mathbb{R}^{3}$.
+
+Problem 10 (Homogeneous systems). Suppose you have a homogeneous system of three equations for three unknowns $x, y$, and $z$. The coefficient matrix of this system has rank 3 . What is the solution? Why?
+
+Problem 11. (Linear combinations) The vectors $\vec{x}$ and $\vec{y}$ are in the span of the vectors $\vec{w}_{1}$ and $\vec{w}_{2}$. The vector $\vec{z}$ is a linear combination of $\vec{x}$ and $\vec{y}$. Is $\vec{z}$ in the span of $\vec{w}_{1}$ and $\vec{w}_{2}$ ? Why or why not?
+
+
+\end{document}

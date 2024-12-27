@@ -1,0 +1,132 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 27-29}
+\section*{Definitions and Theorems}
+Definition ( Determinant of a matrix ). Remember that
+
+$$
+\operatorname{det}\left[\begin{array}{ll}
+a & b \\
+c & d
+\end{array}\right]=a d-b c
+$$
+
+To find the determinant of a $3 \times 3$ matrix, use a cofactor expansion (it works any size square matrix).
+
+Example: Cofactor expansion along first row of a $3 \times 3$ matrix
+
+$$
+\operatorname{det}\left[\begin{array}{lll}
+a & b & c \\
+d & e & f \\
+g & h & j
+\end{array}\right]=a(+1) \operatorname{det}\left[\begin{array}{ll}
+e & f \\
+h & j
+\end{array}\right]+b(-1) \operatorname{det}\left[\begin{array}{ll}
+d & f \\
+g & j
+\end{array}\right]+c(+1) \operatorname{det}\left[\begin{array}{ll}
+d & e \\
+g & h
+\end{array}\right] .
+$$
+
+The signs in the expansion are given by the "sign matrix"
+
+$$
+\left[\begin{array}{ccc}
++ & - & + \\
+- & + & - \\
++ & - & +
+\end{array}\right]
+$$
+
+which has same size and a positive sign in the top left component. Signs are alternate otherwise.
+
+Definition (Adjugate matrix). Let A be a square matrix, the adjugate matrix is given by
+
+$$
+\operatorname{adj}(A)=[\text { matrix of cofactors }]^{T} .
+$$
+
+Definition (Cramer's rule). Let A be an invertible $n \times n$ matrix. For vector $\vec{b} \in \mathbb{R}^{n}$, the solution to $A \vec{x}=\vec{b}$ is given by
+
+$$
+\vec{x}=\frac{1}{\operatorname{det}(A)} \operatorname{adj}(A) \vec{b}
+$$
+
+Problem 46 (Determinant). Suppose an $n \times n$ matrix $A$ has $\operatorname{det} A \neq 0$. Is it true that $\operatorname{det} \operatorname{rref}(\mathrm{A})=\operatorname{det} \mathrm{A}$ ?
+
+Problem 47 (Determinant). Use a cofactor expansion to find:\\
+a) $\operatorname{det}\left[\begin{array}{ccc}1 & -1 & 0 \\ 2 & 3 & -1 \\ 0 & 1 & -2\end{array}\right]$,\\
+b) $\operatorname{det}\left[\begin{array}{ccc}2 & 3 & -1 \\ 1 & -1 & 0 \\ 0 & 1 & -2\end{array}\right]$,\\
+c) $\operatorname{det}\left[\begin{array}{ccc}1 & -1 & 0 \\ 22 & 33 & -11 \\ 0 & 1 & -2\end{array}\right]$.
+
+What do you notice about the results?
+
+Problem 48 (Determinant). Suppose an $n \times n$ matrix $A$ has two identical rows. Explain why the determinant of $A$ is zero.
+
+Problem 49 (Determinant). Assume $A$ is an $n \times n$ matrix. This problem is about the relation between determinants and row operations. In each case, give a justification for your answer by explaining what happens to the cofactor expansion.\\
+a) What happens to the determinant of $A$ if a row is multiplied by a nonzero scalar? (Hint: Try expanding the determinant along the row that is multiplied by the scalar).\\
+b) What happens to the determinant of $A$ if two rows are swapped? (Hint: Try this for a $2 \times 2$ matrix first, then use that answer to see what happens for a $3 \times 3 \ldots$ etc.)\\
+c) What happens to the determinant of $A$ if a multiple of one row is added to another row? (Hint: Expand along the new row and split the result into the sum of two different determinants, then use the answer to Problem 2.)
+
+Use your answers to justify the statement that the determinant of $A$ is nonzero if and only if $A$ is invertible.
+
+Problem 50 (Determinant and area). Let $A$ be the $2 \times 2$ matrix
+
+$$
+A=\left[\begin{array}{ll}
+2 & 1 \\
+2 & 2
+\end{array}\right]
+$$
+
+a) Let S be the unit square with sides given by $\vec{v}_{1}=\left[\begin{array}{l}1 \\ 0\end{array}\right], \vec{v}_{2}=\left[\begin{array}{l}0 \\ 1\end{array}\right]$. Let $A(\mathrm{~S})$ be the parallelogram with sides $A \vec{v}_{1}, A \vec{v}_{2}$. Verify that
+
+$$
+\operatorname{det}(A)=\frac{\operatorname{area}(A(\mathrm{~S}))}{\operatorname{area}(\mathrm{S})}
+$$
+
+b) Let $T$ be the triangle with vertices at the origin, $\vec{w}_{1}=\left[\begin{array}{l}1 \\ 1\end{array}\right]$, and $\vec{w}_{2}=\left[\begin{array}{l}2 \\ 0\end{array}\right]$. Le $A(\mathrm{~T})$ be the triangle with vertices at the origin, $A \vec{w}_{1}$, and $A \vec{w}_{2}$. Compute
+
+$$
+\frac{\operatorname{area}(A(T))}{\operatorname{area}(\mathrm{T})}
+$$
+
+What do you notice?\\
+c) Repeat parts a and b with your own choice of matrix $A$. What do you notice about your new answer to part b?
+
+Problem 51 (Cramer's Rule). a) Use a determinant to show that the matrix
+
+$$
+A=\left[\begin{array}{ccc}
+-1 & 4 & 0 \\
+1 & 3 & -2 \\
+-2 & 0 & -1
+\end{array}\right]
+$$
+
+is invertible.\\
+b) Use Cramer's rule to solve the system
+
+$$
+A \vec{x}=\left[\begin{array}{c}
+1 \\
+0 \\
+-1
+\end{array}\right]
+$$
+
+
+\end{document}

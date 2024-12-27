@@ -1,0 +1,134 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\section*{Lecture hours 1-2}
+\section*{Definitions}
+Definition (Gaussian elimination). When solving a system, there are certain operations we can apply to our equations, or equivalently to the rows of our augmented matrix, to "simplify" the system. We call this "simplification" process Gaussian elimination, since we are trying to eliminate (i.e. put to 0 ) as many entries from the augmented matrix as possible. There are 3 types of row operations we can perform:
+
+\begin{enumerate}
+  \item Interchange any two rows.
+  \item Multiply any row by a (nonzero) constant.
+  \item Add any multiple of one row to another.
+\end{enumerate}
+
+Definition (rref). A matrix is in row reduced echelon form (rref) if :
+
+\begin{enumerate}
+  \item The first non-zero term in each row (the "leading 1") is a 1 ; there are zeros above and below it.
+  \item The leading 1 in any row is to the right of the leading 1 in the row above it.
+  \item Any rows containing all zeros (to the left of the vertical bar) appear at the bottom.
+\end{enumerate}
+
+Definition (Leading and Free variables). Recall that in an augmented matrix for a system of equations each row represents the coefficients from one equation and each column of the coefficient matrix represents all the coefficients for a single variable/unknown.
+
+For a matrix in rref, a column with a leading 1 corresponds to a leading variable. Columns that don't have a leading 1 , correspond to free variables.
+
+Problem 1 (Linear systems 1). Draw on the $x y$-plane examples of systems of linear equations for each of the following scenarios:\\
+(a) A consistent system of two equations for two unknowns $x$ and $y$.\\
+(b) An inconsistent system of two equations for two unknowns $x$ and $y$.\\
+(c) An inconsistent system of three equations for two unknowns $x$ and $y$.\\
+(d) A consistent system of three equations for two unknowns $x$ and $y$.
+
+Problem 2 (Gaussian elimination). For each of the following systems...
+
+\begin{itemize}
+  \item Solve for the unknowns by Gaussian elimination.
+  \item Determine whether the system is consistent or has no solutions (is inconsistent).
+  \item Draw the equations and their solutions on the plane.\\
+(a)
+\end{itemize}
+
+$$
+\begin{aligned}
+& x+2 y=-1 \\
+& 2 x-y=3
+\end{aligned}
+$$
+
+(b)
+
+$$
+\begin{aligned}
+x-3 y & =-2, \\
+-2 x+6 y & =-4,
+\end{aligned}
+$$
+
+(c)
+
+$$
+\begin{aligned}
+2 x-6 y & =4, \\
+x-3 y & =2 .
+\end{aligned}
+$$
+
+Problem 3 (Reduced row echelon form). For each of the following matrices...
+
+\begin{itemize}
+  \item Determine whether or not the matrix given is in rref form. If not, explain why not and put them in rref.
+  \item Are the associated systems of equations consistent? If so, give their solution.\\
+(a)
+\end{itemize}
+
+$$
+\left[\begin{array}{cccc|c}
+1 & 1 & 0 & 2 & 5 \\
+0 & 1 & 0 & 0 & -2 \\
+0 & 0 & 1 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0
+\end{array}\right]
+$$
+
+(b)
+
+$$
+\left[\begin{array}{ccccc|c}
+1 & 1 & 0 & 0 & 2 & -7 \\
+0 & 0 & 0 & 1 & 0 & 5 \\
+0 & 0 & 1 & 0 & 0 & 8
+\end{array}\right]
+$$
+
+(c)
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 0 & 0 & 1 \\
+0 & 1 & 0 & 2 \\
+0 & 0 & 1 & -2 \\
+0 & 0 & 0 & 1
+\end{array}\right]
+$$
+
+Problem 4 (Linear systems 2). Write down augmented matrices in row reduced echelon form representing systems of linear equations for each of the following scenarios:\\
+(a) A consistent system of two equations for two unknowns $x$ and $y$.\\
+(b) An inconsistent system of two equations for two unknowns $x$ and $y$.\\
+(c) An inconsistent system of three equations for two unknowns $x$ and $y$.\\
+(d) A consistent system of three equations for two unknowns $x$ and $y$.
+
+Problem 5 (Free and leading variables). For the following system:
+
+$$
+\begin{aligned}
+x_{1}+x_{2}+x_{4} & =1 \\
+x_{3}+2 x_{4} & =2 \\
+x_{3}+2 x_{4}+x_{5} & =5 .
+\end{aligned}
+$$
+
+\begin{itemize}
+  \item Write down the coefficient matrix and the augmented matrix.
+  \item Use row operations to put the augmented matrix in rref.
+  \item Which are the free variables and which are the leading variables?
+  \item Give the solution to this system.
+\end{itemize}
+
+\end{document}

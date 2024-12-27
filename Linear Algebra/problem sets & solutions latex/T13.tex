@@ -1,0 +1,57 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 30-32}
+\section*{Definitions and Theorems}
+Definition (Eigenvectors - Eigenvalues ). A vector $\vec{v} \in \mathbb{R}^{n}$ is an eigenvector of $n \times n$ matrix $A$ if there exists a scalar $\lambda$ ("lambda") such that $A \vec{v}=\lambda \vec{v}$, and $\vec{v} \neq \overrightarrow{0}$. This $\lambda$ is called the corresponding eigenvalue.
+
+Definition (Eigenspace). If $A$ is an $n \times n$ matrix and $\lambda$ is a scalar, the $\lambda$-eigenspace of $A$ (denoted $E_{\lambda}$ ) is the set of all vector $\vec{v} \in \mathbb{R}^{n}$ such that $A \vec{v}=\lambda \vec{v}$. So, the nonzero vector in $E_{\lambda}$ are exactly the eigenvector of $A$ with eigenvalues $\lambda$. This set is a subspace.
+
+Definition (Geometric Multiplicity). The geometric multiplicity of an eigenvalue $\lambda$ is the dimension of its eigenspace $(\operatorname{dim}(\operatorname{ker}(\lambda \mathrm{I}-A))$ ).
+
+Definition (Algebraic Multiplicity). The algebraic multiplicity of an eigenvalue $\lambda_{1}$ is the number of times the factor $\left(\lambda-\lambda_{1}\right)$ appears in the characteristic polynomial $c_{A}(\lambda) \stackrel{\text { def }}{=} \operatorname{det}(\lambda I-A)$.
+
+Definition (Diagonalization). We say a $n \times n$ matrix $A$ is diagonalizable if there exists an invertible matrix $S$ and a diagonal matrix $B$ such that $A=S B S^{-1}$.
+
+Problem 52. For what values of $\lambda$ is the following matrix invertible?
+
+$$
+\left[\begin{array}{cccc}
+\lambda & 0 & 0 & 0 \\
+0 & 1-\lambda & -2 & 7 \\
+0 & -1 & 2-\lambda & 3 \\
+0 & 0 & 0 & 4-\lambda
+\end{array}\right]
+$$
+
+Problem 53. For which values of $k$ does the matrix
+
+$$
+\left[\begin{array}{cc}
+k+1 & k \\
+-k & 1-k
+\end{array}\right]
+$$
+
+have an eigenbasis?
+
+Problem 54 (Eigenvalues). Two $n \times n$ matrices $A$ and $B$ are called similar if there is an invertible matrix $S$ with $A=S B S^{-1}$.\\
+a) Show that if $X$ and $Y$ are similar, then $\operatorname{det} X=\operatorname{det} Y$.\\
+b) Show that if $A$ is similar to $B$, then the matrix $\lambda I-A$ is similar to $\lambda I-B$.\\
+c) Use the previous two parts to show that similar matrices have the same eigenvalues. (Hint: use the characteristic polynomial).
+
+Problem 55 (Diagonalization and Dynamical Systems). The matrix $A$ has the following eigenvectors and eigenvalues: $\vec{v}_{1}=\left[\begin{array}{l}1 \\ 0 \\ 2\end{array}\right]$ with eigenvalue $\lambda_{1}=1, \vec{v}_{2}=$ $\left[\begin{array}{c}1 \\ -1 \\ 0\end{array}\right]$ with eigenvalue $\lambda_{2}=-1$, and $\vec{v}_{3}=\left[\begin{array}{l}0 \\ 1 \\ 1\end{array}\right]$ with eigenvalue $\lambda_{3}=2$.\\
+a) Diagonalise $A$, i.e., find a matrix $S$ such that $S^{-1} A S$ is a diagonal matrix.\\
+b) Find a closed form for $A^{2021}$.\\
+c) Consider the discrete dynamical system given by $\vec{x}(t+1)=A \vec{x}(t)$ with initial condition $\vec{x}(0)=\left[\begin{array}{l}1000 \\ 2000 \\ 3000\end{array}\right]$. Find $x(2021)$.
+
+
+\end{document}

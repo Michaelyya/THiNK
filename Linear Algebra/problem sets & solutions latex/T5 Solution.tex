@@ -1,0 +1,252 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 9-11}
+This Tutorial is a review for the midterm.
+
+\section*{Definitions}
+Definition (Subspace - Span version). A subspace of $\mathbb{R}^{n}$ is a set of vectors in $\mathbb{R}^{n}$ that can be described as a span of vectors.
+
+Definition (Subspace - Standard version). A subspace of $\mathbb{R}^{n}$ subset $V$ of $\mathbb{R}^{n}$ with the following properties:\\
+(i) $V$ is a non-empty set.\\
+(ii) If $\vec{u}$ is in $V, \vec{u}$ is also in $V$ for any scalar $k \in \mathbb{R}$ (We say $V$ is closed under scalar multiplication.)\\
+(iii) If $\vec{u}$ and $\vec{w}$ are in $V$, their sum $\vec{u}+\vec{w}$ is also in $V$. (We say $V$ is closed under addition.)
+
+Definition (Basis). The vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{m}$ are a basis of a subspace $V$ if they span $V$ and are linearly independent. In other words, a basis of a subspace $V$ is the minimal set of vectors needed to span all of $V$.
+
+Definition (Dimension of a subspace). The dimension of the subspace $V$ is the number of vectors in a basis of $V$.
+
+Definition (Linear Transformations). We define a linear transformation $T: \mathbb{R}^{n} \rightarrow$ $\mathbb{R}^{m}$ as a function with two properties:
+
+\begin{enumerate}
+  \item $T(\vec{x}+\vec{y})=T(\vec{x})+T(\vec{y})$ for all $\vec{x}, \vec{y} \in \mathbb{R}^{n}$ (we say T preserves vector addition)
+  \item $T(\vec{x})=c T(\vec{x})$ for all $\vec{x} \in \mathbb{R}^{n}$ and $c \in \mathbb{R}$ (we say T preserves scalar multiplication)
+\end{enumerate}
+
+Problem 21 (Subspace). Suppose that $V$ is the set of all solutions of the homogeneous system
+
+\[
+\left\{\begin{array}{l}
+x_{1}+2 x_{2}-2 x_{3}+2 x_{4}-x_{5}=0  \tag{5.1}\\
+x_{1}+2 x_{2}-x_{3}+3 x_{4}-2 x_{5}=0 \\
+2 x_{1}+4 x_{2}-7 x_{3}+x_{4}+x_{5}=0
+\end{array}\right.
+\]
+
+Show that $V$ is a subspace of $\mathbb{R}^{5}$.
+
+\section*{Solution 21 (Subspace)}
+\begin{itemize}
+  \item A proof using the span version of the definition of subspace:
+\end{itemize}
+
+The rref for system (5.1) is given by
+
+$$
+\left[\begin{array}{ccccc|c}
+1 & 2 & 0 & 4 & -3 & 0 \\
+0 & 0 & 1 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right]
+$$
+
+which means we can write all solutions of (5.1) as\\
+$(-2 s-4 t+3 u, s, u-t, t, u)=s\left[\begin{array}{c}-2 \\ 1 \\ 0 \\ 0 \\ 0\end{array}\right]+t\left[\begin{array}{c}-4 \\ 0 \\ -1 \\ 1 \\ 0\end{array}\right]+u\left[\begin{array}{l}3 \\ 0 \\ 1 \\ 0 \\ 1\end{array}\right]=s \vec{v}_{1}+t \vec{v}_{2}+u \vec{v}_{3}, \quad s, t, u \in \mathbb{R}$.
+
+In other words $V$ can be be described as the span of $\vec{v}_{1}, \vec{v}_{2}$ and $\vec{v}_{3}$.
+
+\begin{itemize}
+  \item A proof using the standard definition of subspace:
+\end{itemize}
+
+See Problem 16 part a).
+
+Problem 22 (Basis of a subspace). Let $U$ be a subspace of $\mathbb{R}^{5}$ defined by $U=$ $\left\{\left(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}\right) \in \mathbb{R}^{5}: x_{1}=3 x_{2}, x_{3}=7 x_{4}\right\}$. Find a basis for $U$.
+
+Solution 22 (Basis of a subspace)\\
+a) Note that $U$ is the set of all vectors in $\mathbb{R}^{5}$ such that
+
+$$
+\left[\begin{array}{c}
+3 x_{2} \\
+x_{2} \\
+7 x_{4} \\
+x_{4} \\
+x_{5}
+\end{array}\right]=x_{2}\left[\begin{array}{l}
+3 \\
+1 \\
+0 \\
+0 \\
+0
+\end{array}\right]+x_{4}\left[\begin{array}{l}
+0 \\
+0 \\
+7 \\
+1 \\
+0
+\end{array}\right]+x_{5}\left[\begin{array}{l}
+0 \\
+0 \\
+0 \\
+0 \\
+1
+\end{array}\right], \quad x_{2}, x_{4}, x_{5} \in \mathbb{R}
+$$
+
+Define
+
+$$
+\vec{v}_{1}=\left[\begin{array}{l}
+3 \\
+1 \\
+0 \\
+0 \\
+0
+\end{array}\right], \quad \vec{v}_{2}=\left[\begin{array}{l}
+0 \\
+0 \\
+7 \\
+1 \\
+0
+\end{array}\right] \quad \text { and } \quad \vec{v}_{3}=\left[\begin{array}{l}
+0 \\
+0 \\
+0 \\
+0 \\
+1
+\end{array}\right]
+$$
+
+Thus $U=\operatorname{span}\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$.\\
+b) By Gaussian elimination we can see that
+
+$$
+\operatorname{rref}\left[\begin{array}{lll|l}
+3 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & 7 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{array}\right]=\left[\begin{array}{lll|l}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+$$
+
+That is, $\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$ is a linearly independent set of vectors.
+
+Problem 23 (Basis of a subspace). Suppose $\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right\}$ is a basis of $\mathbb{R}^{4}$. Prove that
+
+$$
+\left\{\vec{v}_{1}+\vec{v}_{2}, \vec{v}_{2}+\vec{v}_{3}, \vec{v}_{3}+\vec{v}_{4}, \vec{v}_{4}\right\}
+$$
+
+is also a basis of $\mathbb{R}^{4}$.
+
+Solution 23 (Basis of a subspace)\\
+a) The set $\left\{\vec{v}_{1}+\vec{v}_{2}, \vec{v}_{2}+\vec{v}_{3}, \vec{v}_{3}+\vec{v}_{4}, \vec{v}_{4}\right\}$ spans $\mathbb{R}^{4}$.
+
+Take any vector $\vec{v} \in \mathbb{R}^{4}$. Since $\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4} \in \mathbb{R}^{4}$ is a basis of $\mathbb{R}^{4}$, there are $c_{1}, c_{2}, c_{3}, c_{4} \in \mathbb{R}$ such that
+
+$$
+v=c_{1} \vec{v}_{1}+c_{2} \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4}
+$$
+
+Note that
+
+$$
+\begin{aligned}
+\vec{v} & =c_{1} \vec{v}_{1}+c_{2} \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4} \\
+& =c_{1} \vec{v}_{1}+\overrightarrow{0}+c_{2} \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4} \\
+& =c_{1} \vec{v}_{1}+\left(c_{1} \vec{v}_{2}-c_{1} \vec{v}_{2}\right)+c_{2} \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4} \\
+& =c_{1}\left(\vec{v}_{1}+\vec{v}_{2}\right)+\left(c_{2}-c_{1}\right) \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4}
+\end{aligned}
+$$
+
+We can use the same strategy to obtain the terms $\vec{v}_{2}+\vec{v}_{3}$ and $\vec{v}_{3}+\vec{v}_{4}$ in the expression for $\vec{v}$ :\\
+$\vec{v}=c_{1}\left(\vec{v}_{1}+\vec{v}_{2}\right)+\left(c_{2}-c_{1}\right)\left(\vec{v}_{2}+\vec{v}_{3}\right)+\left(c_{3}-c_{2}+c_{1}\right)\left(\vec{v}_{3}+\vec{v}_{4}\right)+\left(c_{4}-c_{3}+c_{2}-c_{1}\right) \vec{v}_{4}$.\\
+b) The set $\left\{\vec{v}_{1}+\vec{v}_{2}, \vec{v}_{2}+\vec{v}_{3}, \vec{v}_{3}+\vec{v}_{4}, \vec{v}_{4}\right\}$ is linearly independent.
+
+Suppose there are $c_{1}, c_{2}, c_{3}, c_{4} \in \mathbb{R}$ such that
+
+
+\begin{equation*}
+c_{1}\left(\vec{v}_{1}+\vec{v}_{2}\right)+c_{2}\left(\vec{v}_{2}+\vec{v}_{3}\right)+c_{3}\left(\vec{v}_{3}+\vec{v}_{4}\right)+c_{4} \vec{v}_{4}=\overrightarrow{0} \tag{5.2}
+\end{equation*}
+
+
+We need to show $c_{1}, c_{2}, c_{3}, c_{4}=0$.\\
+Note we can rewrite equation (5.2) as follows
+
+$$
+c_{1} \vec{v}_{1}+\left(c_{1}+c_{2}\right) \vec{v}_{2}+\left(c_{2}+c_{3}\right) \vec{v}_{3}+\left(c_{3}+c_{4}\right) \vec{v}_{4}=\overrightarrow{0}
+$$
+
+Since $\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}$ are linearly independent vectors, we have $c_{1}, c_{2}, c_{3}, c_{4}=0$.
+
+Problem 24 (Linear Transformations). Find $a, b \in \mathbb{R}$ such that $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{2}$ defined by
+
+$$
+T(x, y, z)=(2 x-4 y+3 z+b, 6 x+a x y z)
+$$
+
+is a linear transformation.
+
+\section*{Solution 24 (Linear Transformations)}
+If we want $T$ to preserve vector addition, $b$ has to be zero.\\
+And if we want $T$ to preserve scalar multiplication, we need $a$ to be zero.\\
+Thus T is a linear transformation for $a=b=0$. This is a statement you must justify using the definition of linear Transformation.
+
+Problem 25 (Linear Transformations). Let $T: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ be a linear transformation and let $\overrightarrow{v_{1}}, \ldots, \overrightarrow{v_{k}}$ be vectors in $R^{n}$. True or false? If false, give a counter-example. If true, explain why.\\
+a) If the vectors $T\left(\overrightarrow{v_{1}}\right), \ldots, T\left(\overrightarrow{v_{k}}\right)$ are linear independent, then $\overrightarrow{v_{1}}, \ldots, \overrightarrow{v_{k}}$ are also linear independent.\\
+b) If the vectors $\overrightarrow{v_{1}}, \ldots, v_{k}$ are linear independent, then $T\left(\overrightarrow{v_{1}}\right), \ldots, T\left(\overrightarrow{v_{k}}\right)$ are also linear independent.
+
+\section*{Solution 25 (Linear Transformations)}
+a) This is true. Suppose there are $c_{1}, \ldots c_{k} \in \mathbb{R}$ such that
+
+$$
+c_{1} \overrightarrow{v_{1}}+\cdots+c_{k} \overrightarrow{v_{k}}=\overrightarrow{0}
+$$
+
+We need to show that $c_{1}=\cdots=c_{k}=0$.\\
+Since $T$ is a linear transformation we have:
+
+$$
+T\left(c_{1} \overrightarrow{v_{1}}+\cdots+c_{k} \overrightarrow{v_{k}}\right)=c_{1} T\left(\overrightarrow{v_{1}}\right)+\cdots+c_{k} T\left(\overrightarrow{v_{k}}\right)
+$$
+
+and
+
+$$
+T(\overrightarrow{0})=\overrightarrow{0}
+$$
+
+Thus
+
+$$
+c_{1} T\left(\overrightarrow{v_{1}}\right)+\cdots+c_{k} T\left(\overrightarrow{v_{k}}\right)=\overrightarrow{0} .
+$$
+
+By definition of linear independence follows that $c_{1}=\cdots=c_{k}=0$.\\
+b) This is false. Let $n=2$ and define $T$ as
+
+$$
+T(x, y)=(x, 0)
+$$
+
+By definition, the standard basis $\left\{\overrightarrow{e_{1}}, \overrightarrow{e_{2}}\right\}$ is a set of linearly independent vectors. However, $\left\{T\left(\overrightarrow{e_{1}}\right), T\left(\overrightarrow{e_{2}}\right)\right\}=\left\{\overrightarrow{e_{1}}, \overrightarrow{0}\right\}$ is not a linearly independent set of vectors. Recall that any set of vectors that contains $\overrightarrow{0}$ is not linearly independent.
+
+
+\end{document}

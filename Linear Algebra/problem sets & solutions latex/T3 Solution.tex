@@ -1,0 +1,141 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 5-7}
+\section*{Definitions}
+Definition (Linear relations). Consider the vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$. An equation of the form $c_{1} \vec{v}_{1}+\cdots+c_{r} \vec{v}_{r}=\overrightarrow{0}$ is called a linear relation among the vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$. If at least one of the $c_{i}$ is nonzero, then we call this a nontrivial linear relation among $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$.
+
+Definition (Linear Independent vectors). We say vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$ are linearly independent if and only if the only linear relation between them is the trivial one. In other words, $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{r}$ in $\mathbb{R}^{n}$ are linearly independent if and only if the only way that $c_{1} \vec{v}_{1}+\cdots+c_{r} \vec{v}_{r}=\overrightarrow{0}$ is if all the $c_{i}$ are 0 .
+
+Definition (Subspace - Span version). A subspace of $\mathbb{R}^{n}$ is a set of vectors in $\mathbb{R}^{n}$ that can be described as a span of vectors.
+
+Definition (Subspace - Standard version). A subspace of $\mathbb{R}^{n}$ subset $V$ of $\mathbb{R}^{n}$ with the following properties:\\
+(i) $V$ is a non-empty set.\\
+(ii) If $\vec{u}$ is in $V, \vec{u}$ is also in $V$ for any scalar $k \in \mathbb{R}$ (We say $V$ is closed under scalar multiplication.)\\
+(iii) If $\vec{u}$ and $\vec{w}$ are in $V$, their sum $\vec{u}+\vec{w}$ is also in $V$. (We say $V$ is closed under addition.)
+
+Definition (Basis). The vectors $\vec{v}_{1}, \vec{v}_{2}, \ldots, \vec{v}_{m}$ are a basis of a subspace $V$ if they span $V$ and are linearly independent. In other words, a basis of a subspace $V$ is the minimal set of vectors needed to span all of $V$.
+
+Definition (Dimension of a subspace). The dimension of the subspace $V$ is the number of vectors in a basis of $V$.
+
+Problem 12 (Linear dependence). True or false? If false, give a counter-example. If true, explain why.\\
+a) If $\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}$ are linearly dependent vectors in $\mathbb{R}^{2}$, then $\vec{v}_{3}$ is in the span of $\vec{v}_{1}$ and $\vec{v}_{2}$.\\
+b) Any collection of 4 vectors in $\mathbb{R}^{3}$ is linearly dependent.
+
+Solution 12 (Linear dependence)\\
+a) This is false, consider the $\vec{v}_{1}=\left[\begin{array}{l}1 \\ 0\end{array}\right], \vec{v}_{2}=\left[\begin{array}{l}2 \\ 0\end{array}\right], \vec{v}_{3}=\left[\begin{array}{l}0 \\ 1\end{array}\right]$. A nontrivial linear relation is $2 \vec{v}_{1}-\vec{v}_{2}=0$, but $\vec{v}_{3}$ is not in the span of $\vec{v}_{1}$ and $\vec{v}_{2}$.\\
+b) This is true. Pick three of the vectors. Either they span $\mathbb{R}^{3}$ or they do not. If they do not span $\mathbb{R}^{3}$, then they must be linearly dependent, and hence all four vectors are linearly dependent. If they do span $\mathbb{R}^{3}$, then they are a basis of $\mathbb{R}^{3}$ and the fourth vector can be expressed in terms of them, which gives a linear relation.
+
+Problem 13 (Definition of subspace). Give examples of:\\
+a) A subset $V$ of $\mathbb{R}^{2}$ that is closed under scalar multiplication, but not closed under addition.\\
+b) A subset $V$ of $\mathbb{R}^{2}$ that is closed under addition, but not closed under scalar multiplication.
+
+Solution 13 (Definition of subspace)\\
+a) The set consisting of both the $x$-axis and the $y$-axis.
+
+Here if you take an element in this set, it will be a vector on the x -axis or the y -axis. If you multiply this vector by a scalar, it is still on the x -axis or the y -axis, thus closed under scale multiplication.
+
+However, if you take two vectors in the set (e.g. (10) on x axis and (01) on y axis) and try to add them, you may not get a vector that is still on the x -axis or the $y$-axis (e.g. (1 1) in this case), therefore no longer in the set. So it is not closed under addition.\\
+b) The set of vectors $\left[\begin{array}{l}x \\ 0\end{array}\right]$ with just $x \geq 0$.
+
+Take any 2 vectors that are in that set, so say $\left[\begin{array}{l}x \\ 0\end{array}\right]$ and $\left[\begin{array}{l}y \\ 0\end{array}\right]$. Then $x \geq 0$ and $y \geq 0$. Add them up, and the result is still in the set since $\left[\begin{array}{c}x+y \\ 0\end{array}\right]$ still has $(x+y) \geq 0$. So the set is closed under vector addition. However, take any vector in the set, say $\left[\begin{array}{l}1 \\ 0\end{array}\right]$, and multiply it by any negative scalar, say (-1). Then the new vector is $\left[\begin{array}{c}-1 \\ 0\end{array}\right]$, which is not in the set. So the set is not closed under scalar multiplication.
+
+Problem 14 (Subspaces of $\mathbb{R}^{n}$ ). Give an example of:\\
+a) A subspace of $\mathbb{R}$.\\
+b) A subset of $\mathbb{R}^{2}$ that is not a subspace of $\mathbb{R}^{2}$. Explain why it is not a subspace.\\
+c) A subspace of $\mathbb{R}^{3}$ of dimension 2. Explain why it has dimension 2 .\\
+d) A subset of $\mathbb{R}^{3}$ that contains infinitely many vectors, but is not a subspace of $\mathbb{R}^{3}$. Explain why it is not a subspace.
+
+Solution 14 (Subspaces of $\mathbb{R}^{n}$ )\\
+a) The subsets $\mathbb{R}$ and $\{\overrightarrow{0}\}$ are subspaces of $\mathbb{R}$.\\
+b) The set of all vectors $\left[\begin{array}{l}a \\ 0\end{array}\right] \in \mathbb{R}^{2}$ such that $a \leq 0$. It is not closed under scalar multiplication, so it cannot be a subspace of $R^{2}$.\\
+c) The subspace consisting of vectors of the form $\left[\begin{array}{l}x \\ y \\ 0\end{array}\right]$. It has dimension 2 because it has a basis consisting of two vectors: $\left[\begin{array}{l}1 \\ 0 \\ 0\end{array}\right]$ and $\left[\begin{array}{l}0 \\ 1 \\ 0\end{array}\right]$.\\
+d) The set of vectors $\left(v_{1}, v_{2}, v_{3}\right)$ in $\mathbb{R}^{3}$ such that $v_{1}+v_{2}+v_{3}=1$ (the unit sphere). It does not contain the zero vector, so it cannot be a subspace of $R^{3}$.
+
+Problem 15 (Basis and dimension). Find all linear relations between the vectors
+
+$$
+\vec{v}_{1}=\left[\begin{array}{l}
+1 \\
+1 \\
+2
+\end{array}\right], \quad \vec{v}_{2}=\left[\begin{array}{c}
+-1 \\
+0 \\
+3
+\end{array}\right], \quad \vec{v}_{3}=\left[\begin{array}{l}
+3 \\
+2 \\
+1
+\end{array}\right], \quad \vec{v}_{4}=\left[\begin{array}{l}
+0 \\
+1 \\
+5
+\end{array}\right]
+$$
+
+. What is the dimension of $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$ ? Give a basis for this subspace.
+
+Solution 15 (Basis and dimension)
+
+\begin{enumerate}
+  \item Use Gaussian elimination to show that the linear combination
+\end{enumerate}
+
+$$
+c_{1} \vec{v}_{1}+c_{2} \vec{v}_{2}+c_{3} \vec{v}_{3}+c_{4} \vec{v}_{4}
+$$
+
+equals the zero vector if $c_{1}, c_{2}, c_{3}$, and $c_{4}$ take the form
+
+$$
+c_{1}=-2 s-t, \quad c_{2}=s-t, \quad c_{3}=s, \quad c_{4}=t
+$$
+
+where $s$ and $t$ are any real numbers.\\
+2. Now, take any vector $\vec{v}$ in $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$. By definition of span we know there are $a, b, c, d \in \mathbb{R}$ such that
+
+$$
+\vec{v}=a \vec{v}_{1}+b \vec{v}_{2}+c \vec{v}_{3}+d \vec{v}_{4} .
+$$
+
+Using 1 we have:
+
+$$
+(-2 c-d) \vec{v}_{1}+(c-d) \vec{v}_{2}+c \vec{v}_{3}+d \vec{v}_{4}=\overrightarrow{0}
+$$
+
+From the two expressions above follows that
+
+$$
+\vec{v}=a \vec{v}_{1}+b \vec{v}_{2}-(-2 c-d) \vec{v}_{1}-(c-d) \vec{v}_{2}
+$$
+
+in other words
+
+$$
+\vec{v}=(a+2 c+d) \vec{v}_{1}+(b-c+d) \vec{v}_{2} .
+$$
+
+This means that any vector in $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$ can be written as a linear combination of the vectors $v_{1}$ and $v_{2}$.\\
+3. Since $\vec{v}_{1}$ is not a scalar multiple of $\vec{v}_{2}$, these two vectors are linear independent.
+
+By 2 and 3 we can conclude that $\left\{\vec{v}_{1}, \vec{v}_{2}\right\}$ is a basis for $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$ and that the dimension for this subspace is 2 .
+
+Observe that $\left\{\vec{v}_{3}, \vec{v}_{4}\right\}$ is also a basis for $\operatorname{span}\left(\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}, \vec{v}_{4}\right)$.\\
+Here are other 2 possible solutions:
+
+\begin{itemize}
+  \item Pick $s=1$ and $t=0$ to show $v_{3}$ can be written as a linear combination of $v_{1}$ and $v_{2}$; then pick $s=0$ and $t=1$ to show $v_{4}$ can be written as a linear combination of $v_{1}$ and $v_{2}$; see that $v_{1}$ and $v_{2}$ are not multiples of each other; conclude that $v_{1}$ and $v_{2}$ are a possible basis.
+  \item Pick $s=0$ and $t=1$ to show $v_{4}$ can be written as a linear combination of $v_{1}$ and $v_{2}$ so remove it from the list; now check if $v_{1}, v_{2}, v_{3}$ are linear independent by putting as columns in a matrix and row-reducing - you get the same first 3 columns as the previous rref so you know they are dependent too so remove $v_{3}$ from the list (since you can write it in terms of $v_{1}$ and $v_{2}$ ); but $v_{1}$ and $v_{2}$ are independent so a basis is $v_{1}$ and $v_{2}$.
+\end{itemize}
+
+\end{document}

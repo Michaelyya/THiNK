@@ -1,0 +1,304 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\section*{Lecture hours 8-10}
+Definition (Linear Transformations). We define a linear transformation $T: \mathbb{R}^{n} \rightarrow$ $\mathbb{R}^{m}$ as a function with two properties:
+
+\begin{enumerate}
+  \item $T(\vec{x}+\vec{y})=T(\vec{x})+T(\vec{y})$ for all $\vec{x}, \vec{y} \in \mathbb{R}^{n}$ (we say T preserves vector addition)
+  \item $T(\vec{x})=c T(\vec{x})$ for all $\vec{x} \in \mathbb{R}^{n}$ and $c \in \mathbb{R}$ (we say T preserves scalar multiplication)
+\end{enumerate}
+
+Definition (Matrix Multiplication - the column view). Suppose now that $A$ is an $m \times n$ matrix (so $A$ has $m$ rows and $n$ columns, it might be a coefficient matrix for a system of m equations and n unknowns). Also, let $\vec{x}$ be a vector with $n$ entries. We define the vector $A \vec{x}$ as follows: If $\vec{c}_{k}$ is the kth column of $A$, then
+
+$$
+A \vec{x}=\left[\begin{array}{cccc}
+\mid & \mid & & \mid \\
+\vec{c}_{1} & \vec{c}_{2} & \ldots & \vec{c}_{3} \\
+\mid & \mid & & \mid
+\end{array}\right]\left[\begin{array}{c}
+x_{1} \\
+x_{2} \\
+\vdots \\
+x_{n}
+\end{array}\right]=x_{1} \vec{c}_{1}+x_{2} \vec{c}_{2}+\cdots+x_{n} \vec{c}_{n}
+$$
+
+That is, the product of a matrix and a vector is a linear combination of the columns of the matrix.
+
+Problem 16 (Basis for a subspace). Suppose that $V$ is the set of all vectors $\left(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}\right)$ in $\mathbb{R}^{5}$ such that
+
+\[
+\left\{\begin{array}{l}
+x_{1}+2 x_{2}-2 x_{3}+2 x_{4}-x_{5}=0  \tag{4.1}\\
+x_{1}+2 x_{2}-x_{3}+3 x_{4}-2 x_{5}=0 \\
+2 x_{1}+4 x_{2}-7 x_{3}+x_{4}+x_{5}=0
+\end{array}\right.
+\]
+
+a) Explain why $V$ is a subspace of $\mathbb{R}^{5}$.\\
+b) Find a basis for $V$.
+
+Solution 16 (Basis for a subspace)\\
+a) Note $V$ is the set of all solutions to the homogeneous system (4.1).
+
+Since $\overrightarrow{0}$ is a solution to (4.1), $V$ is non-empty.\\
+Take any vector $\left(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}\right)$ in $V$. For any real number $\lambda$ we have
+
+$$
+\begin{aligned}
+& \lambda x_{1}+2 \lambda x_{2}-2 \lambda x_{3}+2 \lambda x_{4}-\lambda x_{5}=\lambda\left(x_{1}+2 x_{2}-2 x_{3}+2 x_{4}-x_{5}\right)=0 \\
+& \lambda x_{1}+2 \lambda x_{2}-\lambda x_{3}+3 \lambda x_{4}-2 \lambda x_{5}=\lambda\left(x_{1}+2 x_{2}-x_{3}+3 x_{4}-2 x_{5}\right)=0 \\
+& 2 \lambda x_{1}+4 \lambda x_{2}-7 \lambda x_{3}+\lambda x_{4}+\lambda x_{5}=\lambda\left(2 x_{1}+4 x_{2}-7 x_{3}+x_{4}+x_{5}\right)=0 .
+\end{aligned}
+$$
+
+That is, $V$ is closed under scalar multiplication. We can show in a similar way that $V$ is closed under addition.\\
+b) We will show that $\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$, where
+
+$$
+\vec{v}_{1}=\left[\begin{array}{c}
+-2 \\
+1 \\
+0 \\
+0 \\
+0
+\end{array}\right], \quad \vec{v}_{2}=\left[\begin{array}{c}
+-4 \\
+0 \\
+-1 \\
+1 \\
+0
+\end{array}\right] \quad \text { and } \quad \vec{v}_{3}=\left[\begin{array}{l}
+3 \\
+0 \\
+1 \\
+0 \\
+1
+\end{array}\right]
+$$
+
+is a basis for $V$.
+
+\begin{enumerate}
+  \item The set $\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$ spans $V$ :
+\end{enumerate}
+
+The rref for system (4.1) is given by
+
+$$
+\left[\begin{array}{ccccc|c}
+1 & 2 & 0 & 4 & -3 & 0 \\
+0 & 0 & 1 & 1 & -1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0
+\end{array}\right]
+$$
+
+which means we can write all solutions to (4.1) as\\
+$(-2 s-4 t+3 u, s, u-t, t, u)=s\left[\begin{array}{c}-2 \\ 1 \\ 0 \\ 0 \\ 0\end{array}\right]+t\left[\begin{array}{c}-4 \\ 0 \\ -1 \\ 1 \\ 0\end{array}\right]+u\left[\begin{array}{l}3 \\ 0 \\ 1 \\ 0 \\ 1\end{array}\right]=s \vec{v}_{1}+t \vec{v}_{2}+u \vec{v}_{3}, \quad s, t, u \in \mathbb{R}$.\\
+In other words $V=\operatorname{span}\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$.\\
+2) The vectors $\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}$ are linearly independent: Using Gaussian elimination we can see that
+
+$$
+\operatorname{rref}\left[\begin{array}{ccc|c}
+-2 & -4 & 3 & 0 \\
+1 & 0 & 0 & 0 \\
+0 & -1 & 1 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0
+\end{array}\right]=\left[\begin{array}{lll|l}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+$$
+
+That is, $\left\{\vec{v}_{1}, \vec{v}_{2}, \vec{v}_{3}\right\}$ is a linearly independent set of vectors.
+
+Problem 17 (Linear Transformations). Suppose that $T: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ and $S: \mathbb{R}^{m} \rightarrow \mathbb{R}^{l}$ are two linear transformations. Define a transformation $F: \mathbb{R}^{n} \rightarrow \mathbb{R}^{l}$ by
+
+$$
+F(\vec{v})=S(T(\vec{v}))
+$$
+
+a) Explain why $F$ is a linear transformation.
+
+Now suppose that $n=3, m=2$, and $l=3$, and $T$ is induced by the matrix
+
+$$
+\left[\begin{array}{ccc}
+1 & 0 & 2 \\
+0 & -1 & 2
+\end{array}\right]
+$$
+
+and $S$ is induced by the matrix
+
+$$
+\left[\begin{array}{cc}
+-2 & 0 \\
+0 & 1 \\
+1 & 3
+\end{array}\right] .
+$$
+
+b) Find $F(\vec{x})$ for any $\vec{x} \in \mathbb{R}^{3}$.
+
+Hint : Write $F(\vec{x})$ in terms of $F\left(\vec{e}_{1}\right), F\left(\vec{e}_{2}\right)$ and $F\left(\vec{e}_{3}\right)$.
+
+\section*{Solution 17 (Linear Transformations)}
+a) We need to determine whether T preserves addition and scalar multiplication. Preservation of scaling for $F$ follows by combining preservation of scaling for both $T$ and $S$ :
+
+$$
+F(c \vec{v})=S(T(c \vec{v}))=S(c T(\vec{v}))=c S(T(\vec{v}))=c F(\vec{v}) .
+$$
+
+Preservation of addition is similar.\\
+b) The answer is
+
+$$
+F(\vec{x})=\left[\begin{array}{ccc}
+-2 & 0 & -4 \\
+0 & -1 & 2 \\
+1 & -3 & 8
+\end{array}\right] \vec{x}
+$$
+
+Problem 18 (Linear Transformations). Let $T: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$ be a linear transformation. In this case, the domain and codomain are the same, so we can repeat $T$. The linear transformation obtained by repeating $T k$ times is denoted $T^{k}$.\\
+a) Find a linear transformation $T: \mathbb{R}^{2} \rightarrow \mathbb{R}^{2}$ with $T$ not equal to the zero transformation ${ }^{1}$, but $T^{2}$ equal to the zero transformation.\\
+b) Find a linear transformation $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ with neither $T$ nor $T^{2}$ equal to the zero transformation, but $T^{3}$ equal to the zero transformation.
+
+\section*{Solution 18 (Linear Transformations)}
+a) The transformation induced by $\left[\begin{array}{ll}0 & 1 \\ 0 & 0\end{array}\right]$.\\
+b) The transformation induced by $\left[\begin{array}{lll}0 & 1 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0\end{array}\right]$.
+
+Problem 19 (Geometrical Linear Transformations). In each part below, you are given a matrix $A$. Describe the effect of the linear transformation $T(\vec{x})=A \vec{x}$ in words.\\
+a) $A=\left[\begin{array}{cc}\sqrt{2} / 2 & -\sqrt{2} / 2 \\ \sqrt{2} / 2 & \sqrt{2} / 2\end{array}\right]$.\\
+b) $A=\left[\begin{array}{cc}\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta\end{array}\right]$, for some $\theta \in \mathbb{R}$.\\
+c) $A=\left[\begin{array}{ccc}\cos \theta & 0 & -\sin \theta \\ 0 & 1 & 0 \\ \sin \theta & 0 & \cos \theta\end{array}\right]$, for some $\theta \in \mathbb{R}$.
+
+Solution 19 (Geometrical Linear Transformations) Draw what happens to the standard basis vectors after applying the linear transformation $T$.\\
+a) Rotation of $\pi / 4$ radians counter-clockwise.\\
+b) Rotation by $\theta$ counter-clockwise.\\
+c) Rotation around the $y$ axis by $\theta$ counter-clockwise in the $x z$-plane.
+
+\footnotetext{${ }^{1}$ the zero transformation is the linear transformation that sends every vector to the zero vector in the codomain
+}Problem 20 (Geometrical Linear Transformations). Find all possible values of $\lambda \in \mathbb{R}$ for which there is a non-zero vector $\vec{v} \in \mathbb{R}^{2}$ with
+
+$$
+\left[\begin{array}{cc}
+1 & -1 \\
+0 & 2
+\end{array}\right] \vec{v}=\lambda \vec{v} .
+$$
+
+Let $A$ be a $2 \times 2$ matrix. What does the equation $A \vec{v}=\lambda \vec{v}$ mean geometrically? Can you think of a matrix $A$ for which there are no non-zero vectors with this property?
+
+Solution 20 (Geometrical Linear Transformations) We need to find all values of $\lambda$ for which the equation
+
+$$
+\left[\begin{array}{cc}
+1 & -1 \\
+0 & 2
+\end{array}\right]\left[\begin{array}{l}
+v_{1} \\
+v_{2}
+\end{array}\right]=\lambda\left[\begin{array}{l}
+v_{1} \\
+v_{2}
+\end{array}\right]
+$$
+
+is consistent. This is a system of two linear equations for $v_{1}, v_{2}$, so can be written in augmented matrix form as
+
+$$
+\left[\begin{array}{cc|c}
+1-\lambda & -1 & 0 \\
+0 & 2-\lambda & 0
+\end{array}\right] .
+$$
+
+There are 3 possible cases:
+
+\begin{itemize}
+  \item If $\lambda=1$ we have
+\end{itemize}
+
+$$
+\operatorname{rref}\left[\begin{array}{cc|c}
+1-\lambda & -1 & 0 \\
+0 & 2-\lambda & 0
+\end{array}\right]=\left[\begin{array}{ll|l}
+0 & 1 & 0 \\
+0 & 0 & 0
+\end{array}\right] .
+$$
+
+Then, $\vec{v}=(t, 0)$ for $t \in \mathbb{R}$.
+
+\begin{itemize}
+  \item If $\lambda=2$ we have
+\end{itemize}
+
+$$
+\operatorname{rref}\left[\begin{array}{cc|c}
+1-\lambda & -1 & 0 \\
+0 & 2-\lambda & 0
+\end{array}\right]=\left[\begin{array}{ll|l}
+1 & 1 & 0 \\
+0 & 0 & 0
+\end{array}\right] .
+$$
+
+Then, $\vec{v}=(t,-t)$ for $t \in \mathbb{R}$.
+
+\begin{itemize}
+  \item If $\lambda \neq 1,2$ we have
+\end{itemize}
+
+$$
+\operatorname{rref}\left[\begin{array}{cc|c}
+1-\lambda & -1 & 0 \\
+0 & 2-\lambda & 0
+\end{array}\right]=\left[\begin{array}{ll|l}
+1 & 0 & 0 \\
+0 & 1 & 0
+\end{array}\right]
+$$
+
+Then, $\vec{v}=\overrightarrow{0}$.
+
+In conclusion, the only way to get a non-zero $\vec{v}$ is if $\lambda=1$ or $\lambda=2$.\\
+Geometrically, the equation $A \vec{v}=\lambda \vec{v}$ means that the linear transformation induced by $A$ scales $\vec{v}$ with scale factor $\lambda$. Therefore, if $A$ is a rotation in two dimensions ( see Problem 19 b) for an explicit example) then there can be no vectors $\vec{v}$ with $A \vec{v}=\lambda \vec{v}$.
+
+
+\end{document}
