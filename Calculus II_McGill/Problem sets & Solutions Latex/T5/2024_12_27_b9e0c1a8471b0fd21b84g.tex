@@ -1,0 +1,123 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Math 141 Tutorial 5}
+\section*{Main problems}
+\begin{enumerate}
+  \item Compute the following integrals using integration by parts (IBP)\\
+(a) $\int_{0}^{\ln (2)} s e^{s} \mathrm{~d} s$\\
+(e) $\int x \sec ^{2} x \mathrm{~d} x$\\
+(b) $\int x \cosh (x) \mathrm{d} x$\\
+(f) $\int \arcsin (x) \mathrm{d} x$\\
+(c) $\int_{0}^{1} \arctan (x) \mathrm{d} x$\\
+(g) $\int \frac{\ln x}{x^{2}} \mathrm{~d} x$\\
+(d) $\int_{1}^{e} \ln \left(x^{8}\right) \mathrm{d} x$
+  \item (a) Using integration by parts, prove the following reduction formula:
+\end{enumerate}
+
+$$
+\int(\ln x)^{n} \mathrm{~d} x=x(\ln x)^{n}-n \int(\ln x)^{n-1} \mathrm{~d} x
+$$
+
+(b) Using your result from (a), determine
+
+$$
+\int_{1}^{e}(\ln x)^{3} \mathrm{~d} x
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{2}
+  \item Compute the following trigonometric integrals.\\
+(a) $\int_{0}^{\pi / 2} \sin ^{8}(x) \cos ^{5}(x) \mathrm{d} x$\\
+(d) $\int \sin ^{2}(x) \cos ^{4}(x) \mathrm{d} x$\\
+(b) $\int \sin ^{5}(x) \mathrm{d} x$\\
+(e) $\int \tan ^{3}(x) \sec (x) \mathrm{d} x$\\
+(c) $\int_{-\pi / 4}^{0} \tan ^{3}(x) \sec ^{4}(x) d x$\\
+(f) $\int_{0}^{\pi / 10} \cos ^{4}(5 x) \mathrm{d} x$
+  \item Compute the integrals below using Trigonometric Substitution\\
+(a) $\int \frac{\sqrt{2-x^{2}}}{x^{2}} \mathrm{~d} x$\\
+(c) $\int \sqrt{7+6 x-x^{2}} \mathrm{~d} x$\\
+(b) $\int_{\sqrt{3}}^{2} \frac{\sqrt{x^{2}-3}}{x} \mathrm{~d} x$\\
+(d) $\int_{0}^{a} x^{2} \sqrt{a^{2}-x^{2}} \mathrm{~d} x$
+\end{enumerate}
+
+\section*{Practice Problems}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item Evaluate the following integrals using a method of your choice.\\
+(a) $\int x \sec ^{2}(x) \mathrm{d} x$\\
+(h) $\int \frac{-3 x}{\sqrt{x^{2}-16}} \mathrm{~d} x$\\
+(b) $\int_{0}^{\sqrt{\pi}} x^{3} \cos \left(x^{2}\right) \mathrm{d} x$\\
+(i) $\int_{0}^{3 / 10} \frac{x^{2}}{\sqrt{9-25 x^{2}}} \mathrm{~d} x$\\
+(c) $\int x \sin ^{3}(x) \cos ^{3}(x) \mathrm{d} x$\\
+(j) $\int \frac{4 x^{5}}{\left(2 x^{2}-3\right)^{\frac{3}{2}}} \mathrm{~d} x$\\
+(d) $\int \sin (a x) \cos (b x) \mathrm{d} x,(a, b \neq 0, a \neq \pm b)$\\
+(k) $\int_{0}^{\pi / 3} \frac{\sin (t) \cos (t)}{\sqrt{1+\cos ^{2}(t)}} \mathrm{d} t$\\
+(e) $\int_{0}^{1} \frac{x}{x^{4}+1} \mathrm{~d} x$\\
+(l) $\int \tan ^{2}(x) \mathrm{d} x$\\
+(f) $\int_{1}^{e} \frac{\ln x}{x} \mathrm{~d} x$\\
+(m) $\int \frac{\sin ^{2}\left(\frac{1}{x}\right)}{x^{2}} \mathrm{~d} x$\\
+(g) $\int \frac{1}{\sqrt{1-4 x^{2}}} \mathrm{~d} x$\\
+(n) $\int\left(\frac{\ln x}{x}\right)^{2} \mathrm{~d} x$
+\end{enumerate}
+
+\section*{Challenge Problems}
+\begin{enumerate}
+  \setcounter{enumi}{5}
+  \item Prove that the following equation is correct for any continuously differentiable functions $f(x), g(x)$ and $h(x)$ :
+\end{enumerate}
+
+$$
+\int_{a}^{b} f^{\prime}(x) g(x) h(x) d x=\left.f(x) g(x) h(x)\right|_{a} ^{b}-\int_{a}^{b} f(x) g^{\prime}(x) h(x) d x-\int_{a}^{b} f(x) g(x) h^{\prime}(x) d x
+$$
+
+\begin{enumerate}
+  \setcounter{enumi}{6}
+  \item Evaluate
+\end{enumerate}
+
+$$
+\int_{-\pi}^{\pi} \arctan \left(\pi^{x}\right) \mathrm{d} x
+$$
+
+Hint: consider using the substitution $u:=-x$. You might need the identity
+
+$$
+\arctan (1 / s)=\operatorname{arccot}(s)=\frac{\pi}{2}-\arctan (s)
+$$
+
+where the first equality is valid for $s>0$.\\
+8. Compute the following integral with the appropriate method(s)
+
+$$
+\int \frac{x \ln (x)}{\sqrt{x^{2}-1}} \mathrm{~d} x
+$$
+
+Hint: start with integration by parts.\\
+9. (a) Using trigonometric substitution show that
+
+$$
+\int \frac{\mathrm{d} x}{\sqrt{x^{2}+a^{2}}}=\ln \left(x+\sqrt{x^{2}+a^{2}}\right)+C .
+$$
+
+(b) Use the hyperbolic substitution $x=a \cdot \sinh (t)$ to show that
+
+$$
+\int \frac{\mathrm{d} x}{\sqrt{x^{2}+a^{2}}}=\operatorname{arcsinh}\left(\frac{x}{a}\right)+C
+$$
+
+where $a>0$ is a constant.\\
+(c) Using part (a), provide an expression for $\operatorname{arcsinh}\left(\frac{x}{a}\right)$ in terms of the logarithm function.
+
+Recall: $\cosh ^{2}(\phi)=1+\sinh ^{2}(\phi)$ and $\cosh (x)>0$ for all $x \in \mathbb{R}$.
+
+
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\section*{Math 141 Tutorial 9}
+\section*{Main problems}
+\begin{enumerate}
+  \item Determine whether each improper integral is convergent or divergent and justify your statement. When convergent, is it always possible to compute the value of the improper integral? If so, compute it.\\
+(a) $\int_{e}^{\infty} \frac{1}{x(\ln (x))^{2}} \mathrm{~d} x$\\
+(b) $\int_{0}^{\infty} \frac{1}{x^{2}+2 x+2} \mathrm{~d} x$\\
+(c) $\int_{-1}^{1} \frac{e^{1 / x}}{x^{2}} \mathrm{~d} x$
+  \item Use the comparison test to determine whether each of the following integrals converge or diverge.\\
+(a) $\int_{1}^{\infty} \frac{1+e^{-\cos x}}{\sqrt{x}} \mathrm{~d} x$\\
+(b) $\int_{1}^{\infty} \frac{x}{x^{3}+1} \mathrm{~d} x$\\
+(c) $\int_{0}^{\infty} \frac{\arctan (x)}{2+e^{x}} \mathrm{~d} x$
+  \item Determine whether each improper integral is convergent or divergent and justify your statement. Note that you do not need to evaluate each integral.\\
+(a) $\int_{\pi}^{\infty} \frac{\cos (\ln (x))+2}{x^{1 / 4}} \mathrm{~d} x$\\
+(b) $\int_{e}^{\infty} \frac{\ln (x)}{x} \mathrm{~d} x$\\
+(c) $\int_{5}^{\infty} \frac{1}{\sqrt{x-\sqrt{x}}} \mathrm{~d} x$
+  \item Compute the arc length of the following curves over the given interval.\\
+(a) $y=\frac{2}{3} x^{3 / 2}$ for $x \in[0,2]$\\
+(b) $y=\ln (\sec (x))$ for $x \in[0, \pi / 4]$\\
+(c) $y=\frac{x^{3}}{3}+\frac{1}{4 x}$ for $x \in[1,2]$\\
+(d) $x=\sqrt{y-y^{2}}+\arcsin (\sqrt{y})$ for $y \geq \frac{1}{2}$.
+  \item Find a function $f(x)$ whose arc length between $x=0$ and $x=1 / 2$ is given by
+\end{enumerate}
+
+$$
+\int_{0}^{\frac{1}{2}} \frac{1+x^{2}}{1-x^{2}} \mathrm{~d} x
+$$
+
+Then, compute this arc length integral.\\
+6. Evaluate the area of the surface obtained by rotating the given curve about the specified axis.\\
+(a) $y=\sqrt{1+e^{x}}$ for $x \in[0,1]$ about the $x$-axis.\\
+(b) $y=\frac{1}{4} x^{2}-\frac{1}{2} \ln (x)$ for $x \in[1,2]$ about the $x$-axis.\\
+(c) $x=1-y^{2}$ for $y \in[0,3]$ about the $x$-axis.\\
+(d) $x=1+\sqrt{1-y^{2}}, 0 \leq y \leq 1 / 2$ about the $y$-axis.
+
+\section*{Extra Practice Problems}
+\begin{enumerate}
+  \item Determine why each of the following integrals is improper. Can you determine whether each integral converges or diverges?\\
+(a) $\int_{25}^{\infty} \frac{1}{x^{6}+x+45} d x$\\
+(d) $\int_{-\infty}^{\infty} x e^{-x^{2}} d x$\\
+(g) $\int_{1}^{\infty} \frac{e^{1 / x}}{x^{3}} d x$\\
+(b) $\int_{0}^{1} \ln (x) \mathrm{d} x$\\
+(e) $\int_{5}^{\infty} \frac{3+e^{-2 x}}{5 x} d x$\\
+(h) $\int_{0}^{\pi / 2} \frac{\cos \theta}{\sqrt{\sin \theta}} \mathrm{~d} \theta$\\
+(c) $\int_{0}^{1} \frac{1}{\sqrt{1-x^{2}}} \mathrm{~d} x$\\
+(f) $\int_{-\infty}^{-1} \frac{e^{1 / x}}{x^{3}} d x$\\
+(i) $\int_{-\infty}^{0} \frac{z+1}{z-2} \mathrm{~d} z$
+\end{enumerate}
+
+\section*{Challenge Problems}
+\begin{enumerate}
+  \item Show that $\int_{0}^{\infty} \frac{\ln (x)}{1+x^{2}} d x=0$\\
+$\underline{\text { Hint: }}$ : you might find the substitution $x=e^{t}$ useful.
+  \item Suppose $f^{\prime}(x)=\frac{1}{x^{2}+(f(x))^{2}}$ and that $f(1)=1$.\\
+(a) Show that $f(x)$ is an increasing function on $[1, \infty)$.\\
+(b) Deduce from part (a) that $\int_{1}^{\infty} f^{\prime}(x) d x \leq \int_{1}^{\infty} \frac{1}{x^{2}+1} d x$.\\
+(c) Using (a) and (b), prove that $\lim _{x \rightarrow \infty} f(x) \leq 1+\frac{\pi}{4}$.
+  \item Determine whether $\int_{-1}^{1} e^{1 / x} \mathrm{~d} x$ converges or diverges. Can you justify your answer using class results?
+\end{enumerate}
+
+\end{document}

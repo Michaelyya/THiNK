@@ -1,0 +1,277 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\section*{Math 141 Tutorial 11 Solutions}
+\section*{Main problems}
+\begin{enumerate}
+  \item Find the values of $p$ for which these series are convergent.\\
+(a) $\sum_{n=2}^{\infty} \frac{1}{n(\ln n)^{p}}$\\
+(b) $\sum_{n=3}^{\infty} \frac{1}{n \ln n[\ln (\ln n)]^{p}}$\\
+(c) $\sum_{n=1}^{\infty} n\left(1+n^{2}\right)^{p}$
+\end{enumerate}
+
+\section*{Solutions:}
+(a) We'll use the integral test to determine the values of $p$ for which the series converges. Let
+
+$$
+f(x)=\frac{1}{x(\ln x)^{p}},
+$$
+
+then for any $p$ we have that $f(x)$ is continuous and positive for $x \geq 2$. It remains to show that $f$ is decreasing. Indeed, we have
+
+$$
+f^{\prime}(x)=\frac{-1}{\left(x(\ln x)^{p}\right)^{2}}\left((\ln x)^{p}+x p(\ln x)^{p-1} \frac{1}{x}\right)=-\frac{(\ln x)^{p}+p(\ln x)^{p-1}}{\left(x(\ln x)^{p}\right)^{2}} \leq 0
+$$
+
+for all $x \geq 2$. Hence, we can apply the integral test for convergence. Using the substitution $u=\ln x$, we get
+
+$$
+\int_{2}^{\infty} \frac{1}{x(\ln x)^{p}} \mathrm{~d} x=\lim _{b \rightarrow \infty} \int_{\ln 2}^{\ln b} \frac{1}{u^{p}} \mathrm{~d} u
+$$
+
+We'll consider three cases:\\
+(i) $p<1$,\\
+(ii) $p=1$,\\
+(iii) and $p>1$.
+
+Case (i): If $p<1$, we get
+
+$$
+\int_{2}^{\infty} \frac{1}{x(\ln x)^{p}} \mathrm{~d} x=\left.\lim _{b \rightarrow \infty} \frac{u^{1-p}}{1-p}\right|_{\ln 2} ^{\ln b}=\lim _{b \rightarrow \infty} \frac{(\ln b)^{1-p}-(\ln 2)^{1-p}}{1-p}=\infty
+$$
+
+since $1-p>0$, and so $(\ln b)^{1-p} \rightarrow \infty$.\\
+Case (ii): If $p=1$, we get
+
+$$
+\int_{2}^{\infty} \frac{1}{x(\ln x)^{p}} \mathrm{~d} x=\left.\lim _{b \rightarrow \infty} \ln x\right|_{\ln 2} ^{\ln b}=\lim _{b \rightarrow \infty} \ln (\ln b)-\ln (\ln 2)=\infty
+$$
+
+Case (iii): If $p>1$, we get
+
+$$
+\int_{2}^{\infty} \frac{1}{x(\ln x)^{p}} \mathrm{~d} x=\left.\lim _{b \rightarrow \infty} \frac{u^{1-p}}{1-p}\right|_{\ln 2} ^{\ln b}=\lim _{b \rightarrow \infty} \frac{(\ln b)^{1-p}-(\ln 2)^{1-p}}{1-p}=-\frac{(\ln 2)^{1-p}}{1-p}<\infty
+$$
+
+since $1-p<0$, and so $(\ln b)^{1-p} \rightarrow 0$. Hence the series converges for $p \in(1, \infty)$.\\
+(b) We'll use a similar approach to (a). Let
+
+$$
+f(x)=\frac{1}{x \ln x[\ln (\ln x)]^{p}}
+$$
+
+then for any $p$ we have that $f(x)$ is continuous and positive for $x \geq 2$. Moreover, looking at $f^{\prime}$ we see that
+
+$$
+\begin{aligned}
+f^{\prime}(x) & =-\frac{\ln x[\ln (\ln x)]^{p}+x \frac{1}{x}[\ln (\ln x)]^{p}+x \ln x p[\ln (\ln x)]^{p-1} \frac{1}{x \ln x}}{\left(x \ln x[\ln (\ln x)]^{p}\right)^{2}} \\
+& =-\frac{\ln x[\ln (\ln x)]^{p}+[\ln (\ln x)]^{p}+p[\ln (\ln x)]^{p-1}}{\left(x \ln x[\ln (\ln x)]^{p}\right)^{2}} \\
+& \leq 0
+\end{aligned}
+$$
+
+for all $x \geq 2$. So, once again we can apply the integral test for convergence and the substitution $u=\ln (\ln x)$ to obtain
+
+$$
+\int_{2}^{\infty} \frac{1}{x \ln x[\ln (\ln x)]^{p}} \mathrm{~d} x=\lim _{b \rightarrow \infty} \int_{\ln 2}^{\ln b} \frac{1}{u^{p}} \mathrm{~d} u
+$$
+
+which only converges for $p \in(1, \infty)$, by the exact same analysis as in question (a). Hence, the series converges for $p \in(1, \infty)$.\\
+(c) In this problem, instead of directly trying to apply the integral test, first we show that for $p \geq-1 / 2$, the series diverges by the divergence test. We do this in two cases:\\
+(i) $p>0$,\\
+(ii) and $p>=-1 / 2$.
+
+The case $p \geq 0$, it should be clear that
+
+$$
+\lim _{n \rightarrow \infty} n\left(1+n^{2}\right)^{p}=\infty
+$$
+
+so we'll focus on case (ii). Suppose $0>p>-1 / 2$, then we get
+
+$$
+\begin{aligned}
+\lim _{n \rightarrow \infty} n\left(1+n^{2}\right)^{p} & =\lim _{n \rightarrow \infty} \frac{n}{\left(1+n^{2}\right)^{-p}} \\
+& =\lim _{n \rightarrow \infty} \frac{n}{n^{-2 p}\left(\frac{1}{n^{2}}+1\right)^{-p}} \\
+& =\lim _{n \rightarrow \infty} \frac{n^{1+2 p}}{\left(\frac{1}{n^{2}}+1\right)^{-p}}
+\end{aligned}
+$$
+
+but since $0>p>-1 / 2$, it follows that $1+2 p \geq 0$ and so
+
+$$
+\lim _{n \rightarrow \infty} n\left(1+n^{2}\right)^{p}=\lim _{n \rightarrow \infty} \frac{n}{\left(1+n^{2}\right)^{-p}}=\lim _{n \rightarrow \infty} \frac{n^{1+2 p}}{\left(\frac{1}{n^{2}}+1\right)^{-p}}=\left\{\begin{array}{ll}
+1 & \text { if } p=-1 / 2 \\
+\infty & \text { if } 0>p>-1 / 2
+\end{array} .\right.
+$$
+
+Either way, by the test for divergence we have that the series diverges.\\
+Next, we show that the integral convergence test to investigate what happens for $p<-1 / 2$. Let $f(x)=x\left(1+x^{2}\right)^{p}$, then $f(x)$ is positive and continuous for $x \geq 1$. Once again, we look at $f^{\prime}$ to see whether $f$ is decreasing. We have
+
+$$
+f^{\prime}(x)=\left(1+x^{2}\right)^{p}+x p\left(1+x^{2}\right)^{p-1} 2 x=\left(1+x^{2}\right)^{p}+2 p x^{2}\left(1+x^{2}\right)^{p-1}
+$$
+
+so to determine whether $f^{\prime}(x) \leq 0$, after multiplying (remember $p<0$ right now) both sides of the inequality by $\left(1+x^{2}\right)^{p-1}$ is equivalent to whether
+
+$$
+1+x^{2}+2 p x^{2}=1+(1+2 p) x^{2} \leq 0
+$$
+
+But $1+2 p<0$, so we observe that for $x$ sufficiently large we'll get $f^{\prime}(x) \leq 0$. Therefore we can apply the integral test for convergence and the substitution $u=1+x^{2}$ to find
+
+$$
+\int_{1}^{\infty} x\left(1+x^{2}\right)^{p} \mathrm{~d} x=\lim _{b \rightarrow \infty} \int_{2}^{1+b^{2}} \frac{1}{2} u^{p} \mathrm{~d} u
+$$
+
+For clarity, we'll write $q=-p>0$ (this isn't a u-sub) so the above becomes
+
+$$
+\int_{1}^{\infty} x\left(1+x^{2}\right)^{p} \mathrm{~d} x=\lim _{b \rightarrow \infty} \int_{2}^{1+b^{2}} \frac{1}{2 u^{q}} \mathrm{~d} u
+$$
+
+and by the same analysis as before, we can conclude that this integral only converges for $q>1$. Since $q=-p$, that means that the integral only converges for $p<-1$, and likewise the series in question only converges for $p \in(-\infty,-1)$.\\
+2. Using the direct comparison test, determine whether the following series are convergent or divergent.\\
+(a) $\sum_{n=1}^{\infty} \frac{n}{2 n^{3}+1}$\\
+(c) $\sum_{n=1}^{\infty} \frac{2+(-1)^{n}}{n}$\\
+(b) $\sum_{n=1}^{\infty} \frac{\cos ^{2} n}{n^{2}+1}$\\
+(d) $\sum_{n=1}^{\infty} \frac{3^{n}}{4+2^{n}}$
+
+Solutions: (Disclaimer - these are not the only correct comparisons that could be used).\\
+(a) We'll compare the terms of the series with
+
+$$
+b_{n}=\frac{1}{2 n^{2}}
+$$
+
+Since
+
+$$
+\frac{n}{2 n^{3}+1} \leq \frac{n}{2 n^{3}}=\frac{1}{2 n^{2}}
+$$
+
+and $\sum_{n=1}^{\infty} b_{n}$ converges, the series converges.\\
+(b) We'll compare with $b_{n}=\frac{1}{n^{2}}$ to see that the series converges. We have
+
+$$
+\frac{\cos ^{2} n}{n^{2}+1} \leq \frac{1}{n^{2}+1} \leq \frac{1}{n^{2}}
+$$
+
+so by the DCT, the series converges.\\
+(c) Compare with $b_{n}=\frac{1}{n}$ to see that the series diverges. We have
+
+$$
+\frac{2+(-1)^{n}}{n} \geq \frac{2+(-1)}{n}=\frac{1}{n}
+$$
+
+so by the DCT, the series diverges.\\
+(d) We'll compare the terms of the series with
+
+$$
+b_{n}=\frac{1}{5}\left(\frac{3}{2}\right)^{n}
+$$
+
+Since
+
+$$
+\frac{3^{n}}{4+2^{n}} \geq \frac{3^{n}}{4 \cdot 2^{n}+2^{n}}=\frac{3^{n}}{52^{n}}
+$$
+
+and the series $\sum_{n=1}^{\infty} b_{n}$ diverges, the series diverges.\\
+3. Using the limit comparison test, determine whether the following series are convergent or divergent.\\
+(a) $\sum_{n=1}^{\infty} \frac{n+4^{n}}{n+6^{n}}$\\
+(c) $\sum_{n=1}^{\infty} \frac{\ln n}{\sqrt{n} e^{n}}$\\
+(b) $\sum_{n=1}^{\infty}\left(1+\frac{1}{n}\right)^{2} e^{-n}$\\
+(d) $\sum_{n=1}^{\infty} \frac{1}{n!}$
+
+Solutions: (Disclaimer - these are not the only correct comparisons that could be used).\\
+(a) Compare with $b_{n}=2 \frac{4^{n}}{6^{n}}$ to see that the series converges. We have
+
+$$
+\lim _{n \rightarrow \infty} \frac{\left(\frac{n+4^{n}}{n+6^{n}}\right)}{\left(2 \frac{4^{n}}{6^{n}}\right)}=\lim _{n \rightarrow \infty} \frac{n+4^{n}}{n+6^{n}} \frac{6^{n}}{2 \cdot 4^{n}}=\lim _{n \rightarrow \infty} \frac{1}{2} \frac{\frac{n}{4^{n}}+1}{\frac{n}{6^{n}}+1} .
+$$
+
+To tackle this limit, we'll use the following (much more general) result. For any $k \geq 0$ and $r>1$,
+
+$$
+\lim _{n \rightarrow \infty} \frac{n^{k}}{r^{n}}=0
+$$
+
+which can be proven by applying L'Hôpital's rule $k$ times (or $\lceil k\rceil$ times, if $k$ isn't an integer). Armed with this fact, we get that
+
+$$
+\lim _{n \rightarrow \infty} \frac{\left(\frac{n+4^{n}}{n+6^{n}}\right)}{\left(2 \frac{4^{n}}{6^{n}}\right)}=\frac{1}{2}
+$$
+
+so the series converges.\\
+(b) Compare with $b_{n}=2 e^{-n}$ to see that the series converges.\\
+(c) Compare with $b_{n}=e^{-n}$ to see that the seris converges.\\
+(d) Compare with
+
+$$
+b_{n}=\frac{1}{n(n-1)},
+$$
+
+to see that the series converges. Moreover, we can compare $b_{n}$ with $c_{n}=\frac{1}{n^{2}}$ to see that the series $\sum_{n=1}^{\infty} b_{n}$ converges.\\
+4. Determine whether the following series are convergent or divergent.\\
+(a) $\sum_{n=2}^{\infty} \frac{\sqrt{n}}{n-1}$\\
+(c) $\sum_{n=1}^{\infty} \frac{n+5}{\sqrt[3]{n^{7}+n^{2}}}$\\
+(e) $\sum_{n=1}^{\infty} \sin \left(\frac{1}{n}\right)$\\
+(b) $\sum_{n=2}^{\infty} \frac{n^{3}}{n^{4}-1}$\\
+(d) $\sum_{n=1}^{\infty} \frac{n^{n}}{n!}$\\
+(f) $\sum_{n=1}^{\infty} \frac{e^{\frac{1}{n}}}{n}$
+
+Solutions: (Disclaimer - these are not the only correct comparisons that could be used).\\
+(a) Compare with $b_{n}=\frac{1}{\sqrt{n}}$ to see that the series diverges by the DCT/LCT.\\
+(b) Compare with $b_{n}=\frac{1}{n}$ to see that the series diverges by the DCT/LCT.\\
+(c) Compare with $b_{n}=\frac{1}{n^{7 / 3}}$ to see that the series converges by the DCT/LCT.\\
+(d) We'll perform the test for divergence to see that the series diverges. Observe that we have
+
+$$
+\frac{n^{n}}{n!}=\frac{n \cdots n}{n(n-1) \cdots 1}=\frac{n}{n} \frac{n}{(n-1)} \cdots \frac{n}{1} \geq 1
+$$
+
+for all $n \geq 1$. Hence by taking limits on both sides, it follows that
+
+$$
+\lim _{n \rightarrow \infty} \frac{n^{n}}{n!} \geq \lim _{n \rightarrow \infty} 1=1
+$$
+
+and by the test for divergence the series diverges.\\
+(e) We'll compare with $b_{n}=\frac{1}{n}$ to see that the series diverges. Recall that
+
+$$
+\lim _{x \rightarrow 0} \frac{\sin x}{x}=1
+$$
+
+so we get
+
+$$
+\lim _{n \rightarrow \infty} \frac{\sin \left(\frac{1}{n}\right)}{\frac{1}{n}}=\lim _{x \rightarrow 0} \frac{\sin x}{x}=1
+$$
+
+so by the LCT the series diverges.\\
+(f) Compare with $b_{n}=\frac{1}{n}$ to see that the series diverges by the DCT/LCT.
+
+\section*{Practice Problems}
+\begin{enumerate}
+  \item Determine whether the following series are convergent or divergent.\\
+(a) $\sum_{n=1}^{\infty} \frac{\arctan n}{n^{2}}$\\
+(e) $\sum_{n=1}^{\infty} \frac{5^{n}}{3^{n}+4^{n}}$\\
+(b) $\sum_{n=1}^{\infty} \frac{n}{(\ln n)^{n}}$\\
+(f) $\sum_{n=1}^{\infty} n \sin \left(\frac{1}{n}\right)$\\
+(c) $\sum_{n=1}^{\infty} \frac{\ln n}{n}$\\
+(g) $\sum_{n=1}^{\infty} \frac{n \sin n}{n^{2}+1}$\\
+(d) $\sum_{n=1}^{\infty} \frac{n^{2} 2^{n-1}}{5^{n}}$\\
+(h) $\sum_{n=1}^{\infty} \frac{n^{2}}{(2 n+7)^{3}}$
+\end{enumerate}
+
+\end{document}

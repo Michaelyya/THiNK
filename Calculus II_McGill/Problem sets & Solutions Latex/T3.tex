@@ -1,0 +1,76 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Math 141 Tutorial 3}
+\section*{Main problems}
+\begin{enumerate}
+  \item Suppose that $f, g:[a, b] \rightarrow \mathbb{R}$ are continuous functions and let $c \in \mathbb{R}$ be such that $a<c<b$. Given that
+\end{enumerate}
+
+$$
+\int_{a}^{c} f(x) \mathrm{d} x=4, \quad \int_{a}^{b} f(x) \mathrm{d} x=-2, \quad \int_{a}^{c} g(x) \mathrm{d} x=-1, \quad \int_{c}^{b} g(x) \mathrm{d} x=3
+$$
+
+determine the value of each of the following integrals.\\
+(a) $\int_{a}^{c}(f(x)+2 g(x)) \mathrm{d} x$\\
+(b) $\int_{c}^{b} f(x) \mathrm{d} x$\\
+(c) $\int_{a}^{b}(2 f(x)-5 g(x)) \mathrm{d} x$\\
+2. Given that
+
+$$
+\int_{0}^{\pi} \sin (x) \mathrm{d} x=2 \quad \text { and } \quad \int_{0}^{\pi} \sin ^{2}(x) \mathrm{d} x=\frac{\pi}{2}
+$$
+
+and
+
+$$
+\int_{-\pi}^{0} \sin (x) \mathrm{d} x=-2 \quad \text { and } \quad \int_{-\pi}^{0} \sin ^{2}(x) \mathrm{d} x=\frac{\pi}{2}
+$$
+
+determine the value of each of the following integrals.\\
+(a) $\int_{0}^{\pi}\left(2 \sin ^{2}(x)-\pi \sin (x)\right) \mathrm{d} x$\\
+(b) $\int_{0}^{\pi} \cos ^{2}(x) \mathrm{d} x$\\
+(c) $\int_{-\pi}^{\pi} \sin (x)(\sin (x)+1) d x$\\
+3. For each function $f$ below, find constants $m$ and $M$ such that
+
+$$
+m \leq \int_{a}^{b} f(x) d x \leq M
+$$
+
+(a) $f(x)=x^{3}+1$ with $a=0$ and $b=2$.\\
+(b) $f(x)=\ln \left(x^{2}+4 x+14\right)$ with $a=-4$ and $b=2$.\\
+4. Consider the function $F$ given by
+
+$$
+F(x)=\int_{0}^{x} \cos (t) e^{t^{2}} \mathrm{~d} t
+$$
+
+Find where the local maxima and minima of $F(x)$ on $(0,2 \pi)$ occur. (Do not try and evaluate $F$ at these points!)
+
+\section*{Challenge Problems}
+\begin{enumerate}
+  \setcounter{enumi}{4}
+  \item Compute the following limits\\
+(a) $\lim _{n \rightarrow \infty} \frac{1}{n}\left(\sqrt{\frac{1}{n}}+\sqrt{\frac{2}{n}}+\cdots+\sqrt{\frac{n}{n}}\right)$\\
+(b) $\lim _{n \rightarrow \infty} \sum_{i=1}^{n} \frac{2 \pi}{n} \sin \left(\frac{2 \pi i}{n}\right)$
+\end{enumerate}
+
+Hint: how do these limits relate to Riemann sums?\\
+6. Let
+
+$$
+g(x)=\int_{0}^{h(x)} \frac{1}{\sqrt{1+t^{4}}} \mathrm{~d} t, \quad h(x)=\int_{0}^{\cos (x)}\left(1+\sin \left(s^{2}\right)\right) \mathrm{d} s
+$$
+
+What's the value of $g^{\prime}\left(\frac{\pi}{2}\right)$ ?
+
+
+\end{document}
