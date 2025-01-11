@@ -1,0 +1,76 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{extpfeil}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+
+\begin{document}
+\section*{Lecture hours 16-18}
+\section*{Definitions and Theorems}
+Definition (Matrix multiplication). Let A be an $m \times p$ and B an $p \times n$. Matrix AB is an $m \times n$ matrix. Recall, to multiply matrices together: multiply left matrix by each column of the right matrix, those are the columns of the resulting matrix.
+
+Definition (Composition of linear transformations). Let $S: \mathbb{R}^{m} \rightarrow \mathbb{R}^{p}$ and $T: \mathbb{R}^{p} \rightarrow$ $\mathbb{R}^{n}$ be linear transformations. The composition $T \circ S: \mathbb{R}^{m} \rightarrow \mathbb{R}^{n}$ (pronounced "T composed with $\mathrm{S}^{\prime \prime}$ ) is given by
+
+$$
+T \circ S(\vec{v}) \xlongequal{\text { def }} T(S(\vec{v})),
+$$
+
+for $\vec{v} \in \mathbb{R}^{m}$.
+
+Definition (Invertible linear transformation).
+
+In terms of linear transformations:\\
+A linear transformation $T: \mathbb{R}^{m} \rightarrow \mathbb{R}^{n}$ is invertible if for all $\vec{y} \in \mathbb{R}^{n}$ (outputs of T ) there exists an $\vec{x} \in \mathbb{R}^{m}$ such that $T(\vec{x})=\vec{y}$, and this $\vec{x}$ is unique.
+
+In terms of matrices:\\
+A matrix $A$ is invertible if for all $\vec{y} \in \mathbb{R}^{n}$ there is an unique $\vec{x} \in \mathbb{R}^{m}$ such that $A \vec{x}=\vec{y}$.
+
+Problem 33 (Matrix algebra). Compute the following matrix products:\\
+a)
+
+$$
+\left[\begin{array}{l}
+1 \\
+2 \\
+3
+\end{array}\right]\left[\begin{array}{ll}
+4 & 5
+\end{array}\right] .
+$$
+
+b)
+
+$$
+\left[\begin{array}{lll}
+1 & 2 & 3
+\end{array}\right]\left[\begin{array}{l}
+4 \\
+5 \\
+6
+\end{array}\right]
+$$
+
+Problem 34 (Compositions and inverses). Let $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ be projection from $\mathbb{R}^{3}$ onto the $x y$-plane.\\
+a) Is $T$ invertible? Why or why not?\\
+b) Find the matrix $A$ with $T(\vec{x})=A \vec{x}$.\\
+c) Find a linear transformation $S: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ with $T \circ S=S \circ T$.\\
+d) Find a linear transformation $S: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ with $T \circ S \neq S \circ T$.
+
+Problem 35 (Compositions). True or false? If true, explain why; if false, give a counterexample.\\
+a) If $T: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ is a linear transformation and $\operatorname{ker}(T)=\{\overrightarrow{0}\}$, then $T$ is invertible.\\
+b) If $T: \mathbb{R}^{2} \rightarrow \mathbb{R}^{2}$ is a linear transformation with nullity 1 and $S: \mathbb{R}^{2} \rightarrow$ $\mathbb{R}^{2}$ is another linear transformation with nullity 1 , then $T \circ S$ is the zero transformation.\\
+c) If $T$ and $S$ are linear transformations with the domain of $T$ equal to the codomain of $S$, then $\operatorname{rank}(T \circ S) \leq \operatorname{rank}(T)$.\\
+d) If $T$ and $S$ are linear transformations with the domain of $T$ equal to the codomain of $S$, then $\operatorname{rank}(T \circ S) \leq \operatorname{rank}(S)$.
+
+Problem 36 (Inverse of a problem). Let $A=\left[\begin{array}{ll}0 & 1 \\ 1 & 0\end{array}\right]$ and $B=\left[\begin{array}{ll}3 & 5 \\ 1 & 2\end{array}\right]$.\\
+a) Find $A^{-1}$.\\
+b) Find $B^{-1}$.\\
+c) Find all $2 \times 2$ matrices $X$ with $A X A^{-1}=B$.
+
+
+\end{document}

@@ -31,7 +31,6 @@ def trigger_problem(query):
     similar_docs = get_similar_docs(query, k=2, score=True)
     context = "Reference Questions:\n"
     for i, doc in enumerate(similar_docs, 1):
-        # Get the text field from each document
         text = doc.get('text', '')
         print(text)
         context += f"Question Set {i}:\n{text}\n\n"

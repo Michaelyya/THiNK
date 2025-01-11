@@ -21,7 +21,7 @@ def get_similar_docs(query, k, score=False):
     results = [doc['metadata'] for doc in similar_docs]
     return results
 
-llm = ChatOpenAI(model_name="gpt-4", temperature=0)
+llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
 
 client = GPTClient(api_key=os.environ.get("OPENAI_API_KEY"))
 
@@ -33,7 +33,8 @@ def trigger_problem(query):
         text = doc.get('text', '')
         print(text)
         context += f"Question Set {i}:\n{text}\n\n"
-    
+
+
     prompt = f""" you are a question generation expert.
     """+context+"""
 
@@ -42,9 +43,8 @@ def trigger_problem(query):
     Format your response as a JSON with the following structure:
     {
         "question": "The complete question text",
-        "expected_answer": "The detailed solution approach",
-        "hot_skills": ["Specific HOT skills targeted"],
-        "blooms_levels": ["Specific Bloom's taxonomy levels"]
+        "expected_answer_process": "The detailed solution approach",
+        "expected_solution": "The solution of the generated question"
     }
     """
 
