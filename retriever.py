@@ -15,8 +15,6 @@ load_dotenv()
 
 
 class SlidingWindowTextSplitter:
-    # initialize the embedding system
-    # sliding window in order to save complete question context
     def __init__(
         self,
         window_size: int = 1000,

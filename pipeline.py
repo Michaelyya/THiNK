@@ -1,19 +1,41 @@
 from typing import Dict, List, Any
-import json
-from triger import trigger_problem, get_similar_docs
-from agents import evaluate_question_components
 from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
+from langchain.schema import HumanMessage, SystemMessage
+import json
 import os
+from dotenv import load_dotenv
 import re
+from agents import evaluate_question_components
+from openai import OpenAI
 
 load_dotenv()
 
+api_key = os.environ.get("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
+
 class QuestionImprovementPipeline:
-    def __init__(self, max_iterations: int = 5):
+    def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.7):
         self.max_iterations = max_iterations
+        self.quality_threshold = quality_threshold
         self.question_history = []
-        self.client = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+
+    BASE_PROMPT = """I want you to be a mathematical problem-maker, and at the same time an expert in cognitive science, psychology, philosophy and education. As an LLM you can generate contents related to requirements, and now your purpose is to self-reflect on the process of your math problem generation process, analyzing what you have done.
+
+    Remember, this is your problem generation outcome: {previous_question}
+
+    Think out loud as you work on the instructions:
+    1. Analyze the generated problem of the last round. You should try to understand and retrieve the specific mathematical information in it such as facts, patterns, objects, or contextual information, and decipher these meanings.
+    2. Use cognitive skills essential for processing and applying information effectively. It includes understanding and organizing information, analyzing relationships, drawing conclusions, and distinguishing nuances. Additionally, you should evaluate ideas critically.
+    3. Generate mathematical expressions for the new problems. These new expressions should have the same form as the given expressions in the previous generated math problem. They must have the same complexity as well. Choose values to substitute into the expression, and calculate the outputs.
+    4. Generate stories for these mathematical expressions with the appropriate questions based on the chosen values. The generated stories must be a mathematical word problem with the corresponding expressions. The story must be creative and unique.
+    5. Following and combining the previous steps, and you will generate a new creative version of the given math problem.
+    6. Review the generated new version math problem, ensuring all the criteria are satisfied and double check it.
+
+    Return your response in JSON format with exactly these fields:
+    {
+        "question": "The complete question text",
+        "solution": "The detailed solution approach"
+    }"""
 
     def _clean_json_string(self, json_str: str) -> str:
         try:
@@ -23,130 +45,134 @@ class QuestionImprovementPipeline:
             
             if longest_match:
                 json_str = longest_match.group(0)
-            else:
-                if ":" in json_str:
-                    json_str = json_str.split(":", 1)[1].strip()
-                json_str = re.sub(r'```json\s*', '', json_str)
-                json_str = re.sub(r'\s*```', '', json_str)
-                json_str = re.sub(r'<userStyle>.*?</userStyle>', '', json_str)
-                json_str = json_str.strip()
-                
-                # Find the first '{' and 
-                # the last '}'
-                start_idx = json_str.find('{')
-                end_idx = json_str.rfind('}') + 1
-                
-                if start_idx != -1 and end_idx != 0:
-                    json_str = json_str[start_idx:end_idx]
+            
+            # Clean up markdown and special characters
+            json_str = re.sub(r'```json\s*', '', json_str)
+            json_str = re.sub(r'\s*```', '', json_str)
+            json_str = json_str.strip()
             
             json.loads(json_str)
-            print("Cleaned JSON string:", json_str)
             return json_str
-            
         except Exception as e:
             print(f"Error cleaning JSON string: {str(e)}")
-            print("Original string:", json_str)
             raise
 
+    def generate_question(self, previous_question: Dict[str, str] = None, 
+                         improvement_suggestions: List[str] = None) -> Dict[str, str]:
+        if previous_question is None:
+            initial_prompt = """Generate a challenging mathematical question that:
+            1. Tests understanding of core concepts
+            2. Involves practical applications
+            3. Requires careful analytical thinking
+            4. Has a clear solution approach
+            
+            Return your response in this exact JSON format:
+            {
+                "question": "The complete question text",
+                "solution": "The detailed solution approach"
+            }"""
+            
+            messages = [
+                {"role": "system", "content": "You are an expert mathematical problem designer."},
+                {"role": "user", "content": initial_prompt}
+            ]
+        else:
+            prompt = self.BASE_PROMPT.format(
+                previous_question=json.dumps(previous_question, indent=2)
+            )
+            if improvement_suggestions:
+                prompt += f"\n\nPlease also address these improvement suggestions:\n{json.dumps(improvement_suggestions, indent=2)}"
+            
+            messages = [
+                {"role": "system", "content": "You are an expert mathematical problem designer."},
+                {"role": "user", "content": prompt}
+            ]
 
-    def _improve_question(self, previous_question: Dict, improvement_suggestions: List[str]) -> Dict:
-        """Generate an improved version of the question based on feedback."""
-        prompt = f"""You are an expert educational question designer. Based on the previous question and improvement suggestions,
-        generate an improved version that addresses all the feedback while maintaining high cognitive engagement.
-
-        Previous Question:
-        {json.dumps(previous_question, indent=2)}
-
-        Improvement Suggestions:
-        {json.dumps(improvement_suggestions, indent=2)}
-
-        Please generate a new improved question that:
-        1. Addresses all the improvement suggestions
-        2. Maintains focus on Higher Order Thinking skills
-        3. Uses precise mathematical language
-        4. Provides clear expectations and guidance
-        5. Encourages deep analytical thinking
-        6. Incorporates specific examples where needed
-
-        Return your response as a JSON object with exactly these fields:
-        {{
-            "question": "The complete question text",
-            "expected_answer": "The detailed solution approach",
-            "hot_skills": ["Specific HOT skills targeted"],
-            "blooms_levels": ["Specific Bloom's taxonomy levels"]
-        }}"""
-
-        messages = [
-            {"role": "system", "content": "You are an expert educational question designer specializing in Higher Order Thinking skills."},
-            {"role": "user", "content": prompt}
-        ]
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            temperature=0
+        )
         
-        response = self.client.invoke(messages)
-        try:
-            improved_question = json.loads(response.content)
-            return improved_question
-        except json.JSONDecodeError as e:
-            print(f"Error parsing improvement response: {str(e)}")
-            print("Raw response:", response.content)
-            raise
+        response_content = response.choices[0].message.content
+        print("\nRaw GPT response:", response_content)  # Debugging
+        
+        # return self._clean_json_string(response_content)
+        return response_content
 
-    def run_pipeline(self, initial_query: str) -> Dict:
-        """Run the full pipeline until a satisfactory question is generated."""
+    
+    def run_pipeline(self, initial_query: str) -> Dict[str, Any]:
+        def extract_question_solution(text: str) -> Dict[str, str]:
+            question_start = text.find('"question": "') + len('"question": "')
+            question_end = text.find('",', question_start)
+            
+            solution_start = text.find('"solution": "') + len('"solution": "')
+            solution_end = text.find('"}', solution_start)
+            
+            # Extract the content
+            question = text[question_start:question_end]
+            solution = text[solution_start:solution_end]
+            
+            return question, solution
+    
         try:
-            initial_response = trigger_problem(initial_query)
-            print("\nInitial triggered response:", initial_response)
-            
-            cleaned_response = self._clean_json_string(initial_response)
-            current_question_dict = json.loads(cleaned_response)
-            
-            self.question_history.append(current_question_dict)
+            current_question = self.generate_question()
+            self.question_history.append({
+                "question": current_question,
+                "evaluation": None,
+                "quality_score": 0.0
+            })
             
             iteration = 0
             while iteration < self.max_iterations:
                 print(f"\n=== Iteration {iteration + 1} ===")
-                
+
+                new_question, new_solution = extract_question_solution(current_question)
+                # Fixed evaluation input preparation
                 evaluation_input = {
-                    "question": current_question_dict["question"],
-                    "expected_answer": current_question_dict["expected_answer"],
-                    "hot_skills": current_question_dict["hot_skills"],
-                    "blooms_levels": current_question_dict["blooms_levels"]
+                    "last_question": self.question_history[-2]["question"]["question"] if len(self.question_history) > 1 else "",
+                    "last_solution": self.question_history[-2]["question"]["solution"] if len(self.question_history) > 1 else "",
+                    "new_question": new_question,
+                    "new_solution": new_solution
                 }
-                
-                evaluation_result = evaluate_question_components(json.dumps(evaluation_input))
-                
+                print(evaluation_input)
+                evaluation_result = evaluate_question_components(evaluation_input)
                 print("\nEvaluation Result:")
                 print(json.dumps(evaluation_result, indent=2))
                 
-                hot_skills_passed = evaluation_result.get("hot_skills_evaluation", {}).get("meets_criteria", False)
-                language_passed = evaluation_result.get("language_evaluation", {}).get("meets_criteria", False)
+                # Update history with evaluation results
+                self.question_history[-1]["evaluation"] = evaluation_result
+                self.question_history[-1]["quality_score"] = evaluation_result["quality_score"]
                 
-                if hot_skills_passed and language_passed:
-                    print("\nSuccess! Question meets all criteria.")
+                if evaluation_result["quality_score"] >= self.quality_threshold:
+                    print("\nSuccess! Question meets quality threshold.")
                     return {
-                        "final_question": current_question_dict,
+                        "final_question": current_question,
                         "iterations_required": iteration + 1,
                         "final_evaluation": evaluation_result,
                         "question_history": self.question_history
                     }
                 
-                improvement_suggestions = evaluation_result.get("improvement_suggestions", [])
+                # If threshold not met, improve the question
                 print("\nImproving question based on feedback...")
-                
-                current_question_dict = self._improve_question(
-                    current_question_dict,
-                    improvement_suggestions
+                current_question = self.generate_question(
+                    current_question,
+                    evaluation_result["improvement_suggestions"]
                 )
-                current_question_dict = self._normalize_question_format(current_question_dict)
-                self.question_history.append(current_question_dict)
+                self.question_history.append({
+                    "question": current_question,
+                    "evaluation": None,
+                    "quality_score": 0.0
+                })
                 
                 iteration += 1
             
             return {
-                "final_question": current_question_dict,
+                "final_question": current_question,
                 "iterations_required": iteration,
                 "final_evaluation": evaluation_result,
                 "question_history": self.question_history,
-                "warning": "Maximum iterations reached without meeting all criteria."
+                "warning": "Maximum iterations reached without meeting quality threshold."
             }
             
         except Exception as e:
@@ -159,8 +185,8 @@ class QuestionImprovementPipeline:
 
 def main():
     try:
-        pipeline = QuestionImprovementPipeline(max_iterations=5)
-        initial_query = "Give me a implicit differentiation question?"
+        pipeline = QuestionImprovementPipeline(max_iterations=5, quality_threshold=0.7)
+        initial_query = "Generate an implicit differentiation question"
         
         print("Starting pipeline with query:", initial_query)
         result = pipeline.run_pipeline(initial_query)
@@ -172,14 +198,14 @@ def main():
             print(json.dumps(result['final_question'], indent=2))
             print("\nFinal Evaluation:")
             print(json.dumps(result['final_evaluation'], indent=2))
+            print("\nQuestion Evolution:")
+            for i, entry in enumerate(result['question_history']):
+                print(f"\nIteration {i + 1}:")
+                print(f"Question: {entry['question']['question']}")
+                print(f"Quality Score: {entry['quality_score']}")
         else:
             print("\nPipeline encountered an error:")
             print(result['error'])
-            if result['question_history']:
-                print("\nQuestion History:")
-                for i, q in enumerate(result['question_history']):
-                    print(f"\nIteration {i}:")
-                    print(json.dumps(q, indent=2))
     
     except Exception as e:
         print(f"Error in main execution: {str(e)}")
