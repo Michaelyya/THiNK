@@ -1,10 +1,6 @@
 from typing import Dict, List, Any, TypedDict
-from itertools import combinations
 import numpy as np
-from sklearn.metrics import cohen_kappa_score
-from langchain_openai import ChatOpenAI
 from langgraph.graph import StateGraph, END
-from langchain.schema import HumanMessage, SystemMessage
 import json
 import os
 from metrics import calculate_quality_score
@@ -53,7 +49,6 @@ def create_bloom_level_agent(level: str):
         print(f"Evaluating {level} level...")
         print("Current State:", state)
         print("-----------------------------------------------")
-        
         try:
             prompt = PROMPT_MAPPING[level].format(
                 last_question_details=state['last_question'],
@@ -141,6 +136,7 @@ def create_evaluation_pipeline():
     return workflow.compile()
 
 def evaluate_question_components(question_data: Dict[str, Any]) -> Dict[str, Any]:
+    # 在此设置workflow
     try:
         pipeline = create_evaluation_pipeline()
         

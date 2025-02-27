@@ -7,11 +7,23 @@ from dotenv import load_dotenv
 import re
 from agents import evaluate_question_components
 from openai import OpenAI
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import login
 
 load_dotenv()
 
 api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
+HF_API_KEY = os.environ.get("HF_API_KEY", "")
+if HF_API_KEY:
+    login(token=HF_API_KEY)
+HUGGINGFACE_MODELS = [
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-14B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct"
+]
 
 class QuestionImprovementPipeline:
     def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.7):
@@ -89,13 +101,12 @@ class QuestionImprovementPipeline:
             ]
 
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
         )
         
         response_content = response.choices[0].message.content
-        print("\nRaw GPT response:", response_content)  # Debugging
         
         # return self._clean_json_string(response_content)
         return response_content
@@ -109,7 +120,6 @@ class QuestionImprovementPipeline:
             solution_start = text.find('"solution": "') + len('"solution": "')
             solution_end = text.find('"}', solution_start)
             
-            # Extract the content
             question = text[question_start:question_end]
             solution = text[solution_start:solution_end]
             
@@ -128,7 +138,7 @@ class QuestionImprovementPipeline:
                 print(f"\n=== Iteration {iteration + 1} ===")
 
                 new_question, new_solution = extract_question_solution(current_question)
-                # Fixed evaluation input preparation
+
                 evaluation_input = {
                     "last_question": self.question_history[-2]["question"]["question"] if len(self.question_history) > 1 else "",
                     "last_solution": self.question_history[-2]["question"]["solution"] if len(self.question_history) > 1 else "",
@@ -184,31 +194,28 @@ class QuestionImprovementPipeline:
             }
 
 def main():
-    try:
-        pipeline = QuestionImprovementPipeline(max_iterations=5, quality_threshold=0.7)
-        initial_query = "Generate an implicit differentiation question"
-        
-        print("Starting pipeline with query:", initial_query)
-        result = pipeline.run_pipeline(initial_query)
-        
-        print("\n=== Final Results ===")
-        if "error" not in result:
-            print(f"\nIterations Required: {result['iterations_required']}")
-            print("\nFinal Question:")
-            print(json.dumps(result['final_question'], indent=2))
-            print("\nFinal Evaluation:")
-            print(json.dumps(result['final_evaluation'], indent=2))
-            print("\nQuestion Evolution:")
-            for i, entry in enumerate(result['question_history']):
-                print(f"\nIteration {i + 1}:")
-                print(f"Question: {entry['question']['question']}")
-                print(f"Quality Score: {entry['quality_score']}")
-        else:
-            print("\nPipeline encountered an error:")
-            print(result['error'])
+    pipeline = QuestionImprovementPipeline(max_iterations=5, quality_threshold=0.7)
+    initial_query = "Generate an implicit differentiation question"
     
-    except Exception as e:
-        print(f"Error in main execution: {str(e)}")
+    print("Starting pipeline with query:", initial_query)
+    result = pipeline.run_pipeline(initial_query)
+    
+    print("\n=== Final Results ===")
+    if "error" not in result:
+        print(f"\nIterations Required: {result['iterations_required']}")
+        print("\nFinal Question:")
+        print(json.dumps(result['final_question'], indent=2))
+        print("\nFinal Evaluation:")
+        print(json.dumps(result['final_evaluation'], indent=2))
+        print("\nQuestion Evolution:")
+        for i, entry in enumerate(result['question_history']):
+            print(f"\nIteration {i + 1}:")
+            print(f"Question: {entry['question']['question']}")
+            print(f"Quality Score: {entry['quality_score']}")
+    else:
+        print("\nPipeline encountered an error:")
+        print(result['error'])
+    
 
 if __name__ == "__main__":
     main()

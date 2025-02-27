@@ -4,6 +4,14 @@ from statsmodels.stats.inter_rater import fleiss_kappa
 import numpy as np
 from itertools import combinations
 
+from collections import Counter
+
+# Cohen Kappa = (P0- Pe)/(1-Pe) 
+# -> P0 is the proportion of observed agreement, or the number of times two raters agreed on a classification 
+# -> Pe is the probability of random agreement, or the number of times two raters would agree by chance. 
+# For multi-rater kappa, we calculate Feiss' Kappa or Krippendorff's Alpha， Feiss' Kappa is better for classified variable
+# How many subjects to be labeled? How many categories of labeling? How many raters? 
+
 def calculate_pass_rate(evaluations: Dict[str, Any]) -> float:
     passing_scores = [
         eval_data['performance_score'] >= 70
@@ -12,44 +20,35 @@ def calculate_pass_rate(evaluations: Dict[str, Any]) -> float:
     return sum(passing_scores) / len(passing_scores)
 
 def calculate_agent_agreement(evaluations: Dict[str, Any]) -> float:
-    """!!!!I DOUBT THIS IS INCORRECT WAY TO IMPLEMENT!!!!"""
    # Convert scores to binary decisions (pass/fail)
     agent_decisions = {
         agent: 1 if eval_data['performance_score'] >= 70 else 0
         for agent, eval_data in evaluations.items()
     }
     
-    # Create a matrix for Fleiss' Kappa calculation
+
     n_categories = 2  # pass/fail
     n_raters = len(agent_decisions)
     ratings = list(agent_decisions.values())
     
-    # Fleiss' Kappa requires a matrix where rows are items, columns are categories
-    matrix = np.zeros((1, n_categories))
-    matrix[0, 0] = ratings.count(0)  # count of fails
-    matrix[0, 1] = ratings.count(1)  # count of passes
+    # Create a matrix for Fleiss' Kap fipa calculation
+    # pi is the agreement rate for each item to be labeled 
+    # po is overall agreement rate for all items 
+    # pj is the chance agreement that computes the probability of each category occurring across the entire sample. 
     
-    # Compute Fleiss' Kappa
-    fleiss_k = fleiss_kappa(matrix)
+    # Count how many times each category appears 
+    category_counts = Counter(ratings)
     
-    # Compute Cohen’s Kappa for all pairs
-    cohen_kappas = []
-    agents = list(agent_decisions.keys())
+    # Calculate p_i (observed agreement for the item)
+    sum_k = 0 
+    for count in category_counts.values(): 
+        sum_k += count*(count - 1)
+        
+    p_i = sum_k/(n_raters*(n_raters - 1))
     
-    for agent1, agent2 in combinations(agents, 2):
-        rater1 = [agent_decisions[agent1]] * 2  
-        rater2 = [agent_decisions[agent2]] * 2 
-        k = cohen_kappa_score(rater1, rater2)
-        if not np.isnan(k):
-            cohen_kappas.append(k)
-    
-    avg_cohen_kappa = np.mean(cohen_kappas) if cohen_kappas else 0.0
-    
-    # Take the average of Fleiss' and mean Cohen's Kappa
-    final_kappa = np.mean([fleiss_k, avg_cohen_kappa])
-    
-    # Normalize to 0-1 range (kappa can be negative)
-    return max(0, min(1, (final_kappa + 1) / 2))
+    # When we have more than one item being labeled, later we can calculate Fleiss' Kappa for the whole matrix. 
+        
+    return p_i
         
 
 def calculate_average_confidence(evaluations: Dict[str, Any]) -> float:
@@ -83,18 +82,17 @@ def get_detailed_metrics(evaluations: Dict[str, Any]) -> Dict[str, float]:
 
 # Example usage
 if __name__ == "__main__":
-    # Sample evaluation data
     sample_evaluations = {
         "remembering": {
-            "performance_score": 80,
+            "performance_score": 10,
             "confidence_score": 50
         },
         "understanding": {
-            "performance_score": 80,
+            "performance_score": 20,
             "confidence_score": 85
         },
         "applying": {
-            "performance_score": 80,
+            "performance_score": 20,
             "confidence_score": 50
         }
         #... we will have 7 agents here!

@@ -14,7 +14,6 @@ pinecone_index_name = "bloom-testing"
 index = pc.Index(pinecone_index_name)
 
 def get_similar_docs(query, k, score=False):
-    """Retrieve similar documents based on the input query."""
     query_vector = embedder.embed_query(query)
     results = index.query(vector=query_vector, top_k=3, include_metadata=True)
     similar_docs = results['matches']

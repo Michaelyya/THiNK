@@ -1,4 +1,4 @@
-from pipeline import QuestionImprovementPipeline
+from pipeline_GPT import QuestionImprovementPipeline
 
 def test_example():
     # Initialize pipeline
@@ -18,10 +18,10 @@ def test_example():
         print("\nQuestion Evolution:")
         for i, entry in enumerate(result['question_history']):
             print(f"\n--- Iteration {i + 1} ---")
-            print("\nQuestion:")
-            print(entry['question']['question'])
-            print("\nSolution:")
-            print(entry['question']['solution'])
+            # print("\nQuestion:")
+            # print(entry['question']['question'])
+            # print("\nSolution:")
+            # print(entry['question']['solution'])
             if entry['evaluation']:
                 print(f"\nQuality Score: {entry['quality_score']}")
                 print("\nAgent Evaluations:")

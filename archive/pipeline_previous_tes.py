@@ -1,6 +1,6 @@
 from typing import Dict, List, Any
 import json
-from triger import trigger_problem, get_similar_docs
+from archive.triger import trigger_problem, get_similar_docs
 from agents import evaluate_question_components
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
