@@ -150,27 +150,61 @@ PROMPT_MAPPING = {
     """,
 
     "language": """You are an expert evaluator assessing Language Quality in educational question generation.  
-    Your task is to compare the previously generated math problem with the newly generated one and evaluate whether improvements were made.  
-
+    Please evaluate the quality of the following math word problem by analyzing its linguistic and structural features. Identify and categorize any linguistic-level errors (e.g., ambiguity, unanswerability, or linguistic complexity) and assess the problem’s solution strategy. Provide a detailed report that includes quantitative complexity metrics, error classifications, explanations, actionable suggestions for improvement, and a final performance score.
     **Details for Comparison:**  
     - **Previous Problem:** {last_question_details}  
     - **Previous Expected Solution:** {last_question_expected_solution}  
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
 
-    **Evaluation Criteria:**  
-    During this process of improving and generating, please assess the mathematical language quality, including grammatical correctness, structural clarity, technical precision, and overall coherence. Consider the effectiveness of mathematical terminology, notation consistency, and clarity of explanations.
+    Step 1: Lexical and Syntactic Complexity Analysis
+    Please calculate the following metrics to assess the math problem's complexity: 
+    -Type-Token Ratio (TTR): Measure of lexical diversity.
+    -Yngve Score: Evaluates syntactic depth (higher = more complex).
+    -Frazier Score: Measures processing load during sentence parsing.
+    -Frazier–Roark Score: Combines parsing difficulty and structural complexity.
+    -Developmental Level: Assesses language proficiency required to understand the text.
+    -Syntactic Frequency: Frequency of common syntactic patterns.
+    -Mean Dependency Distance (MDD): Average distance between syntactic dependencies.
+    -Sentence Length: Total word count for the problem statement.
     
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better use of mathematical language and terminology?  
-    - Has there been improvement in the clarity and precision of mathematical expressions?  
-    - Are mathematical concepts and procedures more effectively communicated?  
+    Step 2: Error Identification and Classification
+    Identify and classify linguistic-level errors using the following categories:
+    -Ambiguity:Multiple or unintended solutions due to imprecise descriptions, unclear relationships, or missing conditions.
+    -Unanswerability: Incomplete information, ill-defined terms, or logical inconsistencies that prevent a valid solution.
+    -Linguistic Complexity: Syntactic complexity, unclear phrasing, or difficult-to-translate statements that may hinder comprehension.
+    For each identified error: Clearly classify the error type. Explain the reasoning behind the classification, highlighting how the issue affects clarity or solvability.
+    Step 3: Solution Strategy Analysis
+    Identify Solution Process Type:
 
-    Provide your evaluation in JSON format with these exact keys:  
-    {{
-        "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
-    }}
-    """
-}
+    -One-Step: Requires a single calculation or logical step to reach the answer.
+    -Multi-Step: Involves multiple stages of reasoning or calculation.
+    -Highlight Comprehension Challenges:Identify areas where multi-step reasoning introduces additional cognitive load or misunderstanding risks.
+    
+    Step 4: Improvement Suggestions
+    Provide actionable and specific suggestions to enhance the problem’s clarity, accuracy, and solvability. Recommendations should address:
+    -Ambiguous phrasing (clarify relationships and conditions).
+    -Unanswerable problems (add missing information or correct inconsistencies).
+    -Linguistic complexity (simplify structure and improve phrasing for better comprehension).
+    
+    Step 5: Performance Score Calculation (0–100)
+    Generate a final performance score considering the following factors:
+    -Lexical and Syntactic Complexity (from Step 1):
+    -Higher complexity reduces the score.
+    -Error Count and Severity (from Step 2):
+    -More errors and more severe errors lower the score.
+    -Clarity and Solvability: Clear, unambiguous, and well-structured problems receive a higher score.
+    Scoring Guidance:
+    - 90–100: Clear, simple, and error-free problem.
+    - 70–89: Minor complexity or errors that slightly impact clarity.
+    - 50–69: Moderate complexity and multiple identifiable issues.
+    - 0–49: Significant errors, ambiguity, or unanswerable conditions.
+
+        Provide your evaluation in JSON format with these exact keys:  
+        {{
+            "performance_score": 0-100,
+            "confidence_score": 0-100,
+            "improvement_suggestions": ["suggestion1", "suggestion2"]
+        }}
+        """
+    }
