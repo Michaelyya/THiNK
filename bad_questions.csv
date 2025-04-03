@@ -1,0 +1,270 @@
+ID,question,Figure,LaTeX question,solution,mathConcept1,mathConcept2,mathConcept3,Difficulty,Grade,Resource
+1,An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ,N,An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let $P$ be number of players and $T$ the time playing. ,It will still take 40 minutes for 60 players to perform it. ,Arithmetic and Algebra,Algebraic expressions; Manipulating algebraic expressions;  Analyzing situations using equations or inequalities ,Constructs an algebraic expression using a register (type) of representation; Interprets an algebraic expression in light of the context;,,,Quora 7Y ago 
+2,"A plane with 150 passengers flies in 4 hours to California, and please answer how long the plane will need when it transports 300 people. ",N,"A plane with 150 passengers flies in 4 hours to California, and please answer how long the plane will need when it transports 300 people. ","If we assume the plane's max capacity is only 150 passengers, then the plane would have to do two trips plus one return trips. It will be 4+4+4 = 12 hours. ",Arithmetic and Algebra,Algebraic expressions; Manipulating algebraic expressions;  Analyzing situations using equations or inequalities ,Constructs an algebraic expression using a register (type) of representation; Interprets an algebraic expression in light of the context;,N/A,9~12,Quora 2Y ago 
+3,There are 49 dogs signed up to compete in the dog show. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete? ,N,There are 49 dogs signed up to compete in the dog show. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete? ,"Let $x$ represent the number of large dogs. Since there are 36 more small dogs than large dogts, the number of small dogs is $x + 36$. The total number of dog is 49, so we set up the equation: 
+\[
+x + (x + 36) = 49
+\]
+Simplifying:
+\[
+2x + 36 = 49
+\]
+Subtracting 36 from both sides:
+\[
+2x = 13
+\]
+Dividing by 2:
+\[
+x = 6.5
+\]
+There are 6.5 large dogs and 42.5 small dogs. ",Arithmetic and Algebra,,,N/A,,X 2024
+4,Now 7 men have 7 wives. Each man and each wife have 7 children. What's the total number of people? ,N,7 men have 7 wives. Each man and each wife have 7 children. What's the total number of people? ,"The total number of people should be the sum of numbers of men, wives, and children. Because we know that there are 7 men and 7 wives. Now we have 14 people in total. Each pair of man and wife have 7 children, and there are 7 pairs based on assumption. So, 7 multiplied by 7, and there are 49 children. The total number of people equals to 49 + 14 = 63. ",Arithmetic and Algebra,,,N/A,,X 2025
+5,"Infinitely many people are about to play this game: they will each get a black or a white hat placed on their heads simultaneously, and each will be able to see everyone else's hat but not their own. They cannot communicate in any shape or form once the hats are placed on their heads - no winks, nudges or smiles.
+
+Then, at the sound of the gong, everyone needs to simultaneously announce the color of their own hat, at the exact same time, and with the possible exception of finitely many people, all of them must get it right.",N,"Infinitely many people are about to play this game: they will each get a black or a white hat placed on their heads simultaneously, and each will be able to see everyone else's hat but not their own. They cannot communicate in any shape or form once the hats are placed on their heads - no winks, nudges or smiles.
+
+Then, at the sound of the gong, everyone needs to simultaneously announce the color of their own hat, at the exact same time, and with the possible exception of finitely many people, all of them must get it right.",,,,,Seems very difficult ,https://www.quora.com/What-is-the-most-absurd-math-problem-youve-ever-seen,Quora 
+6,A farmer has 60 meters of fencing to create a four-sided enclosure. He wants a rectangular shape that uses all the fencing. What is the maximum area he can enclose? The corners do not ened to be right angles. ,N,A farmer has 60 meters of fencing to create a four-sided enclosure. He wants a rectangular shape that uses all the fencing. What is the maximum area he can enclose? The corners do not ened to be right angles. ,"\textbf{If truly rectangular:} The maximum area with a fixed perimeter \( P = 60 \). When the rectangle is a square, the area is the largest. So, each side is:
+
+\[
+\frac{60}{4} = 15 \text{ m}, \quad \frac{60}{4} = 15 \text{ m},
+\]
+and the area is:
+\[
+\text{Area} = 15 \times 15 = 225 \text{ m}^2.
+\]
+\textbf{If any parallelogram:} The maximum area is also formed by a rectangle (a special case of a parallelogram) with sides 15 m each. So, the area remains:
+\[
+225 \text{ m}^2.
+\]",Geometry and Algebra,,,N/A,9~12,GPT 
+7,"A fractory produces chairs and tables. If the total cost of production is $5000 and each chair costs $20 to make, while each table costs $50. How much chairs and tables were produced? ",N,"A fractory produces chairs and tables. If the total cost of production is $5000 and each chair costs $20 to make, while each table costs $50. How much chairs and tables were produced? ","Even there are two unknowns but only one equation given and it is impossible to determine the exact number of chairs and tables by solving the equation. However, we can create an inequation to solve and finde what values fulfill a condition stated in the form of this inequation. The inequation would be:
+\[
+20x + 50y \leq 5000
+\]
+The result will be a range for the variables $x$ and $y$. Both $x$ and $y$ are positive integars based on the context the math problem.  The results will be: 
+\[
+0 \leq x \leq 250, \quad 0 \leq y \leq 100
+\]",,,,N/A,9~12,GPT 
+8,"Rose is twice as old as Mark was when Rose was as old as Mark is now. If Mark is 20, how old is Rose? ",N,"Rose is twice as old as Mark was when Rose was as old as Mark is now. If Mark is 20, how old is Rose? ",The problem is over complex and confusing and might not be solvable? ,,,,N/A,9~12,GPT 
+9,"A student has test scores of 80, 85, 90 in math. The teacher says, the average score of your last two tests is 88, and the average score of your last three tests is 87. What is the score of the last test?  ",N,"A student has test scores of 80, 85, 90 in math. The teacher says, the average score of your last two tests is 88, and the average score of your last three tests is 87. What is the score of the last test?  ","No able to sovle it. If the fourth score is x, then (90+x)/2 = 88, and (85+90+x)/3 = 87. The variable x is not solvable. ",,,,N/A,9~12,GPT 
+10,Jan and Sam paint a fence together. Jan is 9 year-old and Sam is 12 year-old. John can paint it alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time? ,N,Jan and Sam paint a fence together. Jan is 9 year-old and Sam is 12 year-old. John can paint it alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time? ,"The work rate of Jan is: 
+\[\frac{1}{9} 
+\]
+The work rate of Sam is: 
+\[\frac{1}{12} 
+\]
+When they work together, their combined work rate is:
+\[ \quad \frac{1}{9} + \frac{1}{12}
+\]
+
+\[
+\text{To compute this sum, find the least common denominator (LCD), which is 36:}
+\]
+
+\[
+\frac{4}{36} + \frac{3}{36} = \frac{7}{36}
+\]
+
+\[
+\text{Thus, the time required to complete the fence together is:}
+\]
+
+\[
+\frac{1}{\frac{7}{36}} = \frac{36}{7} \text{ hours}
+\]",,,,N/A,9~12,GPT 
+11,"Billy orders 3 large pizzas for his party. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Then Billy eats half of what’s left from the second pizza. His friend Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?",N,"Billy orders 3 large pizzas for his party. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Then Billy eats half of what’s left from the second pizza. His friend Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?",Unclear whether Billy eats half of the entire second pizza or just half of what was left after the dog ate.,,,,N/A,9~12,GPT 
+12,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?",N,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{document}
+
+\title{Train Travel Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?
+
+\section*{Solution}
+
+\subsection*{Step 1: Define Variables}
+\begin{itemize}
+    \item Let \(t\) be the time (in hours) that John traveled.
+    \item Since Mike arrives 15 minutes before John, his travel time is \(t - \frac{1}{4}\) hours.
+    \item Mike leaves 30 minutes (or \(\frac{1}{2}\) hour) after John, so his total travel time is:
+    \[
+    t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \, \text{hours.}
+    \]
+    \item Let \(d\) be the distance traveled by both John and Mike.
+\end{itemize}
+
+\subsection*{Step 2: Set Up Equations}
+We know:
+\[
+d = 80t \quad \text{(John's distance formula)}
+\]
+\[
+d = 60 \left( t - \frac{3}{4} \right) \quad \text{(Mike's distance formula)}
+\]
+
+\subsection*{Step 3: Set Distances Equal}
+Since both travel the same distance:
+\[
+80t = 60 \left( t - \frac{3}{4} \right)
+\]
+\[
+80t = 60t - 45
+\]
+\[
+80t - 60t = -45
+\]
+\[
+20t = 45
+\]
+\[
+t = \frac{45}{20} = 2.25 \, \text{hours.}
+\]
+
+\subsection*{Step 4: Calculate Distance}
+Now that we know \(t = 2.25\) hours, we calculate the distance:
+\[
+d = 80 \times 2.25 = 180 \, \text{miles.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{John's travel time:} \(2.25 \, \text{hours}\)
+    \item \textbf{Distance traveled:} \(180 \, \text{miles}\)
+\end{itemize}
+
+\end{document}",,,,N/A,9~12,GPT 
+13,"Tom shoots 30% from the 3-point line. If he takes 10 shots, he expects to make 3. However, he practices a lot and improves by 50%. After practicing, if he takes 12 shots, how many should he expect to make?",N,"\section*{Problem Statement}
+Tom shoots 30\% from the 3-point line. If he takes 10 shots, he expects to make 3. However, he practices a lot and improves by 50\%. After practicing, if he takes 12 shots, how many should he expect to make?
+\end{document}","\section*{Solution}
+
+\subsection*{Step 1: Initial Success Rate}
+Tom's initial shooting percentage is:
+
+\[
+\text{Initial percentage} = 30\% = 0.30.
+\]
+
+If he takes 10 shots, the expected number of successful shots is:
+
+\[
+\text{Expected makes} = 0.30 \times 10 = 3.
+\]
+
+\subsection*{Step 2: Improved Success Rate}
+After practicing, Tom improves by 50\%. To calculate his new shooting percentage:
+
+\[
+\text{Improved percentage} = 0.30 + 0.50 \times 0.30.
+\]
+
+\[
+\text{Improved percentage} = 0.30 + 0.15 = 0.45 \text{ or } 45\%.
+\]
+
+\subsection*{Step 3: Expected Makes After Improvement}
+If Tom takes 12 shots with his improved shooting percentage, the expected number of makes is:
+
+\[
+\text{Expected makes after practice} = 0.45 \times 12 = 5.4.
+\]
+
+\section*{Final Answer}
+Tom should expect to make approximately \textbf{5 or 6 shots} after practicing.
+
+\end{document}",,,,N/A,9~12,GPT 
+14,"A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+",N,"\section*{Problem Statement}
+
+A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+
+\end{document}","\begin{document}
+
+\title{Car Acceleration Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+
+\section*{Solution}
+
+\subsection*{Step 1: Convert mph to m/s}
+We know:
+\begin{itemize}
+    \item Initial speed, \(v_i = 0 \, \text{mph}\)
+    \item Final speed, \(v_f = 60 \, \text{mph}\)
+\end{itemize}
+
+To convert 60 mph to meters per second:
+
+\[
+1 \text{ mile} = 1609.34 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}
+\]
+
+\[
+v_f = 60 \times \frac{1609.34}{3600} \approx 26.82 \, \text{m/s.}
+\]
+
+\subsection*{Step 2: Calculate acceleration}
+The formula for acceleration is:
+
+\[
+a = \frac{v_f - v_i}{t}.
+\]
+
+\[
+a = \frac{26.82 - 0}{5} = 5.36 \, \text{m/s².}
+\]
+
+\subsection*{Step 3: Speed after 10 seconds}
+To calculate the speed after 10 seconds if the acceleration remains constant:
+
+\[
+v = v_i + at.
+\]
+
+\[
+v = 0 + 5.36 \times 10 = 53.6 \, \text{m/s.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{Acceleration:} \(5.36 \, \text{m/s²}\)
+    \item \textbf{Speed after 10 seconds:} \(53.6 \, \text{m/s}\), which is approximately \(120 \, \text{mph.}\)
+\end{itemize}
+
+\end{document}",,,,N/A,9~12,DeepSeek
+15,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?",N,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{align}
+\text{Implies unlimited exponential growth (ignoring real-world constraints like space/nutrients). Fails to specify if the 20-minute doubling }\\
+starts immediately or after a lag phase. Also, picograms to kilograms requires extreme precision unlikely in high-school tools. 
+\text{First, converting the given values to SI units:} \\
+60 \text{ mph} &= 60 \times 0.44704 = 26.8224 \text{ m/s} \\
+\text{Time} &= 5 \text{ seconds} \\[10pt]
+
+\text{Part 1: Calculate acceleration} \\
+\text{Using the formula } a = \frac{\Delta v}{\Delta t}: \\
+a &= \frac{26.8224 \text{ m/s}}{5 \text{ s}} \\
+a &= 5.36448 \text{ m/s}^2 \\[10pt]
+
+\text{Part 2: Calculate speed after 10 seconds} \\
+\text{Using the formula } v = v_0 + a \cdot t: \\
+v_0 &= 0 \text{ m/s (initial velocity)} \\
+a &= 5.36448 \text{ m/s}^2 \\
+t &= 10 \text{ s} \\[5pt]
+v &= 0 + 5.36448 \times 10 \\
+v &= 53.6448 \text{ m/s} \\[10pt]
+
+\text{Converting back to mph:} \\
+53.6448 \text{ m/s} &\div 0.44704 = 120 \text{ mph}
+\end{align}
+
+\text{Therefore, after 10 seconds, the car will be traveling at approximately 53.6 m/s or 120 mph.}",,,,N/A,9~12,DeepSeek
+16,Two cards are drawn from a standard deck. What’s the probability both are aces?,N,Two cards are drawn from a standard deck. What’s the probability both are aces?,Doesn’t specify if the first card is replaced. Students must guess whether to use permutations (no replacement) or combinations (replacement).,,,,N/A,9~12,DeepSeek
+17,"A ship travels 50 nautical miles at a bearing of 320°, then turns to a bearing of 80° for 30 nautical miles. How far is it from the starting point?",N,"A ship travels 50 nautical miles at a bearing of 320°, then turns to a bearing of 80° for 30 nautical miles. How far is it from the starting point?",Requires trigonometry but lacks a diagram.,,,,N/A,9~12,DeepSeek
+18,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks twice as many as the previous day, but 40% of those apples are rotten. If each non-rotten apple weighs between 0.2 and 0.3 pounds, approximately how many pounds of apples does Sarah have left?",N,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks twice as many as the previous day, but 40% of those apples are rotten. If each non-rotten apple weighs between 0.2 and 0.3 pounds, approximately how many pounds of apples does Sarah have left?","The next day, Sarah picked 17 * 2 = 34 apples according to the problem, but if we mutiply it with 40% then the answer is not integer. The number of appleas are rotten is not integer. ",,,,N/A,9~12,Claude
+19,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased again by an unknown percentage in the third quarter. If John initially invested $10,000 and now has approximately $10,760, what was the percentage change in the third quarter?",,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased again by an unknown percentage in the third quarter. If John initially invested $10,000 and now has approximately $10,760, what was the percentage change in the third quarter?","Requires calculating an ""unknown percentage"" but provides insufficient information about the timing of changes (whether the percentages apply to the original amount or the new balance after each quarter).",,,,N/A,9~12,Claude
+20,"The local high school is planning a field trip. They need to rent buses, which cost $550 each and can hold 52 students. If 3 teachers must accompany every 35 students and each person needs to pay an equal share of the transportation costs, how much should each person pay if 203 students are attending?",,"The local high school is planning a field trip. They need to rent buses, which cost $550 each and can hold 52 students. If 3 teachers must accompany every 35 students and each person needs to pay an equal share of the transportation costs, how much should each person pay if 203 students are attending?","The 203 students don't divide evenly into buses of 52, nor do they divide evenly with the teacher requirements (3 teachers per 35 students).Unclear if teachers should pay or pay as the same as students. ",,,,N/A,9~12,Claude

@@ -1,6 +1,20 @@
 PROMPT_MAPPING = {
-    "remembering": """You are an expert evaluator assessing Remembering-Level skills in educational question generation.  
-    Your task is to compare the previously generated math problem with the newly generated one and evaluate whether improvements were made.  
+    "remembering": """You are an expert in math and reasoning, acting as a refiner and evaluator to supervise LLMs in generating difficult math problems. 
+    Your current task is to assess the "Remembering" level skills of a math problem generator by comparing a newly generated math problem with a previous one. 
+    
+    **Evaluation Criteria**
+    Please follow these steps:
+    
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Remembering. Compare the five components in both problems. The score should represent how well the math problem generator remembers and retains critical information and components from the old problem in the new version.
+    
+    Step 3: Levels of Remembering. 
+    - Strong Remembering (80-100): If all math concepts, required skills, math expressions, and the narrative story in the new problem are almost the same as in the old problem, assign a performance_score between 80 and 100.
+    - Medium Remembering (60 - 80): If two out of the following four components are similar between the new and old problems (math concepts, required skills, math expressions, and the narrative story), assign a performance_score between 60 and 80.
+    - Low Remembering (< 60): If less than two of these components are shared, assign a performance_score between 0 and 60. Note that the 'values' component is not considered in this step for partial similarity.
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
     **Details for Comparison:**  
     - **Previous Problem:** {last_question_details}  
@@ -8,69 +22,73 @@ PROMPT_MAPPING = {
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
 
-    **Evaluation Criteria:**  
-    During this process of improving and generating, please reflect on whether you identified and explained any math concepts, such as facts, patterns, objects, common and specific terms, methods and procedures, concepts and principles, and what you stored in your memory. Assess if you successfully recognized and retrieved relevant information without requiring additional context or prompts from the previous problem.
-    
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better recall and use of mathematical facts and definitions?  
-    - Has there been improvement in the identification of basic mathematical concepts?  
-    - Are mathematical procedures and notation more effectively remembered and applied?  
-
+    **Result Format:** 
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 
-    "understanding": """You are an expert evaluator assessing Understanding-Level skills in educational question generation.  
-    Your task is to compare the previously generated math problem with the newly generated one and evaluate whether improvements were made.  
+    "understanding": """You are an expert in math and reasoning, acting as a refiner and evaluator to supervise LLMs in generating difficult math problems. 
+    Your current task is to assess the "Understanding" level skills of a math problem generator by comparing a newly generated math problem with a previous one. 
+    
+    **Evaluation Criteria**
+    Please follow these steps:
+    
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Understanding. Compare the five components to assess whether the generator effectively modifies the problem across seven subcategory operations: interpreting, exemplifying, classifying, summarizing, inferring, comparing, and associating. For example, the new version includes a summary of the old problem (summarizing), or it introduces a new example applying the math expression learned earlier (exemplifying), or the agent compares the five components of the original problem with information from the training dataset to identify similarities, differences, or causal relationships (comparing and associating).
+    
+    Step 3: Levels of Understanding. 
+    - Strong Understanding (80–100): Demonstrates a deep grasp of the five components, identifying at least three operations among the seven.
+    - Medium Understanding (60–80): Reflects surface-level changes, identifying at least one operation among the seven. 
+    - Low Understanding (<60): Show minimal varaition, with errors and inconsistencies. The new problem fails to demonstrate the generator’s ability across the seven operations in understanding level. 
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
     **Details for Comparison:**  
     - **Previous Problem:** {last_question_details}  
     - **Previous Expected Solution:** {last_question_expected_solution}  
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
-
-    **Evaluation Criteria:**  
-    During this process of improving and generating, please reflect on whether you used skills like interpreting meaning from communication, providing examples to clarify concepts, organizing ideas into categories, summarizing key points, identifying similarities and differences, or explaining relationships and causes to communicate understanding clearly.
-    
-    **Key Questions for Analysis:**  
-    - Does the new question show better interpretation and explanation of mathematical concepts?  
-    - Has there been improvement in providing relevant examples and clarifications?  
-    - Are mathematical relationships and connections more effectively explained?  
-
+ 
+    **Result Format:**  
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 
-    "applying": """You are an expert evaluator assessing Applying-Level skills in educational question generation.  
-    Your task is to compare the previously generated math problem with the newly generated one and evaluate whether improvements were made.  
+    "applying": """You are an expert in math and reasoning, acting as a refiner and evaluator to supervise LLMs in generating difficult math problems. 
+    Your current task is to assess the "Applying" level skills of a math problem generator by comparing a newly generated math problem with a previous one
+    
+    **Evaluation Criteria:** 
+    Please follow these steps: 
+    
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Applying. Compare the five components to determine if the generator effectively applying pre-learned knowledge and strategies from training data in the new generated problem to enrich and improve it. Two indicators of applying are executing and implementing. Executing is when an agent using constructed knowledge in a familiar task. Implementing is using constructed knowledge in an unfamiliar task. 
+    
+    Step 3: Levels of Applying. 
+    - Strong Applying (80–100): If the difference between the new and old problem shows applying constructed knowledge in both familiar (math problem generation using the same big five components) and unfamiliar tasks (make variety and improvement in accuracy and creativity).
+    - Medium Applying (60–80): The new problem shows application of constructed knowledge in familiar tasks but lacks significant or effective improvements in variety, accuracy, or creativity
+    - Low Applying(<60): The new problem reflects mere replication or imitation of the original, without demonstrating meaningful application of pre-learned knowledge.
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
     **Details for Comparison:**  
     - **Previous Problem:** {last_question_details}  
     - **Previous Expected Solution:** {last_question_expected_solution}  
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
-
-    **Evaluation Criteria:**  
-    During this process of improvement and generation, please reflect on whether you have applied learned concepts, principles, laws, or theories to practical new situations. Additionally, consider whether you have solved routine mathematical problems and demonstrated the correct use of a method or procedure to solve problems or complete tasks.
     
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better application of mathematical concepts to practical situations?  
-    - Has there been improvement in the implementation of mathematical methods and procedures?  
-    - Are mathematical theories and principles more effectively applied to problem-solving?  
-
+    **Result Format:**  
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 
@@ -82,20 +100,26 @@ PROMPT_MAPPING = {
     - **Previous Expected Solution:** {last_question_expected_solution}  
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
-
-    **Evaluation Criteria:**  
-    During this process of improving and generating, please reflect on whether you have classified words and statements according to analytical criteria, perceived and inferred relationships between elements, discovered similarities or differences, discerned patterns, order, or arrangement of materials, and inferred particular qualities or characteristics not directly stated in previous examples.
     
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better analysis of mathematical relationships and patterns?  
-    - Has there been improvement in breaking down complex problems into components?  
-    - Are mathematical structures and organizations more effectively analyzed?  
+    **Evaluation Criteria:** 
+    Please follow these steps: 
+    
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Analyzing. In a math problem generation task, effective analysis means the agent can deconstruct old math problems and pre-learned knowledge into their constituent parts, identifying relationships between these parts and the system as a whole. This process involves differentiating, which entails distinguishing the components based on relevance or importance; organizing, which involves recognizing how the elements fit together into a coherent structure; and attributing, which focuses on identifying the underlying point of view, biases, values, or intentions within the information.
+    
+    Step 3: Levels of Analyzing. 
+    - Strong Analyzing (80–100): When the agent successfully breaks down the old problem into its big five components, identifies issues within the components or their relationships, and revises them correctly. The agent must demonstrate at least two of the three behaviors strongly: differentiating, organizing, or attributing.
+    - Medium Analyzing (60–80): When the new problem reflects changes to the old one, with most issues or drawbacks corrected, but the agent fails to exhibit any of the three key behaviors.
+    - Low Analyzing (<60): When the new problem shows minimal analytical ability, with the main error from the original problem remaining uncorrected if one existed
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
+    **Result Format:**  
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 
@@ -108,19 +132,25 @@ PROMPT_MAPPING = {
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
 
-    **Evaluation Criteria:**  
-    During this process of improving and generating, please reflect on whether you have evaluated and applied strategies to solve tasks while judging the logical consistency and adequacy of conclusions based on data, assessed the value of work using internal and external criteria, engaged in critique, justification, and interpretation.
+     **Evaluation Criteria:** 
+    Please follow these steps: 
     
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better evaluation of mathematical arguments and solutions?  
-    - Has there been improvement in assessing the effectiveness of mathematical methods?  
-    - Are mathematical conclusions more effectively justified and critiqued?  
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Evaluating. Compare the big five components in the old and new versions to assess whether the LLM math problem generator effectively evaluates the original problem, judges the importance of each component, and makes informed decisions on their inclusion or exclusion through critical analysis.
+    
+    Step 3: Levels of Evaluating. 
+    - Strong Evaluating (80–100): The math problem generator effectively identifies and eliminates internal inconsistencies or fallacies in the original problem, ensuring the new version adheres to externally established criteria for a well-constructed word problem.
+    - Medium Evaluating (60–80): The new problem demonstrates changes based on identifying relevant evaluation criteria, offers some supporting evidence, and reaches a generally logical conclusion, though it may overlook subtle nuances or biases.
+    - Low Evaluating(<60): The new problem shows that the agent struggles to apply relevant evaluation criteria, provides weak or irrelevant evidence, and results in a flawed or unsupported conclusion.
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
+    **Result Format**
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 
@@ -134,18 +164,23 @@ PROMPT_MAPPING = {
     - **New Expected Solution:** {new_question_expected_solution}  
 
     **Evaluation Criteria:**  
-    During this process of improving and generating, please reflect on whether you have generated new ideas, hypotheses, or solutions by integrating knowledge, organizing plans, and formulating new schemes or actions. Consider whether you have engaged in combining, creating, or revising elements to produce original work or conclusions.
+    Please follow these steps: 
     
-    **Key Questions for Analysis:**  
-    - Does the new question demonstrate better creation of original mathematical approaches?  
-    - Has there been improvement in synthesizing mathematical concepts in novel ways?  
-    - Are mathematical models and solutions more creatively developed?  
+    Step 1: Identify "Big Five" Components. Extract these from both problems: 1) math concepts and domains, 2) required skills to solve the problem, 3) math expressions as sequence of operations, 4) values that substitute into expressions, and 5) creative and unique narrative story based on real-life socio-cultural experiences.
+    
+    Step 2: Creating. Focus on the big five components in the new versions to assess whether the LLM math problem generator effectively create a new version of big five components and new relationships between these components. 
+    
+    Step 3: Levels of Creating. 
+    - Strong Creating (80–100): The math problem generator effectively produces a novel, coherent, and functional five big components in the new math problem that effectively fulfills its stated goal. The organizational structure is clear and logical, and the individual elements are well-integrated. The LLM demonstrates originality and ingenuity.
+    - Medium Creating (60–80): The new problem demonstrates changes as it produces a generally coherent and functional product, but it may lack originality or have some minor flaws in its organization or integration of elements.
+    - Low Creating (<60): The new problem shows that the agent struggles to produce a coherent or functional product. The product may be disorganized, illogical, or fail to meet its stated goal. The LLM demonstrates a lack of originality or significant flaws in its creation process.
+    
+    Step 4: Confidence Score and Suggestion. Reflect on your confidence level in making this judgment and assign a confidence_score between 0 and 100. Provide actionable and specific suggestions to enhance the problem as improvement_suggestions.
 
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
-        "confidence_score": 0-100,
-        "improvement_suggestions": ["suggestion1", "suggestion2"]
+        "confidence_score": 0-100
     }}
     """,
 

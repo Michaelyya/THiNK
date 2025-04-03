@@ -7,6 +7,7 @@ from metrics import calculate_quality_score
 from agent_prompts import PROMPT_MAPPING
 from dotenv import load_dotenv
 from openai import OpenAI
+import re
 
 load_dotenv()
 api_key = os.environ.get("OPENAI_API_KEY")
@@ -29,20 +30,73 @@ class QuestionEvalState(TypedDict):
     improvement_feedback: List[str]
 
 def parse_response(response_content: str) -> Dict[str, Any]:
-    response_content = response_content.replace('```json', '').replace('```', '').strip()
-    start_idx = response_content.find('{')
-    end_idx = response_content.rfind('}') + 1
-
-    if start_idx == -1 or end_idx == 0:
-        raise ValueError("No valid JSON found in response")
-
-    json_str = response_content[start_idx:end_idx]
-    evaluation = json.loads(json_str)
-
-    if "performance_score" not in evaluation or "confidence_score" not in evaluation:
-        raise ValueError("Missing required evaluation scores")
-    
-    return evaluation
+    try:
+        # Clean up the response content
+        response_content = response_content.strip()
+        
+        # Try to find JSON content
+        start_idx = response_content.find('{')
+        end_idx = response_content.rfind('}') + 1
+        
+        if start_idx == -1 or end_idx == 0:
+            # If no JSON found, try to extract just the scores
+            performance_match = re.search(r'"performance_score":\s*(\d+\.?\d*)', response_content)
+            confidence_match = re.search(r'"confidence_score":\s*(\d+\.?\d*)', response_content)
+            
+            performance_score = float(performance_match.group(1)) if performance_match else 0.0
+            confidence_score = float(confidence_match.group(1)) if confidence_match else 0.0
+            
+            return {
+                "performance_score": performance_score,
+                "confidence_score": confidence_score,
+                "improvement_suggestions": []
+            }
+        
+        json_str = response_content[start_idx:end_idx]
+        
+        # Clean up the JSON string
+        json_str = json_str.replace('```json', '').replace('```', '').strip()
+        json_str = re.sub(r'\\n', ' ', json_str)  # Replace newlines with spaces
+        json_str = re.sub(r'\s+', ' ', json_str)  # Replace multiple spaces with single space
+        
+        # Try to parse the JSON
+        try:
+            evaluation = json.loads(json_str)
+        except json.JSONDecodeError:
+            # If parsing fails, try to extract scores using regex
+            performance_match = re.search(r'"performance_score":\s*(\d+\.?\d*)', json_str)
+            confidence_match = re.search(r'"confidence_score":\s*(\d+\.?\d*)', json_str)
+            
+            performance_score = float(performance_match.group(1)) if performance_match else 0.0
+            confidence_score = float(confidence_match.group(1)) if confidence_match else 0.0
+            
+            return {
+                "performance_score": performance_score,
+                "confidence_score": confidence_score,
+                "improvement_suggestions": []
+            }
+        
+        # Ensure required fields exist
+        if "performance_score" not in evaluation:
+            evaluation["performance_score"] = 0.0
+        if "confidence_score" not in evaluation:
+            evaluation["confidence_score"] = 0.0
+        if "improvement_suggestions" not in evaluation:
+            evaluation["improvement_suggestions"] = []
+        
+        # Convert improvement suggestions to list if it's a string
+        if isinstance(evaluation["improvement_suggestions"], str):
+            evaluation["improvement_suggestions"] = [evaluation["improvement_suggestions"]]
+        
+        return evaluation
+    except Exception as e:
+        print(f"Error parsing response: {str(e)}")
+        print(f"Response content: {response_content[:200]}...")
+        return {
+            "performance_score": 0.0,
+            "confidence_score": 0.0,
+            "improvement_suggestions": [f"Error parsing response: {str(e)}"]
+        }
 
 def create_bloom_level_agent(level: str):
     def evaluate_level(state: QuestionEvalState) -> QuestionEvalState:
@@ -56,7 +110,6 @@ def create_bloom_level_agent(level: str):
                 new_question_details=state['new_question'],
                 new_question_expected_solution=state['new_solution']
             )
-            # We set GPT-4o here since we know it is the most powerful model here as evaluating a question
             response = client.chat.completions.create(
                 model="gpt-4o",
                 messages=[
@@ -68,14 +121,23 @@ def create_bloom_level_agent(level: str):
             
             response_content = response.choices[0].message.content
             evaluation = parse_response(response_content)
+            
+            # Handle improvement suggestions properly
+            suggestions = evaluation.get("improvement_suggestions", [])
+            if isinstance(suggestions, str):
+                suggestions = [suggestions]
+            elif isinstance(suggestions, list):
+                suggestions = [s for s in suggestions if isinstance(s, str) and len(s) > 1]
+            
             state[f'{level}_eval'] = {
                 "performance_score": float(evaluation["performance_score"]),
                 "confidence_score": float(evaluation["confidence_score"]),
-                "improvement_suggestions": evaluation.get("improvement_suggestions", [])
-            } # Update the state by evalutation result...
+                "improvement_suggestions": suggestions
+            }
             
-            if evaluation.get("improvement_suggestions"):
-                state['improvement_feedback'].extend(evaluation["improvement_suggestions"])
+            # Add suggestions to improvement_feedback as complete strings
+            if suggestions:
+                state['improvement_feedback'].extend(suggestions)
             
             return state
         except Exception as e:
@@ -136,7 +198,6 @@ def create_evaluation_pipeline():
     return workflow.compile()
 
 def evaluate_question_components(question_data: Dict[str, Any]) -> Dict[str, Any]:
-    # 在此设置workflow
     try:
         pipeline = create_evaluation_pipeline()
         
@@ -157,21 +218,53 @@ def evaluate_question_components(question_data: Dict[str, Any]) -> Dict[str, Any
             "improvement_feedback": []
         }
         
-        
         result = pipeline.invoke(initial_state)
+        
+        # Calculate additional metrics
+        evaluations = {
+            "remembering": result["remembering_eval"],
+            "understanding": result["understanding_eval"],
+            "applying": result["applying_eval"],
+            "analyzing": result["analyzing_eval"],
+            "evaluating": result["evaluating_eval"],
+            "creating": result["creating_eval"],
+            "language": result["language_eval"]
+        }
+        
+        # Calculate average confidence across all agents
+        confidence_scores = [eval_data["confidence_score"] for eval_data in evaluations.values()]
+        average_confidence = sum(confidence_scores) / len(confidence_scores)
+        
+        # Calculate pass rate (percentage of agents that passed)
+        pass_threshold = 0.7
+        passed_agents = sum(1 for eval_data in evaluations.values() if eval_data["performance_score"] >= pass_threshold)
+        pass_rate = passed_agents / len(evaluations)
+        
+        # Calculate agent agreement (standard deviation of performance scores)
+        performance_scores = [eval_data["performance_score"] for eval_data in evaluations.values()]
+        agent_agreement = 1 - (np.std(performance_scores) / np.mean(performance_scores) if np.mean(performance_scores) != 0 else 0)
+        
+        # Collect improvement suggestions from all evaluations
+        improvement_suggestions = []
+        for eval_data in evaluations.values():
+            suggestions = eval_data.get("improvement_suggestions", [])
+            if isinstance(suggestions, list):
+                improvement_suggestions.extend([s for s in suggestions if isinstance(s, str) and len(s) > 1])
+            elif isinstance(suggestions, str):
+                improvement_suggestions.append(suggestions)
+        
+        # Remove duplicates while preserving order
+        seen = set()
+        unique_suggestions = [x for x in improvement_suggestions if not (x in seen or seen.add(x))]
+        
         return {
             "passed_evaluation": result["final_decision"],
             "quality_score": result["quality_score"],
-            "evaluations": {
-                "remembering": result["remembering_eval"],
-                "understanding": result["understanding_eval"],
-                "applying": result["applying_eval"],
-                "analyzing": result["analyzing_eval"],
-                "evaluating": result["evaluating_eval"],
-                "creating": result["creating_eval"],
-                "language": result["language_eval"]
-            },
-            "improvement_suggestions": result["improvement_feedback"]
+            "average_confidence": average_confidence,
+            "pass_rate": pass_rate,
+            "agent_agreement": agent_agreement,
+            "evaluations": evaluations,
+            "improvement_suggestions": unique_suggestions
         }
     except Exception as e:
         print(f"Error in evaluation pipeline: {str(e)}")
@@ -179,6 +272,9 @@ def evaluate_question_components(question_data: Dict[str, Any]) -> Dict[str, Any
             "error": str(e),
             "passed_evaluation": False,
             "quality_score": 0.0,
+            "average_confidence": 0.0,
+            "pass_rate": 0.0,
+            "agent_agreement": 0.0,
             "evaluations": {},
             "improvement_suggestions": ["Error in evaluation process"]
         }

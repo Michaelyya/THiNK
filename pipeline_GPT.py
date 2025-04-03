@@ -15,15 +15,15 @@ load_dotenv()
 
 api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
-HF_API_KEY = os.environ.get("HF_API_KEY", "")
-if HF_API_KEY:
-    login(token=HF_API_KEY)
-HUGGINGFACE_MODELS = [
-    "meta-llama/Llama-3.1-8B-Instruct",
-    "Qwen/Qwen2.5-7B-Instruct",
-    "Qwen/Qwen2.5-14B-Instruct",
-    "Qwen/Qwen2.5-7B-Instruct"
-]
+# HF_API_KEY = os.environ.get("HF_API_KEY", "")
+# if HF_API_KEY:
+#     login(token=HF_API_KEY)
+# HUGGINGFACE_MODELS = [
+#     "meta-llama/Llama-3.1-8B-Instruct",
+#     "Qwen/Qwen2.5-7B-Instruct",
+#     "Qwen/Qwen2.5-14B-Instruct",
+#     "Qwen/Qwen2.5-7B-Instruct"
+# ]
 
 class QuestionImprovementPipeline:
     def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.7):
@@ -101,7 +101,7 @@ class QuestionImprovementPipeline:
             ]
 
         response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=messages,
             temperature=0
         )

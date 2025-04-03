@@ -14,7 +14,7 @@ from collections import Counter
 
 def calculate_pass_rate(evaluations: Dict[str, Any]) -> float:
     passing_scores = [
-        eval_data['performance_score'] >= 70
+        eval_data['performance_score'] >= 90
         for eval_data in evaluations.values()
     ]
     return sum(passing_scores) / len(passing_scores)
