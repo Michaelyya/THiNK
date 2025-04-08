@@ -14,7 +14,7 @@ from collections import Counter
 
 def calculate_pass_rate(evaluations: Dict[str, Any]) -> float:
     passing_scores = [
-        eval_data['performance_score'] >= 90
+        eval_data['performance_score'] >= 85
         for eval_data in evaluations.values()
     ]
     return sum(passing_scores) / len(passing_scores)
@@ -22,7 +22,7 @@ def calculate_pass_rate(evaluations: Dict[str, Any]) -> float:
 def calculate_agent_agreement(evaluations: Dict[str, Any]) -> float:
    # Convert scores to binary decisions (pass/fail)
     agent_decisions = {
-        agent: 1 if eval_data['performance_score'] >= 70 else 0
+        agent: 1 if eval_data['performance_score'] >= 85 else 0
         for agent, eval_data in evaluations.items()
     }
     

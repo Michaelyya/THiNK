@@ -84,7 +84,6 @@ PROMPT_MAPPING = {
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
     
-    **Result Format:**  
     Provide your evaluation in JSON format with these exact keys:  
     {{
         "performance_score": 0-100,
@@ -184,15 +183,24 @@ PROMPT_MAPPING = {
     }}
     """,
 
-    "language": """You are an expert evaluator assessing Language Quality in educational question generation.  
-    Please evaluate the quality of the following math word problem by analyzing its linguistic and structural features. Identify and categorize any linguistic-level errors (e.g., ambiguity, unanswerability, or linguistic complexity) and assess the problem’s solution strategy. Provide a detailed report that includes quantitative complexity metrics, error classifications, explanations, actionable suggestions for improvement, and a final performance score.
+    "language": """You are an expert evaluator assessing Math Problem Quality and Math Language Quality in educational question generation researsch context.  
+    Please evaluate the quality of the following math word problem by analyzing its big five components and linguistic features. Identify and categorize any linguistic-level errors (e.g., ambiguity, unanswerability, or linguistic complexity) and assess the problem’s solution strategy. 
+    Provide a detailed report that includes quantitative complexity metrics, error classifications, explanations, actionable suggestions for improvement, and a final performance score.
     **Details for Comparison:**  
     - **Previous Problem:** {last_question_details}  
     - **Previous Expected Solution:** {last_question_expected_solution}  
     - **New Problem:** {new_question_details}  
     - **New Expected Solution:** {new_question_expected_solution}  
 
-    Step 1: Lexical and Syntactic Complexity Analysis
+    Step 1: Big Five Components Extraction 
+    Please identify these: 
+    1) math concepts and domains
+    2) required skills to solve the problem
+    3) math expressions as sequence of operations
+    4) values that substitute into expressions
+    5) the narrative story based on real-life socio-cultural experiences
+    
+    Step 2: Lexical and Syntactic Complexity Analysis
     Please calculate the following metrics to assess the math problem's complexity: 
     -Type-Token Ratio (TTR): Measure of lexical diversity.
     -Yngve Score: Evaluates syntactic depth (higher = more complex).
@@ -203,32 +211,49 @@ PROMPT_MAPPING = {
     -Mean Dependency Distance (MDD): Average distance between syntactic dependencies.
     -Sentence Length: Total word count for the problem statement.
     
-    Step 2: Error Identification and Classification
+    Step 3: Error Identification and Classification
     Identify and classify linguistic-level errors using the following categories:
+
     -Ambiguity:Multiple or unintended solutions due to imprecise descriptions, unclear relationships, or missing conditions.
     -Unanswerability: Incomplete information, ill-defined terms, or logical inconsistencies that prevent a valid solution.
-    -Linguistic Complexity: Syntactic complexity, unclear phrasing, or difficult-to-translate statements that may hinder comprehension.
-    For each identified error: Clearly classify the error type. Explain the reasoning behind the classification, highlighting how the issue affects clarity or solvability.
-    Step 3: Solution Strategy Analysis
-    Identify Solution Process Type:
+    -Linguistic Complexity: Syntactic complexity, unclear phrasing, or difficult-to-translate statements that may hinder comprehension. Using the information in Step2 to judge the lexical and syntactic complexities. 
+    -Rationality: Identify unrealistic elements within the narrative context of the math problem. Explain how these unrealistic elements diminish the problem's rigor and solvability.\
 
+    For each identified error: Clearly classify the error type. Explain the reasoning behind the classification, highlighting how the issue affects clarity or solvability.
+    
+    Step 4: Solution Strategy Analysis
+    Identify Solution Process Type:
     -One-Step: Requires a single calculation or logical step to reach the answer.
     -Multi-Step: Involves multiple stages of reasoning or calculation.
     -Highlight Comprehension Challenges:Identify areas where multi-step reasoning introduces additional cognitive load or misunderstanding risks.
     
-    Step 4: Improvement Suggestions
+    Step 5: Improvement Suggestions
     Provide actionable and specific suggestions to enhance the problem’s clarity, accuracy, and solvability. Recommendations should address:
     -Ambiguous phrasing (clarify relationships and conditions).
     -Unanswerable problems (add missing information or correct inconsistencies).
     -Linguistic complexity (simplify structure and improve phrasing for better comprehension).
-    
-    Step 5: Performance Score Calculation (0–100)
+    -Structure Consistency: 
+        Identify unrealistic elements within the narrative context of the math problem. 
+        Explain how these unrealistic elements diminish the problem's rigor and solvability. 
+        When you give suggestions to improve the problem, we want the new problem to follow a similar structure under the same math concepts and domains, 
+        and combine or organize required skills to solve the problem better, 
+        and not use exactly the same math expressions but once you make sure the problem is solvable you suggest to improve the logical connection of the math expression sequence, 
+        and we want you to change values that substitute into math expressions, 
+        and we want you provide a more creative, realistic, interesting narrative story as the context of this math problem.
+
+    Step 6: Performance Score Calculation (0–100)
     Generate a final performance score considering the following factors:
-    -Lexical and Syntactic Complexity (from Step 1):
-    -Higher complexity reduces the score.
-    -Error Count and Severity (from Step 2):
-    -More errors and more severe errors lower the score.
-    -Clarity and Solvability: Clear, unambiguous, and well-structured problems receive a higher score.
+    1. Lexical and Syntactic Complexity (from Step 1): Double-check your results in Step 2 and assess the lexical and syntactic complexity of the math problem.
+    2. Error Count and Severity (from Step 2):
+    - Deduct 5 points for issues in Ambiguity.
+    - Deduct 5 points for issues in Unanswerability.
+    - Deduct 5 points for issues in Rationality.
+    - If lexical and syntactic complexity is too high, deduct 5 points.
+    - If lexical and syntactic complexity is too low, deduct 3 points.
+    3. Clarity and Solvability: If the problem is clear, unambiguous, and well-structured, add 5 points.
+    4. Answerability Penalty: If the question is unanswerable, deduct an additional 5 points.
+    5. Structural Consistency and Creativity: If the problem successfully maintains the original question’s structure and key components while enhancing creativity, engagement, and mathematical context, add 5 points.
+   
     Scoring Guidance:
     - 90–100: Clear, simple, and error-free problem.
     - 70–89: Minor complexity or errors that slightly impact clarity.
