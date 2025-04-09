@@ -1,0 +1,382 @@
+round,question_id,current_question,current_solution,average_confidence,pass_rate,agent_agreement,quality_score,improvement_suggestions,remembering_score,understanding_score,applying_score,analyzing_score,evaluating_score,creating_score,language_score
+1,1,An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ,It will still take 40 minutes for 60 players to perform it. ,83.57142857142857,1.0,0.8623394126200812,0.453,"To further enhance the problem, consider providing a more detailed narrative that includes additional variables or constraints, such as the skill level of the players or the complexity of the symphony, to deepen the understanding of the proportional reasoning involved.; Clarify the relationship between the number of players and the time taken to perform the symphony. Specify that the time taken is independent of the number of players.; Provide a more realistic context by explaining why the number of players does not affect the performance time, such as the symphony being a fixed-length piece.; Simplify the problem statement to reduce potential confusion, ensuring that the focus is on understanding the concept rather than interpreting the language.",70.0,85.0,70.0,50.0,70.0,70.0,75.0
+2,1,"An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. Assuming the performance quality remains constant regardless of the number of players, how long would it take for 60 players to play the same symphony?",It will still take 40 minutes for 60 players to perform it.,93.57142857142856,1.0,0.8587123755715484,0.701,"Simplify the explanation of performance quality to ensure comprehension.; Change the context to a more relatable scenario, such as a group of students reading a play, where the time to read does not change with the number of readers.",95.0,65.0,65.0,85.0,85.0,85.0,95.0
+3,1,"A group of 120 students takes 40 minutes to read and perform a play. Assuming the performance quality remains constant regardless of the number of students, how long would it take for 60 students to read and perform the same play?",It will still take 40 minutes for 60 students to read and perform it.,90.71428571428572,1.0,0.8358849190825843,0.524,"Consider adding a more engaging context, such as a school play competition, to make the problem more interesting.; Change the values to introduce slight variation, e.g., 100 students and 50 students, to maintain engagement.",90.0,85.0,65.0,70.0,70.0,65.0,100.0
+1,2,"A plane with 150 passengers flies in 4 hours to California, and please answer how long the plane will need when it transports 300 people. ","If we assume the plane's max capacity is only 150 passengers, then the plane would have to do two trips plus one return trips. It will be 4+4+4 = 12 hours. ",75.0,0.8571428571428571,0.5268031178714314,0.493,nan,0.0,90.0,85.0,90.0,70.0,50.0,55.0
+2,2,A plane with a maximum capacity of 150 passengers can fly from its starting point to California in 4 hours. How long would it take for the same plane to transport 300 passengers to California if it can only carry 150 passengers per trip?,"The plane would need to make two round trips (one full trip and one return trip) for the additional 150 passengers, totaling 12 hours (4+4+4).",94.28571428571428,1.0,0.8813826438478733,0.831,nan,100.0,85.0,65.0,90.0,85.0,85.0,95.0
+1,3,There are 49 dogs signed up to compete in the dog show. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete? ,"Let $x$ represent the number of large dogs. Since there are 36 more small dogs than large dogts, the number of small dogs is $x + 36$. The total number of dog is 49, so we set up the equation: 
+\[
+x + (x + 36) = 49
+\]
+Simplifying:
+\[
+2x + 36 = 49
+\]
+Subtracting 36 from both sides:
+\[
+2x = 13
+\]
+Dividing by 2:
+\[
+x = 6.5
+\]
+There are 6.5 large dogs and 42.5 small dogs. ",80.0,0.8571428571428571,0.565069694108869,0.46,"Adjust the total number of dogs to ensure an integer solution.; Use a more engaging context, such as a community pet event.",0.0,50.0,50.0,60.0,50.0,50.0,70.0
+2,3,"At a community pet event, there are 50 dogs signed up to compete. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete?","Let x represent the number of large dogs. Since there are 36 more small dogs than large dogs, the number of small dogs is x + 36. The total number of dogs is 50, so we set up the equation: 
+
+x + (x + 36) = 50
+Simplifying:
+2x + 36 = 50
+Subtracting 36 from both sides:
+2x = 14
+Dividing by 2:
+x = 7
+There are 7 large dogs and 43 small dogs.",93.57142857142856,1.0,0.9095854441232628,0.83,"Clarify the relationship between small and large dogs by explicitly stating the difference in their numbers.; Consider using a more engaging and realistic context, such as a local dog festival with specific events for small and large dogs.; Ensure the problem is solvable with integer solutions by adjusting the total number of dogs or the difference between small and large dogs.",90.0,85.0,65.0,85.0,85.0,85.0,85.0
+1,4,Now 7 men have 7 wives. Each man and each wife have 7 children. What's the total number of people? ,"The total number of people should be the sum of numbers of men, wives, and children. Because we know that there are 7 men and 7 wives. Now we have 14 people in total. Each pair of man and wife have 7 children, and there are 7 pairs based on assumption. So, 7 multiplied by 7, and there are 49 children. The total number of people equals to 49 + 14 = 63. ",73.57142857142857,0.8571428571428571,0.5687644690244049,0.447,"Consider a community picnic where 7 families attend. Each family has a different number of children, ranging from 1 to 7. Calculate the total number of people at the picnic.; In a small village, there are 7 families. Each family has between 1 and 7 children. Determine the total number of people in the village.",0.0,70.0,70.0,70.0,85.0,70.0,95.0
+2,4,"In a small village, there are 7 families. Each family has between 1 and 7 children. Determine the total number of people in the village.","The total number of people in the village can be determined by adding the number of adults and children. There are 7 families, so there are 7 adults. If each family has between 1 and 7 children, the minimum number of children is 7 (1 child per family) and the maximum is 28 (7 children per family). Assuming the worst-case scenario for the maximum number of children, the total number of people would be 7 (adults) + 28 (children) = 35.",86.42857142857143,1.0,0.805628187700055,0.459,nan,40.0,65.0,70.0,70.0,65.0,65.0,87.0
+3,4,"In a small village, there are 7 families. Each family has between 1 and 7 children. What is the maximum possible total number of people in the village?","The maximum possible total number of people in the village is 35, assuming each family has 7 children. This gives a total of 7 adults + 49 children = 56 people, but since the problem specifies between 1 and 7 children per family, the correct calculation is 7 adults + 49 children = 56 - 21 = 35.",87.85714285714286,1.0,0.7891814893221081,0.476,nan,100.0,50.0,70.0,70.0,70.0,70.0,95.0
+1,5,"Infinitely many people are about to play this game: they will each get a black or a white hat placed on their heads simultaneously, and each will be able to see everyone else's hat but not their own. They cannot communicate in any shape or form once the hats are placed on their heads - no winks, nudges or smiles.
+
+Then, at the sound of the gong, everyone needs to simultaneously announce the color of their own hat, at the exact same time, and with the possible exception of finitely many people, all of them must get it right.",,60.71428571428572,0.8571428571428571,0.5664047079299767,0.421,"Clarify the conditions under which players can deduce their hat colors. Introduce a strategy or hint that allows for a logical deduction.; Provide additional information or constraints that make the problem solvable, such as a rule or pattern that players can use.",0.0,70.0,50.0,50.0,50.0,50.0,54.0
+2,5,"Infinitely many people are about to play this game: they will each get a black or a white hat placed on their heads simultaneously, and each will be able to see everyone else's hat but not their own. They cannot communicate in any shape or form once the hats are placed on their heads - no winks, nudges, or smiles. However, they are allowed to agree on a strategy beforehand. At the sound of the gong, everyone needs to simultaneously announce the color of their own hat, and with the possible exception of finitely many people, all of them must get it right. What strategy can they use to ensure this happens?"",
+    ""solution"": ""The players can use the following strategy: Assign a binary value (0 for white and 1 for black) to each hat color. Let the infinite sequence of hat colors seen by each person (excluding their own) be represented as an infinite binary sequence. Each person can then calculate the parity (even or odd number of 1s) of the binary sequence they see. If the parity is even, they assume their own hat is white (0); if the parity is odd, they assume their own hat is black (1). This ensures that only one person's guess will be wrong because the sum of an infinite series modulo 2 is well-defined, and the person who guesses incorrectly is the one whose hat color changes the parity of the observed sequence.","The players can use the following strategy: Assign a binary value (0 for white and 1 for black) to each hat color. Let the infinite sequence of hat colors seen by each person (excluding their own) be represented as an infinite binary sequence. Each person can then calculate the parity (even or odd number of 1s) of the binary sequence they see. If the parity is even, they assume their own hat is white (0); if the parity is odd, they assume their own hat is black (1). This ensures that only one person's guess will be wrong because the sum of an infinite series modulo 2 is well-defined, and the person who guesses incorrectly is the one whose hat color changes the parity of the observed sequence.",91.42857142857144,1.0,0.9795875854768068,0.983,"Clarify the conditions under which the strategy is agreed upon to ensure that the problem is fully answerable.; Simplify the language used to describe the strategy, particularly the explanation of parity and binary sequences, to make it more accessible to a wider audience.; Consider introducing a more relatable narrative context, such as a game show or a team challenge, to enhance engagement and realism.",90.0,85.0,85.0,85.0,85.0,85.0,85.0
+1,6,A farmer has 60 meters of fencing to create a four-sided enclosure. He wants a rectangular shape that uses all the fencing. What is the maximum area he can enclose? The corners do not ened to be right angles. ,"\textbf{If truly rectangular:} The maximum area with a fixed perimeter \( P = 60 \). When the rectangle is a square, the area is the largest. So, each side is:
+
+\[
+\frac{60}{4} = 15 \text{ m}, \quad \frac{60}{4} = 15 \text{ m},
+\]
+and the area is:
+\[
+\text{Area} = 15 \times 15 = 225 \text{ m}^2.
+\]
+\textbf{If any parallelogram:} The maximum area is also formed by a rectangle (a special case of a parallelogram) with sides 15 m each. So, the area remains:
+\[
+225 \text{ m}^2.
+\]",75.0,0.8571428571428571,0.574725529508997,0.493,"Clarify the requirement for the shape to be a rectangle with right angles, as the current phrasing allows for any parallelogram, which introduces ambiguity.; Provide a more engaging and realistic context, such as a farmer wanting to maximize the area for a specific crop, to enhance the narrative and make the problem more relatable.; Simplify the language and structure to ensure the problem is accessible to a wider range of students, potentially by breaking down the problem into smaller, clearer steps.",0.0,90.0,90.0,70.0,75.0,90.0,72.0
+2,6,"A farmer has 60 meters of fencing to enclose a rectangular field. The farmer wants to maximize the area of the field for growing a particular crop. What is the maximum area the farmer can enclose if the corners must be right angles?"",
+    ""solution"": ",Error extracting solution,87.14285714285714,1.0,0.8944600604084818,0.517,"Ensure the solution extraction process is complete and accurate.; Consider a more engaging narrative, such as a farmer planning a community garden with specific crop sections.",80.0,70.0,70.0,85.0,85.0,70.0,92.0
+3,6,"A farmer is planning to use 60 meters of fencing to create a rectangular section of a community garden. Each section will be used to grow a different type of vegetable, and the farmer wants to maximize the area for each section. If the corners must be right angles, what is the maximum area the farmer can enclose for one section of the garden?",The maximum area that can be enclosed is 225 square meters.,90.0,1.0,0.8514196170948591,0.523,"Consider a scenario where a farmer is organizing a community gardening competition, and each participant must use 60 meters of fencing to create the largest possible rectangular plot. What is the maximum area each participant can enclose?; Change the fencing length to 80 meters to introduce a new challenge while maintaining the same mathematical concepts.",90.0,85.0,65.0,70.0,70.0,75.0,100.0
+1,7,"A fractory produces chairs and tables. If the total cost of production is $5000 and each chair costs $20 to make, while each table costs $50. How much chairs and tables were produced? ","Even there are two unknowns but only one equation given and it is impossible to determine the exact number of chairs and tables by solving the equation. However, we can create an inequation to solve and finde what values fulfill a condition stated in the form of this inequation. The inequation would be:
+\[
+20x + 50y \leq 5000
+\]
+The result will be a range for the variables $x$ and $y$. Both $x$ and $y$ are positive integars based on the context the math problem.  The results will be: 
+\[
+0 \leq x \leq 250, \quad 0 \leq y \leq 100
+\]",70.71428571428571,0.8571428571428571,0.5695940201632598,0.441,"Clarify the relationship between the number of chairs and tables produced and the total cost. Specify if the problem requires finding exact numbers or ranges.; Add an additional equation or condition to make the problem solvable for exact values, or clearly state that the solution involves finding a range of possible values.; Simplify the language and structure to improve comprehension, such as rephrasing 'how much chairs and tables were produced?' to 'how many chairs and tables were produced?'; Create a more engaging and realistic narrative, such as a furniture company fulfilling a specific order with a budget constraint, to provide context for the problem.",0.0,70.0,70.0,70.0,50.0,65.0,55.0
+2,7,"A furniture company needs to produce chairs and tables within a budget of $5000. Each chair costs $20 to produce, and each table costs $50. If the company wants to use the entire budget, how many chairs and tables can they produce?"",
+    ""solution"": ""Even though there are two unknowns, only one equation is provided, making it impossible to determine the exact number of chairs and tables. However, we can create an equation to find the possible combinations of chairs and tables that fit the budget. The equation would be:\n\n20x + 50y = 5000\nwhere \(x\) represents the number of chairs and \(y\) represents the number of tables. The solutions will be pairs of positive integers (x, y) that satisfy the equation. Some possible solutions include:\n\n- 0 chairs and 100 tables\n- 50 chairs and 80 tables\n- 100 chairs and 60 tables\n- 150 chairs and 40 tables\n- 200 chairs and 20 tables\n- 250 chairs and 0 tables\n\nTherefore, the company can produce various combinations of chairs and tables, as long as the total production cost equals $5000.","Even though there are two unknowns, only one equation is provided, making it impossible to determine the exact number of chairs and tables. However, we can create an equation to find the possible combinations of chairs and tables that fit the budget. The equation would be:\n\n20x + 50y = 5000\nwhere \(x\) represents the number of chairs and \(y\) represents the number of tables. The solutions will be pairs of positive integers (x, y) that satisfy the equation. Some possible solutions include:\n\n- 0 chairs and 100 tables\n- 50 chairs and 80 tables\n- 100 chairs and 60 tables\n- 150 chairs and 40 tables\n- 200 chairs and 20 tables\n- 250 chairs and 0 tables\n\nTherefore, the company can produce various combinations of chairs and tables, as long as the total production cost equals $5000.",91.42857142857143,1.0,0.947312700829325,0.697,"Clarify that the goal is to find combinations of chairs and tables that use the entire budget.; Consider a more engaging context, such as a school project or community event, and adjust values for variety.",80.0,75.0,85.0,85.0,85.0,85.0,90.0
+3,7,"For a school project, a group of students needs to buy chairs and tables within a budget of $5000. Each chair costs $20, and each table costs $50. If they want to spend the entire budget, how many different combinations of chairs and tables can they purchase?"",
+    ""solution"": ""Even though there are two unknowns, only one equation is provided, making it impossible to determine the exact number of chairs and tables. However, we can create an equation to find the possible combinations of chairs and tables that fit the budget. The equation would be:\n\n20x + 50y = 5000\nwhere \(x\) represents the number of chairs and \(y\) represents the number of tables. The solutions will be pairs of positive integers (x, y) that satisfy the equation. Some possible solutions include:\n\n- 0 chairs and 100 tables\n- 50 chairs and 80 tables\n- 100 chairs and 60 tables\n- 150 chairs and 40 tables\n- 200 chairs and 20 tables\n- 250 chairs and 0 tables\n\nTherefore, the group of students can purchase various combinations of chairs and tables, as long as the total production cost equals $5000.","Even though there are two unknowns, only one equation is provided, making it impossible to determine the exact number of chairs and tables. However, we can create an equation to find the possible combinations of chairs and tables that fit the budget. The equation would be:\n\n20x + 50y = 5000\nwhere \(x\) represents the number of chairs and \(y\) represents the number of tables. The solutions will be pairs of positive integers (x, y) that satisfy the equation. Some possible solutions include:\n\n- 0 chairs and 100 tables\n- 50 chairs and 80 tables\n- 100 chairs and 60 tables\n- 150 chairs and 40 tables\n- 200 chairs and 20 tables\n- 250 chairs and 0 tables\n\nTherefore, the group of students can purchase various combinations of chairs and tables, as long as the total production cost equals $5000.",87.85714285714286,1.0,0.8335643336753484,0.461,"The new problem is essentially a replication of the previous problem with only a minor change in the narrative context (from a furniture company to a school project). To improve the problem, the generator could introduce additional constraints or variables, such as a maximum number of chairs or tables, or different costs for different types of chairs or tables. Additionally, incorporating a more complex real-life scenario, such as considering delivery costs or discounts for bulk purchases, could enhance the problem's creativity and complexity.; Clarify the problem by specifying that the goal is to find all possible combinations of chairs and tables that use the entire budget, rather than asking for the number of combinations.; Provide a more engaging and realistic context, such as a school event where students need to arrange seating and tables for a specific number of attendees, which would require them to use the entire budget efficiently.; Simplify the language and structure to ensure that the problem is accessible to a wider range of students, possibly by breaking down the problem into smaller, more manageable parts.",90.0,65.0,50.0,65.0,65.0,65.0,75.0
+1,8,"Rose is twice as old as Mark was when Rose was as old as Mark is now. If Mark is 20, how old is Rose? ",The problem is over complex and confusing and might not be solvable? ,62.857142857142854,0.8571428571428571,0.5647378663379963,0.426,Clarify relationships and conditions to make the problem more understandable.; Simplify the sentence structure to reduce linguistic complexity and improve comprehension.,0.0,50.0,50.0,50.0,50.0,50.0,70.0
+2,8,"When Rose was 20 years old, Mark was half her age. If Mark is currently 20 years old, how old is Rose?","Let's denote Rose's current age as R and Mark's current age as M. We know M = 20. When Rose was 20, Mark was half her age, so Mark was 10 at that time. The difference in their ages is 20 - 10 = 10 years. Therefore, Rose's current age is M + 10 = 20 + 10 = 30. So, Rose is 30 years old.",91.42857142857143,1.0,0.9056725028544385,0.826,"Rephrase the problem to emphasize the age difference more explicitly.; Introduce a more engaging context, such as a story about a family reunion where ages are being discussed.",70.0,85.0,85.0,85.0,85.0,85.0,100.0
+3,8,"At a family reunion, it was mentioned that when Aunt Rose was 20 years old, Uncle Mark was half her age. If Uncle Mark is currently 20 years old, how old is Aunt Rose?","Let's denote Aunt Rose's current age as R and Uncle Mark's current age as M. We know M = 20. When Aunt Rose was 20, Uncle Mark was half her age, so he was 10 at that time. The difference in their ages is 20 - 10 = 10 years. Therefore, Aunt Rose's current age is M + 10 = 20 + 10 = 30. So, Aunt Rose is 30 years old.",92.14285714285714,1.0,0.779545923149514,0.484,"Change the context to make it more engaging, such as involving a family event or a story about a shared experience.; Use different ages to add variety and ensure the problem remains fresh.",95.0,65.0,50.0,65.0,65.0,65.0,95.0
+1,9,"A student has test scores of 80, 85, 90 in math. The teacher says, the average score of your last two tests is 88, and the average score of your last three tests is 87. What is the score of the last test?  ","No able to sovle it. If the fourth score is x, then (90+x)/2 = 88, and (85+90+x)/3 = 87. The variable x is not solvable. ",75.0,0.8571428571428571,0.5647378663379963,0.45,"The new problem attempts to apply mathematical concepts related to averages and algebraic manipulation, but it fails to provide a solvable scenario. To improve, ensure that the problem is logically consistent and solvable. For example, adjust the given averages or scores so that the variable x can be determined. Additionally, consider incorporating a more creative narrative or context to enhance engagement and relatability.; The new problem introduces a scenario with test scores and averages, which is a common real-life context. However, it contains a logical inconsistency, as the problem is unsolvable with the given information. To improve, ensure that the problem is solvable by providing consistent and sufficient data. For example, adjust the averages or the number of tests to allow for a clear solution. Additionally, clarify the narrative to ensure it aligns with the mathematical operations required to solve the problem.; Ensure logical consistency in the problem setup to make it solvable.; Simplify the narrative to focus on a single average calculation for clarity.",0.0,50.0,50.0,50.0,50.0,50.0,70.0
+2,9,"A student has test scores of 80, 85, and 90 in math. The teacher says that the average score of the last two tests is 88. What is the score of the last test?","Let the score of the last test be x. Given that the average score of the last two tests is 88, we have (90 + x) / 2 = 88. Solving for x, we get 90 + x = 176, and thus x = 86.",94.28571428571429,1.0,0.9490544297275291,0.831,"Consider adding a more engaging context, such as a math competition scenario, to increase student interest.",80.0,85.0,85.0,90.0,85.0,85.0,95.0
+3,9,"In a math competition, a student has scored 80 and 85 on her first two tests. The teacher announces that the average score of her last two tests is 88. If she scored 90 on her third test, what was her score on the fourth and final test to meet the teacher's statement?","Let the score of the last test be x. Given that the average score of the last two tests is 88, we have (90 + x) / 2 = 88. Solving for x, we get 90 + x = 176, and thus x = 86.",93.57142857142857,1.0,0.8889301833903006,0.701,"Consider changing the context to a more engaging scenario, such as a student preparing for a math scholarship or a school math league.; Use different values to add variety, such as changing the scores to 78, 84, and 92, with an average of 89 for the last two tests.",90.0,75.0,65.0,85.0,85.0,85.0,95.0
+1,10,Jan and Sam paint a fence together. Jan is 9 year-old and Sam is 12 year-old. John can paint it alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time? ,"The work rate of Jan is: 
+\[\frac{1}{9} 
+\]
+The work rate of Sam is: 
+\[\frac{1}{12} 
+\]
+When they work together, their combined work rate is:
+\[ \quad \frac{1}{9} + \frac{1}{12}
+\]
+
+\[
+\text{To compute this sum, find the least common denominator (LCD), which is 36:}
+\]
+
+\[
+\frac{4}{36} + \frac{3}{36} = \frac{7}{36}
+\]
+
+\[
+\text{Thus, the time required to complete the fence together is:}
+\]
+
+\[
+\frac{1}{\frac{7}{36}} = \frac{36}{7} \text{ hours}
+\]",77.85714285714286,1.0,0.815700247338029,0.499,,50.0,90.0,70.0,85.0,60.0,85.0,78.0
+2,10,"Jan and Sam are painting a fence together. If John can paint the fence alone in 4 hours, Jan can do it in 9 hours, and Sam can do it in 12 hours, how long will it take them to paint the fence together?","The work rate of John is: 
+\[\frac{1}{4}\]
+The work rate of Jan is: 
+\[\frac{1}{9}\]
+The work rate of Sam is: 
+\[\frac{1}{12}\]
+When they work together, their combined work rate is:
+\[ \quad \frac{1}{4} + \frac{1}{9} + \frac{1}{12}\]
+
+To compute this sum, find the least common denominator (LCD), which is 36:
+\[ \frac{9}{36} + \frac{4}{36} + \frac{3}{36} = \frac{16}{36} = \frac{4}{9}\]
+
+Thus, the time required to complete the fence together is:
+\[ \frac{1}{\frac{4}{9}} = \frac{9}{4} \text{ hours}\]",92.14285714285714,1.0,0.8799276872656542,0.827,,60.0,85.0,85.0,85.0,85.0,85.0,95.0
+3,10,"John, Jan, and Sam are painting a fence together. If John can paint the fence alone in 4 hours, Jan can do it in 9 hours, and Sam can do it in 12 hours, how long will it take them to paint the fence together?","The work rate of John is: \(\frac{1}{4}\) The work rate of Jan is: \(\frac{1}{9}\) The work rate of Sam is: \(\frac{1}{12}\) When they work together, their combined work rate is: \( \quad \frac{1}{4} + \frac{1}{9} + \frac{1}{12}\) To compute this sum, find the least common denominator (LCD), which is 36: \( \frac{9}{36} + \frac{4}{36} + \frac{3}{36} = \frac{16}{36} = \frac{4}{9}\) Thus, the time required to complete the fence together is: \( \frac{1}{\frac{4}{9}} = \frac{9}{4} \text{ hours}\)",94.28571428571429,1.0,0.5070996351190832,0.489,,100.0,50.0,50.0,50.0,50.0,10.0,95.0
+1,11,"Billy orders 3 large pizzas for his party. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Then Billy eats half of what’s left from the second pizza. His friend Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?",Unclear whether Billy eats half of the entire second pizza or just half of what was left after the dog ate.,72.85714285714286,0.8571428571428571,0.5624744905396127,0.446,"The new problem introduces a real-life scenario involving pizza slices, which is a creative narrative. However, the problem lacks clarity in the expected solution, particularly regarding whether Billy eats half of the entire second pizza or just half of what was left after the dog ate. To improve, the problem should clearly specify the sequence of events and the operations involved. Additionally, the problem could benefit from more explicit mathematical expressions and values to ensure the solution is straightforward. Clarifying these aspects will enhance the understanding and ensure the problem is solvable without ambiguity.; Clarify the phrasing regarding Billy's consumption of the second pizza. Specify whether he eats half of the entire pizza or half of what remains after the dog eats.; Ensure the problem is answerable by providing clear instructions on the sequence of events and the exact portions consumed by each character.; Simplify the narrative to reduce linguistic complexity. Consider using a more straightforward context, such as a picnic or a family dinner, to make the problem more relatable and engaging.",0.0,50.0,70.0,50.0,50.0,65.0,65.0
+2,11,"Billy orders 3 large pizzas for his party. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Then Billy eats half of what’s left from the second pizza. After that, Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?","First, calculate the total number of slices initially: 3 pizzas * 8 slices/pizza = 24 slices. 
+
+After the dog eats 5 slices from one of the pizzas, the remaining slices are: 24 - 5 = 19 slices.
+
+Billy then eats half of what's left from the second pizza. The second pizza has 8 slices, so after the dog eats, there are 8 - 5 = 3 slices left. Billy eats half of these 3 slices, leaving: 3 / 2 = 1.5 slices (rounding down to 1 slice since partial slices are not typically considered). So, the remaining slices are: 19 - 1 = 18 slices.
+
+Jessica then takes a quarter of the remaining slices from the third pizza. The third pizza has 8 slices, so after the dog eats, there are 8 - 5 = 3 slices left. Jessica takes a quarter of these 3 slices, leaving: 3 - (3 / 4) = 3 - 0.75 = 2.25 slices (rounding down to 2 slices). So, the remaining slices are: 18 - 2 = 16 slices.
+
+Therefore, the number of slices left after everyone eats is 16.",90.0,1.0,0.8754496740957706,0.694,Ensure rounding decisions are explicitly stated to avoid confusion.; Consider changing the context to a picnic scenario with different animals and people sharing food items for more engagement.,100.0,70.0,70.0,85.0,85.0,85.0,95.0
+3,11,"Samantha orders 3 large sandwiches for a picnic. Each sandwich is cut into 8 pieces. During the picnic, a raccoon sneaks in and eats 5 pieces from one of the sandwiches. Later, Samantha's friend eats half of what’s left from another sandwich. Finally, Samantha's cousin takes a quarter of the remaining pieces from the last sandwich. How many pieces are left after everyone eats?","First, calculate the total number of pieces initially: 3 sandwiches * 8 pieces/sandwich = 24 pieces.
+
+After the raccoon eats 5 pieces from one of the sandwiches, the remaining pieces are: 24 - 5 = 19 pieces.
+
+Samantha's friend then eats half of what's left from the second sandwich. The second sandwich has 8 pieces, so after the raccoon eats, there are 8 - 5 = 3 pieces left. Samantha's friend eats half of these 3 pieces, leaving: 3 / 2 = 1.5 pieces (rounding down to 1 piece since partial pieces are not typically considered). So, the remaining pieces are: 19 - 1 = 18 pieces.
+
+Samantha's cousin then takes a quarter of the remaining pieces from the third sandwich. The third sandwich has 8 pieces, so after the raccoon eats, there are 8 - 5 = 3 pieces left. Samantha's cousin takes a quarter of these 3 pieces, leaving: 3 - (3 / 4) = 3 - 0.75 = 2.25 pieces (rounding down to 2 pieces). So, the remaining pieces are: 18 - 2 = 16 pieces.
+
+Therefore, the number of pieces left after everyone eats is 16.",90.0,1.0,0.8009925619580022,0.48,"Consider using different fractions or more complex operations to introduce a new mathematical challenge.; Create a more engaging narrative, such as a school event or a community gathering, to enhance interest.",90.0,65.0,50.0,70.0,70.0,65.0,95.0
+1,12,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{document}
+
+\title{Train Travel Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?
+
+\section*{Solution}
+
+\subsection*{Step 1: Define Variables}
+\begin{itemize}
+    \item Let \(t\) be the time (in hours) that John traveled.
+    \item Since Mike arrives 15 minutes before John, his travel time is \(t - \frac{1}{4}\) hours.
+    \item Mike leaves 30 minutes (or \(\frac{1}{2}\) hour) after John, so his total travel time is:
+    \[
+    t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \, \text{hours.}
+    \]
+    \item Let \(d\) be the distance traveled by both John and Mike.
+\end{itemize}
+
+\subsection*{Step 2: Set Up Equations}
+We know:
+\[
+d = 80t \quad \text{(John's distance formula)}
+\]
+\[
+d = 60 \left( t - \frac{3}{4} \right) \quad \text{(Mike's distance formula)}
+\]
+
+\subsection*{Step 3: Set Distances Equal}
+Since both travel the same distance:
+\[
+80t = 60 \left( t - \frac{3}{4} \right)
+\]
+\[
+80t = 60t - 45
+\]
+\[
+80t - 60t = -45
+\]
+\[
+20t = 45
+\]
+\[
+t = \frac{45}{20} = 2.25 \, \text{hours.}
+\]
+
+\subsection*{Step 4: Calculate Distance}
+Now that we know \(t = 2.25\) hours, we calculate the distance:
+\[
+d = 80 \times 2.25 = 180 \, \text{miles.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{John's travel time:} \(2.25 \, \text{hours}\)
+    \item \textbf{Distance traveled:} \(180 \, \text{miles}\)
+\end{itemize}
+
+\end{document}",72.85714285714286,0.8571428571428571,0.5848500237000824,0.56,,0.0,70.0,85.0,85.0,85.0,85.0,78.0
+2,12,"John boards a train traveling at 80 miles per hour. His friend Mike departs from the same station 30 minutes later on a slower train that travels at 60 miles per hour. Remarkably, Mike arrives at their destination 15 minutes before John. Determine the duration of John's trip and the total distance traveled."",
+    ""solution"": ""Let \( t \) be the time (in hours) that John traveled. Mike's travel time would then be \( t - \frac{1}{4} \) hours because he arrives 15 minutes (or \\(\\frac{1}{4}\\) hour) before John. However, Mike left 30 minutes (or \\(\\frac{1}{2}\\) hour) after John, so his effective travel time is actually \( t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \\) hours. Let \( d \\) be the distance traveled by both.\n\nSetting up the equations based on distance:\n\[ d = 80t \] for John,\n\[ d = 60 \left( t - \frac{3}{4} \right) \] for Mike.\n\nEquating the distances, we get:\n\[ 80t = 60 \left( t - \frac{3}{4} \right) \]\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \\] hours.\n\nCalculating the distance:\n\[ d = 80 \times 2.25 = 180 \\] miles.\n\nThus, the answers are:\n- **John's travel time:** 2.25 hours\n- **Distance traveled:** 180 miles.","Let \( t \) be the time (in hours) that John traveled. Mike's travel time would then be \( t - \frac{1}{4} \) hours because he arrives 15 minutes (or \\(\\frac{1}{4}\\) hour) before John. However, Mike left 30 minutes (or \\(\\frac{1}{2}\\) hour) after John, so his effective travel time is actually \( t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \\) hours. Let \( d \\) be the distance traveled by both.\n\nSetting up the equations based on distance:\n\[ d = 80t \] for John,\n\[ d = 60 \left( t - \frac{3}{4} \right) \] for Mike.\n\nEquating the distances, we get:\n\[ 80t = 60 \left( t - \frac{3}{4} \right) \]\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \\] hours.\n\nCalculating the distance:\n\[ d = 80 \times 2.25 = 180 \\] miles.\n\nThus, the answers are:\n- **John's travel time:** 2.25 hours\n- **Distance traveled:** 180 miles.",92.14285714285714,1.0,0.8126174050863232,0.599,"The new problem is almost identical to the previous one, with only minor rephrasing. To improve, the generator could introduce variations in the problem's context or parameters, such as different speeds, time differences, or additional constraints. Additionally, incorporating a more creative narrative or a different real-life scenario could enhance the problem's uniqueness and applicability.; The new problem maintains the same mathematical concepts and domains, such as speed, time, and distance, and requires similar skills to solve, including setting up equations and solving for variables. The math expressions and values used in the solution are consistent with the previous problem. However, the narrative and context remain largely unchanged, lacking a fresh socio-cultural perspective or unique storyline. To enhance creativity, consider introducing a different context or scenario, such as a race between two different modes of transportation or incorporating real-world elements like weather conditions affecting travel times. This would add originality and potentially engage students more effectively.; Clarify the relationship between the departure and arrival times of John and Mike to avoid any potential ambiguity.; Simplify the phrasing of the problem to reduce linguistic complexity, ensuring that the problem is accessible to a wider range of students.; Introduce a more engaging and realistic narrative context, such as a race between two friends to reach a popular tourist destination, to enhance interest and relatability.",95.0,50.0,65.0,85.0,85.0,70.0,85.0
+3,12,"In a race to reach the nearest city, Alex boards a train traveling at 80 miles per hour. His friend Bella departs from the same station 30 minutes later on a slower train that travels at 60 miles per hour. Remarkably, Bella arrives at the city 15 minutes before Alex. Determine the duration of Alex's trip and the total distance traveled."",
+    ""solution"": ""Let \( t \) be the time (in hours) that Alex traveled. Bella's travel time would then be \( t - \frac{1}{4} \) hours because she arrives 15 minutes (or \\(\\frac{1}{4}\\) hour) before Alex. However, Bella left 30 minutes (or \\(\\frac{1}{2}\\) hour) after Alex, so her effective travel time is actually \( t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \\) hours. Let \( d \\) be the distance traveled by both.\n\nSetting up the equations based on distance:\n\[ d = 80t \] for Alex,\n\[ d = 60 \left( t - \frac{3}{4} \right) \] for Bella.\n\nEquating the distances, we get:\n\[ 80t = 60 \left( t - \frac{3}{4} \right) \]\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \\] hours.\n\nCalculating the distance:\n\[ d = 80 \times 2.25 = 180 \\] miles.\n\nThus, the answers are:\n- **Alex's travel time:** 2.25 hours\n- **Distance traveled:** 180 miles.","Let \( t \) be the time (in hours) that Alex traveled. Bella's travel time would then be \( t - \frac{1}{4} \) hours because she arrives 15 minutes (or \\(\\frac{1}{4}\\) hour) before Alex. However, Bella left 30 minutes (or \\(\\frac{1}{2}\\) hour) after Alex, so her effective travel time is actually \( t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \\) hours. Let \( d \\) be the distance traveled by both.\n\nSetting up the equations based on distance:\n\[ d = 80t \] for Alex,\n\[ d = 60 \left( t - \frac{3}{4} \right) \] for Bella.\n\nEquating the distances, we get:\n\[ 80t = 60 \left( t - \frac{3}{4} \right) \]\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \\] hours.\n\nCalculating the distance:\n\[ d = 80 \times 2.25 = 180 \\] miles.\n\nThus, the answers are:\n- **Alex's travel time:** 2.25 hours\n- **Distance traveled:** 180 miles.",90.71428571428571,1.0,0.7446230407723754,0.481,,95.0,50.0,50.0,50.0,65.0,65.0,85.0
+1,13,"Tom shoots 30% from the 3-point line. If he takes 10 shots, he expects to make 3. However, he practices a lot and improves by 50%. After practicing, if he takes 12 shots, how many should he expect to make?","\section*{Solution}
+
+\subsection*{Step 1: Initial Success Rate}
+Tom's initial shooting percentage is:
+
+\[
+\text{Initial percentage} = 30\% = 0.30.
+\]
+
+If he takes 10 shots, the expected number of successful shots is:
+
+\[
+\text{Expected makes} = 0.30 \times 10 = 3.
+\]
+
+\subsection*{Step 2: Improved Success Rate}
+After practicing, Tom improves by 50\%. To calculate his new shooting percentage:
+
+\[
+\text{Improved percentage} = 0.30 + 0.50 \times 0.30.
+\]
+
+\[
+\text{Improved percentage} = 0.30 + 0.15 = 0.45 \text{ or } 45\%.
+\]
+
+\subsection*{Step 3: Expected Makes After Improvement}
+If Tom takes 12 shots with his improved shooting percentage, the expected number of makes is:
+
+\[
+\text{Expected makes after practice} = 0.45 \times 12 = 5.4.
+\]
+
+\section*{Final Answer}
+Tom should expect to make approximately \textbf{5 or 6 shots} after practicing.
+
+\end{document}",84.28571428571429,0.8571428571428571,0.5896355439233617,0.811,"Change the context to a student improving their score in a math competition.; Use different values, such as a 40% initial success rate and a 20% improvement.",0.0,90.0,90.0,85.0,90.0,85.0,95.0
+2,13,"A student scores 40% on a math test. If they take 15 questions, they expect to get 6 correct. After studying, they improve their score by 20%. If they take another 20 questions, how many should they expect to answer correctly?","Initial success rate:
+
+\[ \text{Initial percentage} = 40\% = 0.40. \]
+
+If the student takes 15 questions, the expected number of correct answers is:
+
+\[ \text{Expected correct answers} = 0.40 \times 15 = 6. \]
+
+Improved success rate:
+
+\[ \text{Improved percentage} = 0.40 + 0.20 \times 0.40. \]
+
+\[ \text{Improved percentage} = 0.40 + 0.08 = 0.48 \text{ or } 48\%. \]
+
+Expected correct answers after improvement:
+
+\[ \text{Expected correct answers after practice} = 0.48 \times 20 = 9.6. \]
+
+Final Answer:
+The student should expect to answer approximately \textbf{9 or 10 questions} correctly after studying.",93.57142857142857,1.0,0.9514087342096225,0.83,"Introduce a more engaging context, such as preparing for a specific competition or exam.; Change values to introduce variety, e.g., initial score of 50%, improvement of 25%, and different question counts.",80.0,85.0,85.0,85.0,85.0,85.0,95.0
+3,13,"A student aims to improve their score on a math competition by practicing with a series of problems. Initially scoring 50% on a set of 25 questions, they expect to get 13 correct. After additional practice, they improve their score by 25%. If they then take another set of 30 questions, how many should they expect to answer correctly?","Initial success rate:
+
+\[ \text{Initial percentage} = 50\% = 0.50. \]
+
+If the student takes 25 questions, the expected number of correct answers is:
+
+\[ \text{Expected correct answers} = 0.50 \times 25 = 12.5. \]
+
+Improved success rate:
+
+\[ \text{Improved percentage} = 0.50 + 0.25 \times 0.50. \]
+
+\[ \text{Improved percentage} = 0.50 + 0.125 = 0.625 \text{ or } 62.5\%. \]
+
+Expected correct answers after improvement:
+
+\[ \text{Expected correct answers after practice} = 0.625 \times 30 = 18.75. \]
+
+Final Answer:
+The student should expect to answer approximately \textbf{19 questions} correctly after studying.",94.28571428571429,1.0,0.958204758085305,0.989,"Consider specifying that the student 'expects' to get a certain number of questions correct to emphasize the probabilistic nature.; To enhance engagement, consider a more creative context, such as a student preparing for a math-themed game show.",90.0,85.0,85.0,85.0,85.0,85.0,95.0
+1,14,"A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+","\begin{document}
+
+\title{Car Acceleration Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+
+\section*{Solution}
+
+\subsection*{Step 1: Convert mph to m/s}
+We know:
+\begin{itemize}
+    \item Initial speed, \(v_i = 0 \, \text{mph}\)
+    \item Final speed, \(v_f = 60 \, \text{mph}\)
+\end{itemize}
+
+To convert 60 mph to meters per second:
+
+\[
+1 \text{ mile} = 1609.34 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}
+\]
+
+\[
+v_f = 60 \times \frac{1609.34}{3600} \approx 26.82 \, \text{m/s.}
+\]
+
+\subsection*{Step 2: Calculate acceleration}
+The formula for acceleration is:
+
+\[
+a = \frac{v_f - v_i}{t}.
+\]
+
+\[
+a = \frac{26.82 - 0}{5} = 5.36 \, \text{m/s².}
+\]
+
+\subsection*{Step 3: Speed after 10 seconds}
+To calculate the speed after 10 seconds if the acceleration remains constant:
+
+\[
+v = v_i + at.
+\]
+
+\[
+v = 0 + 5.36 \times 10 = 53.6 \, \text{m/s.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{Acceleration:} \(5.36 \, \text{m/s²}\)
+    \item \textbf{Speed after 10 seconds:} \(53.6 \, \text{m/s}\), which is approximately \(120 \, \text{mph.}\)
+\end{itemize}
+
+\end{document}",75.0,0.8571428571428571,0.5890390664687348,0.793,,0.0,85.0,85.0,85.0,85.0,90.0,95.0
+2,14,"A car accelerates uniformly from rest to 60 miles per hour in 5 seconds. Calculate its acceleration in meters per second squared (m/s²). If it continues to accelerate at this rate, what will its speed be after 10 seconds?"",
+    ""solution"": ""First, convert the final speed from miles per hour to meters per second: \[1 \text{ mile} = 1609.34 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}\] \[v_f = 60 \times \frac{1609.34}{3600} \approx 26.82 \, \text{m/s.}\] Next, calculate the acceleration using the formula \(a = \frac{v_f - v_i}{t}\): \[a = \frac{26.82 - 0}{5} = 5.36 \, \text{m/s².}\] Finally, determine the speed after 10 seconds with the equation \(v = v_i + at\): \[v = 0 + 5.36 \times 10 = 53.6 \, \text{m/s.}\] Therefore, the acceleration is \(5.36 \, \text{m/s²}\) and the speed after 10 seconds is \(53.6 \, \text{m/s}\), which is approximately \(120 \, \text{mph.}\)","First, convert the final speed from miles per hour to meters per second: \[1 \text{ mile} = 1609.34 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}\] \[v_f = 60 \times \frac{1609.34}{3600} \approx 26.82 \, \text{m/s.}\] Next, calculate the acceleration using the formula \(a = \frac{v_f - v_i}{t}\): \[a = \frac{26.82 - 0}{5} = 5.36 \, \text{m/s².}\] Finally, determine the speed after 10 seconds with the equation \(v = v_i + at\): \[v = 0 + 5.36 \times 10 = 53.6 \, \text{m/s.}\] Therefore, the acceleration is \(5.36 \, \text{m/s²}\) and the speed after 10 seconds is \(53.6 \, \text{m/s}\), which is approximately \(120 \, \text{mph.}\)",90.71428571428571,1.0,0.759819089769845,0.524,"The new problem is almost identical to the previous one, with only minor wording changes. To improve, the generator should introduce more variety in the narrative or context, such as using different vehicles, speeds, or scenarios. Additionally, incorporating a real-life socio-cultural context, like a story about a race or a journey, could enhance creativity. The problem could also be expanded to include additional calculations, such as determining the distance traveled or the time required to reach a certain speed, to increase complexity and depth.",95.0,50.0,50.0,70.0,85.0,70.0,95.0
+3,14,"A motorcycle accelerates uniformly from rest to 100 kilometers per hour in 4 seconds. Calculate its acceleration in meters per second squared (m/s²). If it continues to accelerate at this rate, how far will it travel in 10 seconds?"",
+    ""solution"": ""First, convert the final speed from kilometers per hour to meters per second: \[1 \text{ kilometer} = 1000 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}\] \[v_f = 100 \times \frac{1000}{3600} \approx 27.78 \, \text{m/s.}\] Next, calculate the acceleration using the formula \(a = \frac{v_f - v_i}{t}\): \[a = \frac{27.78 - 0}{4} = 6.945 \, \text{m/s².}\] Finally, determine the distance traveled in 10 seconds using the equation \(d = v_i t + \frac{1}{2}at^2\): \[d = 0 \times 10 + \frac{1}{2} \times 6.945 \times 10^2 = 347.25 \, \text{meters.}\] Therefore, the acceleration is \(6.945 \, \text{m/s²}\) and the distance traveled after 10 seconds is \(347.25 \, \text{meters}\).","First, convert the final speed from kilometers per hour to meters per second: \[1 \text{ kilometer} = 1000 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}\] \[v_f = 100 \times \frac{1000}{3600} \approx 27.78 \, \text{m/s.}\] Next, calculate the acceleration using the formula \(a = \frac{v_f - v_i}{t}\): \[a = \frac{27.78 - 0}{4} = 6.945 \, \text{m/s².}\] Finally, determine the distance traveled in 10 seconds using the equation \(d = v_i t + \frac{1}{2}at^2\): \[d = 0 \times 10 + \frac{1}{2} \times 6.945 \times 10^2 = 347.25 \, \text{meters.}\] Therefore, the acceleration is \(6.945 \, \text{m/s²}\) and the distance traveled after 10 seconds is \(347.25 \, \text{meters}\).",91.42857142857143,1.0,0.9196031103347022,0.826,,70.0,85.0,85.0,85.0,85.0,85.0,95.0
+1,15,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{align}
+\text{Implies unlimited exponential growth (ignoring real-world constraints like space/nutrients). Fails to specify if the 20-minute doubling }\\
+starts immediately or after a lag phase. Also, picograms to kilograms requires extreme precision unlikely in high-school tools. 
+\text{First, converting the given values to SI units:} \\
+60 \text{ mph} &= 60 \times 0.44704 = 26.8224 \text{ m/s} \\
+\text{Time} &= 5 \text{ seconds} \\[10pt]
+
+\text{Part 1: Calculate acceleration} \\
+\text{Using the formula } a = \frac{\Delta v}{\Delta t}: \\
+a &= \frac{26.8224 \text{ m/s}}{5 \text{ s}} \\
+a &= 5.36448 \text{ m/s}^2 \\[10pt]
+
+\text{Part 2: Calculate speed after 10 seconds} \\
+\text{Using the formula } v = v_0 + a \cdot t: \\
+v_0 &= 0 \text{ m/s (initial velocity)} \\
+a &= 5.36448 \text{ m/s}^2 \\
+t &= 10 \text{ s} \\[5pt]
+v &= 0 + 5.36448 \times 10 \\
+v &= 53.6448 \text{ m/s} \\[10pt]
+
+\text{Converting back to mph:} \\
+53.6448 \text{ m/s} &\div 0.44704 = 120 \text{ mph}
+\end{align}
+
+\text{Therefore, after 10 seconds, the car will be traveling at approximately 53.6 m/s or 120 mph.}",72.14285714285714,0.8571428571428571,0.34669474199185146,0.43,"The new problem is not coherent and does not align with the expected solution provided. The expected solution seems to address a completely different problem involving acceleration and speed conversion, which is unrelated to the narrative of John and Mike's train journey. To improve, ensure that the problem statement and the expected solution are aligned. The problem should clearly state the scenario, provide all necessary information, and the solution should logically follow from the problem statement. Additionally, the narrative should be realistic and relatable, and the math concepts should be clearly defined and relevant to the problem.; Consider adding a specific destination or reason for the travel to enhance engagement.; Ensure conditions are explicitly stated to avoid potential confusion.",0.0,30.0,50.0,50.0,20.0,70.0,95.0
+2,15,"John takes a train that travels at 80 miles per hour. His friend Mike leaves from the same location 30 minutes after John but takes a different train that travels at 60 miles per hour. Mike arrives at their destination 15 minutes before John. How long was John’s trip, and how far did he travel?"",
+    ""solution"": ""Let \( t \) be the time (in hours) it takes for John to complete his trip. Since Mike leaves 30 minutes (or 0.5 hours) later and arrives 15 minutes (or 0.25 hours) earlier, the time it takes for Mike to complete his trip is \( t - 0.75 \) hours. We can set up the following equations based on their speeds and the distances traveled:\n\nFor John: \[ \text{Distance} = 80t \]\nFor Mike: \[ \text{Distance} = 60(t - 0.75) \]\nSince both distances are equal, we have:\n\[ 80t = 60(t - 0.75) \]\nSolving for \( t \):\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \text{ hours} \]\nTherefore, the distance John traveled is:\n\[ \text{Distance} = 80 \times 2.25 = 180 \text{ miles} \]\nThus, John’s trip lasted 2.25 hours and he traveled 180 miles.","Let \( t \) be the time (in hours) it takes for John to complete his trip. Since Mike leaves 30 minutes (or 0.5 hours) later and arrives 15 minutes (or 0.25 hours) earlier, the time it takes for Mike to complete his trip is \( t - 0.75 \) hours. We can set up the following equations based on their speeds and the distances traveled:\n\nFor John: \[ \text{Distance} = 80t \]\nFor Mike: \[ \text{Distance} = 60(t - 0.75) \]\nSince both distances are equal, we have:\n\[ 80t = 60(t - 0.75) \]\nSolving for \( t \):\n\[ 80t = 60t - 45 \]\n\[ 20t = 45 \]\n\[ t = \frac{45}{20} = 2.25 \text{ hours} \]\nTherefore, the distance John traveled is:\n\[ \text{Distance} = 80 \times 2.25 = 180 \text{ miles} \]\nThus, John’s trip lasted 2.25 hours and he traveled 180 miles.",92.85714285714286,1.0,0.8267262823944674,0.829,"The new problem is essentially a replication of the previous problem with minor rewording. To improve, the generator should introduce a new context or scenario that requires the application of similar mathematical concepts but in a different setting. For example, consider a scenario involving two cyclists or two boats with different speeds and departure times. Additionally, incorporating real-life socio-cultural elements, such as a race or a journey with specific landmarks, could enhance the narrative and make the problem more engaging and unique.",100.0,85.0,50.0,85.0,85.0,85.0,90.0
+3,15,"Two cyclists, Alex and Ben, start a race from the same point. Alex starts first and rides at a speed of 15 miles per hour. Ben starts 30 minutes later but rides faster at 20 miles per hour. If Ben finishes the race 15 minutes before Alex, how long was Alex’s ride, and what was the total distance of the race?"",
+    ""solution"": ""Let \( t \) be the time (in hours) it takes for Alex to complete the race. Since Ben starts 30 minutes (or 0.5 hours) later and finishes 15 minutes (or 0.25 hours) earlier, the time it takes for Ben to complete the race is \( t - 0.75 \) hours. We can set up the following equations based on their speeds and the distances traveled:\n\nFor Alex: \[ \text{Distance} = 15t \]\nFor Ben: \[ \text{Distance} = 20(t - 0.75) \]\nSince both distances are equal, we have:\n\[ 15t = 20(t - 0.75) \]\nSolving for \( t \):\n\[ 15t = 20t - 15 \]\n\[ -5t = -15 \]\n\[ t = \frac{15}{5} = 3 \text{ hours} \]\nTherefore, the distance of the race is:\n\[ \text{Distance} = 15 \times 3 = 45 \text{ miles} \]\nThus, Alex’s ride lasted 3 hours and the total distance of the race was 45 miles.","Let \( t \) be the time (in hours) it takes for Alex to complete the race. Since Ben starts 30 minutes (or 0.5 hours) later and finishes 15 minutes (or 0.25 hours) earlier, the time it takes for Ben to complete the race is \( t - 0.75 \) hours. We can set up the following equations based on their speeds and the distances traveled:\n\nFor Alex: \[ \text{Distance} = 15t \]\nFor Ben: \[ \text{Distance} = 20(t - 0.75) \]\nSince both distances are equal, we have:\n\[ 15t = 20(t - 0.75) \]\nSolving for \( t \):\n\[ 15t = 20t - 15 \]\n\[ -5t = -15 \]\n\[ t = \frac{15}{5} = 3 \text{ hours} \]\nTherefore, the distance of the race is:\n\[ \text{Distance} = 15 \times 3 = 45 \text{ miles} \]\nThus, Alex’s ride lasted 3 hours and the total distance of the race was 45 miles.",90.71428571428571,1.0,0.9505851534335144,0.824,,90.0,85.0,75.0,85.0,85.0,85.0,85.0
+1,16,Two cards are drawn from a standard deck. What’s the probability both are aces?,Doesn’t specify if the first card is replaced. Students must guess whether to use permutations (no replacement) or combinations (replacement).,70.0,0.8571428571428571,0.5751784224158745,0.44,"To enhance the problem, specify whether the cards are drawn with or without replacement to eliminate ambiguity. Additionally, provide a detailed narrative or context that connects the problem to a real-life scenario, such as a card game tournament, to increase engagement and understanding.; Clarify whether the first card is replaced or not to remove ambiguity. Specify if the problem involves drawing with or without replacement.; Simplify the problem statement to reduce linguistic complexity. For example, rephrase to: 'Two cards are drawn from a standard deck without replacement. What is the probability that both cards are aces?'; Introduce a more engaging narrative context, such as a card game scenario, to make the problem more relatable and interesting.",0.0,70.0,70.0,70.0,50.0,65.0,65.0
+2,16,"In a card game tournament, two cards are drawn from a standard deck without replacement. What is the probability that both cards are aces?","The probability of drawing two aces without replacement is calculated as follows: The probability of drawing an ace first is 4/52. After drawing one ace, there are 3 aces left in a deck of 51 cards. So, the probability of drawing another ace is 3/51. Therefore, the combined probability is (4/52) * (3/51) = 1/221.",96.42857142857143,1.0,0.9272607032546692,0.993,,100.0,85.0,85.0,85.0,90.0,85.0,100.0
+1,17,"A ship travels 50 nautical miles at a bearing of 320°, then turns to a bearing of 80° for 30 nautical miles. How far is it from the starting point?",Requires trigonometry but lacks a diagram.,64.28571428571429,0.8571428571428571,0.5880779781729122,0.429,"Include a diagram to visually represent the ship's path and bearings, which will aid in understanding the trigonometric solution.; Clarify the narrative by providing a more engaging context, such as a ship navigating through a series of islands, to make the problem more relatable and interesting.; Simplify the language by breaking down the problem into shorter sentences and using more straightforward phrasing to reduce syntactic complexity.",0.0,75.0,70.0,80.0,70.0,70.0,75.0
+2,17,"A ship travels 50 nautical miles on a bearing of 320°, then changes course to a bearing of 80° and travels 30 nautical miles. Draw a diagram to visualize the ship's path. How far is the ship from its starting point?",Requires trigonometry and a diagram.,91.42857142857143,1.0,0.9617680133262912,0.826,"Clarify the relationship between the bearings and the ship's path by providing a more detailed description or a diagram prompt.; Simplify the language to reduce syntactic complexity, ensuring that the problem is accessible to a wider range of students.; Introduce a more engaging narrative by incorporating a real-world scenario, such as a rescue mission or a treasure hunt, to make the problem more interesting and relatable.",90.0,85.0,85.0,85.0,85.0,85.0,78.0
+3,17,"During a treasure hunt, a ship first travels 50 nautical miles on a bearing of 310° and then changes course to a bearing of 70°, traveling 30 nautical miles. Draw a diagram to help visualize the ship's path. How far is the ship from its starting point?",Requires trigonometry and a diagram.,90.0,1.0,0.8835795593194027,0.594,"Clarify the relationship between the bearings and the ship's path by providing a brief explanation of how bearings work in navigation.; Introduce a more engaging narrative by setting the problem in a historical or adventurous context, such as a pirate ship searching for treasure on a mysterious island.; Simplify the language slightly to ensure accessibility for a wider range of students, particularly those who may not be familiar with nautical terms.",90.0,85.0,65.0,85.0,70.0,70.0,85.0
+1,18,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks twice as many as the previous day, but 40% of those apples are rotten. If each non-rotten apple weighs between 0.2 and 0.3 pounds, approximately how many pounds of apples does Sarah have left?","The next day, Sarah picked 17 * 2 = 34 apples according to the problem, but if we mutiply it with 40% then the answer is not integer. The number of appleas are rotten is not integer. ",74.28571428571429,0.8571428571428571,0.5813165181331299,0.449,"Ensure that all calculations in the problem lead to integer results where necessary, especially when dealing with discrete items like apples.; Clarify the expected solution to include a complete and correct calculation of the weight of the non-rotten apples.; Enhance the narrative by providing more context or a more engaging story to make the problem more relatable and interesting.; Consider adding a variety of mathematical concepts or operations to increase the complexity and depth of the problem.; The new problem introduces a more complex scenario involving multiple steps and concepts, such as multiplication, percentages, and weight estimation. However, the expected solution is incomplete and contains errors, such as the incorrect calculation of rotten apples and the lack of a final weight calculation. To improve, ensure the expected solution is complete and accurate, addressing all parts of the problem. Additionally, clarify the narrative to ensure it aligns with the calculations, and provide a clear, step-by-step solution that includes all necessary operations and final results.; Clarify the number of rotten apples by ensuring it results in an integer value. For example, specify that Sarah picks a number of apples that is divisible by 5, so 40% of them can be a whole number.; Simplify the narrative by reducing the number of steps and calculations. For instance, have Sarah pick a fixed number of apples each day and specify a clear percentage of rotten apples.; Enhance the narrative context by making it more relatable. For example, Sarah could be preparing for a local fair and needs to ensure she has enough good apples to sell.",0.0,50.0,50.0,50.0,50.0,50.0,62.0
+2,18,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks 35 more apples, and 40% of those are rotten. Each non-rotten apple weighs between 0.2 and 0.3 pounds. Approximately how many pounds of apples does Sarah have left?","First, calculate the total number of apples Sarah has after picking and giving some away: 23 + 17 - 5 = 35 apples. The next day, she picks 35 more apples, so the total number of apples becomes 35 + 35 = 70 apples. Since 40% of the 35 apples are rotten, the number of rotten apples is 35 * 0.4 = 14 apples (an integer result). Therefore, the number of non-rotten apples is 70 - 14 = 56 apples. Given that each non-rotten apple weighs between 0.2 and 0.3 pounds, the approximate weight of the non-rotten apples is: 56 * 0.2 = 11.2 pounds (lower bound) and 56 * 0.3 = 16.8 pounds (upper bound). Thus, Sarah has approximately between 11.2 and 16.8 pounds of good apples left.",92.14285714285714,1.0,0.9792416123492951,0.827,"Clarify the relationship between the number of apples picked and the number of rotten apples to ensure the problem is easily understandable.; Consider simplifying the narrative by using a more relatable context, such as a farmer's market scenario, to enhance engagement and realism.; Adjust the values used in the problem to ensure they are realistic and relatable, such as using a smaller number of apples or a different percentage of rotten apples.",80.0,85.0,85.0,85.0,85.0,85.0,85.0
+3,18,"At a local farmer's market, a farmer starts with 23 apples. She buys 17 more apples from another vendor, then sells 5 to a customer. The next day, she buys 35 more apples but finds that 40% of them are unsellable due to rot. If each sellable apple weighs between 0.2 and 0.3 pounds, how many pounds of good apples does the farmer have left?","First, calculate the total number of apples the farmer has after buying and selling some: 23 + 17 - 5 = 35 apples. The next day, she buys 35 more apples, so the total number of apples becomes 35 + 35 = 70 apples. Since 40% of the 35 apples are unsellable, the number of unsellable apples is 35 * 0.4 = 14 apples. Therefore, the number of sellable apples is 70 - 14 = 56 apples. Given that each sellable apple weighs between 0.2 and 0.3 pounds, the approximate weight of the sellable apples is: 56 * 0.2 = 11.2 pounds (lower bound) and 56 * 0.3 = 16.8 pounds (upper bound). Thus, the farmer has approximately between 11.2 and 16.8 pounds of good apples left.",94.28571428571429,1.0,0.8910799882620528,0.831,"Consider specifying the context of the market to enhance engagement.; Simplify by breaking down the problem into smaller, more digestible parts.",95.0,85.0,65.0,85.0,85.0,85.0,95.0
+1,19,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased again by an unknown percentage in the third quarter. If John initially invested $10,000 and now has approximately $10,760, what was the percentage change in the third quarter?","Requires calculating an ""unknown percentage"" but provides insufficient information about the timing of changes (whether the percentages apply to the original amount or the new balance after each quarter).",70.0,0.8571428571428571,0.5695940201632598,0.44,"The new problem introduces a more complex scenario involving multiple percentage changes over different periods, which is a step towards a more realistic and challenging problem. However, it lacks clarity in terms of how the percentage changes are applied (whether sequentially or cumulatively) and does not provide enough information to solve for the unknown percentage change in the third quarter. To improve, the problem should specify whether each percentage change applies to the balance at the start of each quarter or the cumulative balance after each change. Additionally, the problem should ensure that all necessary information is provided to solve for the unknown percentage change, possibly by including the final balance after the second quarter.; Specify whether each percentage change applies to the original amount or the new balance after each quarter.; Provide clear instructions on how the percentage changes are applied sequentially.",0.0,70.0,65.0,50.0,70.0,55.0,70.0
+2,19,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased by an unknown percentage in the third quarter. If John initially invested $10,000 and now has approximately $10,760, and assuming each percentage change applies to the balance at the start of each quarter, what was the percentage change in the third quarter?","To find the percentage change in the third quarter, we need to calculate the balance after each quarter and use the final balance to determine the unknown percentage change. Let's break it down step by step.",92.14285714285714,1.0,0.958204758085305,0.984,"Simplify the problem by breaking it into smaller, more digestible parts or providing intermediate questions to guide the solution process.; Consider changing the context to a more engaging scenario, such as a business's quarterly profits and losses.",90.0,85.0,85.0,85.0,85.0,85.0,95.0
+1,20,"The local high school is planning a field trip. They need to rent buses, which cost $550 each and can hold 52 students. If 3 teachers must accompany every 35 students and each person needs to pay an equal share of the transportation costs, how much should each person pay if 203 students are attending?","The 203 students don't divide evenly into buses of 52, nor do they divide evenly with the teacher requirements (3 teachers per 35 students).Unclear if teachers should pay or pay as the same as students. ",68.57142857142857,0.8571428571428571,0.5750817072006013,0.423,,0.0,85.0,65.0,60.0,70.0,70.0,70.0
+2,20,"The local high school is planning a field trip for 203 students. Each bus costs $550 and can hold 52 students. For every 35 students, 3 teachers must accompany them. If the transportation costs are split equally among all attendees (students and teachers), how much should each person pay?","First, determine the number of buses needed. Then calculate the total number of teachers required. Add the number of students and teachers to find the total number of attendees. Finally, divide the total cost by the number of attendees to find the cost per person.",92.85714285714286,1.0,0.958204758085305,0.986,,90.0,85.0,85.0,85.0,85.0,85.0,95.0

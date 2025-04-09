@@ -1,0 +1,153 @@
+{
+  "summary": [
+    {
+      "question_id": 1,
+      "original_question": "An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ",
+      "original_solution": "It will still take 40 minutes for 60 players to perform it. ",
+      "final_question": "At a school talent show, a band with 120 members performs a song that lasts 40 minutes. If the same song is played by a smaller band with 60 members at another event, how long will the performance last? Assume the song's length does not change based on the number of band members.",
+      "final_solution": "It will still take 40 minutes for 60 band members to perform the song.",
+      "final_score": 0.526,
+      "iterations_required": 3,
+      "success": false,
+      "round_metrics": [
+        {
+          "round": 1,
+          "question_id": 1,
+          "current_question": "An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ",
+          "current_solution": "It will still take 40 minutes for 60 players to perform it. ",
+          "average_confidence": 84.28571428571429,
+          "pass_rate": 1.0,
+          "agent_agreement": 0.8978391860031188,
+          "quality_score": 0.511,
+          "improvement_suggestions": [
+            "Clarify the relationship between the number of players and the time taken to play the symphony. Specify that the time taken is independent of the number of players.",
+            "Provide a more realistic context by explaining why the number of players does not affect the time taken, such as the symphony's fixed duration.",
+            "Introduce a narrative that engages students, such as describing a scenario where the orchestra is preparing for a special event, to make the problem more interesting."
+          ],
+          "remembering_score": 70.0,
+          "understanding_score": 90.0,
+          "applying_score": 85.0,
+          "analyzing_score": 70.0,
+          "evaluating_score": 70.0,
+          "creating_score": 85.0,
+          "language_score": 75.0
+        },
+        {
+          "round": 2,
+          "question_id": 1,
+          "current_question": "An orchestra of 120 players is preparing for a special event and it takes them 40 minutes to play Beethoven's 9th Symphony. If the same symphony is played by an orchestra of 60 players, how long would it take? Assume the duration of the symphony is fixed and independent of the number of players.",
+          "current_solution": "It will still take 40 minutes for 60 players to perform Beethoven's 9th Symphony.",
+          "average_confidence": 93.57142857142857,
+          "pass_rate": 1.0,
+          "agent_agreement": 0.8587123755715484,
+          "quality_score": 0.701,
+          "improvement_suggestions": [
+            "Consider changing the context to a more relatable scenario for students, such as a school band performance.",
+            "Use simpler language to ensure comprehension by younger students."
+          ],
+          "remembering_score": 95.0,
+          "understanding_score": 65.0,
+          "applying_score": 65.0,
+          "analyzing_score": 85.0,
+          "evaluating_score": 85.0,
+          "creating_score": 85.0,
+          "language_score": 95.0
+        },
+        {
+          "round": 3,
+          "question_id": 1,
+          "current_question": "A school band with 120 members plays a song that lasts 40 minutes. If the same song is played by a band with 60 members, how long will the performance last? Assume the song's length does not change based on the number of band members.",
+          "current_solution": "It will still take 40 minutes for 60 band members to perform the song.",
+          "average_confidence": 91.42857142857143,
+          "pass_rate": 1.0,
+          "agent_agreement": 0.8307808621991013,
+          "quality_score": 0.526,
+          "improvement_suggestions": [
+            "Consider adding a more engaging context, such as a school band competition, to make the problem more interesting.",
+            "Introduce a slight variation in the narrative to enhance creativity, such as mentioning a specific event or occasion for the performance."
+          ],
+          "remembering_score": 95.0,
+          "understanding_score": 65.0,
+          "applying_score": 65.0,
+          "analyzing_score": 70.0,
+          "evaluating_score": 85.0,
+          "creating_score": 65.0,
+          "language_score": 95.0
+        }
+      ],
+      "avg_remembering_score": 86.66666666666667,
+      "avg_understanding_score": 73.33333333333333,
+      "avg_applying_score": 71.66666666666667,
+      "avg_analyzing_score": 75.0,
+      "avg_evaluating_score": 80.0,
+      "avg_creating_score": 78.33333333333333,
+      "avg_language_score": 88.33333333333333
+    }
+  ],
+  "round_metrics": [
+    {
+      "round": 1,
+      "question_id": 1,
+      "current_question": "An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ",
+      "current_solution": "It will still take 40 minutes for 60 players to perform it. ",
+      "average_confidence": 84.28571428571429,
+      "pass_rate": 1.0,
+      "agent_agreement": 0.8978391860031188,
+      "quality_score": 0.511,
+      "improvement_suggestions": [
+        "Clarify the relationship between the number of players and the time taken to play the symphony. Specify that the time taken is independent of the number of players.",
+        "Provide a more realistic context by explaining why the number of players does not affect the time taken, such as the symphony's fixed duration.",
+        "Introduce a narrative that engages students, such as describing a scenario where the orchestra is preparing for a special event, to make the problem more interesting."
+      ],
+      "remembering_score": 70.0,
+      "understanding_score": 90.0,
+      "applying_score": 85.0,
+      "analyzing_score": 70.0,
+      "evaluating_score": 70.0,
+      "creating_score": 85.0,
+      "language_score": 75.0
+    },
+    {
+      "round": 2,
+      "question_id": 1,
+      "current_question": "An orchestra of 120 players is preparing for a special event and it takes them 40 minutes to play Beethoven's 9th Symphony. If the same symphony is played by an orchestra of 60 players, how long would it take? Assume the duration of the symphony is fixed and independent of the number of players.",
+      "current_solution": "It will still take 40 minutes for 60 players to perform Beethoven's 9th Symphony.",
+      "average_confidence": 93.57142857142857,
+      "pass_rate": 1.0,
+      "agent_agreement": 0.8587123755715484,
+      "quality_score": 0.701,
+      "improvement_suggestions": [
+        "Consider changing the context to a more relatable scenario for students, such as a school band performance.",
+        "Use simpler language to ensure comprehension by younger students."
+      ],
+      "remembering_score": 95.0,
+      "understanding_score": 65.0,
+      "applying_score": 65.0,
+      "analyzing_score": 85.0,
+      "evaluating_score": 85.0,
+      "creating_score": 85.0,
+      "language_score": 95.0
+    },
+    {
+      "round": 3,
+      "question_id": 1,
+      "current_question": "A school band with 120 members plays a song that lasts 40 minutes. If the same song is played by a band with 60 members, how long will the performance last? Assume the song's length does not change based on the number of band members.",
+      "current_solution": "It will still take 40 minutes for 60 band members to perform the song.",
+      "average_confidence": 91.42857142857143,
+      "pass_rate": 1.0,
+      "agent_agreement": 0.8307808621991013,
+      "quality_score": 0.526,
+      "improvement_suggestions": [
+        "Consider adding a more engaging context, such as a school band competition, to make the problem more interesting.",
+        "Introduce a slight variation in the narrative to enhance creativity, such as mentioning a specific event or occasion for the performance."
+      ],
+      "remembering_score": 95.0,
+      "understanding_score": 65.0,
+      "applying_score": 65.0,
+      "analyzing_score": 70.0,
+      "evaluating_score": 85.0,
+      "creating_score": 65.0,
+      "language_score": 95.0
+    }
+  ]
+}
