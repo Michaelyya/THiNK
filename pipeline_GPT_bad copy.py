@@ -2,7 +2,7 @@ from typing import Dict, List, Any
 import json
 import os
 import pandas as pd
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 import re
 from agents import evaluate_question_components
@@ -91,7 +91,7 @@ class QuestionImprovementPipeline:
             ]
 
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-3.5-turbo",
             messages=messages,
             temperature=0
         )
@@ -227,7 +227,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
         print(f"Processing Question {i+1}/{len(questions_to_process)}: ID {q['id']}")
         print(f"{'=' * 50}")
         
-        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.7)
+        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.85)
         
         result = pipeline.run_pipeline(
             initial_question=q["question"],
@@ -259,7 +259,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
                 "question_id": q['id'],
                 "final_score": result['final_evaluation']['quality_score'],
                 "iterations_required": result['iterations_required'],
-                "success": result['final_evaluation']['quality_score'] >= 0.7,
+                "success": result['final_evaluation']['quality_score'] >= 0.85,
                 "round_metrics": question_round_metrics
             })
         else:
@@ -300,7 +300,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
     print("Round metrics saved to round_metrics.csv")
 
 def main():
-    run_bad_questions_evaluation(num_questions=5, max_iterations=5)
+    run_bad_questions_evaluation(num_questions=20, max_iterations=3)
 
 if __name__ == "__main__":
     main()

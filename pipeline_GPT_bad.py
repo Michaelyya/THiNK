@@ -2,7 +2,6 @@ from typing import Dict, List, Any
 import json
 import os
 import pandas as pd
-import matplotlib.pyplot as plt
 from dotenv import load_dotenv
 import re
 from agents import evaluate_question_components
@@ -98,7 +97,7 @@ class QuestionImprovementPipeline:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-3.5-turbo",
                 messages=messages,
                 temperature=0
             )
@@ -260,8 +259,8 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
     questions_to_process = questions[:num_questions]
     
     # Check for existing results files and load them if they exist
-    results_path = "results/gpt-4o-mini.json"
-    csv_path = "results/gpt-4o-mini.csv"
+    results_path = "results/gpt-3.5-turbo.json"
+    csv_path = "results/gpt-3.5-turbo.csv"
     
     # Create results directory if it doesn't exist
     os.makedirs(os.path.dirname(results_path), exist_ok=True)
@@ -295,7 +294,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
         print(f"Processing Question {i+1}/{len(questions_to_process)}: ID {question_id}")
         print(f"{'=' * 50}")
         
-        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.7)
+        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.85)
         
         try:
             result = pipeline.run_pipeline(
