@@ -12,7 +12,8 @@ from agents import evaluate_question_components
 # Load environment variables
 load_dotenv()
 
-API_KEY = "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"
+# API_KEY = "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"
+API_KEY = "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"
 # Hugging Face configuration
 # API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 # if not API_KEY:
@@ -21,7 +22,7 @@ API_KEY = "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"
 login(token=API_KEY)
 
 HUGGINGFACE_MODELS = [
-    "Qwen/Qwen2.5-14B-Instruct"
+    "google/gemma-2-9b-it"
 ]
 
 class ModelQuestionImprovementPipeline:

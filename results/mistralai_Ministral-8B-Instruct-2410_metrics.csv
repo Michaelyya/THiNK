@@ -1,0 +1,304 @@
+round,question_id,current_question,current_solution,average_confidence,pass_rate,agent_agreement,quality_score,improvement_suggestions,remembering_score,understanding_score,applying_score,analyzing_score,evaluating_score,creating_score,language_score
+1,1,An orchestra of 120 players takes 40 minutes to play Beethoven's 9th Symphony. How long would it take for 60 players to play the symphony? Let P be number of players and T the time playing. ,It will still take 40 minutes for 60 players to perform it. ,85.71428571428571,1.0,0.7847749923973483,0.471,"The new problem demonstrates a basic understanding of the original problem's structure but lacks depth in modifying the narrative and mathematical complexity. To improve, the generator should introduce a more creative and unique narrative that reflects real-life socio-cultural experiences, such as considering different types of orchestras or varying conditions under which the symphony is played. Additionally, the problem could explore different mathematical concepts, such as varying the number of players and time in a more complex relationship, or introducing additional constraints or variables to solve for. This would help in demonstrating a stronger understanding of the problem's components and operations.; Clarify the relationship between the number of players and the time taken to play the symphony. Specify that the time taken is independent of the number of players.; Provide a more realistic context by explaining why the number of players does not affect the duration of the performance, such as mentioning that the symphony is a fixed-length piece.; Simplify the language to ensure that the problem is accessible to a wider range of students, possibly by rephrasing the question to focus on the concept of fixed time for a performance.",90.0,50.0,70.0,50.0,70.0,90.0,75.0
+2,1,An orchestra of 120 players takes exactly 40 minutes to play Beethoven's 9th Symphony. Is the duration of the performance affected by the number of players? Explain why or why not. Let P be the number of players and T the time playing.,"The duration of the performance is not affected by the number of players because Beethoven's 9th Symphony is a fixed-length piece of music. Therefore, it will still take 40 minutes for 60 players to perform it.",95.0,1.0,0.9511440640923985,0.99,"Introduce a scenario where the orchestra is preparing for a special event, adding context to why the number of players might be questioned.; Use different values, such as a smaller orchestra or a different piece of music, to add variety.",90.0,85.0,85.0,85.0,85.0,85.0,97.0
+1,2,"A plane with 150 passengers flies in 4 hours to California, and please answer how long the plane will need when it transports 300 people. ","If we assume the plane's max capacity is only 150 passengers, then the plane would have to do two trips plus one return trips. It will be 4+4+4 = 12 hours. ",70.0,0.8571428571428571,0.5370365240589688,0.426,"Clarify the assumptions in the problem statement, such as the plane's capacity and whether it can make multiple trips.; Ensure the problem is mathematically sound by specifying if the number of trips affects the total time or if other factors like refueling are considered.; Enhance the narrative by providing more context or details about the flight, such as the type of plane or the purpose of the trip, to make it more engaging and realistic.",0.0,70.0,85.0,50.0,70.0,50.0,55.0
+2,2,"A plane with a maximum capacity of 150 passengers flies from New York to California in 4 hours. If the plane is now required to transport 300 passengers, how long will the trip take?","The plane can only carry 150 passengers at a time. Therefore, it will need to make two trips to transport all 300 passengers. Each trip takes 4 hours, so the total time will be 4 hours per trip × 2 trips = 8 hours.",91.42857142857143,1.0,0.9181682911615029,0.597,,80.0,70.0,70.0,85.0,85.0,85.0,85.0
+3,2,"A plane with a maximum capacity of 150 passengers flies from New York to California in 4 hours. If the plane is now required to transport 300 passengers, how long will the trip take?","The plane can only carry 150 passengers at a time. Therefore, it will need to make two trips to transport all 300 passengers. Each trip takes 4 hours, so the total time will be 4 hours per trip × 2 trips = 8 hours.",96.42857142857143,1.0,0.49659103803535876,0.493,"The new problem is identical to the previous one, showing no changes or improvements in any of the 'Big Five' components. To enhance the problem, consider introducing a new context or scenario that requires a different mathematical approach or concept. For example, you could incorporate additional variables such as fuel consumption, varying flight times due to weather conditions, or a layover that affects the total travel time. This would require students to apply different mathematical skills and concepts, such as algebra or probability, and create a more engaging and challenging problem.",100.0,50.0,50.0,50.0,50.0,10.0,100.0
+1,3,There are 49 dogs signed up to compete in the dog show. There are 36 more small dogs than large dogs signed up to compete. How many small dogs are signed up to compete? ,"Let $x$ represent the number of large dogs. Since there are 36 more small dogs than large dogts, the number of small dogs is $x + 36$. The total number of dog is 49, so we set up the equation: 
+\[
+x + (x + 36) = 49
+\]
+Simplifying:
+\[
+2x + 36 = 49
+\]
+Subtracting 36 from both sides:
+\[
+2x = 13
+\]
+Dividing by 2:
+\[
+x = 6.5
+\]
+There are 6.5 large dogs and 42.5 small dogs. ",67.14285714285714,0.8571428571428571,0.5700833803951567,0.434,"Adjust the total number of dogs or the difference to ensure integer solutions.; Create a more engaging narrative, such as a story about a dog rescue event where dogs are categorized by size.",0.0,50.0,65.0,50.0,50.0,50.0,64.0
+2,3,"At a dog rescue event, there are 48 dogs participating in the show. It's discovered that there are 36 more small dogs than large dogs. How many small dogs are participating in the event?","Let $x$ represent the number of large dogs. Since there are 36 more small dogs than large dogs, the number of small dogs is $x + 36$. The total number of dogs is 48, so we set up the equation: $x + (x + 36) = 48$. Simplifying: $2x + 36 = 48$. Subtracting 36 from both sides: $2x = 12$. Dividing by 2: $x = 6$. Therefore, there are 6 large dogs and $6 + 36 = 42$ small dogs.",94.28571428571429,1.0,0.9585445568000587,0.989,"Change the context to a more engaging scenario, such as a community pet fair.; Use different numbers to maintain interest and challenge, e.g., 50 total dogs and 34 more small dogs than large dogs.",90.0,85.0,85.0,90.0,85.0,85.0,95.0
+1,4,Now 7 men have 7 wives. Each man and each wife have 7 children. What's the total number of people? ,"The total number of people should be the sum of numbers of men, wives, and children. Because we know that there are 7 men and 7 wives. Now we have 14 people in total. Each pair of man and wife have 7 children, and there are 7 pairs based on assumption. So, 7 multiplied by 7, and there are 49 children. The total number of people equals to 49 + 14 = 63. ",80.71428571428571,1.0,0.8456172962913605,0.504,"Consider using a more engaging and realistic narrative, such as a village with families, to enhance interest.; Ensure the context is relatable to the target audience to improve engagement.",60.0,70.0,70.0,70.0,85.0,90.0,95.0
+2,4,"In a small village, there are 7 families. Each family consists of 2 parents (1 man and 1 wife) and 7 children. How many people live in the village?","The total number of people in the village is calculated by adding the number of families, each consisting of 2 parents and 7 children. There are 7 families, so the total number of people is 7 families * (2 parents + 7 children) = 7 * 9 = 63 people.",93.57142857142857,1.0,0.9795875854768068,0.987,"Clarify the relationship between the number of families and the total number of people by explicitly stating that each family has 9 members.; Introduce a more engaging narrative by setting the problem in a context that is relatable to students, such as a school or community event.; Consider varying the numbers to introduce a slight challenge, such as having different numbers of children in each family, while ensuring the problem remains solvable.",90.0,85.0,85.0,85.0,85.0,85.0,85.0
+1,5,"Infinitely many people are about to play this game: they will each get a black or a white hat placed on their heads simultaneously, and each will be able to see everyone else's hat but not their own. They cannot communicate in any shape or form once the hats are placed on their heads - no winks, nudges or smiles.
+
+Then, at the sound of the gong, everyone needs to simultaneously announce the color of their own hat, at the exact same time, and with the possible exception of finitely many people, all of them must get it right.",,68.57142857142857,0.7142857142857143,0.338276305028295,0.437,"The new problem lacks a clear expected solution, which is crucial for evaluating the application of mathematical concepts and reasoning. To improve, the problem should include a detailed solution that outlines the mathematical concepts involved, such as logic, probability, or game theory, and the steps required to solve it. Additionally, the narrative could be enhanced by providing a more relatable or culturally relevant context, which would make the problem more engaging and applicable to real-life scenarios. Including specific values or conditions that need to be met would also help in assessing the problem's complexity and the skills required to solve it.; Specify a clear strategy or rule for participants to determine their hat color.; Use a more realistic scenario with a finite number of participants to enhance engagement and solvability.",0.0,70.0,0.0,50.0,50.0,50.0,45.0
+2,5,"In a game, 100 people are each given a black or white hat, and they can see everyone else's hat but not their own. They cannot communicate once the hats are placed. After the hats are placed, they must guess the color of their own hat. What strategy can they use to ensure that almost everyone guesses correctly?","The strategy is for each person to count the number of black hats they see and then guess their own hat color based on the parity (odd or even) of that count. If the count is odd, they guess white; if even, they guess black. This works because the total number of hats is even, so the parity of the count of black hats seen by any one person will be the opposite of the parity of the color of their own hat.",90.0,1.0,0.9617680133262912,0.823,"Clarify the strategy by explicitly stating that the total number of hats is even, which is crucial for the parity strategy to work.; Introduce a more engaging narrative, such as a themed party or a team-building exercise, to make the problem more relatable and interesting.; Simplify the language by breaking down the problem into shorter sentences to reduce syntactic complexity and improve comprehension.",90.0,85.0,85.0,85.0,85.0,85.0,78.0
+3,5,"At a themed party, 100 guests are each given a black or white hat. They can see everyone else's hat but not their own. They must guess the color of their own hat without communication. How can they ensure almost everyone guesses correctly?","The strategy is for each person to count the number of black hats they see. Since the total number of hats is even, if the count of black hats is odd, they should guess white; if even, they should guess black. This works because the parity of the count of black hats seen will be the opposite of the parity of their own hat.",91.42857142857143,1.0,0.7925429953480734,0.597,"Consider changing the context to a more engaging scenario, such as a mystery game where guests must deduce their hat color to win a prize.; Ensure the problem explicitly states that the total number of hats is even to avoid any potential confusion.",95.0,65.0,50.0,85.0,85.0,65.0,95.0
+1,6,A farmer has 60 meters of fencing to create a four-sided enclosure. He wants a rectangular shape that uses all the fencing. What is the maximum area he can enclose? The corners do not ened to be right angles. ,"\textbf{If truly rectangular:} The maximum area with a fixed perimeter \( P = 60 \). When the rectangle is a square, the area is the largest. So, each side is:
+
+\[
+\frac{60}{4} = 15 \text{ m}, \quad \frac{60}{4} = 15 \text{ m},
+\]
+and the area is:
+\[
+\text{Area} = 15 \times 15 = 225 \text{ m}^2.
+\]
+\textbf{If any parallelogram:} The maximum area is also formed by a rectangle (a special case of a parallelogram) with sides 15 m each. So, the area remains:
+\[
+225 \text{ m}^2.
+\]",72.85714285714286,0.8571428571428571,0.5767736556424914,0.489,,0.0,90.0,85.0,70.0,75.0,90.0,72.0
+2,6,"A farmer has 60 meters of fencing to create a four-sided enclosure. What is the maximum area he can enclose, assuming the enclosure can be any quadrilateral (not necessarily a rectangle)?","The maximum area is achieved when the quadrilateral is a rectangle, with each side measuring 15 meters. The area is 225 square meters.",89.28571428571429,1.0,0.8835795593194027,0.593,"Clarify that the maximum area is achieved with a rectangle.; Change the context to a more engaging scenario, such as a park designer using fencing to create a play area.",90.0,70.0,65.0,85.0,85.0,70.0,85.0
+3,6,"A park designer has 60 meters of fencing to create a play area. What is the maximum area he can enclose, assuming the play area can be any quadrilateral (not necessarily a rectangle)?","The maximum area is achieved when the play area is a rectangle, with each side measuring 15 meters. The area is 225 square meters.",92.14285714285714,1.0,0.7168482260099671,0.484,"Change the context to make it more engaging, e.g., 'A community center is planning to build a new playground with 60 meters of fencing. What is the maximum area they can enclose if the playground can be any quadrilateral?'; Use different values to add variety, e.g., 'A park designer has 80 meters of fencing...'",100.0,50.0,50.0,60.0,65.0,65.0,100.0
+1,7,"A fractory produces chairs and tables. If the total cost of production is $5000 and each chair costs $20 to make, while each table costs $50. How much chairs and tables were produced? ","Even there are two unknowns but only one equation given and it is impossible to determine the exact number of chairs and tables by solving the equation. However, we can create an inequation to solve and finde what values fulfill a condition stated in the form of this inequation. The inequation would be:
+\[
+20x + 50y \leq 5000
+\]
+The result will be a range for the variables $x$ and $y$. Both $x$ and $y$ are positive integars based on the context the math problem.  The results will be: 
+\[
+0 \leq x \leq 250, \quad 0 \leq y \leq 100
+\]",83.57142857142857,0.8571428571428571,0.5629963132624369,0.467,"The new problem lacks sufficient information to solve for the exact number of chairs and tables, which is a significant deviation from a well-structured math problem. To improve, ensure that the problem provides enough equations to solve for all unknowns, or clearly state that the goal is to find a range of possible solutions. Additionally, the narrative could be enhanced by providing a more detailed context or scenario, such as a specific event or purpose for the production, to make the problem more engaging and relatable.; Clarify the relationship between the number of chairs and tables produced and the total cost. Specify if the problem requires finding exact numbers or ranges.; Add an additional equation or condition to make the problem solvable for exact values, or clearly state that only a range is required.; Simplify the language and structure to reduce syntactic complexity, ensuring the problem is accessible to a wider audience.; Create a more engaging and realistic narrative, such as a furniture company fulfilling an order with specific constraints, to enhance the context and interest.",0.0,50.0,70.0,70.0,50.0,65.0,55.0
+2,7,"A furniture factory produces chairs and tables. If the total cost of production is $5000, and each chair costs $20 to make while each table costs $50, how many chairs and tables can be produced to meet the cost constraint?","The problem can be modeled with the equation: 20x + 50y = 5000, where x is the number of chairs and y is the number of tables. Solving this equation gives us the exact number of chairs and tables that can be produced to meet the cost constraint.",85.71428571428571,1.0,0.8957488202706165,0.471,"The new problem attempts to provide a more precise solution by suggesting an equation to solve for exact values, but it still lacks a second equation or constraint to uniquely determine the number of chairs and tables. To improve, the problem could introduce an additional constraint, such as a fixed number of total items produced, or specify a ratio between chairs and tables. This would allow for a unique solution and enhance the problem's educational value by requiring students to solve a system of equations.; Add a constraint such as a fixed number of chairs or tables, or a ratio between them to make the problem solvable.; Introduce a more engaging scenario, such as a special order requiring a specific ratio of chairs to tables.",70.0,50.0,65.0,70.0,70.0,70.0,70.0
+3,7,"A furniture factory produces chairs and tables. The factory has a total production budget of $5000. Each chair costs $20 to make, and each table costs $50. The factory manager wants to produce exactly 300 items in total. How many chairs and tables can be produced to meet the cost constraint and the total item constraint?","The problem can be modeled with the system of equations: 20x + 50y = 5000 and x + y = 300, where x is the number of chairs and y is the number of tables. Solving this system of equations will give us the exact number of chairs and tables that can be produced to meet both the cost and total item constraints.",93.57142857142857,1.0,0.9490544297275291,0.83,"Consider simplifying the narrative to enhance comprehension.; Introduce a more creative context, such as a community project or school event, to increase engagement.",80.0,85.0,85.0,90.0,85.0,85.0,95.0
+1,8,"Rose is twice as old as Mark was when Rose was as old as Mark is now. If Mark is 20, how old is Rose? ",The problem is over complex and confusing and might not be solvable? ,65.71428571428571,0.8571428571428571,0.5539485032910852,0.431,"The new problem introduces a complex age-related scenario, but it lacks clarity and solvability, which affects its effectiveness in assessing understanding. To improve, the problem should be restructured to ensure it is solvable and clear. Consider simplifying the narrative or providing additional context to make the relationships between the ages more understandable. Additionally, ensure that the problem aligns with the expected solution, providing a clear path to solving it. This will help in better assessing the understanding level of the math problem generator.; Clarify the narrative to ensure the problem is solvable and not overly complex.; Ensure the problem includes a clear mathematical expression or equation that can be solved with the given information.; Provide a step-by-step solution to verify the problem's solvability and correctness.; Consider simplifying the language or structure to make the problem more accessible to the intended audience.; Clarify relationships and conditions to make the problem more understandable.; Simplify the language and structure to reduce complexity and improve solvability.",0.0,50.0,70.0,50.0,50.0,50.0,70.0
+2,8,"Rose is currently twice as old as Mark was when Rose was as old as Mark is now. If Mark is 20, how old is Rose?","Let's denote Rose's current age as R and Mark's current age as M. Given that Mark is currently 20, we have M = 20. Let's denote the age difference between Rose and Mark as D. When Rose was as old as Mark is now (20), Mark was D years younger. So, Rose's age at that time was R - D. According to the problem, Rose is currently twice as old as Mark was at that time. Therefore, we can set up the equation: R = 2 * (R - D). Since Mark is 20 now, we know that D = 20. Plugging this into the equation, we get: R = 2 * (R - 20). Solving for R, we get: R = 40. Therefore, Rose is currently 40 years old.",91.42857142857143,1.0,0.973865473882906,0.983,"Rephrase for simplicity: 'Rose is currently twice as old as Mark was when Rose was Mark's current age. If Mark is 20, how old is Rose?'; Consider a more engaging narrative, such as involving a family reunion or a birthday party scenario.",90.0,85.0,85.0,85.0,85.0,85.0,90.0
+1,9,"A student has test scores of 80, 85, 90 in math. The teacher says, the average score of your last two tests is 88, and the average score of your last three tests is 87. What is the score of the last test?  ","No able to sovle it. If the fourth score is x, then (90+x)/2 = 88, and (85+90+x)/3 = 87. The variable x is not solvable. ",75.0,0.8571428571428571,0.5506971523488993,0.45,"The new problem introduces a scenario involving averages and test scores, which is a common real-life context. However, the problem is unsolvable as presented, indicating a lack of understanding in constructing a coherent mathematical problem. To improve, ensure that the problem is logically consistent and solvable. For example, adjust the values or conditions so that the variable x can be determined. Additionally, consider varying the narrative or context to demonstrate a deeper understanding of the problem's components and operations.; Ensure the problem is logically consistent and solvable.; Provide a more engaging context to enhance student interest.",0.0,50.0,50.0,50.0,50.0,40.0,70.0
+2,9,"A student's test scores in math are 80, 85, and 90. The teacher reports that the average score of the last two tests is 88, and the average score of all three tests is 87. What is the score of the last test?","Let's denote the score of the last test as x. According to the given information, we can set up the following equations: \((85 + x)/2 = 88\) and \((80 + 85 + x)/3 = 87\). Solving these equations, we find that x = 90.",95.71428571428571,1.0,0.9370079370079055,0.991,Introduce a more engaging narrative while maintaining the educational context.; Change the values to make the problem fresh and interesting.,100.0,85.0,85.0,85.0,90.0,85.0,95.0
+1,10,Jan and Sam paint a fence together. Jan is 9 year-old and Sam is 12 year-old. John can paint it alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time? ,"The work rate of Jan is: 
+\[\frac{1}{9} 
+\]
+The work rate of Sam is: 
+\[\frac{1}{12} 
+\]
+When they work together, their combined work rate is:
+\[ \quad \frac{1}{9} + \frac{1}{12}
+\]
+
+\[
+\text{To compute this sum, find the least common denominator (LCD), which is 36:}
+\]
+
+\[
+\frac{4}{36} + \frac{3}{36} = \frac{7}{36}
+\]
+
+\[
+\text{Thus, the time required to complete the fence together is:}
+\]
+
+\[
+\frac{1}{\frac{7}{36}} = \frac{36}{7} \text{ hours}
+\]",82.14285714285714,0.8571428571428571,0.5848500237000824,0.579,,0.0,70.0,85.0,85.0,85.0,85.0,78.0
+2,10,Jan and Sam are painting a fence together. Jan is 9 years old and Sam is 12 years old. John can paint the fence alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time?,"The work rate of Jan is: \(\frac{1}{9}\) 
+The work rate of Sam is: \(\frac{1}{12}\) 
+When they work together, their combined work rate is: \(\frac{1}{9} + \frac{1}{12}\) 
+To compute this sum, find the least common denominator (LCD), which is 36: 
+\(\frac{4}{36} + \frac{3}{36} = \frac{7}{36}\) 
+Thus, the time required to complete the fence together is: \(\frac{1}{\frac{7}{36}} = \frac{36}{7} \) hours",92.85714285714286,1.0,0.6838469658206742,0.486,,100.0,50.0,50.0,50.0,65.0,50.0,95.0
+3,10,"Jan and Sam are painting a fence together. Jan is 9 years old and Sam is 12 years old. John can paint the fence alone in 4 hours. Jan can paint it alone in 9 hours. Sam can paint it alone in 12 hours. How long does it take them to paint it together if Jan and Sam both work at the same time?"",
+    ""solution"": ""The work rate of Jan is: \(\\frac{1}{9}\)\nThe work rate of Sam is: \(\\frac{1}{12}\)\nWhen they work together, their combined work rate is: \(\\frac{1}{9} + \\frac{1}{12}\)\nTo compute this sum, find the least common denominator (LCD), which is 36:\n\(\\frac{4}{36} + \\frac{3}{36} = \\frac{7}{36}\)\nThus, the time required to complete the fence together is: \(\\frac{1}{\\frac{7}{36}} = \\frac{36}{7}\) hours","The work rate of Jan is: \(\\frac{1}{9}\)\nThe work rate of Sam is: \(\\frac{1}{12}\)\nWhen they work together, their combined work rate is: \(\\frac{1}{9} + \\frac{1}{12}\)\nTo compute this sum, find the least common denominator (LCD), which is 36:\n\(\\frac{4}{36} + \\frac{3}{36} = \\frac{7}{36}\)\nThus, the time required to complete the fence together is: \(\\frac{1}{\\frac{7}{36}} = \\frac{36}{7}\) hours",92.85714285714286,1.0,0.536452771491565,0.471,"The new problem is identical to the previous one, with no changes made to any of the 'Big Five' components. To improve, the problem generator should introduce variations in the narrative, such as changing the context or characters, or altering the mathematical values and operations involved. Additionally, incorporating a more creative and unique storyline that reflects real-life socio-cultural experiences could enhance the originality and engagement of the problem.",100.0,50.0,50.0,50.0,50.0,10.0,75.0
+1,11,"Billy orders 3 large pizzas for his party. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Then Billy eats half of what’s left from the second pizza. His friend Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?",Unclear whether Billy eats half of the entire second pizza or just half of what was left after the dog ate.,70.0,0.8571428571428571,0.5692204883535883,0.44,"The new problem introduces a real-life scenario involving pizzas, which is a creative narrative. However, the problem lacks clarity in the sequence of operations, particularly regarding how much Billy eats from the second pizza. To improve, the problem should clearly specify whether Billy eats half of the entire second pizza or half of what remains after the dog eats. Additionally, the problem could benefit from more explicit math expressions and values to ensure the solution is straightforward. Clarifying these aspects will enhance the understanding and solvability of the problem.; Clarify the phrasing regarding Billy's consumption of the second pizza. Specify whether he eats half of the entire pizza or half of what remains after the dog eats.; Ensure the problem is answerable by providing clear and complete information about the sequence of events and the quantities involved.; Simplify the narrative to reduce linguistic complexity and improve comprehension. Consider using shorter sentences and clearer transitions between actions.; Create a more engaging and realistic context for the problem, such as a picnic or a family gathering, to enhance relatability and interest.",0.0,50.0,70.0,60.0,50.0,65.0,65.0
+2,11,"Billy orders 3 large pizzas for his picnic. Each pizza is cut into 8 slices. Before the guests arrive, his dog eats 5 slices from one of the pizzas. Billy then eats half of the remaining slices from the second pizza. Jessica takes a quarter of the remaining slices from the third pizza. How many slices are left after everyone eats?","Initially, there are 3 pizzas with 8 slices each, totaling 24 slices. The dog eats 5 slices from one pizza, leaving 3 pizzas * 8 slices - 5 slices = 21 slices. Billy eats half of the remaining slices from the second pizza, which is 21 slices / 2 = 10.5 slices. Jessica takes a quarter of the remaining slices from the third pizza, which is (21 - 10.5) slices / 4 = 2.875 slices. Therefore, 21 slices - 10.5 slices - 2.875 slices = 8.125 slices are left after everyone eats.",87.85714285714286,1.0,0.8569268784141217,0.476,"Consider simplifying the narrative by reducing the number of actors or actions.; Maintain the picnic theme but consider a more engaging context, such as a birthday party or a school event.",90.0,65.0,70.0,70.0,70.0,70.0,95.0
+3,11,"At a school party, 3 large pizzas are cut into 8 slices each, totaling 24 slices. A playful dog eats 5 slices from one pizza, leaving 21 slices. A hungry student eats half of the remaining slices from the second pizza, which is 10.5 slices. Finally, another student takes a quarter of the remaining slices from the third pizza, which is 2.875 slices. How many slices are left after everyone eats?","Initially, there are 3 pizzas with 8 slices each, totaling 24 slices. The dog eats 5 slices from one pizza, leaving 21 slices. A student eats half of the remaining slices from the second pizza, which is 10.5 slices. Another student takes a quarter of the remaining slices from the third pizza, which is 2.875 slices. Therefore, 21 slices - 10.5 slices - 2.875 slices = 8.125 slices are left after everyone eats.",92.14285714285714,1.0,0.7218980039237284,0.484,"Consider specifying the sequence of events more explicitly to aid comprehension.; Add a creative twist to the narrative, such as a competition among students to eat the most slices.",90.0,50.0,50.0,50.0,70.0,65.0,100.0
+1,12,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{document}
+
+\title{Train Travel Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?
+
+\section*{Solution}
+
+\subsection*{Step 1: Define Variables}
+\begin{itemize}
+    \item Let \(t\) be the time (in hours) that John traveled.
+    \item Since Mike arrives 15 minutes before John, his travel time is \(t - \frac{1}{4}\) hours.
+    \item Mike leaves 30 minutes (or \(\frac{1}{2}\) hour) after John, so his total travel time is:
+    \[
+    t - \frac{1}{2} - \frac{1}{4} = t - \frac{3}{4} \, \text{hours.}
+    \]
+    \item Let \(d\) be the distance traveled by both John and Mike.
+\end{itemize}
+
+\subsection*{Step 2: Set Up Equations}
+We know:
+\[
+d = 80t \quad \text{(John's distance formula)}
+\]
+\[
+d = 60 \left( t - \frac{3}{4} \right) \quad \text{(Mike's distance formula)}
+\]
+
+\subsection*{Step 3: Set Distances Equal}
+Since both travel the same distance:
+\[
+80t = 60 \left( t - \frac{3}{4} \right)
+\]
+\[
+80t = 60t - 45
+\]
+\[
+80t - 60t = -45
+\]
+\[
+20t = 45
+\]
+\[
+t = \frac{45}{20} = 2.25 \, \text{hours.}
+\]
+
+\subsection*{Step 4: Calculate Distance}
+Now that we know \(t = 2.25\) hours, we calculate the distance:
+\[
+d = 80 \times 2.25 = 180 \, \text{miles.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{John's travel time:} \(2.25 \, \text{hours}\)
+    \item \textbf{Distance traveled:} \(180 \, \text{miles}\)
+\end{itemize}
+
+\end{document}",78.57142857142857,0.8571428571428571,0.5829977679753717,0.571,,0.0,90.0,70.0,85.0,85.0,85.0,78.0
+2,12,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","John's travel time: 2.25 hours
+Distance traveled: 180 miles",92.85714285714286,1.0,0.6617996192518558,0.486,,100.0,50.0,50.0,50.0,50.0,50.0,95.0
+3,12,"John and Mike are traveling on trains from the same location. John's train travels at 80 mph, while Mike's travels at 60 mph. Mike leaves 30 minutes after John but arrives 15 minutes earlier. How long did John's trip take, and how far did he travel?","John's travel time: 2.25 hours
+Distance traveled: 180 miles",90.71428571428571,1.0,0.7769762097651141,0.481,,95.0,50.0,50.0,70.0,70.0,65.0,85.0
+1,13,"Tom shoots 30% from the 3-point line. If he takes 10 shots, he expects to make 3. However, he practices a lot and improves by 50%. After practicing, if he takes 12 shots, how many should he expect to make?","\section*{Solution}
+
+\subsection*{Step 1: Initial Success Rate}
+Tom's initial shooting percentage is:
+
+\[
+\text{Initial percentage} = 30\% = 0.30.
+\]
+
+If he takes 10 shots, the expected number of successful shots is:
+
+\[
+\text{Expected makes} = 0.30 \times 10 = 3.
+\]
+
+\subsection*{Step 2: Improved Success Rate}
+After practicing, Tom improves by 50\%. To calculate his new shooting percentage:
+
+\[
+\text{Improved percentage} = 0.30 + 0.50 \times 0.30.
+\]
+
+\[
+\text{Improved percentage} = 0.30 + 0.15 = 0.45 \text{ or } 45\%.
+\]
+
+\subsection*{Step 3: Expected Makes After Improvement}
+If Tom takes 12 shots with his improved shooting percentage, the expected number of makes is:
+
+\[
+\text{Expected makes after practice} = 0.45 \times 12 = 5.4.
+\]
+
+\section*{Final Answer}
+Tom should expect to make approximately \textbf{5 or 6 shots} after practicing.
+
+\end{document}",75.0,0.8571428571428571,0.5892162064702408,0.793,"Consider adding a more detailed narrative, such as a specific event or competition where Tom's improvement is crucial.; Change values to introduce variety, e.g., initial percentage 25%, improvement 40%, shots taken 15.",0.0,90.0,85.0,85.0,90.0,85.0,95.0
+2,13,"Tom shoots 25% from the 3-point line. If he takes 15 shots, he expects to make 3.75. However, he practices diligently and improves his shooting percentage by 40%. After his practice, if he takes 12 shots, how many should he expect to make?","Tom's initial shooting percentage is 25%, or 0.25. If he takes 15 shots, the expected number of successful shots is 0.25 	imes 15 = 3.75. After practicing, Tom improves his shooting percentage by 40%. His new shooting percentage is 0.25 + 0.40 	imes 0.25 = 0.35, or 35%. If Tom takes 12 shots with his improved shooting percentage, the expected number of makes is 0.35 	imes 12 = 4.2. Therefore, Tom should expect to make approximately 4 or 5 shots after practicing.",91.42857142857143,1.0,0.9219363350160568,0.597,"Consider a more engaging narrative, such as a basketball tournament context.; Change values to introduce variety, e.g., initial percentage 20%, improvement 50%, shots taken 18.",80.0,85.0,75.0,85.0,75.0,85.0,95.0
+3,13,"In a basketball tournament, a player has a 20% chance of making a 3-point shot. If they attempt 18 shots, they are expected to make 3.6 shots. After intense training, their accuracy improves by 50%. If they now attempt 18 shots in the final, how many shots do they expect to make?","The player's initial shooting percentage is 20%, or 0.20. If they take 18 shots, the expected number of successful shots is 0.20 times 18 = 3.6. After training, the player improves their shooting percentage by 50%. Their new shooting percentage is 0.20 + 0.50 times 0.20 = 0.30, or 30%. If the player takes 18 shots with their improved shooting percentage, the expected number of makes is 0.30 times 18 = 5.4. Therefore, the player should expect to make approximately 5 or 6 shots after training.",92.14285714285714,1.0,0.8859686832125955,0.699,"Consider rephrasing the percentage improvement calculation to make it more intuitive, e.g., 'After training, the player's accuracy improves by 50% of their original percentage.'; Add a narrative element, such as the player being in a championship game, to increase engagement.",80.0,85.0,65.0,85.0,85.0,85.0,100.0
+1,14,"A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+","\begin{document}
+
+\title{Car Acceleration Problem}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?
+
+\section*{Solution}
+
+\subsection*{Step 1: Convert mph to m/s}
+We know:
+\begin{itemize}
+    \item Initial speed, \(v_i = 0 \, \text{mph}\)
+    \item Final speed, \(v_f = 60 \, \text{mph}\)
+\end{itemize}
+
+To convert 60 mph to meters per second:
+
+\[
+1 \text{ mile} = 1609.34 \text{ meters, and } 1 \text{ hour} = 3600 \text{ seconds.}
+\]
+
+\[
+v_f = 60 \times \frac{1609.34}{3600} \approx 26.82 \, \text{m/s.}
+\]
+
+\subsection*{Step 2: Calculate acceleration}
+The formula for acceleration is:
+
+\[
+a = \frac{v_f - v_i}{t}.
+\]
+
+\[
+a = \frac{26.82 - 0}{5} = 5.36 \, \text{m/s².}
+\]
+
+\subsection*{Step 3: Speed after 10 seconds}
+To calculate the speed after 10 seconds if the acceleration remains constant:
+
+\[
+v = v_i + at.
+\]
+
+\[
+v = 0 + 5.36 \times 10 = 53.6 \, \text{m/s.}
+\]
+
+\subsection*{Final Answers}
+\begin{itemize}
+    \item \textbf{Acceleration:} \(5.36 \, \text{m/s²}\)
+    \item \textbf{Speed after 10 seconds:} \(53.6 \, \text{m/s}\), which is approximately \(120 \, \text{mph.}\)
+\end{itemize}
+
+\end{document}",79.28571428571429,0.8571428571428571,0.5771525097626805,0.573,,0.0,90.0,75.0,85.0,70.0,85.0,95.0
+2,14,"A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?","To convert 60 mph to m/s: 60 × (1609.34/3600) = 26.82 m/s. Using the formula a = (vf - vi)/t, acceleration = (26.82 - 0)/5 = 5.36 m/s². To find the speed after 10 seconds, v = vi + at = 0 + 5.36 × 10 = 53.6 m/s, which is approximately 120 mph.",90.71428571428571,1.0,0.7327387580875756,0.481,,100.0,50.0,50.0,60.0,70.0,65.0,95.0
+3,14,"A car accelerates from 0 to 60 mph in 5 seconds. Calculate its acceleration in m/s². If it maintains this acceleration, how fast will it be going in 10 seconds?","To convert 60 mph to m/s: 60 × (1609.34/3600) = 26.82 m/s. Using the formula a = (vf - vi)/t, acceleration = (26.82 - 0)/5 = 5.36 m/s². To find the speed after 10 seconds, v = vi + at = 0 + 5.36 × 10 = 53.6 m/s, which is approximately 120 mph.",95.71428571428571,0.8571428571428571,0.44098300562505266,0.491,,100.0,50.0,50.0,50.0,50.0,0.0,100.0
+1,15,"John takes a train that travels 80 miles per hour. His friend Mike leaves from the same location but takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but somehow arrives 15 minutes before him. How long was John’s trip, and how far did he travel?","\begin{align}
+\text{Implies unlimited exponential growth (ignoring real-world constraints like space/nutrients). Fails to specify if the 20-minute doubling }\\
+starts immediately or after a lag phase. Also, picograms to kilograms requires extreme precision unlikely in high-school tools. 
+\text{First, converting the given values to SI units:} \\
+60 \text{ mph} &= 60 \times 0.44704 = 26.8224 \text{ m/s} \\
+\text{Time} &= 5 \text{ seconds} \\[10pt]
+
+\text{Part 1: Calculate acceleration} \\
+\text{Using the formula } a = \frac{\Delta v}{\Delta t}: \\
+a &= \frac{26.8224 \text{ m/s}}{5 \text{ s}} \\
+a &= 5.36448 \text{ m/s}^2 \\[10pt]
+
+\text{Part 2: Calculate speed after 10 seconds} \\
+\text{Using the formula } v = v_0 + a \cdot t: \\
+v_0 &= 0 \text{ m/s (initial velocity)} \\
+a &= 5.36448 \text{ m/s}^2 \\
+t &= 10 \text{ s} \\[5pt]
+v &= 0 + 5.36448 \times 10 \\
+v &= 53.6448 \text{ m/s} \\[10pt]
+
+\text{Converting back to mph:} \\
+53.6448 \text{ m/s} &\div 0.44704 = 120 \text{ mph}
+\end{align}
+
+\text{Therefore, after 10 seconds, the car will be traveling at approximately 53.6 m/s or 120 mph.}",72.14285714285714,0.8571428571428571,0.37811129441822355,0.43,"Break down the conditions into separate sentences for clarity.; Introduce a more engaging narrative, such as a race or a time-sensitive event.",0.0,40.0,50.0,50.0,20.0,70.0,95.0
+2,15,"John and Mike are in a race. John takes a train that travels at 80 miles per hour, while Mike takes a different train that goes 60 miles per hour. Mike leaves 30 minutes after John but arrives 15 minutes before him. How long was John's trip, and how far did he travel?"",
+  ""solution"": ""Let's denote the time John travels as \( t \) hours. Since Mike leaves 30 minutes (0.5 hours) after John and arrives 15 minutes (0.25 hours) before him, the time Mike travels is \( t - 0.5 + 0.25 = t - 0.25 \) hours. The distance John travels is \( 80t \) miles, and the distance Mike travels is \( 60(t - 0.25) \) miles. Since they arrive at the same time, we can set up the equation: \( 80t = 60(t - 0.25) \). Solving for \( t \), we get \( 80t = 60t - 15 \) which simplifies to \( 20t = 15 \) and thus \( t = 0.75 \) hours. Therefore, John's trip lasted 0.75 hours, and he traveled \( 80 \times 0.75 = 60 \) miles.","Let's denote the time John travels as \( t \) hours. Since Mike leaves 30 minutes (0.5 hours) after John and arrives 15 minutes (0.25 hours) before him, the time Mike travels is \( t - 0.5 + 0.25 = t - 0.25 \) hours. The distance John travels is \( 80t \) miles, and the distance Mike travels is \( 60(t - 0.25) \) miles. Since they arrive at the same time, we can set up the equation: \( 80t = 60(t - 0.25) \). Solving for \( t \), we get \( 80t = 60t - 15 \) which simplifies to \( 20t = 15 \) and thus \( t = 0.75 \) hours. Therefore, John's trip lasted 0.75 hours, and he traveled \( 80 \times 0.75 = 60 \) miles.",92.14285714285714,1.0,0.8345539339961701,0.827,"The new problem is essentially a replication of the previous problem with minor narrative changes. Both problems involve the same math concepts (relative speed and time), require similar skills (setting up and solving linear equations), and use similar expressions and values. The narrative context is slightly altered but does not introduce any new socio-cultural elements or creative scenarios. To improve, the generator could introduce a different context or additional constraints, such as varying speeds during the trip or incorporating real-life elements like train schedules or delays, to make the problem more engaging and complex.; Ensure the phrasing of time differences is explicit to avoid confusion.; Consider adding a more engaging narrative, such as a story about a race event with a prize, to increase interest.",90.0,85.0,50.0,85.0,85.0,85.0,95.0
+3,15,"In a city, John and Mike are participating in a high-speed train race. John takes a train that travels at 80 miles per hour, while Mike takes a train that goes 60 miles per hour. Mike starts his journey 30 minutes (0.5 hours) after John but arrives 15 minutes (0.25 hours) before him. How long was John's trip, and how far did he travel?"",
+  ""solution"": ""Let's denote the time John travels as \( t \) hours. Since Mike leaves 0.5 hours after John and arrives 0.25 hours before him, the time Mike travels is \( t - 0.5 + 0.25 = t - 0.25 \) hours. The distance John travels is \( 80t \) miles, and the distance Mike travels is \( 60(t - 0.25) \) miles. Since they arrive at the same time, we can set up the equation: \( 80t = 60(t - 0.25) \). Solving for \( t \), we get \( 80t = 60t - 15 \) which simplifies to \( 20t = 15 \) and thus \( t = 0.75 \) hours. Therefore, John's trip lasted 0.75 hours, and he traveled \( 80 \times 0.75 = 60 \) miles.","Let's denote the time John travels as \( t \) hours. Since Mike leaves 0.5 hours after John and arrives 0.25 hours before him, the time Mike travels is \( t - 0.5 + 0.25 = t - 0.25 \) hours. The distance John travels is \( 80t \) miles, and the distance Mike travels is \( 60(t - 0.25) \) miles. Since they arrive at the same time, we can set up the equation: \( 80t = 60(t - 0.25) \). Solving for \( t \), we get \( 80t = 60t - 15 \) which simplifies to \( 20t = 15 \) and thus \( t = 0.75 \) hours. Therefore, John's trip lasted 0.75 hours, and he traveled \( 80 \times 0.75 = 60 \) miles.",90.71428571428571,1.0,0.7487410802689909,0.481,"The new problem is almost identical to the previous one, with only minor wording changes. To improve the understanding level, the generator should introduce more significant variations in the problem's narrative or mathematical structure. For example, it could change the context to a different real-life scenario, such as a car race or a cycling competition, or modify the mathematical expressions by introducing additional variables or constraints. Additionally, incorporating different mathematical concepts, such as acceleration or deceleration, could enhance the complexity and depth of the problem.; Rephrase to emphasize the sequence of events more clearly.; Consider a more engaging narrative, such as a high-speed train competition with a prize.",95.0,50.0,50.0,65.0,65.0,65.0,95.0
+1,16,Two cards are drawn from a standard deck. What’s the probability both are aces?,Doesn’t specify if the first card is replaced. Students must guess whether to use permutations (no replacement) or combinations (replacement).,60.0,0.7142857142857143,0.3430339373929875,0.42,,0.0,0.0,70.0,70.0,50.0,50.0,65.0
+2,16,"What is the probability that both cards drawn from a standard deck are aces, given that the first card is not replaced?",Use permutations (no replacement) to calculate the probability.,95.0,1.0,0.958204758085305,0.99,,90.0,85.0,85.0,85.0,85.0,85.0,95.0
+1,17,"A ship travels 50 nautical miles at a bearing of 320°, then turns to a bearing of 80° for 30 nautical miles. How far is it from the starting point?",Requires trigonometry but lacks a diagram.,53.57142857142857,0.7142857142857143,0.36626474741389814,0.407,"Include a diagram to visually represent the ship's path and bearings, which will aid in understanding the trigonometric relationships.; Clarify the narrative by providing a more engaging context, such as a ship navigating through a series of islands, to make the problem more relatable and interesting.; Simplify the language by breaking down the problem into shorter sentences and using more straightforward phrasing to reduce syntactic complexity.",70.0,0.0,0.0,70.0,70.0,75.0,75.0
+2,17,"A ship travels 50 nautical miles from point A to point B at a bearing of 320°. It then turns to a bearing of 80° and travels 30 nautical miles to point C. How far is the ship from its starting point, point A?",Use the Law of Cosines to calculate the distance between points A and C.,92.14285714285714,1.0,0.9402563477369956,0.984,"Consider adding a diagram to aid comprehension.; Enhance the narrative by incorporating a more engaging context, such as a treasure hunt or rescue mission.",90.0,85.0,85.0,85.0,85.0,85.0,100.0
+1,18,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks twice as many as the previous day, but 40% of those apples are rotten. If each non-rotten apple weighs between 0.2 and 0.3 pounds, approximately how many pounds of apples does Sarah have left?","The next day, Sarah picked 17 * 2 = 34 apples according to the problem, but if we mutiply it with 40% then the answer is not integer. The number of appleas are rotten is not integer. ",83.57142857142857,1.0,0.7596393091173493,0.453,"Clarify the number of apples picked on the second day and ensure it results in an integer when calculating the number of rotten apples.; Simplify the narrative by providing clear and consistent information about the weight of the apples, ensuring the problem is solvable.; Create a more engaging and realistic context, such as Sarah preparing for a local market, to enhance the narrative's interest and relatability.",90.0,50.0,50.0,70.0,50.0,50.0,55.0
+2,18,"Sarah has 23 apples in her orchard. She picks 17 more apples, then gives 5 to her neighbor. The next day, she picks 17 * 2 = 34 apples. If 40% of those are rotten, how many apples does Sarah have left? Each non-rotten apple weighs between 0.2 and 0.3 pounds. Approximately how many pounds of apples does Sarah have left?","Sarah has 23 + 17 - 5 = 35 apples. The next day, she picks 17 * 2 = 34 apples. 40% of those are rotten, so 34 * 0.4 = 13.6 apples are rotten. Sarah has 34 - 13.6 = 20.4 apples left. Since each non-rotten apple weighs between 0.2 and 0.3 pounds, Sarah has between 20.4 * 0.2 = 4.08 pounds and 20.4 * 0.3 = 6.12 pounds of apples left.",86.42857142857143,1.0,0.8838168656385137,0.473,"Adjust the percentage or number of apples to ensure all calculations result in whole numbers.; Use a more realistic scenario, such as a farmer selling apples at a market, to enhance engagement.",90.0,65.0,70.0,70.0,85.0,70.0,70.0
+3,18,"A farmer has 25 apples in his orchard. He picks 15 more apples, then sells 10 to the market. The next day, he picks 15 * 2 = 30 apples. If 25% of those are rotten, how many apples does the farmer have left? Each non-rotten apple weighs between 0.2 and 0.3 pounds. Approximately how many pounds of apples does the farmer have left?","The farmer has 25 + 15 - 10 = 30 apples. The next day, he picks 15 * 2 = 30 apples. 25% of those are rotten, so 30 * 0.25 = 7.5 apples are rotten. The farmer has 30 - 7.5 = 22.5 apples left. Since each non-rotten apple weighs between 0.2 and 0.3 pounds, the farmer has between 22.5 * 0.2 = 4.5 pounds and 22.5 * 0.3 = 6.75 pounds of apples left.",92.14285714285714,1.0,0.9031108682702872,0.699,"Clarify the weight range of non-rotten apples by specifying if the weight is uniformly distributed or if an average weight should be considered.; Introduce a more engaging narrative by adding a context such as the farmer preparing for a local fair or competition, which adds a realistic and interesting element to the problem.; Consider changing the values to introduce a slight variation in the problem, such as different initial apple counts or percentages of rotten apples, to avoid repetition and enhance problem-solving skills.",90.0,75.0,65.0,85.0,85.0,85.0,85.0
+1,19,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased again by an unknown percentage in the third quarter. If John initially invested $10,000 and now has approximately $10,760, what was the percentage change in the third quarter?","Requires calculating an ""unknown percentage"" but provides insufficient information about the timing of changes (whether the percentages apply to the original amount or the new balance after each quarter).",72.14285714285714,0.8571428571428571,0.5642490473520867,0.444,"The new problem introduces a more complex scenario involving multiple percentage changes over different periods, which is a step towards a more realistic and challenging problem. However, it lacks clarity in terms of how the percentage changes are applied (whether sequentially or cumulatively) and does not provide enough information to solve for the unknown percentage change in the third quarter. To improve, the problem should specify whether each percentage change applies to the balance at the start of each quarter or the cumulative balance after each change. Additionally, the problem should ensure that all necessary information is provided to solve for the unknown percentage change, possibly by including the final balance after the second quarter or clarifying the sequence of operations.; Specify whether each percentage change applies to the original amount or the new balance after each quarter.; Provide clear instructions on how to apply the percentage changes to ensure the problem is answerable.",0.0,50.0,65.0,50.0,50.0,55.0,70.0
+2,19,"John's investment account grew by 12% last year. This year, it decreased by 8% in the first quarter, increased by 5% in the second quarter, and then decreased again by an unknown percentage in the third quarter. If John initially invested $10,000, what was the balance at the end of the second quarter and what was the percentage change in the third quarter that resulted in a final balance of approximately $10,760?","To solve this, first calculate the balance at the end of the second quarter after the 8% decrease and 5% increase. Then, use the final balance to find the unknown percentage decrease in the third quarter.",91.42857142857143,1.0,0.958204758085305,0.983,Consider adding a specific investment scenario to enhance engagement.; Ensure the sequence of operations is explicitly stated to avoid potential confusion.,90.0,85.0,85.0,85.0,85.0,85.0,95.0
+1,20,"The local high school is planning a field trip. They need to rent buses, which cost $550 each and can hold 52 students. If 3 teachers must accompany every 35 students and each person needs to pay an equal share of the transportation costs, how much should each person pay if 203 students are attending?","The 203 students don't divide evenly into buses of 52, nor do they divide evenly with the teacher requirements (3 teachers per 35 students).Unclear if teachers should pay or pay as the same as students. ",72.14285714285714,1.0,0.8518256566257009,0.43,,50.0,65.0,85.0,60.0,70.0,70.0,70.0
+2,20,"The local high school is planning a field trip. They need to rent buses, which cost $550 each and can hold 52 students. If 3 teachers must accompany every 35 students and each person needs to pay an equal share of the transportation costs, how much should each person pay if 203 students are attending?","The 203 students can be divided into 3 buses (67 students per bus) and 2 teachers (one for each bus), making a total of 70 people. The total cost is 3 buses x $550 = $1650. Therefore, each person should pay $1650 / 70 = $23.57.",86.42857142857143,1.0,0.7451848750124168,0.473,"To improve the problem, the generator should introduce variations in the narrative or the values used in the problem. For example, change the number of students, the cost of the buses, or the ratio of teachers to students. Additionally, the problem could incorporate a different real-life scenario, such as planning a community event or organizing a sports team trip, to demonstrate a broader understanding of the context and application of the math concepts.",100.0,50.0,50.0,60.0,60.0,70.0,85.0
+3,20,"The local sports team is planning a trip to a tournament. They need to rent vans, which cost $400 each and can hold 40 team members. If 2 coaches must accompany every 30 team members and each person needs to pay an equal share of the transportation costs, how much should each person pay if 220 team members are attending?","The 220 team members can be divided into 6 vans (36 team members per van) and 2 coaches (one for each van), making a total of 238 people. The total cost is 6 vans x $400 = $2400. Therefore, each person should pay $2400 / 238 = $10.10.",89.28571428571429,1.0,0.9081257745298598,0.521,,80.0,85.0,75.0,70.0,70.0,85.0,90.0
