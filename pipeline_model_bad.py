@@ -22,11 +22,11 @@ API_KEY = "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"
 login(token=API_KEY)
 
 HUGGINGFACE_MODELS = [
-    "google/gemma-2-9b-it"
+    "meta-llama/Meta-Llama-3.1-8B-Instruct"
 ]
 
 class ModelQuestionImprovementPipeline:
-    def __init__(self, model_name: str, max_iterations: int = 5, quality_threshold: float = 0.9):
+    def __init__(self, model_name: str, max_iterations: int = 3, quality_threshold: float = 0.85):
         self.max_iterations = max_iterations
         self.quality_threshold = quality_threshold
         self.question_history = []
@@ -493,7 +493,7 @@ def run_model_evaluation(model_name: str, num_questions: int = 1, max_iterations
                     "final_solution": result.get('final_question', {}).get('solution', ''),
                     "final_score": final_quality_score,
                     "iterations_required": result.get('iterations_required', 0),
-                    "success": final_quality_score >= 0.8,
+                    "success": final_quality_score >= 0.85,
                     "round_metrics": question_round_metrics,
                     **avg_agent_scores
                 }
@@ -575,7 +575,7 @@ def main():
         try:
             run_model_evaluation(
                 model_name=model_name,
-                num_questions=20,
+                num_questions=120,
                 max_iterations=3
             )
         except Exception as e:

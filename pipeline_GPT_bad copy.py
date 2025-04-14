@@ -14,7 +14,7 @@ api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 class QuestionImprovementPipeline:
-    def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.9):
+    def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.85):
         self.max_iterations = max_iterations
         self.quality_threshold = quality_threshold
         self.question_history = []
