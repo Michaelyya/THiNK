@@ -22,7 +22,7 @@ API_KEY = "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"
 login(token=API_KEY)
 
 HUGGINGFACE_MODELS = [
-    "meta-llama/Meta-Llama-3.1-8B-Instruct"
+    "Qwen/Qwen2.5-14B-Instruct"
 ]
 
 class ModelQuestionImprovementPipeline:
