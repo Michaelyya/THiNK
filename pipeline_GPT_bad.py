@@ -13,7 +13,7 @@ api_key = os.environ.get("OPENAI_API_KEY")
 client = OpenAI(api_key=api_key)
 
 class QuestionImprovementPipeline:
-    def __init__(self, max_iterations: int = 5, quality_threshold: float = 0.9):
+    def __init__(self, max_iterations: int = 3, quality_threshold: float = 0.85):
         self.max_iterations = max_iterations
         self.quality_threshold = quality_threshold
         self.question_history = []
@@ -97,7 +97,7 @@ class QuestionImprovementPipeline:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
+                model="gpt-4o",
                 messages=messages,
                 temperature=0
             )
@@ -254,13 +254,13 @@ def analyze_thinking_levels(history):
     return level_progressions
 
 
-def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
+def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
     questions = read_bad_questions()
     questions_to_process = questions[:num_questions]
     
     # Check for existing results files and load them if they exist
-    results_path = "results/gpt-3.5-turbo.json"
-    csv_path = "results/gpt-3.5-turbo.csv"
+    results_path = "results/gpt-o1-mini.json"
+    csv_path = "results/gpt-o1-mini.csv"
     
     # Create results directory if it doesn't exist
     os.makedirs(os.path.dirname(results_path), exist_ok=True)
@@ -363,7 +363,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
                     "final_solution": result['final_question']['solution'],
                     "final_score": result['final_evaluation']['quality_score'],
                     "iterations_required": result['iterations_required'],
-                    "success": result['final_evaluation']['quality_score'] >= 0.7,
+                    "success": result['final_evaluation']['quality_score'] >= 0.85,
                     "round_metrics": question_round_metrics,
                     **avg_agent_scores  # Add average agent scores to the result
                 }
@@ -450,7 +450,7 @@ def run_bad_questions_evaluation(num_questions=1, max_iterations=1):
     print(f"Round metrics saved to {csv_path}")
 
 def main():
-    run_bad_questions_evaluation(num_questions=20, max_iterations=5)
+    run_bad_questions_evaluation(num_questions=120, max_iterations=3)
 
 if __name__ == "__main__":
     main()

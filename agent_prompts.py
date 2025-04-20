@@ -216,7 +216,6 @@ PROMPT_MAPPING = {
 
     -Ambiguity:Multiple or unintended solutions due to imprecise descriptions, unclear relationships, or missing conditions.
     -Unanswerability: Incomplete information, ill-defined terms, or logical inconsistencies that prevent a valid solution.
-    -Linguistic Complexity: Syntactic complexity, unclear phrasing, or difficult-to-translate statements that may hinder comprehension. Using the information in Step2 to judge the lexical and syntactic complexities. 
     -Rationality: Identify unrealistic elements within the narrative context of the math problem. Explain how these unrealistic elements diminish the problem's rigor and solvability.\
 
     For each identified error: Clearly classify the error type. Explain the reasoning behind the classification, highlighting how the issue affects clarity or solvability.
