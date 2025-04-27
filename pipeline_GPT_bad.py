@@ -97,7 +97,7 @@ class QuestionImprovementPipeline:
 
         try:
             response = client.chat.completions.create(
-                model="gpt-4o",
+                model="o1-mini",
                 messages=messages,
                 temperature=0
             )
@@ -255,41 +255,57 @@ def analyze_thinking_levels(history):
 
 
 def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
+    # Read the original bad questions
     questions = read_bad_questions()
-    questions_to_process = questions[:num_questions]
     
-    # Check for existing results files and load them if they exist
-    results_path = "results/gpt-o1-mini.json"
-    csv_path = "results/gpt-o1-mini.csv"
+    # Read the existing results CSV
+    results_path = "results/o1-mini.json"
+    csv_path = "results/o1-mini.csv"
     
     # Create results directory if it doesn't exist
     os.makedirs(os.path.dirname(results_path), exist_ok=True)
     
+    # Load existing results and processed IDs
     existing_results = {"summary": [], "round_metrics": []}
     existing_question_ids = set()
+    
+    if os.path.exists(csv_path):
+        try:
+            results_df = pd.read_csv(csv_path)
+            existing_question_ids = set(results_df['question_id'].astype(str))
+            print(f"Found {len(existing_question_ids)} already processed questions in {csv_path}")
+        except Exception as e:
+            print(f"Error reading existing CSV: {str(e)}")
     
     if os.path.exists(results_path):
         try:
             with open(results_path, 'r') as f:
                 existing_results = json.load(f)
-                existing_question_ids = {r['question_id'] for r in existing_results["summary"] if 'question_id' in r}
-                print(f"Loaded existing results for {len(existing_question_ids)} questions.")
+                print(f"Loaded existing results from {results_path}")
         except Exception as e:
             print(f"Error loading existing results: {str(e)}")
+    
+    # Find missing questions
+    all_question_ids = set(str(q["id"]) for q in questions)
+    missing_ids = all_question_ids - existing_question_ids
+    
+    if not missing_ids:
+        print("No missing questions found. All questions have been processed.")
+        return
+    
+    print(f"\nFound {len(missing_ids)} missing questions to process:")
+    for qid in sorted(missing_ids, key=int):
+        print(f"ID: {qid}")
+    
+    # Filter questions to only process missing ones
+    questions_to_process = [q for q in questions if str(q["id"]) in missing_ids]
+    print(f"\nWill process {len(questions_to_process)} missing questions")
     
     results = existing_results["summary"] if "summary" in existing_results else []
     round_metrics = existing_results["round_metrics"] if "round_metrics" in existing_results else []
     
     for i, q in enumerate(questions_to_process):
         question_id = q["id"]
-        
-        # Skip if this question has already been processed
-        if str(question_id) in existing_question_ids:
-            print(f"\n\n{'=' * 50}")
-            print(f"Skipping Question {i+1}/{len(questions_to_process)}: ID {question_id} (already processed)")
-            print(f"{'=' * 50}")
-            continue
-        
         print(f"\n\n{'=' * 50}")
         print(f"Processing Question {i+1}/{len(questions_to_process)}: ID {question_id}")
         print(f"{'=' * 50}")
@@ -341,20 +357,17 @@ def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
                             'agent_agreement': eval_data.get('agent_agreement', 0),
                             'quality_score': eval_data.get('quality_score', 0),
                             'improvement_suggestions': eval_data.get('improvement_suggestions', []),
-                            **agent_scores  # Add all agent scores to the round metric
+                            **agent_scores
                         }
                         question_round_metrics.append(round_metric)
 
-                # Add to global round metrics
                 round_metrics.extend(question_round_metrics)
                 
-                # Calculate average performance scores across all iterations
                 avg_agent_scores = {}
                 for agent_name in ['remembering', 'understanding', 'applying', 'analyzing', 'evaluating', 'creating', 'language']:
                     scores = [m.get(f'{agent_name}_score', 0) for m in question_round_metrics]
                     avg_agent_scores[f'avg_{agent_name}_score'] = sum(scores) / len(scores) if scores else 0
                 
-                # Create result entry
                 result_entry = {
                     "question_id": str(question_id),
                     "original_question": q["question"],
@@ -365,13 +378,11 @@ def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
                     "iterations_required": result['iterations_required'],
                     "success": result['final_evaluation']['quality_score'] >= 0.85,
                     "round_metrics": question_round_metrics,
-                    **avg_agent_scores  # Add average agent scores to the result
+                    **avg_agent_scores
                 }
                 
-                # Add to results
                 results.append(result_entry)
                 
-                # Print improvement suggestions for each round
                 if question_round_metrics:
                     print("\nImprovement suggestions by round:")
                     for round_data in question_round_metrics:
@@ -408,14 +419,12 @@ def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
         try:
             print(f"\nSaving results after question {question_id}...")
             
-            # Save JSON
             with open(results_path, 'w') as f:
                 json.dump({
                     "summary": results,
                     "round_metrics": round_metrics
                 }, f, indent=2)
             
-            # Save CSV
             csv_metrics = []
             for metric in round_metrics:
                 metric_copy = metric.copy()
@@ -427,9 +436,6 @@ def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
             metrics_df.to_csv(csv_path, index=False)
             
             print(f"Results saved successfully. Processed {len(results)} questions so far.")
-            
-            # Add to existing question IDs to prevent reprocessing if script is restarted
-            existing_question_ids.add(str(question_id))
             
         except Exception as e:
             print(f"Error saving results: {str(e)}")
