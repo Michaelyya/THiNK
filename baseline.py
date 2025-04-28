@@ -8,12 +8,13 @@ from huggingface_hub import login
 import pandas as pd
 from agents import evaluate_question_components
 from metrics import calculate_quality_score
+import re
 
 API_KEY = "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"
 login(token=API_KEY)
 
 HUGGINGFACE_MODELS = [
-    "Qwen/Qwen2.5-7B-Instruct"
+    "mistralai/Ministral-8B-Instruct-2410"
 ]
 
 class BaselineQuestionImprovement:
@@ -83,14 +84,13 @@ class BaselineQuestionImprovement:
 1. Making the question clearer and more precise
 2. Ensuring all necessary information is provided
 3. Making the problem more engaging and challenging
-4. Maintaining the core mathematical concept
-5. Ensuring the solution is well-defined
+4. Ensuring the solution is well-defined
 
 IMPORTANT: Your response MUST be a valid JSON object with EXACTLY these fields:
-{
+{{
     "question": "The improved question text",
     "solution": "The improved solution approach"
-}
+}}
 
 Do not include any additional text, explanations, or formatting outside the JSON object."""
 
@@ -158,12 +158,7 @@ Please improve this question while maintaining its mathematical essence. Make it
             question = question_match.group(1) if question_match else "Error extracting question"
             solution = solution_match.group(1) if solution_match else "Error extracting solution"
             
-            if question == "Error extracting question" and solution == "Error extracting solution":
-                return {
-                    "question": f"Model did not generate valid JSON. Partial output: {response[:200]}...",
-                    "solution": "Error: Unable to parse model output as JSON"
-                }
-            
+
             return {
                 "question": question,
                 "solution": solution
@@ -207,8 +202,8 @@ def run_baseline_evaluation():
     results_dir = "results"
     os.makedirs(results_dir, exist_ok=True)
     
-    results_path = os.path.join(results_dir, "baseline_qwen.json")
-    csv_path = os.path.join(results_dir, "baseline_qwen.csv")
+    results_path = os.path.join(results_dir, "baseline_mistral_8B.json")
+    csv_path = os.path.join(results_dir, "baseline_mistral_8B.csv")
     
     # Load existing results if any
     existing_results = []
@@ -234,75 +229,71 @@ def run_baseline_evaluation():
         
         print(f"\nProcessing question {i+1}/{len(questions)} (ID: {question_id})")
         
-        try:
-            # Improve the question
-            improved = baseline.improve_question(q["question"], q["solution"])
-            
-            # Evaluate the improved question
-            evaluation_input = {
-                "last_question": q["question"],
-                "last_solution": q["solution"],
-                "new_question": improved["question"],
-                "new_solution": improved["solution"]
+
+        # Improve the question
+        improved = baseline.improve_question(q["question"], q["solution"])
+        
+        # Evaluate the improved question
+        evaluation_input = {
+            "last_question": q["question"],
+            "last_solution": q["solution"],
+            "new_question": improved["question"],
+            "new_solution": improved["solution"]
+        }
+        
+        evaluation_result = evaluate_question_components(evaluation_input)
+        print(evaluation_result)
+        
+        
+        # Prepare result entry
+        result_entry = {
+            "question_id": question_id,
+            "original_question": q["question"],
+            "original_solution": q["solution"],
+            "improved_question": improved["question"],
+            "improved_solution": improved["solution"],
+            "quality_score": evaluation_result.get('quality_score',0),
+            "agent_scores": {
+                agent: data.get("performance_score", 0)
+                for agent, data in evaluation_result.get("evaluations", {}).items()
+            },
+            "evaluation_metrics": {
+                "average_confidence": evaluation_result.get("average_confidence", 0),
+                "pass_rate": evaluation_result.get("pass_rate", 0),
+                "agent_agreement": evaluation_result.get("agent_agreement", 0)
             }
-            
-            evaluation_result = evaluate_question_components(evaluation_input)
-            
-            # Calculate quality score
-            quality_score = calculate_quality_score(evaluation_result)
-            
-            # Prepare result entry
-            result_entry = {
-                "question_id": question_id,
-                "original_question": q["question"],
-                "original_solution": q["solution"],
-                "improved_question": improved["question"],
-                "improved_solution": improved["solution"],
-                "quality_score": quality_score,
-                "agent_scores": {
-                    agent: data.get("performance_score", 0)
-                    for agent, data in evaluation_result.get("evaluations", {}).items()
-                },
-                "evaluation_metrics": {
-                    "average_confidence": evaluation_result.get("average_confidence", 0),
-                    "pass_rate": evaluation_result.get("pass_rate", 0),
-                    "agent_agreement": evaluation_result.get("agent_agreement", 0)
-                }
+        }
+        
+        # Add to results
+        existing_results.append(result_entry)
+        
+        # Save results after each question
+        with open(results_path, 'w') as f:
+            json.dump(existing_results, f, indent=2)
+        
+        # Save to CSV
+        csv_data = []
+        for result in existing_results:
+            row = {
+                "question_id": result["question_id"],
+                "original_question": result["original_question"],
+                "improved_question": result["improved_question"],
+                "quality_score": result["quality_score"]
             }
-            
-            # Add to results
-            existing_results.append(result_entry)
-            
-            # Save results after each question
-            with open(results_path, 'w') as f:
-                json.dump(existing_results, f, indent=2)
-            
-            # Save to CSV
-            csv_data = []
-            for result in existing_results:
-                row = {
-                    "question_id": result["question_id"],
-                    "original_question": result["original_question"],
-                    "improved_question": result["improved_question"],
-                    "quality_score": result["quality_score"]
-                }
-                # Add agent scores
-                for agent, score in result["agent_scores"].items():
-                    row[f"{agent}_score"] = score
-                # Add evaluation metrics
-                for metric, value in result["evaluation_metrics"].items():
-                    row[metric] = value
-                csv_data.append(row)
-            
-            pd.DataFrame(csv_data).to_csv(csv_path, index=False)
-            
-            print(f"Question {question_id} processed and saved")
-            print(f"Quality Score: {quality_score:.2f}")
-            
-        except Exception as e:
-            print(f"Error processing question {question_id}: {str(e)}")
-            continue
-    
+            # Add agent scores
+            for agent, score in result["agent_scores"].items():
+                row[f"{agent}_score"] = score
+            # Add evaluation metrics
+            for metric, value in result["evaluation_metrics"].items():
+                row[metric] = value
+            csv_data.append(row)
+        
+        pd.DataFrame(csv_data).to_csv(csv_path, index=False)
+        
+        print(f"Question {question_id} processed and saved")
+
+        
+
     print("\nBaseline evaluation complete!")
     print(f"Results saved to {results_path}")
     print(f"CSV saved to {csv_path}")
