@@ -10,7 +10,6 @@ from agents import evaluate_question_components
 from metrics import calculate_quality_score
 import re
 
-API_KEY = "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"
 login(token=API_KEY)
 
 HUGGINGFACE_MODELS = [
