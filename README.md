@@ -1,5 +1,10 @@
 # 🧠 THiNK - Can Large Language Models Think-Aloud?
-A multi-agent, feedback-driven evaluation framework grounded in educational theory for assessing and improving LLMs' performance
+We propose **THiNK** (**T**esting **Hi**gher-order **N**otion of **K**nowledge), a multi-agent, feedback-driven evaluation framework grounded in *Bloom’s Taxonomy*. **THiNK** frames reasoning assessment as an iterative task of problem generation, critique, and revision, encouraging LLMs to *think-aloud* through step-by-step reflection and refinement.
+
+
+<div align="center">
+    <img src="./pic/Think_pipeline" alt="Link to PDF" height="auto" style="width:95%;">
+</div>
 
 ## 📋 Prerequisites
 - OpenAI API key (for GPT model)
