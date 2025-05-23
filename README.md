@@ -3,7 +3,7 @@ We propose **THiNK** (**T**esting **Hi**gher-order **N**otion of **K**nowledge),
 
 
 <div align="center">
-    <img src="./pic/Think_pipeline.pdf" alt="Link to PDF" height="auto" style="width:95%;">
+    <img src="./pic/Think_pipeline.png" alt="Link to PDF" height="auto" style="width:95%;">
 </div>
 
 ## 📋 Prerequisites
