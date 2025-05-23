@@ -1,34 +1,10 @@
-# 🧠 Educational Question Improvement Framework
-
-An intelligent framework for improving educational questions using Large Language Models (LLMs). This system evaluates and enhances mathematical questions based on cognitive levels and educational quality metrics.
-
-## 🌟 Features
-
-- **Multi-Model Support**: Works with both GPT and open-source LLM models
-- **Cognitive Level Analysis**: Evaluates questions across 7 cognitive levels:
-  - Remembering
-  - Understanding
-  - Applying
-  - Analyzing
-  - Evaluating
-  - Creating
-  - Language
-- **Quality Metrics**: Comprehensive evaluation including:
-  - Pass rate
-  - Agent agreement
-  - Average confidence
-  - Quality score
-- **Iterative Improvement**: Automatically improves questions based on evaluation feedback
-- **Analysis Tools**: Generates detailed performance reports and LaTeX tables
+# 🧠 THiNK - Can Large Language Models Think-Aloud?
+A multi-agent, feedback-driven evaluation framework grounded in educational theory for assessing and improving LLMs' performance
 
 ## 📋 Prerequisites
-
-- Python 3.8+
 - OpenAI API key (for GPT model)
-- Required Python packages:
-  ```bash
-  pip install -r requirements.txt
-  ```
+- HuggingFace API key (for Open-source model)
+- Your own tested model 
 
 ## 🚀 Quick Start
 
@@ -92,24 +68,10 @@ python run.py --model gpt \
 - `--num_questions`: Number of questions to process (default: 120)
 - `--max_iterations`: Maximum iterations per question (default: 3)
 
-## 📁 Project Structure
-
-```
-.
-├── config.json              # Configuration file
-├── run.py                   # Main execution script
-├── requirements.txt         # Python dependencies
-└── scripts/
-    ├── agents.py           # Agent definitions and evaluation logic
-    ├── analyze.py          # Analysis and reporting tools
-    ├── metrics.py          # Quality metrics calculations
-    ├── pipeline_GPT_bad.py # GPT model pipeline
-    └── agent_prompts.py    # Agent prompt templates
-```
 
 ## 📈 Analysis
 
-The framework provides comprehensive analysis of question quality:
+The framework provides a comprehensive analysis of question quality:
 - Cognitive level performance
 - Quality score progression
 - Agent agreement metrics
@@ -117,20 +79,5 @@ The framework provides comprehensive analysis of question quality:
 
 Results are available in both JSON and CSV formats, with LaTeX table generation for academic papers.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- OpenAI for providing the GPT API
-- The educational research community for cognitive level frameworks
-- Contributors and users of this project
-
-## 📧 Contact
-
-For questions and support, please open an issue in the repository.
+## 🤝 Reference
+This is an under-review anonymous GitHub conference page
