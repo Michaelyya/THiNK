@@ -3,7 +3,6 @@ from sklearn.metrics import cohen_kappa_score
 from statsmodels.stats.inter_rater import fleiss_kappa
 import numpy as np
 from itertools import combinations
-
 from collections import Counter
 
 # Cohen Kappa = (P0- Pe)/(1-Pe) 
@@ -30,26 +29,20 @@ def calculate_agent_agreement(evaluations: Dict[str, Any]) -> float:
     n_categories = 2  # pass/fail
     n_raters = len(agent_decisions)
     ratings = list(agent_decisions.values())
-    
     # Create a matrix for Fleiss' Kap fipa calculation
     # pi is the agreement rate for each item to be labeled 
     # po is overall agreement rate for all items 
     # pj is the chance agreement that computes the probability of each category occurring across the entire sample. 
-    
     # Count how many times each category appears 
     category_counts = Counter(ratings)
-    
     # Calculate p_i (observed agreement for the item)
     sum_k = 0 
     for count in category_counts.values(): 
         sum_k += count*(count - 1)
         
     p_i = sum_k/(n_raters*(n_raters - 1))
-    
     # When we have more than one item being labeled, later we can calculate Fleiss' Kappa for the whole matrix. 
-        
     return p_i
-        
 
 def calculate_average_confidence(evaluations: Dict[str, Any]) -> float:
     confidence_scores = [
@@ -64,7 +57,6 @@ def calculate_quality_score(evaluations: Dict[str, Any]) -> float:
     agent_agreement = calculate_agent_agreement(evaluations)
     avg_confidence = calculate_average_confidence(evaluations)
     quality_score = (0.5 * pass_rate) + (0.3 * agent_agreement) + (0.2 * avg_confidence)
-    
     return round(quality_score, 3)
 
 def get_detailed_metrics(evaluations: Dict[str, Any]) -> Dict[str, float]:

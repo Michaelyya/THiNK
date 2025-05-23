@@ -1,0 +1,28 @@
+{
+    "models": {
+        "gpt": {
+            "name": "OpenAI_Model_Name",
+            "base_url": "",
+            "temperature": 0,
+            "max_iterations": 3,
+            "quality_threshold": 0.7
+        },
+        "open_source": {
+            "name": "Your_Model_Name",
+            "base_url": "",
+            "temperature": 0,
+            "max_iterations": 3,
+            "quality_threshold": 0.7
+        }
+    },
+    "input_files": {
+        "bad_questions": "bad_questions.csv",
+        "output_results": "bad_questions_evaluation_results.json",
+        "output_metrics": "round_metrics.csv"
+    },
+    "analysis": {
+        "output_dir": "results",
+        "baseline_prefix": "baseline_",
+        "latex_output": "cognitive_performance_table.tex"
+    }
+} 

@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import re
 from agents import evaluate_question_components
 from openai import OpenAI
+import argparse
 
 load_dotenv()
 
@@ -17,7 +18,6 @@ class QuestionImprovementPipeline:
         self.max_iterations = max_iterations
         self.quality_threshold = quality_threshold
         self.question_history = []
-
 
     def _clean_json_string(self, json_str: str) -> Dict[str, str]:
         json_pattern = r'(\{.*\})'
@@ -66,7 +66,6 @@ class QuestionImprovementPipeline:
             ]
         else:
             print(previous_question)
-
             improvement_prompt = """I want you to be a mathematical problem-maker, and at the same time an expert in cognitive science, psychology, philosophy and education. As an LLM you can generate contents related to requirements, and now your purpose is to self-reflect on the process of your math problem generation process, analyzing what you have done."""
             improvement_prompt += json.dumps(previous_question, indent=2)
             improvement_prompt += """Remember, this is your problem generation outcome last time
@@ -103,8 +102,6 @@ class QuestionImprovementPipeline:
             )
             
             response_content = response.choices[0].message.content
-            
-            # Try to find JSON content
             json_pattern = r'(\{.*\})'
             match = re.search(json_pattern, response_content, re.DOTALL)
             if match:
@@ -116,7 +113,6 @@ class QuestionImprovementPipeline:
                 except json.JSONDecodeError:
                     pass
             
-            # If JSON parsing fails, try to extract question and solution using regex
             question_match = re.search(r'(?:question|"question"):\s*"([^"]*)"', response_content)
             solution_match = re.search(r'(?:solution|"solution"):\s*"([^"]*)"', response_content)
             
@@ -126,7 +122,6 @@ class QuestionImprovementPipeline:
                     "solution": solution_match.group(1)
                 }
             
-            # If all else fails, return a default response
             return {
                 "question": response_content.strip(),
                 "solution": "No explicit solution provided. Please refer to the question for details."
@@ -139,9 +134,7 @@ class QuestionImprovementPipeline:
                 "solution": f"Error: {str(e)}"
             }
         
-    
     def run_pipeline(self, initial_question=None, initial_solution=None) -> Dict[str, Any]:
-
         if initial_question and initial_solution:
             current_question = {
                 "question": initial_question,
@@ -212,7 +205,6 @@ class QuestionImprovementPipeline:
             "question_history": self.question_history,
             "warning": "Maximum iterations reached without meeting quality threshold."
         }
-            
 
 def read_bad_questions(file_path="bad_questions.csv"):
     df = pd.read_csv(file_path)
@@ -234,211 +226,73 @@ def read_bad_questions(file_path="bad_questions.csv"):
     
     return questions
 
-
 def analyze_thinking_levels(history):
     if not history or not history[0].get("evaluation"):
         return {}
     
-    # Get all evaluation levels
     levels = history[0]["evaluation"]["evaluations"].keys()
-    
-    # Extract scores for each level across iterations
     level_progressions = {level: [] for level in levels}
     
     for entry in history:
         if entry.get("evaluation") and entry["evaluation"].get("evaluations"):
             for level, data in entry["evaluation"]["evaluations"].items():
-                if level in level_progressions:
-                    level_progressions[level].append(data.get("performance_score", 0))
+                level_progressions[level].append(data["performance_score"])
     
     return level_progressions
 
-
 def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
-    # Read the original bad questions
     questions = read_bad_questions()
+    questions_to_process = questions[:num_questions]
     
-    # Read the existing results CSV
-    results_path = "results/o1-mini.json"
-    csv_path = "results/o1-mini.csv"
-    
-    # Create results directory if it doesn't exist
-    os.makedirs(os.path.dirname(results_path), exist_ok=True)
-    
-    # Load existing results and processed IDs
-    existing_results = {"summary": [], "round_metrics": []}
-    existing_question_ids = set()
-    
-    if os.path.exists(csv_path):
-        try:
-            results_df = pd.read_csv(csv_path)
-            existing_question_ids = set(results_df['question_id'].astype(str))
-            print(f"Found {len(existing_question_ids)} already processed questions in {csv_path}")
-        except Exception as e:
-            print(f"Error reading existing CSV: {str(e)}")
-    
-    if os.path.exists(results_path):
-        try:
-            with open(results_path, 'r') as f:
-                existing_results = json.load(f)
-                print(f"Loaded existing results from {results_path}")
-        except Exception as e:
-            print(f"Error loading existing results: {str(e)}")
-    
-    # Find missing questions
-    all_question_ids = set(str(q["id"]) for q in questions)
-    missing_ids = all_question_ids - existing_question_ids
-    
-    if not missing_ids:
-        print("No missing questions found. All questions have been processed.")
-        return
-    
-    print(f"\nFound {len(missing_ids)} missing questions to process:")
-    for qid in sorted(missing_ids, key=int):
-        print(f"ID: {qid}")
-    
-    # Filter questions to only process missing ones
-    questions_to_process = [q for q in questions if str(q["id"]) in missing_ids]
-    print(f"\nWill process {len(questions_to_process)} missing questions")
-    
-    results = existing_results["summary"] if "summary" in existing_results else []
-    round_metrics = existing_results["round_metrics"] if "round_metrics" in existing_results else []
+    results = []
+    round_metrics = []
     
     for i, q in enumerate(questions_to_process):
-        question_id = q["id"]
         print(f"\n\n{'=' * 50}")
-        print(f"Processing Question {i+1}/{len(questions_to_process)}: ID {question_id}")
+        print(f"Processing Question {i+1}/{len(questions_to_process)}: ID {q['id']}")
         print(f"{'=' * 50}")
         
-        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.85)
+        pipeline = QuestionImprovementPipeline(max_iterations=max_iterations, quality_threshold=0.7)
         
-        try:
-            result = pipeline.run_pipeline(
-                initial_question=q["question"],
-                initial_solution=q["solution"]
-            )
+        result = pipeline.run_pipeline(
+            initial_question=q["question"],
+            initial_solution=q["solution"]
+        )
+        
+        if "error" not in result:
+            print(f"\nQuestion {q['id']} - Iterations Required: {result['iterations_required']}")
+            print(f"Final Quality Score: {result['final_evaluation']['quality_score']:.2f}")
             
-            if "error" not in result:
-                print(f"\nQuestion {question_id} - Iterations Required: {result['iterations_required']}")
-                print(f"Final Quality Score: {result['final_evaluation']['quality_score']:.2f}")
-                
-                question_round_metrics = []
-                for history_entry in result['question_history']:
-                    if history_entry.get('evaluation'):
-                        eval_data = history_entry['evaluation']
-                        current_question = history_entry['question']
-                        
-                        if isinstance(current_question, dict):
-                            question_text = current_question.get('question', '')
-                            solution_text = current_question.get('solution', '')
-                        elif isinstance(current_question, str):
-                            try:
-                                parsed = json.loads(current_question)
-                                question_text = parsed.get('question', current_question)
-                                solution_text = parsed.get('solution', 'No explicit solution provided.')
-                            except json.JSONDecodeError:
-                                question_text = current_question
-                                solution_text = 'No explicit solution provided.'
-                        else:
-                            question_text = str(current_question)
-                            solution_text = 'No explicit solution provided.'
-                        
-                        agent_scores = {}
-                        for agent_name, agent_data in eval_data.get('evaluations', {}).items():
-                            agent_scores[f'{agent_name}_score'] = agent_data.get('performance_score', 0)
-                        
-                        round_metric = {
-                            'round': len(question_round_metrics) + 1,
-                            'question_id': str(question_id),
-                            'current_question': question_text,
-                            'current_solution': solution_text,
-                            'average_confidence': eval_data.get('average_confidence', 0),
-                            'pass_rate': eval_data.get('pass_rate', 0),
-                            'agent_agreement': eval_data.get('agent_agreement', 0),
-                            'quality_score': eval_data.get('quality_score', 0),
-                            'improvement_suggestions': eval_data.get('improvement_suggestions', []),
-                            **agent_scores
-                        }
-                        question_round_metrics.append(round_metric)
-
-                round_metrics.extend(question_round_metrics)
-                
-                avg_agent_scores = {}
-                for agent_name in ['remembering', 'understanding', 'applying', 'analyzing', 'evaluating', 'creating', 'language']:
-                    scores = [m.get(f'{agent_name}_score', 0) for m in question_round_metrics]
-                    avg_agent_scores[f'avg_{agent_name}_score'] = sum(scores) / len(scores) if scores else 0
-                
-                result_entry = {
-                    "question_id": str(question_id),
-                    "original_question": q["question"],
-                    "original_solution": q["solution"],
-                    "final_question": result['final_question']['question'],
-                    "final_solution": result['final_question']['solution'],
-                    "final_score": result['final_evaluation']['quality_score'],
-                    "iterations_required": result['iterations_required'],
-                    "success": result['final_evaluation']['quality_score'] >= 0.85,
-                    "round_metrics": question_round_metrics,
-                    **avg_agent_scores
-                }
-                
-                results.append(result_entry)
-                
-                if question_round_metrics:
-                    print("\nImprovement suggestions by round:")
-                    for round_data in question_round_metrics:
-                        print(f"\nRound {round_data['round']}:")
-                        print(f"Current Question: {round_data['current_question']}")
-                        print("Agent Scores:")
-                        for agent in ['remembering', 'understanding', 'applying', 'analyzing', 'evaluating', 'creating', 'language']:
-                            score = round_data.get(f'{agent}_score', 0)
-                            print(f"- {agent}: {score:.2f}")
-                        print("Suggestions:")
-                        for suggestion in round_data.get('improvement_suggestions', []):
-                            if isinstance(suggestion, str) and len(suggestion) > 1:
-                                print(f"- {suggestion}")
-            else:
-                print(f"\nError processing question {question_id}: {result['error']}")
-                results.append({
-                    "question_id": str(question_id),
-                    "original_question": q["question"],
-                    "original_solution": q["solution"],
-                    "error": result['error'],
-                    "success": False
-                })
-        except Exception as e:
-            print(f"\nException processing question {question_id}: {str(e)}")
+            question_round_metrics = []
+            for history_entry in result['question_history']:
+                if history_entry.get('evaluation'):
+                    eval_data = history_entry['evaluation']
+                    round_metric = {
+                        'round': len(question_round_metrics) + 1,
+                        'question_id': q['id'],
+                        'average_confidence': eval_data.get('average_confidence', 0),
+                        'pass_rate': eval_data.get('pass_rate', 0),
+                        'agent_agreement': eval_data.get('agent_agreement', 0),
+                        'quality_score': eval_data.get('quality_score', 0)
+                    }
+                    question_round_metrics.append(round_metric)
+            
+            round_metrics.extend(question_round_metrics)
+            
             results.append({
-                "question_id": str(question_id),
-                "original_question": q["question"],
-                "original_solution": q["solution"],
-                "error": str(e),
+                "question_id": q['id'],
+                "final_score": result['final_evaluation']['quality_score'],
+                "iterations_required": result['iterations_required'],
+                "success": result['final_evaluation']['quality_score'] >= 0.7,
+                "round_metrics": question_round_metrics
+            })
+        else:
+            print(f"\nError processing question {q['id']}: {result['error']}")
+            results.append({
+                "question_id": q['id'],
+                "error": result['error'],
                 "success": False
             })
-        
-        # Save results after each question
-        try:
-            print(f"\nSaving results after question {question_id}...")
-            
-            with open(results_path, 'w') as f:
-                json.dump({
-                    "summary": results,
-                    "round_metrics": round_metrics
-                }, f, indent=2)
-            
-            csv_metrics = []
-            for metric in round_metrics:
-                metric_copy = metric.copy()
-                if 'improvement_suggestions' in metric_copy:
-                    metric_copy['improvement_suggestions'] = '; '.join(str(s) for s in metric_copy['improvement_suggestions'] if isinstance(s, str) and len(s) > 1)
-                csv_metrics.append(metric_copy)
-            
-            metrics_df = pd.DataFrame(csv_metrics)
-            metrics_df.to_csv(csv_path, index=False)
-            
-            print(f"Results saved successfully. Processed {len(results)} questions so far.")
-            
-        except Exception as e:
-            print(f"Error saving results: {str(e)}")
     
     print("\n\n" + "=" * 50)
     print("SUMMARY OF RESULTS")
@@ -448,15 +302,38 @@ def run_bad_questions_evaluation(num_questions=120, max_iterations=3):
     print(f"Successfully improved {success_count}/{len(results)} questions")
     
     for r in results:
-        print(f"Question {r['question_id']}: {'✓' if r.get('success', False) else '✗'} " 
-              f"Final: {r.get('final_score', 0):.2f} "
-              f"({r.get('iterations_required', 0) if 'iterations_required' in r else 'N/A'} iterations)")
+        if "error" not in r:
+            print(f"Question {r['question_id']}: {'✓' if r['success'] else '✗'} " 
+                  f"Final: {r.get('final_score', 0):.2f} "
+                  f"({r.get('iterations_required', 0)} iterations)")
+        else:
+            print(f"Question {r['question_id']}: Error - {r.get('error', 'Unknown error')}")
     
-    print(f"\nFinal results saved to {results_path}")
-    print(f"Round metrics saved to {csv_path}")
+    with open("bad_questions_evaluation_results.json", "w") as f:
+        json.dump({
+            "summary": results,
+            "round_metrics": round_metrics
+        }, f, indent=2)
+    
+    metrics_df = pd.DataFrame(round_metrics)
+    metrics_df.to_csv("round_metrics.csv", index=False)
+    
+    print("\nResults saved to bad_questions_evaluation_results.json")
+    print("Round metrics saved to round_metrics.csv")
 
 def main():
-    run_bad_questions_evaluation(num_questions=120, max_iterations=3)
+    parser = argparse.ArgumentParser(description='Run the question improvement pipeline with GPT model')
+    parser.add_argument('--num_questions', type=int, default=120,
+                      help='Number of questions to process (default: 120)')
+    parser.add_argument('--max_iterations', type=int, default=3,
+                      help='Maximum number of iterations per question (default: 3)')
+    
+    args = parser.parse_args()
+    
+    run_bad_questions_evaluation(
+        num_questions=args.num_questions,
+        max_iterations=args.max_iterations
+    )
 
 if __name__ == "__main__":
     main()
