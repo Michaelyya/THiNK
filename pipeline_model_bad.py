@@ -12,8 +12,6 @@ from agents import evaluate_question_components
 # Load environment variables
 load_dotenv()
 
-# API_KEY = "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"
-API_KEY = "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"
 # Hugging Face configuration
 # API_KEY = os.getenv("HUGGINGFACE_API_KEY")
 # if not API_KEY:
