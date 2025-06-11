@@ -84,7 +84,7 @@ The framework provides a comprehensive analysis of question quality:
 
 Results are available in both JSON and CSV formats, with LaTeX table generation for academic papers.
 
-## Citation
+## ⛰️ Citation
 Please kindly cite the following paper if you found our benchmark helpful!
 
 ```
@@ -99,6 +99,6 @@ Please kindly cite the following paper if you found our benchmark helpful!
 }
 ```
 
-## Miscellaneous
+## 👋 Miscellaneous
 
 Please send any questions about the resources to yongan.yu@mail.mcgill.ca
