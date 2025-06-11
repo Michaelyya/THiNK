@@ -84,5 +84,21 @@ The framework provides a comprehensive analysis of question quality:
 
 Results are available in both JSON and CSV formats, with LaTeX table generation for academic papers.
 
-## 🤝 Reference
-This is an under-review anonymous GitHub conference page
+## Citation
+Please kindly cite the following paper if you found our benchmark helpful!
+
+```
+@misc{yu2025thinklargelanguagemodels,
+      title={THiNK: Can Large Language Models Think-aloud?}, 
+      author={Yongan Yu and Mengqian Wu and Yiran Lin and Nikki G. Lobczowski},
+      year={2025},
+      eprint={2505.20184},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2505.20184}, 
+}
+```
+
+## Miscellaneous
+
+Please send any questions about the resources to yongan.yu@mail.mcgill.ca
