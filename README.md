@@ -88,5 +88,3 @@ Results are available in both JSON and CSV formats, with LaTeX table generation 
 Please kindly cite the following paper if you found our benchmark helpful!
 
 This repo is anonymized since underview
-
-## 👋 Miscellaneous
