@@ -87,18 +87,6 @@ Results are available in both JSON and CSV formats, with LaTeX table generation 
 ## ⛰️ Citation
 Please kindly cite the following paper if you found our benchmark helpful!
 
-```
-@misc{yu2025thinklargelanguagemodels,
-      title={THiNK: Can Large Language Models Think-aloud?}, 
-      author={Yongan Yu and Mengqian Wu and Yiran Lin and Nikki G. Lobczowski},
-      year={2025},
-      eprint={2505.20184},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2505.20184}, 
-}
-```
+This repo is anonymized since underview
 
 ## 👋 Miscellaneous
-
-Please send any questions about the resources to yongan.yu@mail.mcgill.ca
